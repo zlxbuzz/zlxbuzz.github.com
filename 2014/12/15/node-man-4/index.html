@@ -1,0 +1,670 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="node,express," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##express
+安装:
+新版本中命令行工具分家了
+npm install -g express  //安装 express
+然后
+npm install -g express-generator    //安装 express 命令行工具
+express -V 我现在查看到的版本是 4.9.0npm start 代替 node app.js 启动
+##http.Server
+var http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js Express 方法">
+<meta property="og:url" content="http://zlxbuzz.github.io/2014/12/15/node-man-4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##express
+安装:
+新版本中命令行工具分家了
+npm install -g express  //安装 express
+然后
+npm install -g express-generator    //安装 express 命令行工具
+express -V 我现在查看到的版本是 4.9.0npm start 代替 node app.js 启动
+##http.Server
+var http">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js Express 方法">
+<meta name="twitter:description" content="##express
+安装:
+新版本中命令行工具分家了
+npm install -g express  //安装 express
+然后
+npm install -g express-generator    //安装 express 命令行工具
+express -V 我现在查看到的版本是 4.9.0npm start 代替 node app.js 启动
+##http.Server
+var http">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2014/12/15/node-man-4/"/>
+
+  <title> Node.js Express 方法 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Node.js Express 方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-12-15T11:52:34+08:00" content="2014-12-15">
+              2014-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##express</p>
+<p>安装:</p>
+<p>新版本中命令行工具分家了</p>
+<pre><code>npm install -g express  //安装 express
+</code></pre><p>然后</p>
+<pre><code>npm install -g express-generator    //安装 express 命令行工具
+</code></pre><p>express -V 我现在查看到的版本是 4.9.0<br>npm start 代替 node app.js 启动</p>
+<p>##http.Server</p>
+<pre><code>var http = require(‘http’); 
+var server = http.createServer(callback); 返回一个http.Server实例
+</code></pre><p>####属性:</p>
+<pre><code>server.maxHeadersCount 最大请求头数目限制, 默认 1000 个. 如果设置为0, 则代表不做任何限制
+</code></pre><p>####方法:</p>
+<pre><code>server.listnen(prot) 监听一个端口
+server.close(callback) 禁止服务端接收新的连接 
+server.setTimeout(msecs_Time, callback) 设置套接字的超时值
+</code></pre><p>####事件:</p>
+<pre><code>‘request’ 每收到一个HTTP请求时触发, http.createServer的参数默认就是此事件的处理程序. 提供2个参数: req, res 分别是http.ServerRequest 和 http.ServerResponse 的实例. 表示请求和响应消息
+‘connection’ 新的TCP建立时触发. 提供1个 socket 参数 net.Socket 实例
+‘close’ 服务器关闭时触发 无参
+</code></pre><p>##http.ServerRequest<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">HTTP请求的消息, 一般由 http.Server的 request 事件发送. </div><div class="line">HTTP 请求分: 请求头. 请求体</div><div class="line">```    </div><div class="line">####事件:</div><div class="line"></div><div class="line">    ‘data’ 请求体数据来到时. 参数 chunk 表示接收到的数据 </div><div class="line">    ‘end’ 请求体数据传输完成时 </div><div class="line">    ‘close’ 用户当前请求结束时</div><div class="line"></div><div class="line">####属性:</div><div class="line"></div><div class="line">    complete 客户端请求是否已经发送完成</div><div class="line">    httpVersion HTTP 协议版本，通常是 <span class="number">1.0</span> 或 <span class="number">1.1</span></div><div class="line">    method HTTP 请求方法，如 GET、POST、PUT、DELETE 等</div><div class="line">    url 原始的请求路径，例如 /<span class="keyword">static</span>/image/x.jpg 或 /user?name=byvoid </div><div class="line">    headers HTTP 请求头</div><div class="line">    trailers HTTP 请求尾（不常见） </div><div class="line">    connection 当前 HTTP 连接套接字，为 net.Socket 的实例 </div><div class="line">    socket connection 属性的别名 </div><div class="line">    client client 属性的别名</div><div class="line">    params 多路由控制时的对象</div><div class="line"></div><div class="line">##http.ServerResponse</div><div class="line"></div><div class="line">HTTP响应消息是返回给客户端的信息,决定了用户最终看到的结果</div><div class="line">####函数</div><div class="line"></div><div class="line">    res.writeHead(statusCode, [headers]) 该函数在一次请求中最多调用一次. statusCode, 是HTTP状态码. 如<span class="number">200</span>,<span class="number">404.</span> </div><div class="line">    headers 类似数组的对象,表示响应头的每个属性</div><div class="line">    res.write(data, [encoding]) 发送响应内容, 如果是字符串,需要制定编码方式, 默认 utf<span class="number">-8</span></div><div class="line">    res.end(data, data, [encoding]) 结束响应,告知客户端所有响应完成. 此函数必须调用一次</div><div class="line"></div><div class="line">##API</div><div class="line"></div><div class="line">HTTP动词都是Express的方法. post 改、put 增、<span class="keyword">delete</span> 删、get 查</div><div class="line">####GET</div><div class="line"></div><div class="line">    GET 根据请求路径来处理客户端发出的GET请求</div><div class="line"></div><div class="line">    app.get(path, [callback(request, response)])</div><div class="line"></div><div class="line">####ALL</div><div class="line"></div><div class="line">    ALL 以匹配所有的HTTP动词，也就是说它可以过滤所有路径的请求</div><div class="line"></div><div class="line">    app.all(path, [callback(request, response, next)])</div><div class="line"></div><div class="line">####USE</div><div class="line"> USE express调用中间件的方法，它返回一个函数. path默认为<span class="string">"/"</span></div><div class="line"></div><div class="line">    app.use([path], [callback(request, response, next)])</div><div class="line">USE 不仅可以调用中间件,还可以根据请求的网址，返回不同的网页内容</div><div class="line">```js</div><div class="line">app.use(function(request, response, next) &#123;</div><div class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/"</span>) &#123;</div><div class="line">      response.send(<span class="string">"Welcome to the homepage!"</span>);</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">      next();</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(function(request, response, next) &#123;</div><div class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/about"</span>) &#123;</div><div class="line">     response.send(<span class="string">"Welcome to the about page!"</span>);</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">     next();</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line">        </div><div class="line">app.use(function(request, response) &#123;</div><div class="line">  response.send(<span class="string">"404 error!"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>####post<br>处理指定页面的post请求</p>
+<pre><code>app.post(path,function(req, res));
+</code></pre><p>想要使用 body 需要安装中间件 </p>
+<pre><code>npm install body-parser 
+npm install multer
+</code></pre><p>调用</p>
+<pre><code>var bodyParser = require(‘body-parser’); 
+var multer = require(‘multer’);
+… 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(multer());
+
+req.body 解析客户端的post请求参数
+格式：req.body.参数名；
+</code></pre><p>注意: 表单所发送的 post请求 Accept 和 ajax 的不一样<br>服务器 send 发回来的数据,ajax是数据, 表单会反映称网页</p>
+<p>####param/query/params</p>
+<pre><code>获取主机名、路径名.[这里的req就是回调函数中的第一个参数]
+
+req.host 返回请求头里取的主机名(不包含端口号); 
+req.path 返回请求的URL的路径名 
+req.query 是一个对象,存储着get请求路径参数的对象属性
+www.***.com/shoes?order=desc&amp;shoe[color]=blue&amp;shoe[type]=converse 网址 
+得到: { order: &apos;desc’, shoe: { color: &apos;blue’, type: ‘converse’ } } 
+req.param() 功能同上,不过是函数形式 req.param(‘order’) 返回 desc
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// req.param('name') 还可以获取具有相应路由规则的请求对象</span></div><div class="line">app.get(<span class="string">"/user/:name/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.param(<span class="string">"name"</span>)); </div><div class="line">    res.send(<span class="string">"使用req.param属性获取具有路由规则的参数对象值!"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// req.params 同上,但可以匹配复杂命名路由规则的请求</span></div><div class="line">app.get(<span class="string">"/user/:name/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.params.id); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>####send</p>
+<pre><code>send 方法向浏览器发送一个响应信息，并可以智能处理不同类型的数据 send方法在输出响应时会自动进行一些设置，比如HEAD信息、HTTP缓存支持等等 类型可以是: String, Array, Object, Number. 当参数为一个String时，Content-Type默认设置为&quot;text/html&quot; 当参数为Array或Object时，Express会返回一个JSON 当参数为一个NumberExpress会帮你设置一个响应体，比如：200
+</code></pre><p>####set<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">app.set('view engine’, ‘ejs’); 设置默认模板引擎 </div><div class="line">app.engine( '.html’, require( ‘ejs’ ).__express ); </div><div class="line">修改模板引擎 "__express"，ejs模块的一个公共属性，表示要渲染的文件扩展名</div><div class="line"></div><div class="line">app.set('views’, __dirname); 设定views变量，意为视图存放的目录</div><div class="line"></div><div class="line">express.static —— 指定静态文件的查找目录 app.use(express.static(require(‘path’).join(__dirname, ‘public’)));</div><div class="line"></div><div class="line">模板操作: </div><div class="line">app.set('views’, path.join(__dirname, ‘views’)); </div><div class="line">app.set('view engine’, ‘html’); </div><div class="line">app.engine('.html’, require(‘ejs’).__express); </div><div class="line">这样模板后缀可以使 .html 但模板代码是ejs代码</div></pre></td></tr></table></figure></p>
+<p>####render</p>
+<p>何对网页模板进行访问. res对象的render函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.render(view, [locals], callback); view 视图名, locals 为模板传入变量</div></pre></td></tr></table></figure></p>
+<p>####redirect</p>
+<p>允许网址的重定向，跳转到指定的url并且可以指定status，默认为302方式 根据指定url来重定向，可以域内路径、网页间跳转也可以跳转至不同域名</p>
+<pre><code>res.redirect([status], url); res.redirect(“login”);
+</code></pre><p>####Middleware&lt;中间件&gt;</p>
+<p>中间件(middleware)就是处理HTTP请求的函数，用来完成各种特定的任务，比如检查用户是否登录、分析数据、以及其他在需要最终将数据发送给用户之前完成的任务。 它最大的特点就是，一个中间件处理完，可以把相应数据再传递给下一个中间件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//连续调用2个中间件</span></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response, next</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"method："</span>+request.method+<span class="string">" ==== "</span>+<span class="string">"url："</span>+request.url);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>)</span>&#123;</div><div class="line">    response.writeHead(<span class="number">200</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">"text/html;charset=utf-8"</span> &#125;);</div><div class="line">    response.end(<span class="string">'示例：连续调用两个中间件'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>#####由于这种原因,所以调用中间件的顺序非常重要</p>
+<p>设定静态文件目录的访问路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">express.static(path.join(__dirname, ‘/public’))</div></pre></td></tr></table></figure></p>
+<pre><code>express-session
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</div><div class="line">app.use(session(&#123;</div><div class="line">    <span class="attr">secret</span>:<span class="string">'secret'</span>,</div><div class="line">    <span class="attr">resave</span>:<span class="literal">true</span>,</div><div class="line">    <span class="attr">saveUninitialized</span>:<span class="literal">false</span>,</div><div class="line">    <span class="attr">cookie</span>:&#123;</div><div class="line">        <span class="attr">maxAge</span>:<span class="number">1000</span>*<span class="number">60</span>*<span class="number">10</span>  <span class="comment">//过期时间设置(单位毫秒)</span></div><div class="line">    &#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//新增中间件并设置模板变量值</span></div><div class="line"></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</div><div class="line">    res.locals.user = req.session.user;</div><div class="line">    <span class="keyword">var</span> err = req.session.error;</div><div class="line">    res.locals.message = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (err) res.locals.message = <span class="string">'&lt;div style="margin-bottom: 20px;color:red;"&gt;'</span> + err + <span class="string">'&lt;/div&gt;'</span>;</div><div class="line">    next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>body-parser<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">npm install body-parser</div><div class="line">npm install multer</div><div class="line"></div><div class="line">调用</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"><span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>);</div><div class="line">   ......</div><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</div><div class="line">app.use(multer());</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag">#node</a>
+          
+            <a href="/tags/express/" rel="tag">#express</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/12/15/node-man-3/" rel="next" title="Node.js Mongoose 方法">
+                <i class="fa fa-chevron-left"></i> Node.js Mongoose 方法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/15/node-man-2/" rel="prev" title="Node.js MongoDB数据库方法">
+                Node.js MongoDB数据库方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

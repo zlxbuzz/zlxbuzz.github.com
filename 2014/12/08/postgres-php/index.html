@@ -1,0 +1,585 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,postgresql," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##自己写的一个postgresql和php的类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postgres-php">
+<meta property="og:url" content="http://zlxbuzz.github.io/2014/12/08/postgres-php/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##自己写的一个postgresql和php的类">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="postgres-php">
+<meta name="twitter:description" content="##自己写的一个postgresql和php的类">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2014/12/08/postgres-php/"/>
+
+  <title> postgres-php | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                postgres-php
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/postgresql/" itemprop="url" rel="index">
+                    <span itemprop="name">postgresql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##自己写的一个postgresql和php的类<br><a id="more"></a><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">//连接pg数据库的参数</div><div class="line">$pg_host="127.0.0.1";</div><div class="line">$pg_port="5432";</div><div class="line">$pg_db="abc";</div><div class="line">$pg_name="postgres";</div><div class="line">$pg_password="postgres";</div><div class="line"></div><div class="line">class pgsql &#123;  </div><div class="line">private $linkid; // Postgresql连接标识符  </div><div class="line">private $host; // PostgreSQL服务器主机  </div><div class="line">private $port; // PostgreSQL服务器主机端口  </div><div class="line">private $user; // PostgreSQL用户  </div><div class="line">private $passwd; // PostgreSQL密码  </div><div class="line">private $db; // Postgresql数据库  </div><div class="line">private $result; // 查询的结果  </div><div class="line">private $querycount; // 已执行的查询总数  </div><div class="line">function __construct($host, $port ,$db, $user, $passwd) &#123;  </div><div class="line">$this-&gt;host = $host;  </div><div class="line">$this-&gt;port = $port;  </div><div class="line">$this-&gt;user = $user;  </div><div class="line">$this-&gt;passwd = $passwd;  </div><div class="line">$this-&gt;db = $db;  </div><div class="line">&#125;  </div><div class="line">/* 连接Postgresql数据库 */  </div><div class="line">function connect()&#123;  </div><div class="line">try&#123;  </div><div class="line">$this-&gt;linkid = @pg_connect("host=$this-&gt;host port=$this-&gt;port dbname=$this-&gt;db  </div><div class="line">user=$this-&gt;user password=$this-&gt;passwd");  </div><div class="line">if (! $this-&gt;linkid)  </div><div class="line">throw new Exception("Could not connect to PostgreSQL server.");  </div><div class="line">&#125;  </div><div class="line">catch (Exception $e) &#123;  </div><div class="line">die($e-&gt;getMessage());  </div><div class="line">&#125;  </div><div class="line">&#125;  </div><div class="line">/* 执行数据库查询。 */  </div><div class="line">function query($query)&#123;  </div><div class="line">try&#123;  </div><div class="line">$this-&gt;result = @pg_query($this-&gt;linkid,$query);  </div><div class="line">if(! $this-&gt;result)  </div><div class="line">throw new Exception("The database query failed.");  </div><div class="line">&#125;  </div><div class="line">catch (Exception $e)&#123;  </div><div class="line">echo $e-&gt;getMessage();  </div><div class="line">&#125;  </div><div class="line">$this-&gt;querycount++;  </div><div class="line">return $this-&gt;result;  </div><div class="line">&#125;  </div><div class="line">/* 确定受查询所影响的行的总计。 */  </div><div class="line">function affected_rows()&#123;  </div><div class="line">$count = @pg_affected_rows($this-&gt;linkid);  </div><div class="line">return $count;  </div><div class="line">&#125;  </div><div class="line">/* 确定查询返回的行的总计。 */  </div><div class="line">function num_rows()&#123;  </div><div class="line">$count = @pg_num_rows($this-&gt;result);  </div><div class="line">return $count;  </div><div class="line">&#125;  </div><div class="line">/* 将查询的结果行作为一个对象返回。 */  </div><div class="line">function fetchObject()&#123;  </div><div class="line">$row = @pg_fetch_object($this-&gt;result);  </div><div class="line">return $row;  </div><div class="line">&#125;  </div><div class="line">/* 将查询的结果行作为一个索引数组返回。 */  </div><div class="line">function fetchRow()&#123;  </div><div class="line">$row = @pg_fetch_row($this-&gt;result);  </div><div class="line">return $row;  </div><div class="line">&#125;  </div><div class="line">/* 将查询的结果行作为一个关联数组返回。 */  </div><div class="line">function fetch_assoc()&#123;  </div><div class="line">$row = @pg_fetch_assoc($this-&gt;result);  </div><div class="line">return $row;  </div><div class="line">&#125; </div><div class="line">/* 将查询的结果行作为一个数组返回。 */  </div><div class="line">function fetch_array()&#123;  </div><div class="line">$row = @pg_fetch_array($this-&gt;result);  </div><div class="line">return $row;  </div><div class="line">&#125;  </div><div class="line">/* 返回在这个对象的生存期内执行的查询总数。这不是必须的，但是您也许会感兴趣。 */  </div><div class="line">function numQueries()&#123;  </div><div class="line">return $this-&gt;querycount;  </div><div class="line">&#125;  </div><div class="line">&#125; </div><div class="line"></div><div class="line">//连接pg</div><div class="line">$pg = new pgsql($pg_host,$pg_port,$pg_db,$pg_name,$pg_password);  </div><div class="line">$pg-&gt;connect();  </div><div class="line">      </div><div class="line">    if(!$pg)  </div><div class="line">    &#123;  </div><div class="line">        $db_error = "无法连接到PostGreSQL数据库！";  </div><div class="line">        echo $db_error;   </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/postgresql/" rel="tag">#postgresql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/12/08/postgres-copy/" rel="next" title="postgresql copy指令及相关函数">
+                <i class="fa fa-chevron-left"></i> postgresql copy指令及相关函数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/08/postgresql-gis/" rel="prev" title="postgresql-gis">
+                postgresql-gis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

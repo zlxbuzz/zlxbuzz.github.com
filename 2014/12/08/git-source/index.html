@@ -1,0 +1,602 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="经常遇到的git相关操作。
+git rebase1234567git checkout batgit rebase origin #把&quot;bat&quot;分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到&quot;.git/rebase&quot;目录中),然后把&quot;bat&quot;分支更新#为最新的&quot;origin&quot;分支，最后把保存的这些补丁应用到&quot;mywork&quot;分支上git rebase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git  常用">
+<meta property="og:url" content="http://zlxbuzz.github.io/2014/12/08/git-source/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="经常遇到的git相关操作。
+git rebase1234567git checkout batgit rebase origin #把&quot;bat&quot;分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到&quot;.git/rebase&quot;目录中),然后把&quot;bat&quot;分支更新#为最新的&quot;origin&quot;分支，最后把保存的这些补丁应用到&quot;mywork&quot;分支上git rebase">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git  常用">
+<meta name="twitter:description" content="经常遇到的git相关操作。
+git rebase1234567git checkout batgit rebase origin #把&quot;bat&quot;分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到&quot;.git/rebase&quot;目录中),然后把&quot;bat&quot;分支更新#为最新的&quot;origin&quot;分支，最后把保存的这些补丁应用到&quot;mywork&quot;分支上git rebase">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2014/12/08/git-source/"/>
+
+  <title> git  常用 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                git  常用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>经常遇到的git相关操作。</p>
+<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git checkout bat</div><div class="line">git rebase origin #把<span class="string">"bat"</span>分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到<span class="string">".git/rebase"</span>目录中),然后把<span class="string">"bat"</span>分支更新</div><div class="line">#为最新的<span class="string">"origin"</span>分支，最后把保存的这些补丁应用到<span class="string">"mywork"</span>分支上</div><div class="line"></div><div class="line">git rebase和git merge的区别</div><div class="line">merge相当于将双方的修改综合</div><div class="line">rebase相当于将对方修改之后,在提交自己的修改,结果一样</div></pre></td></tr></table></figure>
+<h2 id="git-clone-取回远程的所有分支"><a href="#git-clone-取回远程的所有分支" class="headerlink" title="git clone 取回远程的所有分支"></a>git clone 取回远程的所有分支</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:dolymood/angular-example.git #获取某个远程库</div><div class="line">git fetch &lt;远程主机名&gt;  &lt;分支名&gt; #获取全部的分支 如果需要特定分支 可指定分支名</div><div class="line">git branch -a #查看所有分支 git branch -a 查看所有分支</div><div class="line">git checkout -b newBrach &lt;远程分支&gt; #创建并且切换到新的分支</div></pre></td></tr></table></figure>
+<h2 id="返回某个文件的某个版本"><a href="#返回某个文件的某个版本" class="headerlink" title="返回某个文件的某个版本"></a>返回某个文件的某个版本</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> 文件名 #查看某个文件的历史记录 可以加参数-p查看diff   获取commit id</div><div class="line">git reset commitid 文件名 #返回该文件的当前的版本，会在缓存区</div><div class="line">git checkout 文件名 #返回之前的版本</div><div class="line"></div><div class="line">#可以用git reflog 查看所有的版本信息</div><div class="line"><span class="meta">#git log --pretty=oneline filename 通过一行查看单个文件的提交情况</span></div><div class="line"><span class="meta">#git show commitid 查看该提交id的修改情况</span></div><div class="line"><span class="meta">#git log --stat 很好用，只看每次提交的增减</span></div></pre></td></tr></table></figure>
+<h2 id="跳转到某个版本"><a href="#跳转到某个版本" class="headerlink" title="跳转到某个版本"></a>跳转到某个版本</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reflog #查看所有版本信息</div><div class="line">git reset --hard commitid #重置到某个特定的版本</div></pre></td></tr></table></figure>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm filename   直接删除文件</div><div class="line">git rm --cached filename   删除文件暂存状态</div></pre></td></tr></table></figure>
+<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch develop <span class="comment">// 只创建分支</span></div><div class="line">git checkout -b master develop <span class="comment">// 创建并切换到 develop 分支</span></div></pre></td></tr></table></figure>
+<h2 id="设置-commit-的用户和邮箱"><a href="#设置-commit-的用户和邮箱" class="headerlink" title="设置 commit 的用户和邮箱"></a>设置 commit 的用户和邮箱</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git config user.name <span class="string">"xx"</span></div><div class="line">git config user.email <span class="string">"xx@xx.com"</span></div><div class="line">git config --global color.ui <span class="literal">true</span> <span class="meta">#git 显示颜色</span></div></pre></td></tr></table></figure>
+<h2 id="Git设置"><a href="#Git设置" class="headerlink" title="Git设置"></a>Git设置</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Git的全局设置在~/.gitconfig中，单独设置在project/.git/config下。</div><div class="line"></div><div class="line">忽略设置全局在~/.gitignore_global中，单独设置在project/.gitignore下。</div><div class="line"></div><div class="line"><span class="comment">//设置提交的时候是否转换换行符号</span></div><div class="line">git config [--global] core.autocrlf = [<span class="literal">true</span>|<span class="literal">false</span>|input]</div><div class="line"><span class="literal">true</span>  : 将crlf转换为lf，而在检出时将crlf转换为lf.</div><div class="line"><span class="literal">false</span> : 不转换.</div><div class="line">input : 提交时将crlf转换成lf，检出时不转换.</div></pre></td></tr></table></figure>
+<h2 id="git-clean-指令"><a href="#git-clean-指令" class="headerlink" title="git clean 指令"></a>git clean 指令</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clean -f #删除未跟踪的文件</div><div class="line">  参数n:查看删除哪些文件</div><div class="line">  参数x:将gitignore的文件删除,一般不用</div><div class="line">  参数d:删除未跟踪的目录</div></pre></td></tr></table></figure>
+<h2 id="gitignore生效"><a href="#gitignore生效" class="headerlink" title="gitignore生效"></a>gitignore生效</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#中途加进.gitignore的文件或文件夹不会生效</div><div class="line">git rm -r --cached .#之前已经在版本管理中了，需要删除本地缓存，在提交</div><div class="line">git add .</div><div class="line">git commit -m<span class="string">"add"</span></div></pre></td></tr></table></figure>
+<h2 id="git-add-submodule"><a href="#git-add-submodule" class="headerlink" title="git add submodule"></a>git add submodule</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git submodule add git@github.com:zlxbuzz/gulp.git ./gulp</div><div class="line"></div><div class="line">##删除模块</div><div class="line"><span class="number">1</span> .gitmodules的模块信息</div><div class="line"><span class="number">2</span> git rm –cached gulp</div></pre></td></tr></table></figure>
+<h2 id="git-更新submodule"><a href="#git-更新submodule" class="headerlink" title="git 更新submodule"></a>git 更新submodule</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#可以写一个submoduleupdate.sh 的脚本</div><div class="line">git submodule init</div><div class="line">git submodule update</div><div class="line">git submodule foreach --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'</div><div class="line">git submodule foreach --recursive "git submodule update"</div><div class="line"></div><div class="line">echo "Pulling all git submodules..."</div><div class="line">git submodule foreach --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git pull origin $branch'</div></pre></td></tr></table></figure>
+<h2 id="git-blame-查看每行提交"><a href="#git-blame-查看每行提交" class="headerlink" title="git blame 查看每行提交"></a>git blame 查看每行提交</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">git blame [选项] [版本选项] [版本] [--] 文件</div><div class="line">    --incremental         增量式地显示发现的 blame 条目</div><div class="line">    -b                    边界提交显示空的 SHA<span class="number">-1</span>（默认：关闭）</div><div class="line">    --root                不把根提交作为边界（默认：关闭）</div><div class="line">    --show-stats          显示命令消耗统计</div><div class="line">    --score-debug         显示判断 blame 条目位移的得分诊断信息</div><div class="line">    -f, --show-name       显示原始文件名（默认：自动）</div><div class="line">    -n, --show-number     显示原始的行号（默认：关闭）</div><div class="line">    -p, --porcelain       显示为一个适合机器读取的格式</div><div class="line">    --line-porcelain      为每一行显示机器适用的提交信息</div><div class="line">    -c                    使用和 git-annotate 相同的输出模式（默认：关闭）</div><div class="line">    -t                    显示原始时间戳（默认：关闭）</div><div class="line">    -l                    显示长的SHA1提交号（默认：关闭）</div><div class="line">    -s                    隐藏作者名字和时间戳（默认：关闭）</div><div class="line">    -e, --show-email      显示作者的邮箱而不是名字（默认：关闭）</div><div class="line">    -w                    忽略空白差异</div><div class="line">    --minimal             花费额外的循环来找到更好的匹配</div><div class="line">    -S &lt;文件&gt;             使用来自 &lt;file&gt; 的修订集而不是调用 git-rev-<span class="built_in">list</span></div><div class="line">    --contents &lt;文件&gt;     使用 &lt;file&gt; 的内容作为最终的图片</div><div class="line">    -C[&lt;得分&gt;]            找到文件内及跨文件的行拷贝</div><div class="line">    -M[&lt;得分&gt;]            找到文件内及跨文件的行移动</div><div class="line">    -L &lt;n,m&gt;              只处理行范围在 n 和 m 之间的，从 <span class="number">1</span> 开始</div><div class="line">    --abbrev[=&lt;n&gt;]        用 &lt;n&gt; 位数字显示 SHA<span class="number">-1</span> 哈希值</div></pre></td></tr></table></figure>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">用法：git add [选项] [--] &lt;路径规则&gt;...</div><div class="line"></div><div class="line">    -n, --dry-run         演习</div><div class="line">    -v, --verbose         冗长输出</div><div class="line"></div><div class="line">    -i, --interactive     交互式拣选</div><div class="line">    -p, --patch           交互式挑选数据块</div><div class="line">    -e, --edit            编辑当前差异并应用</div><div class="line">    -f, --force           允许添加忽略的文件</div><div class="line">    -u, --update          更新已跟踪的文件</div><div class="line">    -N, --intent-to-add   只记录，该路径稍后再添加</div><div class="line">    -A, --all             添加所有改变的已跟踪文件和未跟踪文件</div><div class="line">    --ignore-removal      忽略工作区中移除的路径（和 --no-all 相同）</div><div class="line">    --refresh             不添加，只刷新索引</div><div class="line">    --ignore-errors       跳过因出错不能添加的文件</div><div class="line">    --ignore-missing      检查在演习模式下文件（即使不存在）是否被忽略</div><div class="line"></div><div class="line">    git  add .  #新文件＋修改的文件</div><div class="line">    git  add -u #修改的文件或删除的文件</div><div class="line">    git  add -A # 所有新文件和修改的文件，删除的文件</div></pre></td></tr></table></figure>
+<h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --<span class="keyword">delete</span> dev #删除远程分支</div></pre></td></tr></table></figure>
+<h2 id="git-flow"><a href="#git-flow" class="headerlink" title="git flow"></a>git flow</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">分支使用</div><div class="line">master</div><div class="line">与线上版本保持同步，代码和功能质量满足实际发布环境需要</div><div class="line">不直接接收任何代码commit。</div><div class="line">接收来自release、hotfix分支的merge。</div><div class="line">版本的tag也在此分支进行定义</div><div class="line">develop</div><div class="line">接收来自其他功能、特性开发分支（feature）的merge。</div><div class="line">feature</div><div class="line">具体功能、特性的工作分支族，大部分的commit在此类分支上完成。</div><div class="line">完成开发后，分支merge到develop分支，具体feature分支删除。</div><div class="line">release</div><div class="line">用于版本发布的分支，在确定版本计划后从develop分支建立。</div><div class="line">用于版本的测试、问题修复工作，接收bug修复的commit。</div><div class="line">完成测试和开发后，分支merge到develop和master分支。</div><div class="line">hotfix</div><div class="line">用于在master分支发现实际环境中问题进行修复，接收修复commit。</div><div class="line">完成后merge回master分支并且merge到develop分支。</div><div class="line">master分支需要进行修复版本tag的定义。</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/12/08/postgresql-gis/" rel="next" title="postgresql-gis">
+                <i class="fa fa-chevron-left"></i> postgresql-gis
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/08/markdow/" rel="prev" title="markdow">
+                markdow <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-rebase"><span class="nav-number">1.</span> <span class="nav-text">git rebase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-取回远程的所有分支"><span class="nav-number">2.</span> <span class="nav-text">git clone 取回远程的所有分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回某个文件的某个版本"><span class="nav-number">3.</span> <span class="nav-text">返回某个文件的某个版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转到某个版本"><span class="nav-number">4.</span> <span class="nav-text">跳转到某个版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建分支"><span class="nav-number">6.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置-commit-的用户和邮箱"><span class="nav-number">7.</span> <span class="nav-text">设置 commit 的用户和邮箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git设置"><span class="nav-number">8.</span> <span class="nav-text">Git设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clean-指令"><span class="nav-number">9.</span> <span class="nav-text">git clean 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore生效"><span class="nav-number">10.</span> <span class="nav-text">gitignore生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-add-submodule"><span class="nav-number">11.</span> <span class="nav-text">git add submodule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-更新submodule"><span class="nav-number">12.</span> <span class="nav-text">git 更新submodule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-blame-查看每行提交"><span class="nav-number">13.</span> <span class="nav-text">git blame 查看每行提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-add"><span class="nav-number">14.</span> <span class="nav-text">git add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-push"><span class="nav-number">15.</span> <span class="nav-text">git push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-flow"><span class="nav-number">16.</span> <span class="nav-text">git flow</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

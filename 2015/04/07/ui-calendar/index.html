@@ -1,0 +1,603 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angularjs,angular-ui," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件FullCalendar。为了减少jquery的依赖性，还是采用一款基于angular的日历插件ui-calendar，记录下使用方法。
+##引入对应的js和cssfullcalendar.css –fullcalendar的样式jquery.js –jQuery插件angular.js –angularjs插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angulajs的ui日历插件--ui-calendar">
+<meta property="og:url" content="http://zlxbuzz.github.io/2015/04/07/ui-calendar/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件FullCalendar。为了减少jquery的依赖性，还是采用一款基于angular的日历插件ui-calendar，记录下使用方法。
+##引入对应的js和cssfullcalendar.css –fullcalendar的样式jquery.js –jQuery插件angular.js –angularjs插件">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angulajs的ui日历插件--ui-calendar">
+<meta name="twitter:description" content="最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件FullCalendar。为了减少jquery的依赖性，还是采用一款基于angular的日历插件ui-calendar，记录下使用方法。
+##引入对应的js和cssfullcalendar.css –fullcalendar的样式jquery.js –jQuery插件angular.js –angularjs插件">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2015/04/07/ui-calendar/"/>
+
+  <title> angulajs的ui日历插件--ui-calendar | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                angulajs的ui日历插件--ui-calendar
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-07T17:35:57+08:00" content="2015-04-07">
+              2015-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/angularjs/" itemprop="url" rel="index">
+                    <span itemprop="name">angularjs</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件<a href="http://fullcalendar.io/docs" target="_blank" rel="external">FullCalendar</a>。为了减少jquery的依赖性，还是采用一款基于angular的日历插件<a href="https://github.com/angular-ui/ui-calendar" target="_blank" rel="external">ui-calendar</a>，记录下使用方法。</p>
+<p>##引入对应的js和css<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.css" target="_blank" rel="external">fullcalendar.css</a> –fullcalendar的样式<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/jquery.js" target="_blank" rel="external">jquery.js</a> –jQuery插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/angular/angular.js" target="_blank" rel="external">angular.js</a> –angularjs插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/calendar.min.js" target="_blank" rel="external">calendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/moment/moment.js" target="_blank" rel="external">moment.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.js" target="_blank" rel="external">fullcalendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/gcal.js" target="_blank" rel="external">gcal.js</a> –必要的js包</p>
+<blockquote>
+<p><strong>注意：</strong>需要下载到本地使用。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">" fullcalendar/dist/fullcalendar.css"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" angular/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" moment/moment.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/calendar.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/fullcalendar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/gcal.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>##js初始化</p>
+<p>####1.依赖注入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  myAppModule= angular.module(<span class="string">'MyApp'</span>, [<span class="string">'ui.calendar'</span>]);</div></pre></td></tr></table></figure></p>
+<p>####2.简单配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myAppModule.controller(<span class="string">'myappController'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">$scope.eventSources = [];<span class="comment">//事件源</span></div></pre></td></tr></table></figure></p>
+<h5 id="根据api一共有多种数据的导入"><a href="#根据api一共有多种数据的导入" class="headerlink" title="根据api一共有多种数据的导入"></a>根据api一共有多种数据的导入</h5><pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.eventSource = &#123;</div><div class="line">		<span class="attr">url</span>: <span class="string">"http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic"</span>,</div><div class="line">		<span class="attr">className</span>: <span class="string">'gcal-event'</span>,           <span class="comment">// an option!</span></div><div class="line">		currentTimezone: <span class="string">'America/Chicago'</span> <span class="comment">// an option!</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$scope.events = [</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'All Day Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">1</span>)&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Long Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">5</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">2</span>)&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">999</span>,<span class="attr">title</span>: <span class="string">'Repeating Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">3</span>, <span class="number">16</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">999</span>,<span class="attr">title</span>: <span class="string">'Repeating Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">4</span>, <span class="number">16</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Birthday Party'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">19</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">22</span>, <span class="number">30</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Click for Google'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),<span class="attr">url</span>: <span class="string">'http://google.com/'</span>&#125;</div><div class="line">];</div><div class="line">如果allDay 为 <span class="literal">true</span> 则时间块可以在日历中进行拖动</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$scope.eventsF = <span class="function"><span class="keyword">function</span> (<span class="params">start, end, timezone, callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getTime() / <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">Date</span>(end).getTime() / <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getMonth();</div><div class="line">  <span class="keyword">var</span> events = [&#123;<span class="attr">title</span>: <span class="string">'Feed Me '</span> + m,<span class="attr">start</span>: s + (<span class="number">50000</span>),<span class="attr">end</span>: s + (<span class="number">100000</span>),<span class="attr">allDay</span>: <span class="literal">false</span>, <span class="attr">className</span>: [<span class="string">'customFeed'</span>]&#125;];</div><div class="line">  callback(events);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$scope.calEventsExt = &#123;</div><div class="line">   <span class="attr">color</span>: <span class="string">'#f00'</span>,</div><div class="line">   <span class="attr">textColor</span>: <span class="string">'yellow'</span>,</div><div class="line">   <span class="attr">events</span>: [ </div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Lunch'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Lunch 2'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Click for Google'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),<span class="attr">url</span>: <span class="string">'http://google.com/'</span>&#125;</div><div class="line">	]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>####3.对插件的参数配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$scope.uiConfig = &#123;</div><div class="line">	  <span class="attr">calendar</span>:&#123;</div><div class="line">		<span class="attr">height</span>: <span class="number">450</span>,<span class="comment">//宽度</span></div><div class="line">		editable: <span class="literal">true</span>,<span class="comment">//可编辑</span></div><div class="line">		header:&#123;<span class="comment">//各个部位的需要显示的内容</span></div><div class="line">		  left: <span class="string">'month basicWeek basicDay agendaWeek agendaDay'</span>,</div><div class="line">		  <span class="attr">center</span>: <span class="string">'title'</span>,</div><div class="line">		  <span class="attr">right</span>: <span class="string">'today prev,next'</span></div><div class="line">		&#125;,</div><div class="line">		<span class="attr">dayClick</span>: $scope.alertEventOnClick,<span class="comment">//日期点击触发函数</span></div><div class="line">		eventDrop: $scope.alertOnDrop,<span class="comment">//日期拖拽出发函数</span></div><div class="line">		eventResize: $scope.alertOnResize，</div><div class="line">		eventResize <span class="comment">//日期拉伸出发函数 这些函数写在配置的前面～</span></div><div class="line">	  &#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>####相关参数的中文<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$scope.uiConfig.calendar.dayNames = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</div><div class="line">    $scope.uiConfig.calendar.dayNamesShort = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</div><div class="line">    $scope.uiConfig.calendar.monthNamesShort = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</div><div class="line">    $scope.uiConfig.calendar.monthNames = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</div></pre></td></tr></table></figure></p>
+<p>####常见的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//由于ui-calendar的ng-model会生成标志_d等参数,如果进行ajax 清空重复赋值可能会出现数据无法重新加载的问题</span></div><div class="line"><span class="comment">//当点击下个月的按钮时可以采用slice方法将数组清空后重新赋值</span></div><div class="line">$scope.uiConfig 下的calendar参数可以</div><div class="line">viewRender:<span class="function"><span class="keyword">function</span>(<span class="params">view</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> date =<span class="keyword">new</span> <span class="built_in">Date</span>(view.intervalStart._d).getMonth()+<span class="number">1</span>;</div><div class="line">		workorderService.get(&#123;<span class="attr">type</span>:<span class="number">4</span>,<span class="attr">pid</span>:$stateParams.sid,<span class="attr">m</span>:date&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		$scope.eventSources.splice(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">		$scope.events=[];</div><div class="line">		<span class="keyword">var</span> result=datas.handle(data);</div><div class="line">		<span class="keyword">if</span>(result)&#123;</div><div class="line">			$scope.workorders=result.workorders;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> $scope.workorders)&#123;</div><div class="line">				$scope.events.push(&#123;</div><div class="line">					<span class="string">'title'</span>:<span class="string">'&lt;i class="ace-icon fa fa-barcode" style="color:'</span>+$scope.workorders[i].color+<span class="string">'"&gt;&lt;/i&gt; '</span>+$scope.workorders[i].wkname,</div><div class="line">					<span class="string">'start'</span>:$scope.workorders[i].jihua_date,</div><div class="line">					<span class="string">'allDay'</span>:<span class="literal">true</span>,</div><div class="line">					<span class="string">'backgroundColor'</span>:<span class="string">'white'</span>,</div><div class="line">					<span class="string">'textColor'</span>:<span class="string">'black'</span>,</div><div class="line">					<span class="string">'borderColor'</span>:<span class="string">'white'</span>,</div><div class="line">					<span class="string">'wkid'</span>:$scope.workorders[i].wkid</div><div class="line">				&#125;);			</div><div class="line">			&#125;</div><div class="line">			$scope.eventSources.push($scope.events);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angularjs/" rel="tag">#angularjs</a>
+          
+            <a href="/tags/angular-ui/" rel="tag">#angular-ui</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/17/php-book/" rel="next" title="php-book">
+                <i class="fa fa-chevron-left"></i> php-book
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/14/phalcon-rest/" rel="prev" title="在用phalcon进行restful时遇到的一个小坑">
+                在用phalcon进行restful时遇到的一个小坑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#根据api一共有多种数据的导入"><span class="nav-number">1.</span> <span class="nav-text">根据api一共有多种数据的导入</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

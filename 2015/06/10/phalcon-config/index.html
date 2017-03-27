@@ -1,0 +1,599 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phalcon框架的nginx配置">
+<meta property="og:url" content="http://zlxbuzz.github.io/2015/06/10/phalcon-config/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+<meta property="og:image" content="http://zlxbuzz.github.io/选区_057.png">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phalcon框架的nginx配置">
+<meta name="twitter:description" content="phalcon是由C编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。
+##安装phalcon由于我是debian系统，所以首先https://phalconphp.com/en/download下载,通过编译成so扩展：123git clone --depth=1 git://github.com/phalcon/cphalcon.git">
+<meta name="twitter:image" content="http://zlxbuzz.github.io/选区_057.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2015/06/10/phalcon-config/"/>
+
+  <title> phalcon框架的nginx配置 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                phalcon框架的nginx配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-10T13:04:01+08:00" content="2015-06-10">
+              2015-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>phalcon</code>是由<code>C</code>编写的php框架，通过扩展的形式加载，所以速度非常快。这里我记录下遇到的一些问题，以便大家学习和自己的提高。</p>
+<p>##安装phalcon<br>由于我是<code>debian</code>系统，所以首先<code>https://phalconphp.com/en/download</code>下载,通过编译成<code>so</code>扩展：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> --depth=1 git://github.com/phalcon/cphalcon.git</div><div class="line"><span class="built_in">cd</span> cphalcon/build</div><div class="line">sudo ./install</div></pre></td></tr></table></figure></p>
+<p>之后会生成在php的扩展目录<code>extension-dir</code>（可以通过命令 <code>php-config</code> 查看具体的路径），之后将<code>phalcon.so</code>引入到<code>php.ini</code>中。<br>引入的方法有很多，这里由于<code>debian</code>按照不同的运行模式配置<code>php</code>，我就写一下到<code>nginx</code>的配置:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo touch /etc/php5/mod-available/phalcon.ini</div></pre></td></tr></table></figure></p>
+<p>之后写上<code>extension=phalcon.so</code>,然后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/php5/fpm/conf.d/ <span class="comment">#nginx 的php配置环境fpm</span></div><div class="line">sudo ln <span class="_">-s</span> /etc/php5/mod-available/phalcon.ini phalcon.ini <span class="comment">#设置软连接</span></div><div class="line">sudo systemctl restart php5-fpm.service <span class="comment">#重启php-fpm</span></div></pre></td></tr></table></figure></p>
+<p>最后可以在<code>phpinfo()</code>中看到<code>phalcon</code>信息，则说明加载成功</p>
+<p>##安装Phalcon Developer Tools工具<br><code>Phalcon Developer Tools</code>是phalcon的一款自动生成目录结构的工具，理论上<code>phalcon</code>没有固定的目录结构，可以随时使用。<br>安装<code>Phalcon Developer Tools</code>的方法有很多<code>http://phalcon.5iunix.net/reference/tools.html</code>，我介绍下最方便的。<br>通过<code>Composer</code>或者<code>PEAR</code>的方式由于国内的原因，不一定能成功。所以我这边通过<code>git</code>直接下载：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/phalcon/phalcon-devtools.git <span class="comment">#git上下载</span></div><div class="line"><span class="built_in">cd</span> phalcon-devtools </div><div class="line">ln <span class="_">-s</span> ~/phalcon-devtools/phalcon.php /usr/bin/phalcon <span class="comment">#设置全局的环境变量</span></div><div class="line">chmod ugo+x /usr/bin/phalcon <span class="comment">#给所有`u：自己 g：同组 o：其他`人都有有执行的权限</span></div></pre></td></tr></table></figure></p>
+<p>如果没问题，之后就可以用了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">zhonglingxiao@aa:/etc/php5/apache2$ phalcon</div><div class="line"></div><div class="line">Phalcon DevTools (2.0.3)</div><div class="line"></div><div class="line">Available commands:</div><div class="line">  commands (<span class="built_in">alias</span> of: list, enumerate)</div><div class="line">  controller (<span class="built_in">alias</span> of: create-controller)</div><div class="line">  model (<span class="built_in">alias</span> of: create-model)</div><div class="line">  all-models (<span class="built_in">alias</span> of: create-all-models)</div><div class="line">  project (<span class="built_in">alias</span> of: create-project)</div><div class="line">  scaffold (<span class="built_in">alias</span> of: create-scaffold)</div><div class="line">  migration (<span class="built_in">alias</span> of: create-migration)</div><div class="line">  webtools (<span class="built_in">alias</span> of: create-webtools)</div></pre></td></tr></table></figure></p>
+<p>##生成结构并且配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phalcon create-project store <span class="comment">#生成目录</span></div></pre></td></tr></table></figure></p>
+<p>在<code>nginx</code>中进行配置<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/etc/</span>nginx<span class="regexp">/site-available/</span> <span class="comment">#进入配置目录</span></div><div class="line">sudo vi phalcon-hosts.conf <span class="comment">#创建配置文件</span></div></pre></td></tr></table></figure></p>
+<p>在<code>phalcon-hosts.conf</code>添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">       listen 80;<span class="comment">#80端口</span></div><div class="line">       listen [::]:80;</div><div class="line">       server_name phalcon.com;</div><div class="line">       root /home/zhonglingxiao/learnphp/phalcon/store;</div><div class="line">       index index.php index.html;</div><div class="line">       location ~ \.php$ &#123;</div><div class="line">               </div><div class="line">               include snippets/fastcgi-php.conf;</div><div class="line">              fastcgi_pass unix:/var/run/php5-fpm.sock;</div><div class="line">              fastcgi_param SCRIPT_FILENAME /home/zhonglingxiao/learnphp/phalcon/store<span class="variable">$fastcgi_script_name</span>;</div><div class="line">              include fastcgi_params;</div><div class="line">        &#125;</div><div class="line">         location /&#123;</div><div class="line">                  rewrite ^$ public/ last;</div><div class="line">                  rewrite ^(.*)$  /public/index.php?_url=<span class="variable">$1</span> last;<span class="comment">#重写的规则</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之后：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/etc/</span>nginx<span class="regexp">/site-enable/</span> </div><div class="line">sudo ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/site-available/</span>phalcon-hosts.conf phalcon-hosts.conf</div></pre></td></tr></table></figure></p>
+<p>然后修改host，<code>127.0.0.1 phalcon.com</code>；<br>之后重启<code>nginx</code>就好了 <code>sudo systemctl restart nginx.service</code>;<br>如果没问题的话，输入<code>phalcon.com</code>，就ok了～<br><img src="/选区_057.png" alt="描述"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/03/crontab/" rel="next" title="crontab记录">
+                <i class="fa fa-chevron-left"></i> crontab记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/11/elemjisuan/" rel="prev" title="ele.me外卖平分算钱">
+                ele.me外卖平分算钱 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

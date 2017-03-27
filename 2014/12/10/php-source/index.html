@@ -1,0 +1,602 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,命令行,参数," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##PHP内置小型web server1php -S localhost:8080 -t /www #-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程
+##PHP命令行参数
+1234567#!/usr/local/bin/phpecho $_SERVER[&quot;argc&quot;].&quot;\n&quot;; #2，为参数的个数echo $_SERVER[&quot;argv&quot;][1].&quot;\n&quot;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php常用笔记">
+<meta property="og:url" content="http://zlxbuzz.github.io/2014/12/10/php-source/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##PHP内置小型web server1php -S localhost:8080 -t /www #-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程
+##PHP命令行参数
+1234567#!/usr/local/bin/phpecho $_SERVER[&quot;argc&quot;].&quot;\n&quot;; #2，为参数的个数echo $_SERVER[&quot;argv&quot;][1].&quot;\n&quot;;">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php常用笔记">
+<meta name="twitter:description" content="##PHP内置小型web server1php -S localhost:8080 -t /www #-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程
+##PHP命令行参数
+1234567#!/usr/local/bin/phpecho $_SERVER[&quot;argc&quot;].&quot;\n&quot;; #2，为参数的个数echo $_SERVER[&quot;argv&quot;][1].&quot;\n&quot;;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2014/12/10/php-source/"/>
+
+  <title> php常用笔记 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php常用笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-12-10T15:07:16+08:00" content="2014-12-10">
+              2014-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##PHP内置小型web server<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php -S localhost:<span class="number">8080</span> -t /www <span class="comment">#-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程</span></div></pre></td></tr></table></figure></p>
+<p>##PHP命令行参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/local/bin/php</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argc"</span>].<span class="string">"\n"</span>; <span class="comment">#2，为参数的个数</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argv"</span>][<span class="number">1</span>].<span class="string">"\n"</span>;<span class="comment">#a  输入的第一个参数</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argv"</span>][<span class="number">2</span>].<span class="string">"\n"</span>; <span class="comment">#b 输入的第二个参数</span></div><div class="line"><span class="comment">#$_SERVER["argc"]数组返回一个整型的数，代表从命令行上回车后一共输入了几个参数。</span></div><div class="line"><span class="comment">#从PHP命令行读取参数范例中的结果已经看出，要访问已经传入的参数值，需要从索引1开始。</span></div><div class="line"><span class="comment">#因为脚本本身的文件已经占用了索引0，即$_SERVER["argv"][0]</span></div></pre></td></tr></table></figure>
+<p>##PHP类型判断</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line"><span class="params">| 真值表        |</span> gettype() <span class="params">| empty() |</span> is_null() <span class="params">| isset() |</span> (bool) <span class="params">|</span></div><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line">| $x = <span class="string">""</span>      <span class="params">| string    |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x=null      |</span> NULL      <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>      <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| var $x       <span class="params">| NULL      |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>      |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x = array() |</span> array     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = <span class="literal">false</span>   <span class="params">| boolean   |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x = 15      |</span> integer   <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="number">1</span>       <span class="params">| integer   |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = 0       |</span> integer   <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = -<span class="number">1</span>      <span class="params">| integer   |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '15'    |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="string">'1'</span>     <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '0'     |</span> string    <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = <span class="string">'-1'</span>    <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = 'foo'   |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="string">'true'</span>  <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '<span class="literal">false</span>' |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line">empty() 和 bool 不可能相等</div></pre></td></tr></table></figure>
+<p>##修改phpunit内存限制<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phpunit <span class="_">-d</span> memory_limit=512M</div></pre></td></tr></table></figure></p>
+<p>##php下载远程文件到本地<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$url = <span class="string">'http://picturescdn.qiniudn.com/93aa93787ae02be68192b3533d3e76b0'</span>;</div><div class="line">$remote_fp = fopen($url,<span class="string">'rb'</span>);<span class="comment">#指定fopen的打开模式为b(二进制模式)</span></div><div class="line">$local_fp = fopen(date(<span class="string">'YmdHis'</span>),<span class="string">'wb'</span>);</div><div class="line"><span class="keyword">while</span>(!feof($remote_fp))&#123;</div><div class="line">    fwrite($local_fp,fread($remote_fp,<span class="number">128</span>));</div><div class="line">&#125;</div><div class="line">fclose($remote_fp);</div><div class="line">fclose($local_fp);</div></pre></td></tr></table></figure></p>
+<p>##cURL 常用函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化</span></div><div class="line">$curlobj=curl_init(<span class="string">'http://www.baidu.com'</span>);<span class="comment">//初始化culr</span></div><div class="line">$curlobj = curl_init();</div><div class="line">curl_setopt($curlobj, CURLOPT_URL, <span class="string">"http://www.baidu.com"</span>);<span class="comment">// 初始化，两种</span></div><div class="line"></div><div class="line"><span class="comment">//相关常用的option</span></div><div class="line">curl_setopt($curlobj, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);	<span class="comment">// 执行之后不直接打印出来，否则会直接输出</span></div><div class="line">$output=curl_exec($curlobj);	<span class="comment">// 执行</span></div><div class="line"></div><div class="line"><span class="comment">// 如果模拟cookie登录 要先设置cookie</span></div><div class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></div><div class="line">curl_setopt($curlobj, CURLOPT_COOKIESESSION, <span class="number">1</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_HEADER, <span class="number">0</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>); <span class="comment">// 支持页面链接跳转  这个设置必须关闭安全模式</span></div><div class="line"><span class="comment">//以及关闭open_basedir，金额贝尔不过对服务器安全不利</span></div><div class="line"></div><div class="line"><span class="comment">//将数据post</span></div><div class="line">$postdata=<span class="string">'username=buzzmjx@126.com&amp;password=123456'</span>;</div><div class="line">curl_setopt($curlobj, CURLOPT_POST, <span class="number">1</span>);  <span class="comment">//允许post</span></div><div class="line">curl_setopt($curlobj, CURLOPT_POSTFIELDS, $postdata);  <span class="comment">//post 数据</span></div><div class="line">curl_setopt($curlobj, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"application/x-www-form-urlencoded; charset=utf-8"</span>,</div><div class="line"> <span class="string">"Content-length: "</span>.strlen($postdata)));</div><div class="line"></div><div class="line"><span class="comment">//从ftp下载</span></div><div class="line">curl_setopt($curlobj, CURLOPT_TIMEOUT, <span class="number">300</span>); <span class="comment">// times out after 300s</span></div><div class="line">curl_setopt($curlobj, CURLOPT_USERPWD, <span class="string">"buzzmjx:123456"</span>);<span class="comment">//FTP用户名：密码</span></div><div class="line">$outfile = fopen(<span class="string">'dest.txt'</span>, <span class="string">'wb'</span>);<span class="comment">//保存到本地的文件名</span></div><div class="line">curl_setopt($curlobj, CURLOPT_FILE, $outfile);</div><div class="line"></div><div class="line"><span class="comment">//上传ftp</span></div><div class="line">$fp = fopen(<span class="string">'test.php'</span>, <span class="string">'r'</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_UPLOAD, <span class="number">1</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_INFILE, $fp);</div><div class="line">curl_setopt($curlobj, CURLOPT_INFILESIZE, filesize($localfile));</div><div class="line">$rtn = curl_exec($curlobj);</div><div class="line"></div><div class="line"><span class="comment">// 设置HTTPS支持</span></div><div class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></div><div class="line">curl_setopt($curlobj, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>); <span class="comment">// 对认证证书来源的检查从证书中检查</span></div><div class="line"><span class="comment">//SSL加密算法是否存在</span></div><div class="line">curl_setopt($curlobj, CURLOPT_SSL_VERIFYHOST, <span class="number">2</span>); <span class="comment">//</span></div><div class="line"><span class="comment">//webservice</span></div><div class="line">curl_setopt($curlobj, CURLOPT_POSTFIELDS, $data); <span class="comment">//data为soapxml</span></div><div class="line">curl_setopt($curlobj, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"Content-Type: application/soap+xml; charset=utf-8"</span>,</div><div class="line">	<span class="string">"Content-length: "</span>.strlen($data),</div><div class="line"><span class="string">"SOAPAction:\"http://WebXml.com.cn/getWeatherbyCityName\""</span>));</div><div class="line"></div><div class="line"><span class="comment">//关闭</span></div><div class="line">curl_close($curlobj);</div></pre></td></tr></table></figure></p>
+<h2 id="mysql-导出数据到csv格式"><a href="#mysql-导出数据到csv格式" class="headerlink" title="mysql 导出数据到csv格式"></a>mysql 导出数据到csv格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"select * from hero"</span> | mysql --host=ayidev02.mysql.rds.aliyuncs.com --user=ayi_dev --password=ayibang ayisvc_zhonglingxiao &gt; /tmp/zlx.csv</div></pre></td></tr></table></figure>
+<h2 id="php-下载"><a href="#php-下载" class="headerlink" title="php 下载"></a>php 下载</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$filename = <span class="string">"a.csv"</span>;</div><div class="line">$data     = <span class="string">"城市，数据\n"</span>;</div><div class="line">$data.=<span class="string">"beijing,1\n"</span>;</div><div class="line">header(<span class="string">"Content-type:text/csv"</span>);</div><div class="line">header(<span class="string">"Content-Disposition:attachment;filename="</span>.$filename);</div><div class="line">header(<span class="string">"Expires:0"</span>);</div><div class="line"><span class="keyword">echo</span> $data;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/命令行/" rel="tag">#命令行</a>
+          
+            <a href="/tags/参数/" rel="tag">#参数</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/12/10/linux-source/" rel="next" title="linux常用笔记">
+                <i class="fa fa-chevron-left"></i> linux常用笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/11/css3-xuanfu/" rel="prev" title="CSS3鼠标悬停图片动画 多种文字动画效果">
+                CSS3鼠标悬停图片动画 多种文字动画效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-导出数据到csv格式"><span class="nav-number">1.</span> <span class="nav-text">mysql 导出数据到csv格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-下载"><span class="nav-number">2.</span> <span class="nav-text">php 下载</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

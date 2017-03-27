@@ -1,0 +1,735 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mongodb,node," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="##MongoDb
+####安装
+当前版本 2.X解压至任意目录,最好不要是c盘. 在根目录下建立一个文件夹用来存储工程
+安装至:
+d:\mongodb
+建立存储目录
+d:\mongodb\blog
+运行CMD,切入bin目录
+cd  d:\mongodb\bin
+启用数据库
+mongod -dbpath “d:\mongodb\blog”
+这样就完毕了,如果关闭CMD,数据库就会关闭.
+
+建立一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js MongoDB数据库方法">
+<meta property="og:url" content="http://zlxbuzz.github.io/2014/12/15/node-man-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##MongoDb
+####安装
+当前版本 2.X解压至任意目录,最好不要是c盘. 在根目录下建立一个文件夹用来存储工程
+安装至:
+d:\mongodb
+建立存储目录
+d:\mongodb\blog
+运行CMD,切入bin目录
+cd  d:\mongodb\bin
+启用数据库
+mongod -dbpath “d:\mongodb\blog”
+这样就完毕了,如果关闭CMD,数据库就会关闭.
+
+建立一">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js MongoDB数据库方法">
+<meta name="twitter:description" content="##MongoDb
+####安装
+当前版本 2.X解压至任意目录,最好不要是c盘. 在根目录下建立一个文件夹用来存储工程
+安装至:
+d:\mongodb
+建立存储目录
+d:\mongodb\blog
+运行CMD,切入bin目录
+cd  d:\mongodb\bin
+启用数据库
+mongod -dbpath “d:\mongodb\blog”
+这样就完毕了,如果关闭CMD,数据库就会关闭.
+
+建立一">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2014/12/15/node-man-2/"/>
+
+  <title> Node.js MongoDB数据库方法 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Node.js MongoDB数据库方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-12-15T11:52:34+08:00" content="2014-12-15">
+              2014-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##MongoDb</p>
+<p>####安装</p>
+<p>当前版本 2.X<br>解压至任意目录,最好不要是c盘. 在根目录下建立一个文件夹用来存储工程</p>
+<pre><code>安装至:
+d:\mongodb
+建立存储目录
+d:\mongodb\blog
+运行CMD,切入bin目录
+cd  d:\mongodb\bin
+启用数据库
+mongod -dbpath “d:\mongodb\blog”
+这样就完毕了,如果关闭CMD,数据库就会关闭.
+
+建立一个快速启动的bat文件,因为每次启动服务器都是这样的命令
+启动mongodb.bat:
+    d:\mongodb\bin\mongod.exe -dbpath d:\mongodb\blog
+</code></pre><p>####Node.js 中使用</p>
+<ol>
+<li>package.json dependencies对象中加入  “mongodb”: “*”</li>
+<li>在工程目录下运行 npm install  更新依赖文件</li>
+<li>引入<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Db = <span class="built_in">require</span>(‘mongodb’).Db;</div><div class="line"><span class="keyword">var</span> Connection = <span class="built_in">require</span>(‘mongodb’).Connection;</div><div class="line"><span class="keyword">var</span> Server = <span class="built_in">require</span>(‘mongodb’).Server; </div><div class="line"><span class="comment">// ‘blog’ 数据库名称 mongodb就是一个Db实例 </span></div><div class="line"><span class="keyword">var</span> mongodb = <span class="keyword">new</span> Db(<span class="string">'blog’, new Server('</span>localhost’, Connection.DEFAULT_PORT, &#123;&#125;));</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>###Db API</p>
+<p>属性:<br><code>serverConfig</code>  拓扑结构, 比如上面实例的 new Server(‘localhost’, Connection.DEFAULT_PORT, {})<br><code>bufferMaxEntries</code> 数据库当前缓冲区值<br><code>databaseName</code>当前数据库名称, 比如上面实例的’blog’</p>
+<p><code>API:</code><br>//将用户添加到该数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.addUser(username, password, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除用户<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.removeUser(username, callback)</div></pre></td></tr></table></figure></p>
+<p>//返回管理员数据库实例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.admin()</div></pre></td></tr></table></figure></p>
+<p>//验证用户<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.authenticate(username, password, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//关闭连接 force布尔值,是否强制关闭<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.close(force, callback)</div></pre></td></tr></table></figure></p>
+<p>//取一个特定集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.collection(name, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//获取所有集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.collections(callback)</div></pre></td></tr></table></figure></p>
+<p>//创建一个集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.createCollection(name, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//创建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.createIndex(name, fieldOrSpec, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.dropCollection(name, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.dropDatabase(callback)</div></pre></td></tr></table></figure></p>
+<p>//获取集合中的信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.listCollections(name, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//打开数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.open(callback)</div></pre></td></tr></table></figure></p>
+<p>//登出数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.logout(options, callback)</div></pre></td></tr></table></figure></p>
+<p>//统计所有数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Db.stats(options, callback)</div></pre></td></tr></table></figure></p>
+<p>######一般使用流程:<br>//打开数据库<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Db.open(<span class="function"><span class="keyword">function</span>(<span class="params">err,db</span>)</span>&#123;</div><div class="line"><span class="comment">//读取集合 </span></div><div class="line">db.collection(name,<span class="function"><span class="keyword">function</span>(<span class="params">err,collection</span>)</span>&#123; </div><div class="line"><span class="comment">//在集合中插入数据 </span></div><div class="line">collection.insert(&#123;’age’:<span class="number">21</span>,’email’:’xxxx’&#125;, &#123;<span class="attr">safe</span>: <span class="literal">true</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>)</span>&#123;Db.close();&#125;) &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>####collection API</p>
+<p><code>API:</code><br>//查询匹配文档的数目<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">count(query, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//创建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">createIndex(fieldOrSpec, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除多个文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deleteMany(filter, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除一个文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deleteOne(filter, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//删除集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drop(callback)</div></pre></td></tr></table></figure></p>
+<p>//删除集合中的索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dropAllIndexes(callback)</div></pre></td></tr></table></figure></p>
+<p>//删除指定索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dropIndex(indexName, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//是否存在索引,不存在就创建<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ensureIndex(fieldOrSpec, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//查询<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find(query)</div></pre></td></tr></table></figure></p>
+<p>//查询第一个<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findOne(query, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//查找和替换文档<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findAndModify(query, sort, doc, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//查找并删除<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findAndRemove(query, sort, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//找到一个文件并删除<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findOneAndDelete(filter, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//找到一个文件并替换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findOneAndReplace(filter, replacement, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//找到一个文件并更新<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">findOneAndUpdate(filter, update, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//所有索引集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">indexes(callback)</div></pre></td></tr></table></figure></p>
+<p>//检查集合中是否存在索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">indexExists(indexes, callback)</div></pre></td></tr></table></figure></p>
+<p>//获取此集合的索引信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">indexInformation(options, callback)</div></pre></td></tr></table></figure></p>
+<p>//批量写<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">initializeOrderedBulkOp(options, callback)</div></pre></td></tr></table></figure></p>
+<p>//插入文档到数据库中 docs 对象或数组,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">insert(docs, options, callback)</div><div class="line">实例</div><div class="line">inset(&#123;<span class="string">'a'</span>:<span class="number">1</span>&#125;, &#123;<span class="attr">w</span>:<span class="number">1</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p>//插入数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insertMany(docs, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//插入一个单个文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insertOne(doc, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//重建索引<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reIndex(callback)</div></pre></td></tr></table></figure></p>
+<p>//删除文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">remove(selector, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//重命名集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rename(newName, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//保存<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">save(doc, options, callback)</div></pre></td></tr></table></figure></p>
+<p>//统计所有数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stats(options, callback)</div></pre></td></tr></table></figure></p>
+<p>//更新集合<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update(selector, <span class="built_in">document</span>, options, callback)</div></pre></td></tr></table></figure></p>
+<p>##基础</p>
+<p>####文档</p>
+<pre><code>多个键和值有序的放置在一起便是文档,基本数据单元
+javascript 中,文档表示为对象.
+每个文档都有一个 _id 的键,值在所处集合中是唯一的
+
+有序的:   (下面2个文档完全不同)
+{&apos;title&apos;:&apos;xueyou&apos;, &apos;Age&apos;:21}
+{&apos;Age&apos;:21, &apos;title&apos;:&apos;xueyou&apos;}
+</code></pre><h4 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h4><pre><code>键不能包含 \0 空字符, 这个字符表示键的结尾
+. 和 $ 有特殊含义,通常保留
+_ 开头的键通常也要保留,虽然不强制
+MongoDb区分类型也区分大小写
+文档不能有重复的键
+</code></pre><p>####集合</p>
+<pre><code>看做是表,多个文档组成集合
+
+语法:
+不能包含 \0 空字符
+不能使空串 &quot;&quot;
+不能包含 $
+不能 system 开头.系统保留   
+system.users存储着数据库内用户的信息
+system.namespaces 存储着所有数据库集合的信息
+</code></pre><p>数据库</p>
+<pre><code>多个集合组成数据库. 一个MongoDB实例可以承载多个数据库,每个数据库有独立的权限
+语法:
+不能空串,全部小写,最多64字节,不能特殊字符
+因为数据库名称会变成系统的文件
+数据库保留名称:
+admin -   local   -  config
+</code></pre><p>####shell</p>
+<pre><code>MongoDb 自带javascript shell;
+可以运行任何javascript程序, DOM和浏览器模型不算
+启动数据库, 进入bin 运行mongo 启动shell
+当前版本 2.6.5
+默认连接 test 数据库, 并将这个数据库赋值给全局变量 db
+</code></pre><p>#####API<br><code>helo</code> 获取帮助<br><code>exit</code> 退出shell<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">db.help() 查看数据库的API</div><div class="line">db.foo.help() 查看集合的API</div><div class="line"></div><div class="line"><span class="comment">//获取集合</span></div><div class="line">db.getCollection(<span class="string">'集合名'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//切换到 foobar数据库,这个时候全局变量 db 就是foobar数据库</span></div><div class="line">switched to db foobar</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//插入一个文档到集合中, db.集合名.insert</span></div><div class="line">db.blog.insert(对象)</div><div class="line"></div><div class="line">**查询时shell默认最多显示<span class="number">20</span>个匹配文档**</div><div class="line"></div><div class="line"><span class="comment">//返回集合里所有文档</span></div><div class="line">db.blog.find()</div><div class="line"><span class="comment">//查看集合里的一个文档</span></div><div class="line">db.blog.findOne()</div><div class="line"><span class="comment">//更新文档</span></div><div class="line">db/blog.update(&#123;<span class="attr">title</span>:<span class="string">'aa'</span>&#125;,文档对象)</div><div class="line"><span class="comment">//从数据库永久删除文档,无参时删除集合内所有文档</span></div><div class="line">db.blog.remove();</div></pre></td></tr></table></figure></p>
+<p>####其他</p>
+<pre><code>mongod.exe   启动数据库,没参数的时候默认数据目录在 c:\data\dbm
+使用27017端口, 同时还会启动一个HTTP服务器,监听比端口号大1000的端口
+28017端口. 访问:  http://localhost:28017 可以获取数据库的管理信息
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mongodb/" rel="tag">#mongodb</a>
+          
+            <a href="/tags/node/" rel="tag">#node</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/12/15/node-man-4/" rel="next" title="Node.js Express 方法">
+                <i class="fa fa-chevron-left"></i> Node.js Express 方法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/18/linux-ftp/" rel="prev" title="linux 下的ftp指令">
+                linux 下的ftp指令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.</span> <span class="nav-text">语法:</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

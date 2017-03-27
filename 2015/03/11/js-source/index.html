@@ -1,0 +1,606 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="js 函数集合12345678910JSON.stringify(value [, replacer] [, space])//value 必填，通常为数组或者对象//replacer 如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。// 使用返回值而不是原始值。 如果此函数返回 undefined，则排除成员。 根对象的键是一个空字符串：&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js常用笔记">
+<meta property="og:url" content="http://zlxbuzz.github.io/2015/03/11/js-source/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="js 函数集合12345678910JSON.stringify(value [, replacer] [, space])//value 必填，通常为数组或者对象//replacer 如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。// 使用返回值而不是原始值。 如果此函数返回 undefined，则排除成员。 根对象的键是一个空字符串：&quot;">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js常用笔记">
+<meta name="twitter:description" content="js 函数集合12345678910JSON.stringify(value [, replacer] [, space])//value 必填，通常为数组或者对象//replacer 如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。// 使用返回值而不是原始值。 如果此函数返回 undefined，则排除成员。 根对象的键是一个空字符串：&quot;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2015/03/11/js-source/"/>
+
+  <title> js常用笔记 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js常用笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-03-11T17:20:11+08:00" content="2015-03-11">
+              2015-03-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="js-函数集合"><a href="#js-函数集合" class="headerlink" title="js 函数集合"></a>js 函数集合</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.stringify(value [, replacer] [, space])</div><div class="line"></div><div class="line"><span class="comment">//value 必填，通常为数组或者对象</span></div><div class="line"></div><div class="line"><span class="comment">//replacer 如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。</span></div><div class="line"><span class="comment">// 使用返回值而不是原始值。 如果此函数返回 undefined，则排除成员。 根对象的键是一个空字符串：""。</span></div><div class="line"><span class="comment">//如果 replacer 是一个数组，则仅转换该数组中具有键值的成员。 成员的转换顺序与键在数组中的顺序一样。</span></div><div class="line"><span class="comment">//当 value 参数也为数组时，将忽略 replacer 数组。</span></div><div class="line"></div><div class="line"><span class="comment">//space 向返回值 JSON 文本添加缩进、空格和换行符以使其更易于读取。</span></div></pre></td></tr></table></figure>
+<h2 id="将时间戳转换成日期格式："><a href="#将时间戳转换成日期格式：" class="headerlink" title="将时间戳转换成日期格式："></a>将时间戳转换成日期格式：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(时间戳);</div><div class="line">Y = date.getFullYear() + <span class="string">'-'</span>;</div><div class="line">M = (date.getMonth()+<span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span>+(date.getMonth()+<span class="number">1</span>) : date.getMonth()+<span class="number">1</span>) + <span class="string">'-'</span>;</div><div class="line">D = date.getDate() &lt;<span class="number">10</span> ? <span class="string">'0'</span>+date.getDate() : date.getDate() + <span class="string">' '</span>;</div><div class="line">h = date.getHours() + <span class="string">':'</span>;</div><div class="line">m = date.getMinutes() + <span class="string">':'</span>;</div><div class="line">s = date.getSeconds();</div><div class="line"><span class="built_in">console</span>.log(Y+M+D+h+m+s);</div></pre></td></tr></table></figure>
+<h2 id="将日期格式转换成时间戳："><a href="#将日期格式转换成时间戳：" class="headerlink" title="将日期格式转换成时间戳："></a>将日期格式转换成时间戳：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2014-04-23 18:55:49:123'</span>);</div><div class="line"><span class="comment">// 有三种方式获取</span></div><div class="line">time1 = date.getTime()</div><div class="line">time2 = date.valueOf()</div><div class="line">time3 = <span class="built_in">Date</span>.parse(date)</div><div class="line"></div><div class="line"><span class="comment">// 三种获取的区别</span></div><div class="line"><span class="comment">//第一、第二种：会精确到毫秒</span></div><div class="line"><span class="comment">//第三种：只能精确到秒，毫秒将用0来代替</span></div><div class="line"><span class="comment">// 比如上面代码输出的结果(一眼就能看出区别)：</span></div><div class="line"><span class="comment">//    1398250549123</span></div><div class="line"><span class="comment">//    1398250549123</span></div><div class="line"><span class="comment">//    1398250549000</span></div></pre></td></tr></table></figure>
+<h2 id="js数组去重"><a href="#js数组去重" class="headerlink" title="js数组去重"></a>js数组去重</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.unique3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> res = [];</div><div class="line">	<span class="keyword">var</span> json = &#123;&#125;;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++)&#123;</div><div class="line">		<span class="keyword">if</span>(!json[<span class="keyword">this</span>[i]])&#123;</div><div class="line">			res.push(<span class="keyword">this</span>[i]);</div><div class="line">			json[<span class="keyword">this</span>[i]] = <span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">substr(start [, length ])</div><div class="line">返回一个从指定位置开始的指定长度的子字符串</div><div class="line">substring(start, end)</div><div class="line">返回位于 <span class="built_in">String</span> 对象中指定位置的子字符串。</div></pre></td></tr></table></figure>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.navigate(<span class="string">"top.jsp"</span>);</div><div class="line"><span class="built_in">window</span>.history.back(<span class="number">-1</span>);</div><div class="line"><span class="built_in">window</span>.location.href=<span class="string">"login.jsp?backurl="</span>+<span class="built_in">window</span>.location.href;</div><div class="line">self.location=<span class="string">'top.htm'</span>;</div><div class="line">top.location=<span class="string">'xx.jsp'</span>;</div></pre></td></tr></table></figure>
+<h2 id="加载完成"><a href="#加载完成" class="headerlink" title="加载完成"></a>加载完成</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload</div><div class="line">必须等页面内包括图片的所有元素加载完成后才能执行。</div><div class="line">不能同时编写多个，只执行一个</div><div class="line">$(<span class="built_in">document</span>).ready()</div><div class="line">是DOM结构绘制完毕后就可以执行</div><div class="line">可以编写多个</div><div class="line">简写$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="built_in">window</span>).load()等同与<span class="built_in">window</span>.onload</div></pre></td></tr></table></figure>
+<h2 id="刷新页面"><a href="#刷新页面" class="headerlink" title="刷新页面"></a>刷新页面</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">history.go(<span class="number">0</span>)</div><div class="line">location.reload()</div><div class="line">location=location</div><div class="line">location.assign(location)</div><div class="line"><span class="built_in">document</span>.execCommand(<span class="string">'Refresh'</span>)</div><div class="line"><span class="built_in">window</span>.navigate(location)</div><div class="line">location.replace(location)</div><div class="line"><span class="built_in">document</span>.URL=location.href</div></pre></td></tr></table></figure>
+<h2 id="json转化和解析"><a href="#json转化和解析" class="headerlink" title="json转化和解析"></a>json转化和解析</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">JSON</span>.parse(<span class="string">"&#123;a:'111',b:'ccc'&#125;"</span>);  <span class="comment">//解析</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">"("</span>+<span class="string">""</span>+<span class="string">")"</span>); <span class="comment">//解析</span></div></pre></td></tr></table></figure>
+<h2 id="URI编码转换"><a href="#URI编码转换" class="headerlink" title="URI编码转换"></a>URI编码转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="string">"':'"</span>;</div><div class="line">en = <span class="built_in">encodeURI</span>(a);    <span class="comment">//编码</span></div><div class="line">a = <span class="built_in">decodeURI</span>(en);    <span class="comment">//解码</span></div></pre></td></tr></table></figure>
+<h2 id="HTML编码转换"><a href="#HTML编码转换" class="headerlink" title="HTML编码转换"></a>HTML编码转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEncode</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> $(<span class="string">'&lt;div/&gt;'</span>).text(value).html();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlDecode</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> $(<span class="string">'&lt;div/&gt;'</span>).html(value).text();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="当属性名是另一个表达式时候"><a href="#当属性名是另一个表达式时候" class="headerlink" title="当属性名是另一个表达式时候"></a>当属性名是另一个表达式时候</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a.b[c] <span class="comment">// (a.b)[c]</span></div><div class="line">a[b] <span class="comment">//而不用 a.b</span></div></pre></td></tr></table></figure>
+<h2 id="js转义字符实体"><a href="#js转义字符实体" class="headerlink" title="js转义字符实体"></a>js转义字符实体</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEscape</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> (s + <span class="string">''</span>).replace(<span class="regexp">/&amp;/g</span>, <span class="string">'&amp;amp;'</span>)</div><div class="line">		.replace(<span class="regexp">/&lt;/g</span>, <span class="string">'&amp;lt;'</span>)</div><div class="line">		.replace(<span class="regexp">/&gt;/g</span>, <span class="string">'&amp;gt;'</span>)</div><div class="line">		.replace(<span class="regexp">/'/g</span>, <span class="string">'&amp;#039;'</span>)</div><div class="line">		.replace(<span class="regexp">/"/g</span>, <span class="string">'&amp;quot;'</span>)</div><div class="line">		.replace(<span class="regexp">/\n/g</span>, <span class="string">'&lt;br /&gt;'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="判断number"><a href="#判断number" class="headerlink" title="判断number"></a>判断number</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isNumber = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) &amp;&amp; <span class="built_in">isFinite</span>(n);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="js原型"><a href="#js原型" class="headerlink" title="js原型"></a>js原型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承</span></div><div class="line"><span class="comment">//任何一个prototype对象都有一个constructor属性，指向它的构造函数</span></div><div class="line"></div><div class="line"><span class="comment">//如果替换了prototype对象</span></div><div class="line">　　o.prototype = &#123;&#125;;</div><div class="line"><span class="comment">//下一步必然是为新的prototype对象加上constructor属性，并将这个属性指回原来的构造函数</span></div><div class="line">o.prototype.constructor = o;</div><div class="line"><span class="comment">//Object和Function都是构造函数，所有的构造函数的都是Function的实例对象,Object是Function的实例对象</span></div><div class="line"><span class="comment">//Function.prototype是Object的实例对象</span></div><div class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype</div><div class="line"><span class="comment">//instanceof的结果不要仅是: 如果右侧构造函数的prototype属性能在左侧的对象的原型链中找到,</span></div><div class="line"><span class="comment">// 那么就返回true, 否则就返回false</span></div><div class="line"><span class="built_in">Object</span> intanceof <span class="built_in">Function</span>: <span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">//true</span></div><div class="line"><span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>: <span class="built_in">Function</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">//true</span></div><div class="line"><span class="comment">//实例对象的constructor属性指向其构造函数</span></div><div class="line"><span class="built_in">Object</span>.constructor === <span class="built_in">Function</span></div><div class="line"><span class="built_in">Function</span>.constructor === <span class="built_in">Function</span></div></pre></td></tr></table></figure>
+<h2 id="js继承"><a href="#js继承" class="headerlink" title="js继承"></a>js继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">　<span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">　　　　F.prototype = Parent.prototype;</div><div class="line">　　　　Child.prototype = <span class="keyword">new</span> F();<span class="comment">//空对象实例化几乎不占内存</span></div><div class="line">　　　　Child.prototype.constructor = Child;</div><div class="line">　　　　Child.uber = Parent.prototype;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h2 id="js判断是否存在"><a href="#js判断是否存在" class="headerlink" title="js判断是否存在"></a>js判断是否存在</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> myObj == <span class="string">"undefined"</span>) &#123;</div><div class="line">　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="修正js默认验证信息"><a href="#修正js默认验证信息" class="headerlink" title="修正js默认验证信息"></a>修正js默认验证信息</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"data.IDcard"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> required  pattern=<span class="string">"\d&#123;6&#125;[12]\d&#123;3&#125;[01]\d&#123;6&#125;\w&#123;1&#125;"</span> oninput=<span class="string">"disValidate(this,'请输入18位身份证号码') "</span>/&gt;</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript"></span></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">disValidate</span><span class="params">(self,mes)</span></span>&#123;</div><div class="line">        self.validity.patternMismatch ? self.setCustomValidity(mes) : self.setCustomValidity(<span class="string">''</span>);</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="obj-转-arr"><a href="#obj-转-arr" class="headerlink" title="obj 转 arr"></a>obj 转 arr</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(!obj)&#123;</div><div class="line">	<span class="keyword">return</span> [];</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(obj);</div><div class="line"></div><div class="line"><span class="keyword">return</span> keys.filter(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> obj[key];</div><div class="line">&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js-操作cookie"><a href="#js-操作cookie" class="headerlink" title="js 操作cookie"></a>js 操作cookie</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> getCookie:<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> arr,reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(^| )"</span>+name+<span class="string">"=([^;]*)(;|$)"</span>);</div><div class="line">        <span class="keyword">if</span>(arr=<span class="built_in">document</span>.cookie.match(reg))</div><div class="line">            <span class="keyword">return</span> <span class="built_in">unescape</span>(arr[<span class="number">2</span>]);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">       &#125;,</div><div class="line"><span class="attr">setCookie</span>:<span class="function"><span class="keyword">function</span>(<span class="params">name,value</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> Days = <span class="number">30</span>;</div><div class="line">        <span class="keyword">var</span> exp = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">        exp.setTime(exp.getTime() + Days*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>);</div><div class="line">        <span class="built_in">document</span>.cookie = name + <span class="string">"="</span>+ <span class="built_in">escape</span> (value) + <span class="string">";expires="</span> + exp.toGMTString();</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<h2 id="驼峰命名转换"><a href="#驼峰命名转换" class="headerlink" title="驼峰命名转换"></a>驼峰命名转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cameltoDash</span>(<span class="params">string</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> string.replace(<span class="regexp">/([A-Z])/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">1</span></span>) </span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="string">'-'</span> + $<span class="number">1.</span>toLowerCase();</div><div class="line">      &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js限制输入两位小数字"><a href="#js限制输入两位小数字" class="headerlink" title="js限制输入两位小数字"></a>js限制输入两位小数字</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>($scope.order.amount !== <span class="literal">undefined</span> &amp;&amp; $scope.order.amount.match(<span class="regexp">/(0(\.\d&#123;0,2&#125;)?)|([1-9]+(\.\d&#123;0,2&#125;)?)/</span>))&#123;</div><div class="line">       $scope.order.amount = $scope.order.amount.match(<span class="regexp">/(0(\.\d&#123;0,2&#125;)?)|([1-9]+(\.\d&#123;0,2&#125;)?)/</span>)[<span class="number">0</span>];</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">     $scope.order.amount = <span class="string">''</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js-trim"><a href="#js-trim" class="headerlink" title="js trim"></a>js trim</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">trim = <span class="function"><span class="keyword">function</span> (<span class="params">source</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> source.replace(<span class="regexp">/(^[\s\t\xa0\u3000]+|[\s\t\xa0\u3000]+$)/g</span>, <span class="string">''</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js-判断类型"><a href="#js-判断类型" class="headerlink" title="js 判断类型"></a>js 判断类型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">"[object Array]"</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/04/src-href/" rel="next" title="src与href属性的区别">
+                <i class="fa fa-chevron-left"></i> src与href属性的区别
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/17/php-book/" rel="prev" title="php-book">
+                php-book <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-函数集合"><span class="nav-number">1.</span> <span class="nav-text">js 函数集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将时间戳转换成日期格式："><span class="nav-number">2.</span> <span class="nav-text">将时间戳转换成日期格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将日期格式转换成时间戳："><span class="nav-number">3.</span> <span class="nav-text">将日期格式转换成时间戳：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js数组去重"><span class="nav-number">4.</span> <span class="nav-text">js数组去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串截取"><span class="nav-number">5.</span> <span class="nav-text">字符串截取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面跳转"><span class="nav-number">6.</span> <span class="nav-text">页面跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载完成"><span class="nav-number">7.</span> <span class="nav-text">加载完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新页面"><span class="nav-number">8.</span> <span class="nav-text">刷新页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json转化和解析"><span class="nav-number">9.</span> <span class="nav-text">json转化和解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URI编码转换"><span class="nav-number">10.</span> <span class="nav-text">URI编码转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML编码转换"><span class="nav-number">11.</span> <span class="nav-text">HTML编码转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当属性名是另一个表达式时候"><span class="nav-number">12.</span> <span class="nav-text">当属性名是另一个表达式时候</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js转义字符实体"><span class="nav-number">13.</span> <span class="nav-text">js转义字符实体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断number"><span class="nav-number">14.</span> <span class="nav-text">判断number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js原型"><span class="nav-number">15.</span> <span class="nav-text">js原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js继承"><span class="nav-number">16.</span> <span class="nav-text">js继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js判断是否存在"><span class="nav-number">17.</span> <span class="nav-text">js判断是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修正js默认验证信息"><span class="nav-number">18.</span> <span class="nav-text">修正js默认验证信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#obj-转-arr"><span class="nav-number">19.</span> <span class="nav-text">obj 转 arr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-操作cookie"><span class="nav-number">20.</span> <span class="nav-text">js 操作cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#驼峰命名转换"><span class="nav-number">21.</span> <span class="nav-text">驼峰命名转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js限制输入两位小数字"><span class="nav-number">22.</span> <span class="nav-text">js限制输入两位小数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-trim"><span class="nav-number">23.</span> <span class="nav-text">js trim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-判断类型"><span class="nav-number">24.</span> <span class="nav-text">js 判断类型</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

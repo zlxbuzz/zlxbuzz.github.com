@@ -1,0 +1,568 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="gulp," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="gulp-ng-html2js1234567891011121314151617//将模版文件存到angular的$templateCache中,相当于无需加载额外的模版var templateFiles = &quot;src/**/*.&amp;#123;tpl,md&amp;#125;&quot;;var markdown      = require(&apos;gulp-markdown&apos;);var ngHtml2js     =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的gulp任务">
+<meta property="og:url" content="http://zlxbuzz.github.io/2016/02/15/angular-gulp/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="gulp-ng-html2js1234567891011121314151617//将模版文件存到angular的$templateCache中,相当于无需加载额外的模版var templateFiles = &quot;src/**/*.&amp;#123;tpl,md&amp;#125;&quot;;var markdown      = require(&apos;gulp-markdown&apos;);var ngHtml2js     =">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的gulp任务">
+<meta name="twitter:description" content="gulp-ng-html2js1234567891011121314151617//将模版文件存到angular的$templateCache中,相当于无需加载额外的模版var templateFiles = &quot;src/**/*.&amp;#123;tpl,md&amp;#125;&quot;;var markdown      = require(&apos;gulp-markdown&apos;);var ngHtml2js     =">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2016/02/15/angular-gulp/"/>
+
+  <title> 常见的gulp任务 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常见的gulp任务
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-02-15T14:45:38+08:00" content="2016-02-15">
+              2016-02-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="gulp-ng-html2js"><a href="#gulp-ng-html2js" class="headerlink" title="gulp-ng-html2js"></a>gulp-ng-html2js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将模版文件存到angular的$templateCache中,相当于无需加载额外的模版</span></div><div class="line"><span class="keyword">var</span> templateFiles = <span class="string">"src/**/*.&#123;tpl,md&#125;"</span>;</div><div class="line"><span class="keyword">var</span> markdown      = <span class="built_in">require</span>(<span class="string">'gulp-markdown'</span>);</div><div class="line"><span class="keyword">var</span> ngHtml2js     = <span class="built_in">require</span>(<span class="string">'gulp-ng-html2js'</span>);</div><div class="line">gulp.src(templateFiles)</div><div class="line">.pipe(gulpif(<span class="string">'*.md'</span>, markdown()))</div><div class="line">.pipe(rename(&#123;</div><div class="line">        <span class="attr">extname</span>: <span class="string">".tpl"</span></div><div class="line">    &#125;))</div><div class="line">.pipe(ngHtml2js(&#123;</div><div class="line">        <span class="attr">moduleName</span>: <span class="string">"components"</span>,<span class="comment">//angular对应的模块名</span></div><div class="line">        prefix: <span class="string">'components/'</span>,<span class="comment">//$templateCache的名称的前缀("$templateCache.put(prefix)")</span></div><div class="line">        declareModule : <span class="literal">false</span><span class="comment">//不需要独立的模块</span></div><div class="line">    &#125;))</div><div class="line">.pipe(concat(<span class="string">"template.js"</span>))</div><div class="line">.pipe(gulp.dest(<span class="string">'./'</span>));</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
+<h2 id="gulp-rev-all"><a href="#gulp-rev-all" class="headerlink" title="gulp-rev-all"></a>gulp-rev-all</h2><pre><code>有个坑，需要自定义replacer函数来过滤，否则内容中和文件同名的也会加hash。
+https://github.com/smysnk/gulp-rev-all/issues/106
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'rev_all'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(releasePath+<span class="string">'/**'</span>)</div><div class="line">        .pipe(revAll.revision(&#123;</div><div class="line">            <span class="attr">dontRenameFile</span>: [<span class="regexp">/^\/favicon.ico$/g</span>, <span class="string">'.html'</span>],</div><div class="line">            <span class="attr">prefix</span>: <span class="string">'http://res.mararun.com/online/louis-web'</span>,</div><div class="line">            <span class="attr">replacer</span>:replacer</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(onlinePath));</div><div class="line">&#125;);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">replacer</span>(<span class="params">fragment, replaceRegExp, newReference, referencedFile</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(referencedFile.revFilenameExtOriginal === <span class="string">'.js'</span> &amp;&amp; !replaceRegExp.toString().match(<span class="regexp">/\.js/</span>))&#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">   fragment.contents = fragment.contents.replace(replaceRegExp, <span class="string">'$1'</span> + newReference + <span class="string">'$3$4'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="gulp-plumber"><a href="#gulp-plumber" class="headerlink" title="gulp-plumber"></a>gulp-plumber</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//错误处理一般用plumber来提醒，不过最好搭配gulp-notify。否则可能会出现中断的问题，加上这个就没有问题了。</span></div><div class="line">.pipe(plumber(&#123;<span class="attr">errorHandler</span>: notify.onError(<span class="string">'Error: &lt;%= error.message %&gt;'</span>)&#125;))</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/gulp/" rel="tag">#gulp</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/27/npm/" rel="next" title="npm常用包">
+                <i class="fa fa-chevron-left"></i> npm常用包
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/25/position/" rel="prev" title="angular-ui-bootstrap $position源码分析">
+                angular-ui-bootstrap $position源码分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-ng-html2js"><span class="nav-number">1.</span> <span class="nav-text">gulp-ng-html2js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-rev-all"><span class="nav-number">2.</span> <span class="nav-text">gulp-rev-all</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-plumber"><span class="nav-number">3.</span> <span class="nav-text">gulp-plumber</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

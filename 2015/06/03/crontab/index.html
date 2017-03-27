@@ -1,0 +1,624 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="crontab是一个定时执行脚本的命令,类似于windows中的计划任务(最小执行单位为分钟).
+####常见的指令crontab -e – 编辑该用户的crontab。crontab -l– 列出该用户的 crontab。crontab -r– 删除该用户的 crontab。crontab -u &amp;lt;username&amp;gt; – 指定要设定 crontab的用户名称。crontab &amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crontab记录">
+<meta property="og:url" content="http://zlxbuzz.github.io/2015/06/03/crontab/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="crontab是一个定时执行脚本的命令,类似于windows中的计划任务(最小执行单位为分钟).
+####常见的指令crontab -e – 编辑该用户的crontab。crontab -l– 列出该用户的 crontab。crontab -r– 删除该用户的 crontab。crontab -u &amp;lt;username&amp;gt; – 指定要设定 crontab的用户名称。crontab &amp;lt;">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="crontab记录">
+<meta name="twitter:description" content="crontab是一个定时执行脚本的命令,类似于windows中的计划任务(最小执行单位为分钟).
+####常见的指令crontab -e – 编辑该用户的crontab。crontab -l– 列出该用户的 crontab。crontab -r– 删除该用户的 crontab。crontab -u &amp;lt;username&amp;gt; – 指定要设定 crontab的用户名称。crontab &amp;lt;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2015/06/03/crontab/"/>
+
+  <title> crontab记录 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                crontab记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-03T11:37:40+08:00" content="2015-06-03">
+              2015-06-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>crontab</code>是一个定时执行脚本的命令,类似于<code>windows</code>中的计划任务(最小执行单位为<code>分钟</code>).</p>
+<p>####常见的指令<br><code>crontab -e</code> – 编辑该用户的<code>crontab</code>。<br><code>crontab -l</code>– 列出该用户的 <code>crontab</code>。<br><code>crontab -r</code>– 删除该用户的 <code>crontab</code>。<br><code>crontab -u &lt;username&gt;</code> – 指定要设定 <code>crontab</code>的用户名称。<br><code>crontab &lt;file&gt;</code> – 表示将<code>file</code>做为<code>crontab</code>的任务列表文件并载入<code>crontab</code>。</p>
+<p>####主要的参数<br>| 字段      |    描述 |  值  |<br>| :——– | ——–:| :–: |<br>| 分钟  | 一小时的第几分 |  0-59   |<br>| 小时  | 一天的第几小时 |  0-23   |<br>| 日期  | 一个月的的第几天 | 1-31   |<br>| 月份 | 一年的第几个月 |  1-12  |<br>| 周几  | 一周的第几天 | 0-6   |<br>| 命令  | 命令 |  可以被执行的任何命令   |</p>
+<blockquote>
+<p>关键词替换</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段</th>
+<th style="text-align:right">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">@yearly</td>
+<td style="text-align:right">0 0 1 1 *</td>
+</tr>
+<tr>
+<td style="text-align:left">@daily</td>
+<td style="text-align:right">0 0 <em> </em> *</td>
+</tr>
+<tr>
+<td style="text-align:left">@hourly</td>
+<td style="text-align:right">0 <em> </em> <em> </em></td>
+</tr>
+<tr>
+<td style="text-align:left">@reboot</td>
+<td style="text-align:right">重启时运行</td>
+</tr>
+</tbody>
+</table>
+<p>每天执行<code>test.php</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@daily php <span class="_">-f</span> /home/zhonglingxiao/<span class="built_in">test</span>/test.php&gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure></p>
+<p><code>星号（*）</code>：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。<br><code>逗号（,）</code>：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”<br><code>中杠（-）</code>：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”<br><code>正斜线（/）</code>：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。</p>
+<p>####常见的例子<br>6月3日20点执行<code>test.php</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">00 20 03 06 * php <span class="_">-f</span> /home/zhonglingxiao/<span class="built_in">test</span>/test.php&gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure></p>
+<p>6月3日20点,21点执行<code>test.php</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">00 20,21 03 06 * php <span class="_">-f</span> /home/zhonglingxiao/<span class="built_in">test</span>/test.php&gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure></p>
+<p>每隔5分钟执行<code>test.php</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*/5 * * * * php <span class="_">-f</span> /home/zhonglingxiao/<span class="built_in">test</span>/test.php&gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure></p>
+<p>周1到周5 早上6点到12点 每隔一小时 执行<code>test.php</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">00 06-12 * * 1-5 php <span class="_">-f</span> /home/zhonglingxiao/<span class="built_in">test</span>/test.php&gt;/dev/null 2&gt;&amp;1</div></pre></td></tr></table></figure></p>
+<p>##常见问题<br>1.新创建的<code>cron job</code>想要立即生效,需要<code>/etc/init.d/crond restart</code>.<br>2.尽量不用<code>crontab -r</code>,它会删了该用户的所有crontab.<br>3.在<code>crontab</code>中<code>%</code>是有特殊含义的，表示换行的意思。如果要用的话必须进行转义<code>\%</code>，如经常用的<code>date ‘+%Y%m%d’</code>在<code>crontab</code>里是不会执行的，应该换成<code>date ‘+\%Y\%m\%d’</code><br>4.周与日月不可同时并存,<code>30 12 11 9 5 root echo &quot;just test&quot;   &lt;==这是错误的写法</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/21/angular-source/" rel="next" title="angular笔记">
+                <i class="fa fa-chevron-left"></i> angular笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/10/phalcon-config/" rel="prev" title="phalcon框架的nginx配置">
+                phalcon框架的nginx配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

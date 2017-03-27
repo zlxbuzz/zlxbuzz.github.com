@@ -1,0 +1,576 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="滚动12345678问题:    ios4 和 android2.2 以下不支持 position:fixed    ios 和 android2.3 以下不支持 overflow:auto    ios4 和 android 不支持 overflow-scrolling# 滚动穿透问题解决:# 在列表容器的父元素上设置样式overflow:hidden来禁用滚动#切换弹窗时候切换类名$(&apos;htm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端收集">
+<meta property="og:url" content="http://zlxbuzz.github.io/2016/10/18/m/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="滚动12345678问题:    ios4 和 android2.2 以下不支持 position:fixed    ios 和 android2.3 以下不支持 overflow:auto    ios4 和 android 不支持 overflow-scrolling# 滚动穿透问题解决:# 在列表容器的父元素上设置样式overflow:hidden来禁用滚动#切换弹窗时候切换类名$(&apos;htm">
+<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端收集">
+<meta name="twitter:description" content="滚动12345678问题:    ios4 和 android2.2 以下不支持 position:fixed    ios 和 android2.3 以下不支持 overflow:auto    ios4 和 android 不支持 overflow-scrolling# 滚动穿透问题解决:# 在列表容器的父元素上设置样式overflow:hidden来禁用滚动#切换弹窗时候切换类名$(&apos;htm">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zlxbuzz.github.io/2016/10/18/m/"/>
+
+  <title> 移动端收集 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动端收集
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-18T14:10:08+08:00" content="2016-10-18">
+              2016-10-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">问题:</div><div class="line">    ios4 和 android2.2 以下不支持 position:fixed</div><div class="line">    ios 和 android2.3 以下不支持 overflow:auto</div><div class="line">    ios4 和 android 不支持 overflow-scrolling</div><div class="line"># 滚动穿透问题解决:</div><div class="line"># 在列表容器的父元素上设置样式overflow:hidden来禁用滚动</div><div class="line">#切换弹窗时候切换类名</div><div class="line">$('html').addClass('noscroll');$('html').removeClass('noscroll');</div></pre></td></tr></table></figure>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">margin: <span class="keyword">auto</span>;</div><div class="line">position: absolute;</div><div class="line">top: <span class="number">0</span>; left: <span class="number">0</span>; bottom: <span class="number">0</span>; right: <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>先将div left，top分别50%，则div的上边和左边分别定位到了中间，之后再用margin进行width/2的left和height/2的top位移，正好就定位到了中间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">position: relative;</div><div class="line">left: <span class="number">50</span>%; <span class="comment">//相对于父级</span></div><div class="line">transform: translate(<span class="number">-50</span>%);<span class="comment">//translate如果是％，则基于自身的高度和宽度</span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">position:absolute;</div><div class="line">top:<span class="number">50</span>%;</div><div class="line">left:<span class="number">50</span>%;</div><div class="line">border:<span class="number">1</span>px solid <span class="meta">#eee;</span></div><div class="line">margin-left:<span class="number">-330</span>px;</div><div class="line">margin-top:<span class="number">-165</span>px;</div><div class="line">width:<span class="number">660</span>px;</div><div class="line">height:<span class="number">331</span>px;</div></pre></td></tr></table></figure>
+<h2 id="placeholder-颜色"><a href="#placeholder-颜色" class="headerlink" title="placeholder 颜色"></a>placeholder 颜色</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:-moz-placeholder</span> &#123; <span class="comment">/* Mozilla Firefox 4 to 18 */</span></div><div class="line">    <span class="attribute">color</span>: <span class="number">#f00</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-pseudo">::-moz-placeholder</span> &#123; <span class="comment">/* Mozilla Firefox 19+ */</span></div><div class="line">    <span class="attribute">color</span>: <span class="number">#f00</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span>,</div><div class="line"><span class="selector-tag">textarea</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#f00</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span>,</div><div class="line"><span class="selector-tag">textarea</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#f00</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="input-相关"><a href="#input-相关" class="headerlink" title="input 相关"></a>input 相关</h2><p> 如果给一个input设置了readonly属性，为了防止光标出现，可以采用onfocus=”this.blur()”属性。</p>
+<p> 禁止表单自动填充，在前面加一个 <input type="password"> 并设置css让不在页面中出现即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">style</span>=<span class="string">&#123;&#123;position:</span> '<span class="attr">absolute</span>', <span class="attr">top:</span> '<span class="attr">-999px</span>'&#125;&#125;/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="background-image-比img-更加节省资源"><a href="#background-image-比img-更加节省资源" class="headerlink" title="background-image 比img 更加节省资源"></a>background-image 比img 更加节省资源</h2><h2 id="line-height相关"><a href="#line-height相关" class="headerlink" title="line-height相关"></a>line-height相关</h2><p>字体有个默认高度，如果希望外部块级元素自适应字体的高度，需要设置line-height=1;</p>
+<h2 id="移动端1px问题"><a href="#移动端1px问题" class="headerlink" title="移动端1px问题"></a>移动端1px问题</h2><p>当采用lib-flex的时候，android中经常会遇到border 1px问题。其实这和border没有关系，只要是1px，2px这种比较小的高度或者长度，在一些机型中都会出现问题，<br>当采用rem作为单位的时候，当最终计算出来的px小于1px时候，就会出现线条粗细不一，甚至消失的情况，这里我设置了min-height:1px这个属性，同时设置height:xxrem<br>左右高清适配方案，目前解决了大部分问题.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">http://www.cnblogs.com/surfaces/p/5158582.html</div><div class="line">/* //采用背景图的方式，webkit内核方向和w3c方向相反。有点问题,暂时不用。 */</div><div class="line">/* //分别生成bottom和right */</div><div class="line">/* background-image:-webkit-linear-gradient(90deg, #e0e0e0, #e0e0e0 50% ,transparent 50%),-webkit-linear-gradient(270deg, #e0e0e0, #e0e0e0 50% ,transparent 50%); */</div><div class="line">/* background-image:linear-gradient(0, #e0e0e0, #e0e0e0 50% ,transparent 50%),linear-gradient(90deg, #e0e0e0, #e0e0e0 50% ,transparent 50%); */</div><div class="line">/* background-position:bottom,right; */</div><div class="line">/* background-size:100% 1px,1px 100%;/*!no*/ */</div><div class="line">/* background-repeat:no-repeat; */</div><div class="line"></div><div class="line"></div><div class="line">//由于lib-flex 对未对android做dpr的处理，所以导致android上的线条过粗，这里采用transform的方式将border缩放，形成1px的效果，目前缩放.5就可以满足视觉，主要用了一个less的mixin.</div><div class="line">//设置下边线</div><div class="line">.setBottomLine(@c: #C7C7C7) &#123;</div><div class="line">  &amp; &#123;</div><div class="line">    position: relative;</div><div class="line">  &#125;</div><div class="line">  &amp;:after &#123;</div><div class="line">    content: " ";</div><div class="line">    position: absolute;</div><div class="line">    left: 0;</div><div class="line">    bottom:0;</div><div class="line">    width: 100%;</div><div class="line">    height:1px;</div><div class="line">    border-bottom: 1px solid @c;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  [data-dpr="1"] &amp;:after&#123;</div><div class="line">    transform-origin: 0 0;</div><div class="line">    transform: scaleY(0.5);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//设置下右边线</div><div class="line">setBRLine(@c: #C7C7C7) &#123;</div><div class="line">  &amp; &#123;</div><div class="line">    position: relative;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  &amp;:after &#123;</div><div class="line">    content: " ";</div><div class="line">    position: absolute;</div><div class="line">    top: 0;</div><div class="line">    right:0;</div><div class="line">    width:100%;</div><div class="line">    height: 100%;</div><div class="line">    border-right: 1px solid @c;</div><div class="line">    border-bottom: 1px solid @c;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  [data-dpr="1"] &amp;:after &#123;</div><div class="line">    width:200%;</div><div class="line">    height: 200%;</div><div class="line">    transform-origin: 0 0;</div><div class="line">    transform: scale(0.5);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="font"><a href="#font" class="headerlink" title="font"></a>font</h2><p>css定义了5种字体：<br>1.serif 上下有短线进行装饰。<br>2.sans-serif 没有上下短线。<br>3.monospace 字符宽度完全相同。<br>4.cursive 可能有弯曲，或者由花体部分和小的弯曲部分组成。<br>5.fantasy 其他。</p>
+<h2 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h2><p>假如font-size为14px，line-height设置为18px，其差除以2，得到的2分别到内容区<br>的顶部和地步，则会获得一个18px的行内框(inline box).</p>
+<h2 id="float相关"><a href="#float相关" class="headerlink" title="float相关"></a>float相关</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> 具有包裹性和破坏性</div><div class="line"><span class="keyword">float</span> 几乎等同于<span class="built_in">display</span>:<span class="keyword">inline</span>-block（没有多个<span class="keyword">inline</span>-block中间有空格的bug）,</div></pre></td></tr></table></figure>
+<h2 id="android-点击输入框上移"><a href="#android-点击输入框上移" class="headerlink" title="android 点击输入框上移"></a>android 点击输入框上移</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="regexp">/Android [4-6]/</span>.test(navigator.appVersion)) &#123;</div><div class="line">   <span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">document</span>.activeElement.tagName==<span class="string">"INPUT"</span> || <span class="built_in">document</span>.activeElement.tagName==<span class="string">"TEXTAREA"</span>) &#123;</div><div class="line">            <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">document</span>.activeElement.scrollIntoViewIfNeeded();</div><div class="line">            &#125;,<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="倒计时"><a href="#倒计时" class="headerlink" title="倒计时"></a>倒计时</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//倒计时一般采用setTimeout，来解决误差</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * @brief 倒计时</div><div class="line"> *</div><div class="line"> * @param cb 每 interval 触发的回调函数</div><div class="line"> * @param interval 事件间隔(毫秒)</div><div class="line"> * @param ms 倒计时时间差，默认为当前时间(毫秒)</div><div class="line"> */</div><div class="line"><span class="keyword">const</span> countDown = <span class="function">(<span class="params">cb,interval,ms</span>) =&gt;</span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> interval  = interval || <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> ms        = ms || <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  cb(ms);</div><div class="line">  <span class="comment">//当前时间戳，用来计算时间误差</span></div><div class="line">  <span class="keyword">var</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  <span class="keyword">var</span> count     = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span>(ms &gt; <span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">var</span> watcher = setTimeout(__countDown,interval);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">__countDown</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">var</span> offset = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - (startTime + count * interval);</div><div class="line">    <span class="keyword">var</span> nextTime = interval - offset ;</div><div class="line">    <span class="keyword">if</span>(nextTime &lt; <span class="number">0</span> )&#123;</div><div class="line">      nextTime = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    ms-=interval;</div><div class="line">    <span class="keyword">if</span>(ms &lt; <span class="number">0</span>)&#123;</div><div class="line">      clearTimeout(watcher);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      cb(ms);</div><div class="line">      watcher = setTimeout(__countDown,nextTime);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background-size  有cover和contain，如果比原图片大 则cover会往外放大，反之会往内缩小，</div><div class="line">img则设置<span class="number">100</span>%即可.</div></pre></td></tr></table></figure>
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>如果是android 4.4.4以下不支持promise，需要 <code>require(&#39;es6-promise&#39;).polyfill();</code><br>不支持ios7</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/12/event/" rel="next" title="事件相关">
+                <i class="fa fa-chevron-left"></i> 事件相关
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/07/ie/" rel="prev" title="ie">
+                ie <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="buzzmjx" />
+          <p class="site-author-name" itemprop="name">buzzmjx</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动"><span class="nav-number">1.</span> <span class="nav-text">滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直居中"><span class="nav-number">2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholder-颜色"><span class="nav-number">3.</span> <span class="nav-text">placeholder 颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-相关"><span class="nav-number">4.</span> <span class="nav-text">input 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-image-比img-更加节省资源"><span class="nav-number">5.</span> <span class="nav-text">background-image 比img 更加节省资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height相关"><span class="nav-number">6.</span> <span class="nav-text">line-height相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端1px问题"><span class="nav-number">7.</span> <span class="nav-text">移动端1px问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font"><span class="nav-number">8.</span> <span class="nav-text">font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height"><span class="nav-number">9.</span> <span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float相关"><span class="nav-number">10.</span> <span class="nav-text">float相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android-点击输入框上移"><span class="nav-number">11.</span> <span class="nav-text">android 点击输入框上移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倒计时"><span class="nav-number">12.</span> <span class="nav-text">倒计时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">13.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">14.</span> <span class="nav-text">axios</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
