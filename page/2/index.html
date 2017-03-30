@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,122 @@
             
               
                 
+                <a class="post-title-link" href="/2015/06/11/php-auth/" itemprop="url">
+                  HTTP Basic Authentication
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-06-11T17:34:58+08:00" content="2015-06-11">
+              2015-06-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>类似于路由器登陆的弹出框，打开地址就是一个对话框，可以输入用户名和密码。主要是在访问一个需要<code>HTTP Basic Authentication</code>的<code>URL</code>的时候，如果没有提供用户名和密码，服务器就会返回<code>401</code>。如果直接在浏览器中打开此<code>URL</code>，服务器可以通过向客户端浏览器发送<code>Authentication Required</code>信息，使其弹出一个用户名／密码输入窗口。<br>server端<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_SERVER[<span class="string">'PHP_AUTH_USER'</span>])) &#123;</div><div class="line">    header(<span class="string">'WWW-Authenticate: Basic realm="haha"'</span>);</div><div class="line">    header(<span class="string">'HTTP/1.0 401 Unauthorized'</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'Text to send if user hits Cancel button'</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">&#125; </div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">if</span>($_SERVER[<span class="string">'PHP_AUTH_USER'</span>] === <span class="string">'123'</span> &amp;&amp; $_SERVER[<span class="string">'PHP_AUTH_PW'</span>] === <span class="string">'321'</span>) &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"hello world"</span>; </div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">    header(<span class="string">'WWW-Authenticate: Basic realm="My Realm"'</span>);</div><div class="line">    header(<span class="string">'HTTP/1.0 401 Unauthorized'</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'Text to send if user hits Cancel button'</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>客户端可以通过<code>curl</code>，<code>fsocket</code>等测试，这里采用简单的<code>curl</code>测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="_">-s</span> http://123:321@localhost  //返回 hello world</div></pre></td></tr></table></figure>
+<p>以下为转载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$fp = fsockopen(<span class="string">"www.example.com"</span>, <span class="number">80</span>, $errno, $errstr, <span class="number">30</span>);</div><div class="line">$out = <span class="string">"GET / HTTP/1.1\r\n"</span>;</div><div class="line">$out .= <span class="string">"Host: www.example.com\r\n"</span>;</div><div class="line">$out .= <span class="string">"Authorization: Basic "</span> . base64_encode(<span class="string">"user:pass"</span>) . <span class="string">"\r\n"</span>;</div><div class="line">fwrite($fp, $out);</div><div class="line"><span class="keyword">while</span> (!feof($fp)) &#123;</div><div class="line">    <span class="keyword">echo</span> fgets($fp, <span class="number">128</span>);</div><div class="line">&#125;</div><div class="line">fclose($fp);</div><div class="line"></div><div class="line"><span class="comment">/*AJAX的话可以用setRequestHeader,注意这里要写到open()的后面。不然chrome下会报错</span></div><div class="line"></div><div class="line">xhr.setRequestHeader("Authorization", "Basic base64加密的字符串");//字符串格式："用户名:密码</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/06/11/elemjisuan/" itemprop="url">
                   ele.me外卖平分算钱
                 </a>
@@ -248,7 +364,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-06-11T14:54:18+08:00" content="2015-06-11">
               2015-06-11
             </time>
@@ -260,7 +376,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/其他/" itemprop="url" rel="index">
@@ -362,7 +478,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-06-10T13:04:01+08:00" content="2015-06-10">
               2015-06-10
             </time>
@@ -374,7 +490,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -486,7 +602,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-06-03T11:37:40+08:00" content="2015-06-03">
               2015-06-03
             </time>
@@ -498,7 +614,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/linux/" itemprop="url" rel="index">
@@ -637,7 +753,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-05-21T15:34:59+08:00" content="2015-05-21">
               2015-05-21
             </time>
@@ -649,7 +765,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/angular/" itemprop="url" rel="index">
@@ -689,7 +805,7 @@
           <p>用了<code>angular</code>也有一段时间了,遇到坑是一大堆,特此记录一下,以便以后能用到.随着<code>Angular 2.0</code>的到来,越来越多的公司会用到,还需要不断的学习~<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/21/angular-source/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -752,7 +868,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-05-01T15:27:59+08:00" content="2015-05-01">
               2015-05-01
             </time>
@@ -764,7 +880,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
@@ -876,7 +992,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-27T15:06:24+08:00" content="2015-04-27">
               2015-04-27
             </time>
@@ -888,7 +1004,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
@@ -991,7 +1107,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-26T09:59:38+08:00" content="2015-04-26">
               2015-04-26
             </time>
@@ -1003,7 +1119,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/mysql/" itemprop="url" rel="index">
@@ -1013,7 +1129,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -1121,7 +1237,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-14T17:06:14+08:00" content="2015-04-14">
               2015-04-14
             </time>
@@ -1133,7 +1249,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -1143,7 +1259,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -1248,7 +1364,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-07T17:35:57+08:00" content="2015-04-07">
               2015-04-07
             </time>
@@ -1260,7 +1376,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/angularjs/" itemprop="url" rel="index">
@@ -1342,150 +1458,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/17/php-book/" itemprop="url">
-                  php-book
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-03-17T13:41:25+08:00" content="2015-03-17">
-              2015-03-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####PHP：<br>PHP核心技术与最佳实践（PHP内核，缓存与优化）<br>深入PHP（面向对象，设计模式，单元测试与持续集成）<br>还有两本专门讲内核的：<br>PHP扩展开发及内核应用（在线）<br>TIPI（Thinking In PHP Internals，深入理解PHP内核，在线）</p>
-<p>####MySQL：<br>高性能MySQL（MySQL优化，复制与备份）<br>MySQL技术内幕：InnoDB存储引擎（InnoDB引擎配置与优化）<br>MySQL内核：InnoDB存储引擎（InnoDB引擎源码分析）</p>
-<p>####Linux：<br>Linux系统管理技术手册（全面描述Linux管理技术）<br>Unix环境高级编程（类Unix下系统编程）<br>Unix网络编程（socket编程）</p>
-<p>####Redis：<br>Redis设计与实现（redis源码分析）</p>
-<p>####Nginx：<br>Nginx开发从入门到精通（Nginx模块开发，在线）</p>
-<p>####算法与数据结构：<br>数据结构与算法分析（C语言版）<br>算法导论</p>
-<p>####其它：<br>深入理解计算机系统<br>现代操作系统（或操作系统概念）<br>数据库系统概念<br>TCP/IP详解<br>编译原理<br>离散数学及其应用</p>
-<p>.简单做一下自我介绍,? 然后谈一下近三年来你的得意之作?<br>1.面试官看过你的简历，会问一些你做的项目的用户量、pv、吞吐量、相关难点和解决方法等<br>2.数据库设计经验,为什么进行分表? 分库?<br>一般多少数据量开始分表? 分库? 分库分表的目的? 什么是数据库垂直拆分? 水平拆分? 分区等等？可以举例说明<br>3.数据库优化有哪些? 分别需要注意什么?<br>4.web开发方面会遇到哪些缓存? 分别如何优化?<br>5.给你256M的内存,对10G的文件进行排序(文件每行1个数字),如何实现？<br>对10G的文件进行查找如何实现？<br>统计10G文件每个关键字出现的次数如何实现？<br>6.假如你现在是12306火车订票的设计师,你该如何设计满足全国人民订票?<br>7.假如有1亿用户的访问量,你的服务器架构是怎样的? 用户信息的存储方案如何设计?<br>8.如果你是技术组长,所带团队任务进度无法完成你该如何解决?<br>如果在进度排满的前提下插入任务,你该如何保证总进度不延期?<br>如果有的工程师今天预定任务没有完成,你该如何解决?<br>9.从你的经验方面谈一下如何构建高性能web站点? 需要哪些环节? 步骤? 每个步骤需要注意什么如何优化等?</p>
-<ol>
-<li>为什么要对数据库进行主从分离? </li>
-<li>如何处理多服务器共享session?</li>
-<li>一个10G的表,你用php程序统计某个字段出现的次数,思路是?</li>
-<li>会告诉你一个nginx日志例子,用你认为最佳的编程语言统计一下http响应时间超过1秒的前10个url?</li>
-<li>给你一个mysql配置文件,用你认为最佳的编程语言解析该文件?</li>
-<li>给你两个路径a和b,写一个算法或思路计算a和b差距几层并显示a和b的交集?</li>
-<li>给你一个url,在nginx配置一下rewrite指定到某个具体路径?</li>
-<li>一个php文件的解释过程是? 一般加速php有哪些? 提高php整体性能会用到哪些技术?</li>
-<li>session和cookie生存周期区别? 存储位置区别?</li>
-<li>require、include、require_once、include_once区别? 加载区别? 如果程序按需加载某个php文件你如何实现?</li>
-<li>chrome号称为多线程的,所以多线程和多进程的区别为?</li>
-<li>php在2011年底出现hash碰撞,hash碰撞原理为? 如何进行修复?</li>
-<li>web不安全因素有哪些? 分别如何防范?</li>
-<li>假如两个单链表相交,写一个最优算法计算交点位置,说思路也可以?</li>
-<li>假如你是技术组长? 如何提高团队效率?</li>
-<li>nginx负载均衡有哪些? 如果其中一台服务器挂掉,报警机制如何实现?</li>
-<li>不优化前提下,apache一般最大连接数为? nginx一般最大连接数为? mysql 每秒insert ? select ? update ? delete?</li>
-<li>mysql 数据类型有哪些 ? 分别占用多少存储空间 ?</li>
-<li>nginx设置缓存js、css、图片等信息,缓存的实现原理是?</li>
-<li>如何提高缓存命中率? 如何对缓存进行颗粒化?</li>
-<li>php的内存回收机制是?</li>
-<li>我的所有问题都问完了,你有什么问题问我没有？</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1531,8 +1503,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1540,7 +1512,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1548,8 +1520,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1593,7 +1565,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
