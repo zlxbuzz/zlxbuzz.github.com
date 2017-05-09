@@ -235,6 +235,208 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/28/nginx/" itemprop="url">
+                  nginx 相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-28T16:27:31+08:00" content="2015-12-28">
+              2015-12-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端代理请求-将请求域名代理掉，解决跨域问题"><a href="#前端代理请求-将请求域名代理掉，解决跨域问题" class="headerlink" title="前端代理请求,将请求域名代理掉，解决跨域问题"></a>前端代理请求,将请求域名代理掉，解决跨域问题</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">location</span>  /v6/ &#123;</div><div class="line">      <span class="attribute">proxy_set_header</span> X-Forward-For <span class="variable">$remote_addr</span> ;</div><div class="line">      <span class="attribute">proxy_set_header</span>   X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">      <span class="attribute">proxy_set_header</span> host app.conf.ayibang.com;</div><div class="line">      <span class="attribute">proxy_pass</span> http://app.conf.ayibang.com;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="设置expires-和cache-control"><a href="#设置expires-和cache-control" class="headerlink" title="设置expires 和cache-control"></a>设置expires 和cache-control</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> location ~ .*\.(git|js|swf|jpg|png|jpeg|bmp|eot|svg|woff|ttf)$ &#123;</div><div class="line">       root           $&#123;PRJ_ROOT&#125;/dist/$&#123;OUTDIR&#125;;</div><div class="line">       expires max;</div><div class="line"> &#125;</div><div class="line">/* max:指定“Expires”的值为31 December2037 23:59:59GMT,"Cache-Control"的值为10年。 */</div><div class="line">/* -1：指定“Expires”的值为当前服务器时间-1s，即永远过期。 */</div><div class="line">/* off：不修改“Expires”和"Cache-Control"的值 */</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#强制刷新html</span></div><div class="line"><span class="attribute">location</span> / &#123;</div><div class="line">    <span class="attribute">root</span>           <span class="variable">$&#123;PRJ_ROOT&#125;</span>/dist/<span class="variable">$&#123;OUTDIR&#125;</span>/ ;</div><div class="line">    <span class="attribute">index</span> index_<span class="variable">$&#123;ENV&#125;</span>.html;</div><div class="line">    <span class="attribute">add_header</span> Cache-Control <span class="literal">no</span>-store;</div><div class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/index\.html$</span> /index_<span class="variable">$&#123;ENV&#125;</span>.html <span class="literal">last</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="nginx设置字符串替换-同时兼容ie"><a href="#nginx设置字符串替换-同时兼容ie" class="headerlink" title="nginx设置字符串替换,同时兼容ie"></a>nginx设置字符串替换,同时兼容ie</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">if</span> ( <span class="variable">$http_user_agent</span> <span class="regexp">~* "MSIE</span> [<span class="number">6</span>-<span class="number">9</span>].[<span class="number">0</span>-<span class="number">9</span>]<span class="string">") &#123;</span></div><div class="line">     set <span class="variable">$ua</span> "<span class="string">";</span></div><div class="line"> &#125;</div><div class="line"> if ( <span class="variable">$http_user_agent</span> !~* "MSIE [<span class="number">6</span>-<span class="number">9</span>].[<span class="number">0</span>-<span class="number">9</span>]<span class="string">") &#123;</span></div><div class="line">     set <span class="variable">$ua</span> http://api.com;</div><div class="line"> &#125;</div><div class="line">sub_filter  &lt;/head&gt;   '&lt;/head&gt; &lt;script&gt; window.APPURL= &#123;"USER_URL<span class="string">":"</span><span class="variable">$ua</span><span class="string">"&#125;&lt;/script&gt;' ; #一般可和rg_ng等配置生成工具一起使用作为接口的全局配置</span></div><div class="line">sub_filter_once on;</div><div class="line">sub_filter_types text/html;</div></pre></td></tr></table></figure>
+<h2 id="nginx-设置自定义头"><a href="#nginx-设置自定义头" class="headerlink" title="nginx 设置自定义头"></a>nginx 设置自定义头</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">add_header</span> ZLX-URL http://user-gw.com [always]; <span class="comment">#1.7.5以上 always 对于任意响应都会有效，否则只对2xx/3xx</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/23/vagrant/" itemprop="url">
+                  vagrant初探
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-23T14:30:35+08:00" content="2015-11-23">
+              2015-11-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  对于新的系统<code>Mac/Linux/Windows</code>来说,装开发环境是一件很痛苦的事,要根据不同的系统装不同的环境,非常凌乱。偶然听说有<code>Vagrant</code>,它可以通过<code>VirtualBox</code>来封装一个linux环境, 我们只需要在本地进行开发，代码就可以同步到环境中，非常方便。</p>
+<p>##安装##<br>  只需要装两个：<br>  <code>VirtualBox</code> : <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Downloads</a><br>  <code>Vagrant</code>    : <a href="http://downloads.vagrantup.com/" target="_blank" rel="external">http://downloads.vagrantup.com/</a><br> 完成之后，可以通过<code>vagrant box add [box_name]</code>自动下载相关的<code>box</code>镜像，添加到<code>vagrant</code>中去。如果网速比较慢的话,可以通过url去下载相应的<code>box</code>文件,然后通过<code>vagrant box add [box_name]  [file]</code>,<code>box_name</code>可以自定义。<br><a href="https://atlas.hashicorp.com/boxes/search" target="_blank" rel="external">相关的box列表</a></p>
+<h2 id="初始化环境"><a href="#初始化环境" class="headerlink" title="初始化环境"></a>初始化环境</h2><p>   安装完之后可以通过 <code>vagrant box list</code>  查看所有的<code>box</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">~ &gt;vagrant box list</div><div class="line">laravel (virtualbox, 0) <span class="comment">#有个name为laravel的环境</span></div></pre></td></tr></table></figure></p>
+<p>  现在可以创建开发目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir ~/code <span class="comment">#新建开发目录</span></div><div class="line">vagrant init laravel <span class="comment">#相关环境的初始化，会生成`Vagrantfile`的配置文件</span></div><div class="line">vagrant up <span class="comment">#开启环境,如果每次修改配置文件后，可以通过vagrant reload 重置环境</span></div></pre></td></tr></table></figure></p>
+<p> 完成之后，如果不做配置修改，默认的开发目录就对应linux的<code>/vargrant</code>目录,linux环境就已经搭建好了，可以通过 <code>vagrant ssh</code> 直接连接到环境</p>
+<h2 id="Vagrantfile文件配置"><a href="#Vagrantfile文件配置" class="headerlink" title="Vagrantfile文件配置"></a>Vagrantfile文件配置</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="built_in">do</span> |<span class="type">config</span>|</div><div class="line">  <span class="type">#目前大多数都是版本2</span>的配置</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>所对应的box名称，如果没有，则默认为<code>base</code><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">config<span class="selector-class">.vm</span><span class="selector-class">.box</span> = <span class="string">"laravel"</span></div><div class="line">config<span class="selector-class">.vm</span><span class="selector-class">.host_name</span> = <span class="string">"lln"</span> ##主机名</div></pre></td></tr></table></figure></p>
+<p>网络的配置,本地的8080端口对应虚拟机的80端口，可以通过<code>localhost:8080</code>访问<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">config</span><span class="selector-class">.vm</span><span class="selector-class">.network</span> <span class="selector-pseudo">:forwarded_port</span>, <span class="selector-tag">guest</span>: 80, <span class="selector-tag">host</span>: 8080</div><div class="line"><span class="selector-tag">config</span><span class="selector-class">.vm</span><span class="selector-class">.network</span> <span class="selector-pseudo">:private_network</span>, <span class="selector-tag">ip</span>: "192<span class="selector-class">.168</span><span class="selector-class">.50</span><span class="selector-class">.4</span>" #通过固定的<span class="selector-tag">ip</span>去访问，也可以通过本地域名绑定到这个<span class="selector-tag">ip</span></div></pre></td></tr></table></figure></p>
+<p>文件的同步，默认为本地的开发目录到 <code>/vagrant</code><br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">config</span>.vm.<span class="keyword">synced_folder </span><span class="string">"code/"</span>, <span class="string">"/home/lln/code"</span> <span class="comment">#第一个为本地目录，第二个为虚拟机的挂载目录，会同步</span></div></pre></td></tr></table></figure></p>
+<p>修改完成之后可以随时<code>vagrant reload</code>重载配置</p>
+<p>ps:有些环境可能<code>nginx</code>需要自己配置一下.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/06/11/php-auth/" itemprop="url">
                   HTTP Basic Authentication
                 </a>
@@ -1203,261 +1405,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/14/phalcon-rest/" itemprop="url">
-                  在用phalcon进行restful时遇到的一个小坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-04-14T17:06:14+08:00" content="2015-04-14">
-              2015-04-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/restful/" itemprop="url" rel="index">
-                    <span itemprop="name">restful</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在用<code>angular</code>和<code>phalcon</code>做前后端交互的时候，由于前端主要采用了<code>ngResource</code>，在进行访问请求的时候，由于后台目录设置的结构为 <code>api/users</code> ,<br>前端设置服务的时候<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>如果想要获取所有的用户不传id，由于目录的存在,前端会默认访问 <code>api/users</code> 而不是 <code>api/users/</code>，从而倒是<code>301</code>转移。所以一般会在目录下设置虚拟的参数用来传递，或者约定必须传值，通过不同值进行后台选择处理。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/07/ui-calendar/" itemprop="url">
-                  angulajs的ui日历插件--ui-calendar
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-04-07T17:35:57+08:00" content="2015-04-07">
-              2015-04-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/angularjs/" itemprop="url" rel="index">
-                    <span itemprop="name">angularjs</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在做一个基于angularjs的项目，需要用到日历插件，基于jquery有一款插件<a href="http://fullcalendar.io/docs" target="_blank" rel="external">FullCalendar</a>。为了减少jquery的依赖性，还是采用一款基于angular的日历插件<a href="https://github.com/angular-ui/ui-calendar" target="_blank" rel="external">ui-calendar</a>，记录下使用方法。</p>
-<p>##引入对应的js和css<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.css" target="_blank" rel="external">fullcalendar.css</a> –fullcalendar的样式<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/jquery.js" target="_blank" rel="external">jquery.js</a> –jQuery插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/angular/angular.js" target="_blank" rel="external">angular.js</a> –angularjs插件<br><a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/calendar.min.js" target="_blank" rel="external">calendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/moment/moment.js" target="_blank" rel="external">moment.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/fullcalendar.js" target="_blank" rel="external">fullcalendar.js</a>,<a href="https://raw.githubusercontent.com/buzzmjx/lib/master/fullcalendar/dist/gcal.js" target="_blank" rel="external">gcal.js</a> –必要的js包</p>
-<blockquote>
-<p><strong>注意：</strong>需要下载到本地使用。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">" fullcalendar/dist/fullcalendar.css"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" angular/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" moment/moment.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/calendar.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/fullcalendar.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">" fullcalendar/dist/gcal.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>##js初始化</p>
-<p>####1.依赖注入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  myAppModule= angular.module(<span class="string">'MyApp'</span>, [<span class="string">'ui.calendar'</span>]);</div></pre></td></tr></table></figure></p>
-<p>####2.简单配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myAppModule.controller(<span class="string">'myappController'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">$scope.eventSources = [];<span class="comment">//事件源</span></div></pre></td></tr></table></figure></p>
-<h5 id="根据api一共有多种数据的导入"><a href="#根据api一共有多种数据的导入" class="headerlink" title="根据api一共有多种数据的导入"></a>根据api一共有多种数据的导入</h5><pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.eventSource = &#123;</div><div class="line">		<span class="attr">url</span>: <span class="string">"http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic"</span>,</div><div class="line">		<span class="attr">className</span>: <span class="string">'gcal-event'</span>,           <span class="comment">// an option!</span></div><div class="line">		currentTimezone: <span class="string">'America/Chicago'</span> <span class="comment">// an option!</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$scope.events = [</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'All Day Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">1</span>)&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Long Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">5</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">2</span>)&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">999</span>,<span class="attr">title</span>: <span class="string">'Repeating Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d - <span class="number">3</span>, <span class="number">16</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">id</span>: <span class="number">999</span>,<span class="attr">title</span>: <span class="string">'Repeating Event'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">4</span>, <span class="number">16</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Birthday Party'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">19</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d + <span class="number">1</span>, <span class="number">22</span>, <span class="number">30</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>: <span class="string">'Click for Google'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),<span class="attr">url</span>: <span class="string">'http://google.com/'</span>&#125;</div><div class="line">];</div><div class="line">如果allDay 为 <span class="literal">true</span> 则时间块可以在日历中进行拖动</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$scope.eventsF = <span class="function"><span class="keyword">function</span> (<span class="params">start, end, timezone, callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getTime() / <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">Date</span>(end).getTime() / <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Date</span>(start).getMonth();</div><div class="line">  <span class="keyword">var</span> events = [&#123;<span class="attr">title</span>: <span class="string">'Feed Me '</span> + m,<span class="attr">start</span>: s + (<span class="number">50000</span>),<span class="attr">end</span>: s + (<span class="number">100000</span>),<span class="attr">allDay</span>: <span class="literal">false</span>, <span class="attr">className</span>: [<span class="string">'customFeed'</span>]&#125;];</div><div class="line">  callback(events);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$scope.calEventsExt = &#123;</div><div class="line">   <span class="attr">color</span>: <span class="string">'#f00'</span>,</div><div class="line">   <span class="attr">textColor</span>: <span class="string">'yellow'</span>,</div><div class="line">   <span class="attr">events</span>: [ </div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Lunch'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Lunch 2'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">12</span>, <span class="number">0</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, d, <span class="number">14</span>, <span class="number">0</span>),<span class="attr">allDay</span>: <span class="literal">false</span>&#125;,</div><div class="line">	  &#123;<span class="attr">type</span>:<span class="string">'party'</span>,<span class="attr">title</span>: <span class="string">'Click for Google'</span>,<span class="attr">start</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">28</span>),<span class="attr">end</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(y, m, <span class="number">29</span>),<span class="attr">url</span>: <span class="string">'http://google.com/'</span>&#125;</div><div class="line">	]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>####3.对插件的参数配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$scope.uiConfig = &#123;</div><div class="line">	  <span class="attr">calendar</span>:&#123;</div><div class="line">		<span class="attr">height</span>: <span class="number">450</span>,<span class="comment">//宽度</span></div><div class="line">		editable: <span class="literal">true</span>,<span class="comment">//可编辑</span></div><div class="line">		header:&#123;<span class="comment">//各个部位的需要显示的内容</span></div><div class="line">		  left: <span class="string">'month basicWeek basicDay agendaWeek agendaDay'</span>,</div><div class="line">		  <span class="attr">center</span>: <span class="string">'title'</span>,</div><div class="line">		  <span class="attr">right</span>: <span class="string">'today prev,next'</span></div><div class="line">		&#125;,</div><div class="line">		<span class="attr">dayClick</span>: $scope.alertEventOnClick,<span class="comment">//日期点击触发函数</span></div><div class="line">		eventDrop: $scope.alertOnDrop,<span class="comment">//日期拖拽出发函数</span></div><div class="line">		eventResize: $scope.alertOnResize，</div><div class="line">		eventResize <span class="comment">//日期拉伸出发函数 这些函数写在配置的前面～</span></div><div class="line">	  &#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>####相关参数的中文<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$scope.uiConfig.calendar.dayNames = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</div><div class="line">    $scope.uiConfig.calendar.dayNamesShort = [<span class="string">"星期日"</span>, <span class="string">"星期一"</span>, <span class="string">"星期二"</span>, <span class="string">"星期三"</span>, <span class="string">"星期四"</span>, <span class="string">"星期五"</span>, <span class="string">"星期六"</span>];</div><div class="line">    $scope.uiConfig.calendar.monthNamesShort = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</div><div class="line">    $scope.uiConfig.calendar.monthNames = [<span class="string">"一月"</span>, <span class="string">"二月"</span>, <span class="string">"三月"</span>, <span class="string">"四月"</span>, <span class="string">"五月"</span>, <span class="string">"六月"</span>, <span class="string">"七月"</span>,<span class="string">"八月"</span>,<span class="string">"九月"</span>,<span class="string">"十月"</span>,<span class="string">"十一月"</span>,<span class="string">"十二月"</span>];</div></pre></td></tr></table></figure></p>
-<p>####常见的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//由于ui-calendar的ng-model会生成标志_d等参数,如果进行ajax 清空重复赋值可能会出现数据无法重新加载的问题</span></div><div class="line"><span class="comment">//当点击下个月的按钮时可以采用slice方法将数组清空后重新赋值</span></div><div class="line">$scope.uiConfig 下的calendar参数可以</div><div class="line">viewRender:<span class="function"><span class="keyword">function</span>(<span class="params">view</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> date =<span class="keyword">new</span> <span class="built_in">Date</span>(view.intervalStart._d).getMonth()+<span class="number">1</span>;</div><div class="line">		workorderService.get(&#123;<span class="attr">type</span>:<span class="number">4</span>,<span class="attr">pid</span>:$stateParams.sid,<span class="attr">m</span>:date&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		$scope.eventSources.splice(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">		$scope.events=[];</div><div class="line">		<span class="keyword">var</span> result=datas.handle(data);</div><div class="line">		<span class="keyword">if</span>(result)&#123;</div><div class="line">			$scope.workorders=result.workorders;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> $scope.workorders)&#123;</div><div class="line">				$scope.events.push(&#123;</div><div class="line">					<span class="string">'title'</span>:<span class="string">'&lt;i class="ace-icon fa fa-barcode" style="color:'</span>+$scope.workorders[i].color+<span class="string">'"&gt;&lt;/i&gt; '</span>+$scope.workorders[i].wkname,</div><div class="line">					<span class="string">'start'</span>:$scope.workorders[i].jihua_date,</div><div class="line">					<span class="string">'allDay'</span>:<span class="literal">true</span>,</div><div class="line">					<span class="string">'backgroundColor'</span>:<span class="string">'white'</span>,</div><div class="line">					<span class="string">'textColor'</span>:<span class="string">'black'</span>,</div><div class="line">					<span class="string">'borderColor'</span>:<span class="string">'white'</span>,</div><div class="line">					<span class="string">'wkid'</span>:$scope.workorders[i].wkid</div><div class="line">				&#125;);			</div><div class="line">			&#125;</div><div class="line">			$scope.eventSources.push($scope.events);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1503,7 +1450,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1520,7 +1467,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
