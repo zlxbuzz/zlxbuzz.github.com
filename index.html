@@ -469,7 +469,9 @@
       
         
           
-            <h2 id="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱"><a href="#webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱" class="headerlink" title="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱"></a>webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */</span></div><div class="line">在配置的时候加上<span class="string">'css-loader?-autoprefixer'</span>就可以了</div></pre></td></tr></table></figure>
+            <h2 id="webpack1"><a href="#webpack1" class="headerlink" title="webpack1"></a>webpack1</h2><p>构建的时候-webkit-flex消失导致ios8系统样式错乱<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */</span></div><div class="line">在配置的时候加上<span class="string">'css-loader?-autoprefixer'</span>就可以了</div></pre></td></tr></table></figure></p>
+<p><code>new webpack.optimize.CommonsChunkPlugin</code> 改变publicpath但是chunkhash不变</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">当改变publicpath的时候chunkhash值不会变，但是内容会变，会导致cdn资源被覆盖,一般就会采用hash，</div><div class="line">此问题在webpack2中已经解决</div></pre></td></tr></table></figure>
 <h2 id="webpack2-构建遇到不同开发目录chunkhash不一致"><a href="#webpack2-构建遇到不同开发目录chunkhash不一致" class="headerlink" title="webpack2 构建遇到不同开发目录chunkhash不一致"></a>webpack2 构建遇到不同开发目录chunkhash不一致</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换</div></pre></td></tr></table></figure>
 
           

@@ -85,18 +85,21 @@
 
 
 <meta name="description" content="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱12/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */在配置的时候加上&apos;css-loader?-autoprefixer&apos;就可以了
-webpack2 构建遇到不同开发目录chunkhash不一致12目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换">
+new webpack.optimize.CommonsChunkPlugin 改变publicpath但是chunkhash不变
+12当改变pub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack遇到的坑">
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/03/30/webpack/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱12/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */在配置的时候加上&apos;css-loader?-autoprefixer&apos;就可以了
-webpack2 构建遇到不同开发目录chunkhash不一致12目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换">
-<meta property="og:updated_time" content="2017-05-19T08:12:22.000Z">
+new webpack.optimize.CommonsChunkPlugin 改变publicpath但是chunkhash不变
+12当改变pub">
+<meta property="og:updated_time" content="2017-05-26T03:31:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack遇到的坑">
 <meta name="twitter:description" content="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱12/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */在配置的时候加上&apos;css-loader?-autoprefixer&apos;就可以了
-webpack2 构建遇到不同开发目录chunkhash不一致12目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换">
+new webpack.optimize.CommonsChunkPlugin 改变publicpath但是chunkhash不变
+12当改变pub">
 
 
 
@@ -279,7 +282,9 @@ webpack2 构建遇到不同开发目录chunkhash不一致12目前原因未知，
       
 
       
-        <h2 id="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱"><a href="#webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱" class="headerlink" title="webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱"></a>webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */</span></div><div class="line">在配置的时候加上<span class="string">'css-loader?-autoprefixer'</span>就可以了</div></pre></td></tr></table></figure>
+        <h2 id="webpack1"><a href="#webpack1" class="headerlink" title="webpack1"></a>webpack1</h2><p>构建的时候-webkit-flex消失导致ios8系统样式错乱<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */</span></div><div class="line">在配置的时候加上<span class="string">'css-loader?-autoprefixer'</span>就可以了</div></pre></td></tr></table></figure></p>
+<p><code>new webpack.optimize.CommonsChunkPlugin</code> 改变publicpath但是chunkhash不变</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">当改变publicpath的时候chunkhash值不会变，但是内容会变，会导致cdn资源被覆盖,一般就会采用hash，</div><div class="line">此问题在webpack2中已经解决</div></pre></td></tr></table></figure>
 <h2 id="webpack2-构建遇到不同开发目录chunkhash不一致"><a href="#webpack2-构建遇到不同开发目录chunkhash不一致" class="headerlink" title="webpack2 构建遇到不同开发目录chunkhash不一致"></a>webpack2 构建遇到不同开发目录chunkhash不一致</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换</div></pre></td></tr></table></figure>
 
       
@@ -435,7 +440,7 @@ webpack2 构建遇到不同开发目录chunkhash不一致12目前原因未知，
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱"><span class="nav-number">1.</span> <span class="nav-text">webpack1构建的时候-webkit-flex消失导致ios8系统样式错乱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack2-构建遇到不同开发目录chunkhash不一致"><span class="nav-number">2.</span> <span class="nav-text">webpack2 构建遇到不同开发目录chunkhash不一致</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack1"><span class="nav-number">1.</span> <span class="nav-text">webpack1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack2-构建遇到不同开发目录chunkhash不一致"><span class="nav-number">2.</span> <span class="nav-text">webpack2 构建遇到不同开发目录chunkhash不一致</span></a></li></ol></div>
             
           </div>
         </section>
