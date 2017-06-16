@@ -235,6 +235,106 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/09/css-marster-1/" itemprop="url">
+                  css权威指南笔记1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
+              2017-06-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="css历史"><a href="#css历史" class="headerlink" title="css历史"></a>css历史</h2><h4 id="非结构化页面的缺点"><a href="#非结构化页面的缺点" class="headerlink" title="非结构化页面的缺点"></a>非结构化页面的缺点</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>建立内容索引困难，搜索引擎困难</div><div class="line"><span class="number">2.</span>降低可读性(盲人)</div><div class="line"><span class="number">3.</span>高级页面表现只能应用于某种文档结构.</div><div class="line"><span class="number">4.</span>不宜与维护.</div></pre></td></tr></table></figure>
+<h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素是文档结构的基础，每个元素生成一个框(box,盒)，包含元素的内容</p>
+<h4 id="替换元素"><a href="#替换元素" class="headerlink" title="替换元素"></a>替换元素</h4><p>用来替换元素的内容并非由文档内容直接表示（img，input等）</p>
+<h4 id="非替换元素"><a href="#非替换元素" class="headerlink" title="非替换元素"></a>非替换元素</h4><p>大多数元素，其内容由用户代理（浏览器）在元素本身的生成框中显示(div,span)</p>
+<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p>块级元素生成一个元素框，会填充其父元素的内容区域，旁边不能有其他元素。（div，p，ul，li）</p>
+<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p>行内元素在一个文本行内生成元素框，不打断文本（a）<br>建议xhtml中层次结构分明，行内元素可以在块级元素内，反之则不行，但是css没有这个限制</p>
+<h4 id="候选样式表"><a href="#候选样式表" class="headerlink" title="候选样式表"></a>候选样式表</h4><p>在rel上添加alternate,即可让用户选择不同的样式表，最新的浏览器不知道入口在哪</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/my/" itemprop="url">
                   个人工作习惯
                 </a>
@@ -661,7 +761,7 @@
       
         
           
-            <h2 id="弹窗蒙层滚动遇到的坑"><a href="#弹窗蒙层滚动遇到的坑" class="headerlink" title="弹窗蒙层滚动遇到的坑"></a>弹窗蒙层滚动遇到的坑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">移动端局部滚动我一般都用</div><div class="line">overflow:auto;<span class="comment">/*android*/</span></div><div class="line">-webkit-overflow-scrolling:touch;<span class="comment">/*iphone*/</span></div><div class="line"></div><div class="line"></div><div class="line">但是<span class="string">`-webkit-overflow-scrolling`</span>有比较多的坑，网上有很多介绍，我这里说下我遇到的问题的解决方案：</div><div class="line"><span class="number">1.</span>fixed元素不能放在有<span class="string">`-webkit-overflow-scrolling:touch`</span>中的容器内，尽量放在和他同级的地方。</div><div class="line"><span class="number">2.</span>由于<span class="string">`fastclick`</span>在部分手机内会有兼容问题，比如body为<span class="number">100</span>%高度，内容却超出了这个高度，则这个内容超出的部分点击事件会有坑，所以建议所有的页面都放在<span class="number">100</span>%高度的容器中，如果有弹出框等蒙层效果的dom，一律已fixed放在body下面即可。</div></pre></td></tr></table></figure>
+            <h2 id="弹窗蒙层滚动遇到的坑"><a href="#弹窗蒙层滚动遇到的坑" class="headerlink" title="弹窗蒙层滚动遇到的坑"></a>弹窗蒙层滚动遇到的坑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">移动端局部滚动我一般都用</div><div class="line">overflow:auto;<span class="comment">/*android*/</span></div><div class="line">-webkit-overflow-scrolling:touch;<span class="comment">/*iphone*/</span></div><div class="line"></div><div class="line"></div><div class="line">但是<span class="string">`-webkit-overflow-scrolling`</span>有比较多的坑，网上有很多介绍，我这里说下我遇到的问题的解决方案：</div><div class="line"><span class="number">1.</span>fixed元素不能放在有<span class="string">`-webkit-overflow-scrolling:touch`</span>中的容器内，尽量放在和他同级的地方,或者将touch改成auto。</div><div class="line"><span class="number">2.</span>由于<span class="string">`fastclick`</span>在部分手机内会有兼容问题，比如body为<span class="number">100</span>%高度，内容却超出了这个高度，则这个内容超出的部分点击事件会有坑，所以建议所有的页面都放在<span class="number">100</span>%高度的容器中，如果有弹出框等蒙层效果的dom，一律已fixed放在body下面即可。</div></pre></td></tr></table></figure>
 <h2 id="华为等部分android手机可能出现最终的font－size不一致的情况"><a href="#华为等部分android手机可能出现最终的font－size不一致的情况" class="headerlink" title="华为等部分android手机可能出现最终的font－size不一致的情况"></a>华为等部分android手机可能出现最终的font－size不一致的情况</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#默写华为手机 设置的fontSize，不等于最终编译得到的</div><div class="line">getComputedStyle(html).fontSize 和 html.style.fontSize 不一致</div><div class="line">所以可能会导致rem的计算有问题。</div><div class="line"></div><div class="line">解决方法就是让计算出来的getComputedStyle(html).fontSize 的值等于html.style.fontSize</div><div class="line"></div><div class="line">可以通过循环或者比例相除的方式计算</div><div class="line"></div><div class="line">比如:</div><div class="line">    做一个循环</div><div class="line">    不断的获取parseInt(window.getComputedStyle(html).fontSize),如果返回值等于</div><div class="line">    parseInt(html.style.fontSize),则html.setAttribute('style', 'font-size:'+font + 'px!important');</div><div class="line">    否则parseInt(html.style.fontSize)＋＋</div></pre></td></tr></table></figure>
 <h2 id="华为部分手机不支持jusify-content-space-between"><a href="#华为部分手机不支持jusify-content-space-between" class="headerlink" title="华为部分手机不支持jusify-content space-between"></a>华为部分手机不支持jusify-content space-between</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如题，采用autoprefixer也是无效，后来就用了子元素的<span class="attribute">flex</span>属性，要实现两边排列的效果，</div><div class="line">首先必须是块元素，左右的子元素<span class="attribute">flex</span>设为1，右边不设置（默认为自身大小即可）</div></pre></td></tr></table></figure>
 <h2 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">问题:</div><div class="line">    ios4 和 android2.2 以下不支持 position:fixed</div><div class="line">    ios 和 android2.3 以下不支持 overflow:auto</div><div class="line">    ios4 和 android 不支持 overflow-scrolling</div><div class="line"># 滚动穿透问题解决:</div><div class="line"># 在列表容器的父元素上设置样式overflow:hidden来禁用滚动</div><div class="line">#切换弹窗时候切换类名</div><div class="line">$('html').addClass('noscroll');$('html').removeClass('noscroll');</div></pre></td></tr></table></figure>
@@ -1092,100 +1192,6 @@ https://github.com/smysnk/gulp-rev-all/issues/106
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/27/npm/" itemprop="url">
-                  npm常用包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-01-27T14:22:12+08:00" content="2016-01-27">
-              2016-01-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="使用scp2进行ssh传输"><a href="#使用scp2进行ssh传输" class="headerlink" title="使用scp2进行ssh传输"></a>使用scp2进行ssh传输</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#下载nodejs</span></div><div class="line"><span class="comment">#通过npm 下载全局命令scp2</span></div><div class="line">npm i -g scp2</div><div class="line"><span class="comment">#直接使用</span></div><div class="line">scp2 img/ zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/ <span class="comment">#复制目录的内容到某个目录</span></div><div class="line">scp2 a.jpg zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1231,7 +1237,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>

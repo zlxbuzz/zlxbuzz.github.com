@@ -235,6 +235,100 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/27/npm/" itemprop="url">
+                  npm常用包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-01-27T14:22:12+08:00" content="2016-01-27">
+              2016-01-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="使用scp2进行ssh传输"><a href="#使用scp2进行ssh传输" class="headerlink" title="使用scp2进行ssh传输"></a>使用scp2进行ssh传输</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#下载nodejs</span></div><div class="line"><span class="comment">#通过npm 下载全局命令scp2</span></div><div class="line">npm i -g scp2</div><div class="line"><span class="comment">#直接使用</span></div><div class="line">scp2 img/ zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/ <span class="comment">#复制目录的内容到某个目录</span></div><div class="line">scp2 a.jpg zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/28/nginx/" itemprop="url">
                   nginx 相关
                 </a>
@@ -1275,136 +1369,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/26/mysql-bak/" itemprop="url">
-                  mysql数据库迁移
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-04-26T09:59:38+08:00" content="2015-04-26">
-              2015-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-                  . 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##数据迁移前停止mysql服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sudi service mysql stop</div><div class="line">```                                              </div><div class="line"><span class="comment">##将目标目录的所属用户组和用户和文件夹权限修改为mysql:mysql  0700</span></div><div class="line">```bash</div><div class="line">sudo chown -R mysql:mysql /var/data</div><div class="line">sudo chmod -R 700 /var/data</div><div class="line">```                                              </div><div class="line"><span class="comment">##为了防止意外，把现有数据复制(cp)到新目录，而不是移动(mv)，为保证文件的权限和属性一致，复制过程一定要添加 -a 参数，由于数据量比较大添加 –v 参数可查看复制的过程</span></div><div class="line">```bash</div><div class="line">cp -av /var/lib/mysql/* var/data</div><div class="line">```                                                                                        </div><div class="line"><span class="comment">##修改my.cnf文件中的datadir参数值</span></div><div class="line">datadir=/var/lib/mysql/ 修改为  /var/data                        </div><div class="line"><span class="comment">##编辑apparmor关于mysql的权限配置文件</span></div><div class="line">```bash</div><div class="line">datadir=/var/lib/mysql/ 修改为 datadir=/var/data</div><div class="line">```                                             </div><div class="line"><span class="comment">##修改usr.sbin.mysqld文件中的数据存储目录的相关权限</span></div><div class="line">```bash</div><div class="line">vi /etc/apparmor.d/usr.sbin.mysqld</div></pre></td></tr></table></figure></p>
-<p>/var/lib/mysql/ r 修改为            /var/data/ r<br>/var/lib/mysql/<strong> rwk 修改为    /var/data/</strong> rwk                 </p>
-<p>##保存退出后重启apparmor服务</p>
-<pre><code class="bash">service apparmor reload
-</code></pre>
-<p>##重启apparmor权限服务进程和mysql进程</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1450,7 +1414,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
