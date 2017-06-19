@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -248,7 +248,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -348,7 +348,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-05-09T10:30:07+08:00" content="2017-05-09">
               2017-05-09
             </time>
@@ -443,7 +443,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-05-04T13:59:58+08:00" content="2017-05-04">
               2017-05-04
             </time>
@@ -538,7 +538,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-03-30T13:03:31+08:00" content="2017-03-30">
               2017-03-30
             </time>
@@ -636,7 +636,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-07T20:45:57+08:00" content="2016-11-07">
               2016-11-07
             </time>
@@ -730,7 +730,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-18T14:10:08+08:00" content="2016-10-18">
               2016-10-18
             </time>
@@ -761,7 +761,8 @@
       
         
           
-            <h2 id="弹窗蒙层滚动遇到的坑"><a href="#弹窗蒙层滚动遇到的坑" class="headerlink" title="弹窗蒙层滚动遇到的坑"></a>弹窗蒙层滚动遇到的坑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">移动端局部滚动我一般都用</div><div class="line">overflow:auto;<span class="comment">/*android*/</span></div><div class="line">-webkit-overflow-scrolling:touch;<span class="comment">/*iphone*/</span></div><div class="line"></div><div class="line"></div><div class="line">但是<span class="string">`-webkit-overflow-scrolling`</span>有比较多的坑，网上有很多介绍，我这里说下我遇到的问题的解决方案：</div><div class="line"><span class="number">1.</span>fixed元素不能放在有<span class="string">`-webkit-overflow-scrolling:touch`</span>中的容器内，尽量放在和他同级的地方,或者将touch改成auto。</div><div class="line"><span class="number">2.</span>由于<span class="string">`fastclick`</span>在部分手机内会有兼容问题，比如body为<span class="number">100</span>%高度，内容却超出了这个高度，则这个内容超出的部分点击事件会有坑，所以建议所有的页面都放在<span class="number">100</span>%高度的容器中，如果有弹出框等蒙层效果的dom，一律已fixed放在body下面即可。</div></pre></td></tr></table></figure>
+            <figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="clean">## flex相关</span></div><div class="line"></div><div class="line">```js</div><div class="line">flex布局下的img标签默认会撑满整个屏幕，需要设置百分比来限制高度</div></pre></td></tr></table></figure>
+<h2 id="弹窗蒙层滚动遇到的坑"><a href="#弹窗蒙层滚动遇到的坑" class="headerlink" title="弹窗蒙层滚动遇到的坑"></a>弹窗蒙层滚动遇到的坑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">移动端局部滚动我一般都用</div><div class="line">overflow:auto;<span class="comment">/*android*/</span></div><div class="line">-webkit-overflow-scrolling:touch;<span class="comment">/*iphone*/</span></div><div class="line"></div><div class="line"></div><div class="line">但是<span class="string">`-webkit-overflow-scrolling`</span>有比较多的坑，网上有很多介绍，我这里说下我遇到的问题的解决方案：</div><div class="line"><span class="number">1.</span>fixed元素不能放在有<span class="string">`-webkit-overflow-scrolling:touch`</span>中的容器内，尽量放在和他同级的地方,或者将touch改成auto。</div><div class="line"><span class="number">2.</span>由于<span class="string">`fastclick`</span>在部分手机内会有兼容问题，比如body为<span class="number">100</span>%高度，内容却超出了这个高度，则这个内容超出的部分点击事件会有坑，所以建议所有的页面都放在<span class="number">100</span>%高度的容器中，如果有弹出框等蒙层效果的dom，一律已fixed放在body下面即可。</div><div class="line"></div><div class="line">或者所有的移动端滚动采用<span class="string">`better-scroll`</span>等动画库</div></pre></td></tr></table></figure>
 <h2 id="华为等部分android手机可能出现最终的font－size不一致的情况"><a href="#华为等部分android手机可能出现最终的font－size不一致的情况" class="headerlink" title="华为等部分android手机可能出现最终的font－size不一致的情况"></a>华为等部分android手机可能出现最终的font－size不一致的情况</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#默写华为手机 设置的fontSize，不等于最终编译得到的</div><div class="line">getComputedStyle(html).fontSize 和 html.style.fontSize 不一致</div><div class="line">所以可能会导致rem的计算有问题。</div><div class="line"></div><div class="line">解决方法就是让计算出来的getComputedStyle(html).fontSize 的值等于html.style.fontSize</div><div class="line"></div><div class="line">可以通过循环或者比例相除的方式计算</div><div class="line"></div><div class="line">比如:</div><div class="line">    做一个循环</div><div class="line">    不断的获取parseInt(window.getComputedStyle(html).fontSize),如果返回值等于</div><div class="line">    parseInt(html.style.fontSize),则html.setAttribute('style', 'font-size:'+font + 'px!important');</div><div class="line">    否则parseInt(html.style.fontSize)＋＋</div></pre></td></tr></table></figure>
 <h2 id="华为部分手机不支持jusify-content-space-between"><a href="#华为部分手机不支持jusify-content-space-between" class="headerlink" title="华为部分手机不支持jusify-content space-between"></a>华为部分手机不支持jusify-content space-between</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如题，采用autoprefixer也是无效，后来就用了子元素的<span class="attribute">flex</span>属性，要实现两边排列的效果，</div><div class="line">首先必须是块元素，左右的子元素<span class="attribute">flex</span>设为1，右边不设置（默认为自身大小即可）</div></pre></td></tr></table></figure>
 <h2 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">问题:</div><div class="line">    ios4 和 android2.2 以下不支持 position:fixed</div><div class="line">    ios 和 android2.3 以下不支持 overflow:auto</div><div class="line">    ios4 和 android 不支持 overflow-scrolling</div><div class="line"># 滚动穿透问题解决:</div><div class="line"># 在列表容器的父元素上设置样式overflow:hidden来禁用滚动</div><div class="line">#切换弹窗时候切换类名</div><div class="line">$('html').addClass('noscroll');$('html').removeClass('noscroll');</div></pre></td></tr></table></figure>
@@ -845,7 +846,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-05-12T14:53:50+08:00" content="2016-05-12">
               2016-05-12
             </time>
@@ -940,7 +941,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-03-27T10:55:08+08:00" content="2016-03-27">
               2016-03-27
             </time>
@@ -1034,7 +1035,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-02-25T19:56:40+08:00" content="2016-02-25">
               2016-02-25
             </time>
@@ -1128,7 +1129,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-02-15T14:45:38+08:00" content="2016-02-15">
               2016-02-15
             </time>
@@ -1238,7 +1239,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">47</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1246,7 +1247,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -1255,7 +1256,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">35</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1299,7 +1300,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
