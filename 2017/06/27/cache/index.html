@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="restful," />
+  <meta name="keywords" content="m," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="在用angular和phalcon做前后端交互的时候，由于前端主要采用了ngResource，在进行访问请求的时候，由于后台目录设置的结构为 api/users ,前端设置服务的时候1234angular.module(&apos;appService&apos;, [&apos;ngResource&apos;]).factory(&apos;userService&apos;,function($resource)&amp;#123;	return $reso">
+<meta name="description" content="参考来源：https://juejin.im/entry/58882350b123db16a344c74a
+1234　//PC浏览器，设置禁用页面缓存header即可实现后退刷新res.header(&apos;Cache-Control&apos;, &apos;private, no-cache, no-store, must-revalidate&apos;);res.header(&apos;Expires&apos;, &apos;-1&apos;);res.hea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在用phalcon进行restful时遇到的一个小坑">
-<meta property="og:url" content="http://zlxbuzz.github.io/2015/04/14/phalcon-rest/index.html">
+<meta property="og:title" content="移动端回退产生缓存不执行js">
+<meta property="og:url" content="http://zlxbuzz.github.io/2017/06/27/cache/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在用angular和phalcon做前后端交互的时候，由于前端主要采用了ngResource，在进行访问请求的时候，由于后台目录设置的结构为 api/users ,前端设置服务的时候1234angular.module(&apos;appService&apos;, [&apos;ngResource&apos;]).factory(&apos;userService&apos;,function($resource)&amp;#123;	return $reso">
-<meta property="og:updated_time" content="2017-03-27T05:42:06.000Z">
+<meta property="og:description" content="参考来源：https://juejin.im/entry/58882350b123db16a344c74a
+1234　//PC浏览器，设置禁用页面缓存header即可实现后退刷新res.header(&apos;Cache-Control&apos;, &apos;private, no-cache, no-store, must-revalidate&apos;);res.header(&apos;Expires&apos;, &apos;-1&apos;);res.hea">
+<meta property="og:updated_time" content="2017-06-27T03:23:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在用phalcon进行restful时遇到的一个小坑">
-<meta name="twitter:description" content="在用angular和phalcon做前后端交互的时候，由于前端主要采用了ngResource，在进行访问请求的时候，由于后台目录设置的结构为 api/users ,前端设置服务的时候1234angular.module(&apos;appService&apos;, [&apos;ngResource&apos;]).factory(&apos;userService&apos;,function($resource)&amp;#123;	return $reso">
+<meta name="twitter:title" content="移动端回退产生缓存不执行js">
+<meta name="twitter:description" content="参考来源：https://juejin.im/entry/58882350b123db16a344c74a
+1234　//PC浏览器，设置禁用页面缓存header即可实现后退刷新res.header(&apos;Cache-Control&apos;, &apos;private, no-cache, no-store, must-revalidate&apos;);res.header(&apos;Expires&apos;, &apos;-1&apos;);res.hea">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://zlxbuzz.github.io/2015/04/14/phalcon-rest/"/>
+  <link rel="canonical" href="http://zlxbuzz.github.io/2017/06/27/cache/"/>
 
-  <title> 在用phalcon进行restful时遇到的一个小坑 | Hexo </title>
+  <title> 移动端回退产生缓存不执行js | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
@@ -236,7 +239,7 @@
             
             
               
-                在用phalcon进行restful时遇到的一个小坑
+                移动端回退产生缓存不执行js
               
             
           </h1>
@@ -248,42 +251,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-04-14T17:06:14+08:00" content="2015-04-14">
-              2015-04-14
+            <time itemprop="dateCreated" datetime="2017-06-27T10:36:46+08:00" content="2017-06-27">
+              2017-06-27
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-                  . 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/restful/" itemprop="url" rel="index">
-                    <span itemprop="name">restful</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -307,9 +279,10 @@
       
 
       
-        <p>在用<code>angular</code>和<code>phalcon</code>做前后端交互的时候，由于前端主要采用了<code>ngResource</code>，在进行访问请求的时候，由于后台目录设置的结构为 <code>api/users</code> ,<br>前端设置服务的时候<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>如果想要获取所有的用户不传id，由于目录的存在,前端会默认访问 <code>api/users</code> 而不是 <code>api/users/</code>，从而倒是<code>301</code>转移。所以一般会在目录下设置虚拟的参数用来传递，或者约定必须传值，通过不同值进行后台选择处理。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <p>参考来源：<a href="https://juejin.im/entry/58882350b123db16a344c74a" target="_blank" rel="external">https://juejin.im/entry/58882350b123db16a344c74a</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="comment">//PC浏览器，设置禁用页面缓存header即可实现后退刷新</span></div><div class="line">res.header(<span class="string">'Cache-Control'</span>, <span class="string">'private, no-cache, no-store, must-revalidate'</span>);</div><div class="line">res.header(<span class="string">'Expires'</span>, <span class="string">'-1'</span>);</div><div class="line">res.header(<span class="string">'Pragma'</span>, <span class="string">'no-cache'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//支持bfcache/page cache的移动端浏览器，JS监听pageshow/pagehide</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在HTML中写入服务端页面生成版本号，与本地存储中的版本号对比判断是否发生了后退并使用缓存中的页面 */</span></div><div class="line">&lt;!-- 安卓webview 后退强制刷新解决方案 START --&gt;</div><div class="line">&lt;jsp:useBean id="now" class="java.util.Date" /&gt;</div><div class="line">&lt;input type="hidden" id="SERVER_TIME" value="$&#123;now.getTime()&#125;"/&gt;</div><div class="line">&lt;script&gt;</div><div class="line">//每次webview重新打开H5首页，就把server time记录本地存储</div><div class="line">var SERVER_TIME = document.getElementById("SERVER_TIME");</div><div class="line">var REMOTE_VER = SERVER_TIME &amp;&amp; SERVER_TIME.value;</div><div class="line">if(REMOTE_VER)&#123;</div><div class="line">    var LOCAL_VER = sessionStorage &amp;&amp; sessionStorage.PAGEVERSION;</div><div class="line">    if(LOCAL_VER &amp;&amp; parseInt(LOCAL_VER) &gt;= parseInt(REMOTE_VER))&#123;</div><div class="line">        //说明html是从本地缓存中读取的</div><div class="line">        location.reload(true);</div><div class="line">    &#125;else&#123;</div><div class="line">        //说明html是从server端重新生成的，更新LOCAL_VER</div><div class="line">        sessionStorage.PAGEVERSION = REMOTE_VER;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;!-- 安卓webview 后退强制刷新解决方案 END --&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,7 +304,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/restful/" rel="tag">#restful</a>
+            <a href="/tags/m/" rel="tag">#m</a>
           
         </div>
       
@@ -340,17 +313,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/07/ui-calendar/" rel="next" title="angulajs的ui日历插件--ui-calendar">
-                <i class="fa fa-chevron-left"></i> angulajs的ui日历插件--ui-calendar
+              <a href="/2017/06/09/css-marster-1/" rel="next" title="css权威指南笔记1">
+                <i class="fa fa-chevron-left"></i> css权威指南笔记1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/04/26/mysql-bak/" rel="prev" title="mysql数据库迁移">
-                mysql数据库迁移 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

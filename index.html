@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,103 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/27/cache/" itemprop="url">
+                  移动端回退产生缓存不执行js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-06-27T10:36:46+08:00" content="2017-06-27">
+              2017-06-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考来源：<a href="https://juejin.im/entry/58882350b123db16a344c74a" target="_blank" rel="external">https://juejin.im/entry/58882350b123db16a344c74a</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　<span class="comment">//PC浏览器，设置禁用页面缓存header即可实现后退刷新</span></div><div class="line">res.header(<span class="string">'Cache-Control'</span>, <span class="string">'private, no-cache, no-store, must-revalidate'</span>);</div><div class="line">res.header(<span class="string">'Expires'</span>, <span class="string">'-1'</span>);</div><div class="line">res.header(<span class="string">'Pragma'</span>, <span class="string">'no-cache'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//支持bfcache/page cache的移动端浏览器，JS监听pageshow/pagehide</span></div><div class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (event.persisted) &#123;</div><div class="line">        <span class="built_in">window</span>.location.reload()</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*在HTML中写入服务端页面生成版本号，与本地存储中的版本号对比判断是否发生了后退并使用缓存中的页面 */</span></div><div class="line">&lt;!-- 安卓webview 后退强制刷新解决方案 START --&gt;</div><div class="line">&lt;jsp:useBean id="now" class="java.util.Date" /&gt;</div><div class="line">&lt;input type="hidden" id="SERVER_TIME" value="$&#123;now.getTime()&#125;"/&gt;</div><div class="line">&lt;script&gt;</div><div class="line">//每次webview重新打开H5首页，就把server time记录本地存储</div><div class="line">var SERVER_TIME = document.getElementById("SERVER_TIME");</div><div class="line">var REMOTE_VER = SERVER_TIME &amp;&amp; SERVER_TIME.value;</div><div class="line">if(REMOTE_VER)&#123;</div><div class="line">    var LOCAL_VER = sessionStorage &amp;&amp; sessionStorage.PAGEVERSION;</div><div class="line">    if(LOCAL_VER &amp;&amp; parseInt(LOCAL_VER) &gt;= parseInt(REMOTE_VER))&#123;</div><div class="line">        //说明html是从本地缓存中读取的</div><div class="line">        location.reload(true);</div><div class="line">    &#125;else&#123;</div><div class="line">        //说明html是从server端重新生成的，更新LOCAL_VER</div><div class="line">        sessionStorage.PAGEVERSION = REMOTE_VER;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;!-- 安卓webview 后退强制刷新解决方案 END --&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/09/css-marster-1/" itemprop="url">
                   css权威指南笔记1
                 </a>
@@ -248,7 +345,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -335,6 +432,103 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/09/css-marster-2/" itemprop="url">
+                  css权威指南笔记2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
+              2017-06-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>html {color:black;}<br>p {color:gray;}<br>h2 {color:red}</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><h3 id="选择器分组"><a href="#选择器分组" class="headerlink" title="选择器分组"></a>选择器分组</h3><p>h2,p {color:gray;}</p>
+<h3 id="声明分组"><a href="#声明分组" class="headerlink" title="声明分组"></a>声明分组</h3><p>//推荐分号隔开每个声明<br>h1 {font: 18px;color: purple;}</p>
+<h3 id="选择器和声明综合分组"><a href="#选择器和声明综合分组" class="headerlink" title="选择器和声明综合分组"></a>选择器和声明综合分组</h3><p>h1,h2,h3 {color:gray;background:white;}</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/my/" itemprop="url">
                   个人工作习惯
                 </a>
@@ -348,7 +542,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-05-09T10:30:07+08:00" content="2017-05-09">
               2017-05-09
             </time>
@@ -443,7 +637,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-05-04T13:59:58+08:00" content="2017-05-04">
               2017-05-04
             </time>
@@ -538,7 +732,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-03-30T13:03:31+08:00" content="2017-03-30">
               2017-03-30
             </time>
@@ -636,7 +830,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-11-07T20:45:57+08:00" content="2016-11-07">
               2016-11-07
             </time>
@@ -730,7 +924,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-10-18T14:10:08+08:00" content="2016-10-18">
               2016-10-18
             </time>
@@ -846,7 +1040,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-12T14:53:50+08:00" content="2016-05-12">
               2016-05-12
             </time>
@@ -941,7 +1135,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-03-27T10:55:08+08:00" content="2016-03-27">
               2016-03-27
             </time>
@@ -973,198 +1167,6 @@
         
           
             <h2 id="防止clickjacking-点击劫持"><a href="#防止clickjacking-点击劫持" class="headerlink" title="防止clickjacking(点击劫持)"></a>防止clickjacking(点击劫持)</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//阻止任何页面对当前页面在iframe中进行加载</div><div class="line">res.set(&#123;`X-FRAME-OPTIONS` : `DENY`&#125;);</div><div class="line"></div><div class="line">//通过js 控制</div><div class="line">&lt;style&gt;</div><div class="line">  body &#123;</div><div class="line">    display : none</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  (function()&#123;</div><div class="line">    if(self == top)&#123;</div><div class="line">        var theBody = document.getElementsByTagName('body')[0];</div><div class="line">        theBody.style.display = "block";</div><div class="line">    &#125;else&#123;</div><div class="line">        top.location = self.location;</div><div class="line">    &#125;</div><div class="line">  &#125;)()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/25/position/" itemprop="url">
-                  angular-ui-bootstrap $position源码分析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-02-25T19:56:40+08:00" content="2016-02-25">
-              2016-02-25
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>$position</code> 是<code>angular-bootstrap</code>实现的一个获取定位元素位置的服务。代码的大致结构为:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.factory(<span class="string">'$position'</span>, [<span class="string">'$document'</span>, <span class="string">'$window'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$document, $window</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">el, cssprop</span>) </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isStaticPositioned</span>(<span class="params">element</span>) </span>&#123;&#125;</div><div class="line">    <span class="comment">//返回3个方法</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">position</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//计算具体元素的定位地址，返回一个带有width、height、top、left的对象</span></div><div class="line">        offset:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//返回元素相对于文档的偏移量</span></div><div class="line">        positionElements:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//返回某元素相对于其依赖容器元素的定位位置</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/15/angular-gulp/" itemprop="url">
-                  常见的gulp任务
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-02-15T14:45:38+08:00" content="2016-02-15">
-              2016-02-15
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="gulp-ng-html2js"><a href="#gulp-ng-html2js" class="headerlink" title="gulp-ng-html2js"></a>gulp-ng-html2js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将模版文件存到angular的$templateCache中,相当于无需加载额外的模版</span></div><div class="line"><span class="keyword">var</span> templateFiles = <span class="string">"src/**/*.&#123;tpl,md&#125;"</span>;</div><div class="line"><span class="keyword">var</span> markdown      = <span class="built_in">require</span>(<span class="string">'gulp-markdown'</span>);</div><div class="line"><span class="keyword">var</span> ngHtml2js     = <span class="built_in">require</span>(<span class="string">'gulp-ng-html2js'</span>);</div><div class="line">gulp.src(templateFiles)</div><div class="line">.pipe(gulpif(<span class="string">'*.md'</span>, markdown()))</div><div class="line">.pipe(rename(&#123;</div><div class="line">        <span class="attr">extname</span>: <span class="string">".tpl"</span></div><div class="line">    &#125;))</div><div class="line">.pipe(ngHtml2js(&#123;</div><div class="line">        <span class="attr">moduleName</span>: <span class="string">"components"</span>,<span class="comment">//angular对应的模块名</span></div><div class="line">        prefix: <span class="string">'components/'</span>,<span class="comment">//$templateCache的名称的前缀("$templateCache.put(prefix)")</span></div><div class="line">        declareModule : <span class="literal">false</span><span class="comment">//不需要独立的模块</span></div><div class="line">    &#125;))</div><div class="line">.pipe(concat(<span class="string">"template.js"</span>))</div><div class="line">.pipe(gulp.dest(<span class="string">'./'</span>));</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
-<h2 id="gulp-rev-all"><a href="#gulp-rev-all" class="headerlink" title="gulp-rev-all"></a>gulp-rev-all</h2><pre><code>有个坑，需要自定义replacer函数来过滤，否则内容中和文件同名的也会加hash。
-https://github.com/smysnk/gulp-rev-all/issues/106
-</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'rev_all'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(releasePath+<span class="string">'/**'</span>)</div><div class="line">        .pipe(revAll.revision(&#123;</div><div class="line">            <span class="attr">dontRenameFile</span>: [<span class="regexp">/^\/favicon.ico$/g</span>, <span class="string">'.html'</span>],</div><div class="line">            <span class="attr">prefix</span>: <span class="string">'http://res.mararun.com/online/louis-web'</span>,</div><div class="line">            <span class="attr">replacer</span>:replacer</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(onlinePath));</div><div class="line">&#125;);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">replacer</span>(<span class="params">fragment, replaceRegExp, newReference, referencedFile</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(referencedFile.revFilenameExtOriginal === <span class="string">'.js'</span> &amp;&amp; !replaceRegExp.toString().match(<span class="regexp">/\.js/</span>))&#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">   fragment.contents = fragment.contents.replace(replaceRegExp, <span class="string">'$1'</span> + newReference + <span class="string">'$3$4'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="gulp-plumber"><a href="#gulp-plumber" class="headerlink" title="gulp-plumber"></a>gulp-plumber</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//错误处理一般用plumber来提醒，不过最好搭配gulp-notify。否则可能会出现中断的问题，加上这个就没有问题了。</span></div><div class="line">.pipe(plumber(&#123;<span class="attr">errorHandler</span>: notify.onError(<span class="string">'Error: &lt;%= error.message %&gt;'</span>)&#125;))</div></pre></td></tr></table></figure>
 
           
         
@@ -1238,8 +1240,8 @@ https://github.com/smysnk/gulp-rev-all/issues/106
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1247,7 +1249,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1255,8 +1257,8 @@ https://github.com/smysnk/gulp-rev-all/issues/106
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1300,7 +1302,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
