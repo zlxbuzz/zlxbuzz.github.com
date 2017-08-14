@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="运行依赖采用yarn安装所需要的运行依赖，比如vue,为了保证版本一致，将这些依赖放到devDependencies,peerDevDependencies。当应用该组件的时候，如果和原来项目中的依赖版本不一致，则会爆出提醒.
-不直接操作子组件的prop值，尽量采用computed或者data1之前遇到props无法watch的情况，原因是v-if为false的时候将属性的默认值覆盖了，需要注意">
+<meta name="description" content="特殊性12345678/*就是优先级*/特殊值代表:0,0,0,0内敛:1,0,0,0(css2.1后新增，之前和id同级，导致id覆盖)id:0,1,0,0class,属性，伪类:0,0,1,0元素，伪元素:0,0,0,1/*通配符,结合符对于特殊性没有贡献*/
+重要性1!important 优先级最高
+继承12/*大多数框模型属性（外边距，内边距，背景，边框）不能继承*//*继承没有特殊性,比">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue组件开发遇到的问题">
-<meta property="og:url" content="http://zlxbuzz.github.io/2017/05/04/vue/index.html">
+<meta property="og:title" content="css权威指南笔记3">
+<meta property="og:url" content="http://zlxbuzz.github.io/2017/06/09/css-marster-3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="运行依赖采用yarn安装所需要的运行依赖，比如vue,为了保证版本一致，将这些依赖放到devDependencies,peerDevDependencies。当应用该组件的时候，如果和原来项目中的依赖版本不一致，则会爆出提醒.
-不直接操作子组件的prop值，尽量采用computed或者data1之前遇到props无法watch的情况，原因是v-if为false的时候将属性的默认值覆盖了，需要注意">
-<meta property="og:updated_time" content="2017-05-25T09:42:00.000Z">
+<meta property="og:description" content="特殊性12345678/*就是优先级*/特殊值代表:0,0,0,0内敛:1,0,0,0(css2.1后新增，之前和id同级，导致id覆盖)id:0,1,0,0class,属性，伪类:0,0,1,0元素，伪元素:0,0,0,1/*通配符,结合符对于特殊性没有贡献*/
+重要性1!important 优先级最高
+继承12/*大多数框模型属性（外边距，内边距，背景，边框）不能继承*//*继承没有特殊性,比">
+<meta property="og:updated_time" content="2017-08-14T09:52:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue组件开发遇到的问题">
-<meta name="twitter:description" content="运行依赖采用yarn安装所需要的运行依赖，比如vue,为了保证版本一致，将这些依赖放到devDependencies,peerDevDependencies。当应用该组件的时候，如果和原来项目中的依赖版本不一致，则会爆出提醒.
-不直接操作子组件的prop值，尽量采用computed或者data1之前遇到props无法watch的情况，原因是v-if为false的时候将属性的默认值覆盖了，需要注意">
+<meta name="twitter:title" content="css权威指南笔记3">
+<meta name="twitter:description" content="特殊性12345678/*就是优先级*/特殊值代表:0,0,0,0内敛:1,0,0,0(css2.1后新增，之前和id同级，导致id覆盖)id:0,1,0,0class,属性，伪类:0,0,1,0元素，伪元素:0,0,0,1/*通配符,结合符对于特殊性没有贡献*/
+重要性1!important 优先级最高
+继承12/*大多数框模型属性（外边距，内边距，背景，边框）不能继承*//*继承没有特殊性,比">
 
 
 
@@ -117,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://zlxbuzz.github.io/2017/05/04/vue/"/>
+  <link rel="canonical" href="http://zlxbuzz.github.io/2017/06/09/css-marster-3/"/>
 
-  <title> vue组件开发遇到的问题 | Hexo </title>
+  <title> css权威指南笔记3 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
@@ -239,7 +242,7 @@
             
             
               
-                vue组件开发遇到的问题
+                css权威指南笔记3
               
             
           </h1>
@@ -251,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-05-04T13:59:58+08:00" content="2017-05-04">
-              2017-05-04
+            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
+              2017-06-09
             </time>
           </span>
 
@@ -279,8 +282,9 @@
       
 
       
-        <h2 id="运行依赖"><a href="#运行依赖" class="headerlink" title="运行依赖"></a>运行依赖</h2><p>采用<code>yarn</code>安装所需要的运行依赖，比如<code>vue</code>,为了保证版本一致，将这些依赖放到<code>devDependencies</code>,<code>peerDevDependencies</code>。当应用该组件的时候，如果和原来项目中的依赖版本不一致，则会爆出提醒.</p>
-<h2 id="不直接操作子组件的prop值，尽量采用computed或者data"><a href="#不直接操作子组件的prop值，尽量采用computed或者data" class="headerlink" title="不直接操作子组件的prop值，尽量采用computed或者data"></a>不直接操作子组件的prop值，尽量采用computed或者data</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前遇到props无法watch的情况，原因是v-<span class="keyword">if</span>为<span class="literal">false</span>的时候将属性的默认值覆盖了，需要注意</div></pre></td></tr></table></figure>
+        <h2 id="特殊性"><a href="#特殊性" class="headerlink" title="特殊性"></a>特殊性</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*就是优先级*/</span></div><div class="line">特殊值代表<span class="selector-pseudo">:0</span>,0,0,0</div><div class="line"></div><div class="line">内敛<span class="selector-pseudo">:1</span>,0,0,0(<span class="selector-tag">css2</span><span class="selector-class">.1</span>后新增，之前和<span class="selector-tag">id</span>同级，导致<span class="selector-tag">id</span>覆盖)</div><div class="line"><span class="selector-tag">id</span><span class="selector-pseudo">:0</span>,1,0,0</div><div class="line"><span class="selector-tag">class</span>,属性，伪类<span class="selector-pseudo">:0</span>,0,1,0</div><div class="line">元素，伪元素<span class="selector-pseudo">:0</span>,0,0,1</div><div class="line"><span class="comment">/*通配符,结合符对于特殊性没有贡献*/</span></div></pre></td></tr></table></figure>
+<h2 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!<span class="selector-tag">important</span> 优先级最高</div></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*大多数框模型属性（外边距，内边距，背景，边框）不能继承*/</span></div><div class="line"><span class="comment">/*继承没有特殊性,比通配符等0特殊性的优先级还要弱*/</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -302,7 +306,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag">#vue</a>
+            <a href="/tags/css/" rel="tag">#css</a>
           
         </div>
       
@@ -311,16 +315,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/30/webpack/" rel="next" title="webpack遇到的坑">
-                <i class="fa fa-chevron-left"></i> webpack遇到的坑
+              <a href="/2017/06/09/css-marster-1/" rel="next" title="css权威指南笔记1">
+                <i class="fa fa-chevron-left"></i> css权威指南笔记1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/09/my/" rel="prev" title="个人工作习惯">
-                个人工作习惯 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/09/css-marster-2/" rel="prev" title="css权威指南笔记2">
+                css权威指南笔记2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -435,7 +439,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行依赖"><span class="nav-number">1.</span> <span class="nav-text">运行依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不直接操作子组件的prop值，尽量采用computed或者data"><span class="nav-number">2.</span> <span class="nav-text">不直接操作子组件的prop值，尽量采用computed或者data</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊性"><span class="nav-number">1.</span> <span class="nav-text">特殊性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要性"><span class="nav-number">2.</span> <span class="nav-text">重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">3.</span> <span class="nav-text">继承</span></a></li></ol></div>
             
           </div>
         </section>
