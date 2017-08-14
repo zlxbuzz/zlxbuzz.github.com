@@ -332,111 +332,6 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/09/css-marster-2/" itemprop="url">
-                  css权威指南笔记2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
-              2017-06-09
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>html {color:black;}<br>p {color:gray;}<br>h2 {color:red}</p>
-<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><h3 id="选择器分组"><a href="#选择器分组" class="headerlink" title="选择器分组"></a>选择器分组</h3><p>h2,p {color:gray;}</p>
-<h3 id="声明分组"><a href="#声明分组" class="headerlink" title="声明分组"></a>声明分组</h3><p>//推荐分号隔开每个声明<br>h1 {font: 18px;color: purple;}</p>
-<h3 id="选择器和声明综合分组"><a href="#选择器和声明综合分组" class="headerlink" title="选择器和声明综合分组"></a>选择器和声明综合分组</h3><p>h1,h2,h3 {color:gray;background:white;}</p>
-<h2 id="类选择器和ID选择器"><a href="#类选择器和ID选择器" class="headerlink" title="类选择器和ID选择器"></a>类选择器和ID选择器</h2><h3 id="多类选择器"><a href="#多类选择器" class="headerlink" title="多类选择器"></a>多类选择器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.warning.urgent &#123;background:red;&#125;//class="urgent warning"</div></pre></td></tr></table></figure>
-<p>注意：浏览器通常不检查id的唯一性，但是还是不要多个元素设置一个id,现代浏览器选择器区分大小写（很老的浏览器不区分）.</p>
-<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span><span class="selector-attr">[class]</span> &#123;<span class="attribute">color</span>:red&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span><span class="selector-attr">[title]</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href="http://baidu.com"]</span> &#123;<span class="attribute">font-weight</span>:bold&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href="http://baidu.com"]</span><span class="selector-attr">[title="aaa"]</span> &#123;<span class="attribute">font-weight</span>:bold&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 需要全局匹配 */</span></div><div class="line"><span class="selector-tag">planet</span><span class="selector-attr">[type="barren rocky"]</span> &#123;<span class="attribute">font-weigth</span>:bold&#125;</div></pre></td></tr></table></figure>
-<h3 id="部分属性选择器"><a href="#部分属性选择器" class="headerlink" title="部分属性选择器"></a>部分属性选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class~="warning"]</span> &#123;<span class="attribute">font-weight</span>:bold;&#125;<span class="comment">/*属性值中的一个用空格来分隔的词 等价于 p.warning*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class^="bar"]</span>  <span class="comment">/*全部属性值以bar开头*/</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class$="bar"]</span>  <span class="comment">/*全部属性值以bar结尾*/</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class*="bar"]</span>  <span class="comment">/*全部属性值包含bar字符串*/</span></div></pre></td></tr></table></figure>
-<h3 id="特定属性选择器"><a href="#特定属性选择器" class="headerlink" title="特定属性选择器"></a>特定属性选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*<span class="selector-attr">[lang|="en"]</span> &#123;<span class="attribute">color</span>:red&#125;<span class="comment">/*lang属性值等于en或en-开头的所有元素*/</span></div></pre></td></tr></table></figure>
-<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">ol</span> <span class="selector-tag">ul</span> <span class="selector-tag">em</span> &#123;<span class="attribute">color</span>:gray&#125;;<span class="comment">/*后代所有元素，不管嵌套多深*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> &gt; <span class="selector-tag">strong</span> &#123;<span class="attribute">color</span>:red&#125;;<span class="comment">/*仅仅是子元素,可以理解为选择作为h1子元素的所有strong元素*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">maring-top</span>:<span class="number">0</span>&#125;;<span class="comment">/*选择紧接在一个h1元素后出现的所有段落*/</span></div></pre></td></tr></table></figure>
-<h2 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h2><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*链接伪类*/</span></div><div class="line"></div><div class="line"><span class="selector-pseudo">:link</span> <span class="comment">/*超链接，带有href属性*/</span></div><div class="line"><span class="selector-pseudo">:visited</span> <span class="comment">/*已访问的超链接*/</span></div><div class="line"></div><div class="line"><span class="comment">/*动态伪类*/</span></div><div class="line"><span class="selector-pseudo">:focus</span> <span class="comment">/*获取焦点*/</span></div><div class="line"><span class="selector-pseudo">:hover</span> <span class="comment">/*鼠标停留*/</span></div><div class="line"><span class="selector-pseudo">:active</span> <span class="comment">/*用户输入激活，比如鼠标点击*/</span></div><div class="line"></div><div class="line"><span class="comment">/*静态伪类*/</span></div><div class="line"><span class="selector-pseudo">:first-child</span> <span class="comment">/*第一个子元素*/</span></div><div class="line"><span class="selector-pseudo">:lang(fr)</span> <span class="comment">/*语言选择*/</span></div></pre></td></tr></table></figure>
-<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:first-letter</span> &#123;<span class="attribute">color</span>:red&#125;<span class="comment">/*一个块级元素的首字母*/</span></div><div class="line"><span class="selector-pseudo">:first-line</span> &#123;<span class="attribute">color</span>:purple&#125; <span class="comment">/*块级元素每一段的第一行文本*/</span></div><div class="line"></div><div class="line"><span class="selector-pseudo">:befor</span>&#123;<span class="attribute">content</span>:<span class="string">"]]"</span>;<span class="attribute">color</span>:silver;&#125; <span class="comment">/*在元素前面插入*/</span></div><div class="line"><span class="selector-pseudo">:after</span>&#123;<span class="attribute">content</span>:<span class="string">"]]"</span>;<span class="attribute">color</span>:silver;&#125; <span class="comment">/*在元素后面插入*/</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2017/06/09/css-marster-3/" itemprop="url">
                   css权威指南笔记3
                 </a>
@@ -584,6 +479,111 @@
 <h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p>块级元素生成一个元素框，会填充其父元素的内容区域，旁边不能有其他元素。（div，p，ul，li）</p>
 <h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p>行内元素在一个文本行内生成元素框，不打断文本（a）<br>建议xhtml中层次结构分明，行内元素可以在块级元素内，反之则不行，但是css没有这个限制</p>
 <h4 id="候选样式表"><a href="#候选样式表" class="headerlink" title="候选样式表"></a>候选样式表</h4><p>在rel上添加alternate,即可让用户选择不同的样式表，最新的浏览器不知道入口在哪</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/09/css-marster-2/" itemprop="url">
+                  css权威指南笔记2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
+              2017-06-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>html {color:black;}<br>p {color:gray;}<br>h2 {color:red}</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><h3 id="选择器分组"><a href="#选择器分组" class="headerlink" title="选择器分组"></a>选择器分组</h3><p>h2,p {color:gray;}</p>
+<h3 id="声明分组"><a href="#声明分组" class="headerlink" title="声明分组"></a>声明分组</h3><p>//推荐分号隔开每个声明<br>h1 {font: 18px;color: purple;}</p>
+<h3 id="选择器和声明综合分组"><a href="#选择器和声明综合分组" class="headerlink" title="选择器和声明综合分组"></a>选择器和声明综合分组</h3><p>h1,h2,h3 {color:gray;background:white;}</p>
+<h2 id="类选择器和ID选择器"><a href="#类选择器和ID选择器" class="headerlink" title="类选择器和ID选择器"></a>类选择器和ID选择器</h2><h3 id="多类选择器"><a href="#多类选择器" class="headerlink" title="多类选择器"></a>多类选择器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.warning.urgent &#123;background:red;&#125;//class="urgent warning"</div></pre></td></tr></table></figure>
+<p>注意：浏览器通常不检查id的唯一性，但是还是不要多个元素设置一个id,现代浏览器选择器区分大小写（很老的浏览器不区分）.</p>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span><span class="selector-attr">[class]</span> &#123;<span class="attribute">color</span>:red&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span><span class="selector-attr">[title]</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href="http://baidu.com"]</span> &#123;<span class="attribute">font-weight</span>:bold&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-attr">[href="http://baidu.com"]</span><span class="selector-attr">[title="aaa"]</span> &#123;<span class="attribute">font-weight</span>:bold&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 需要全局匹配 */</span></div><div class="line"><span class="selector-tag">planet</span><span class="selector-attr">[type="barren rocky"]</span> &#123;<span class="attribute">font-weigth</span>:bold&#125;</div></pre></td></tr></table></figure>
+<h3 id="部分属性选择器"><a href="#部分属性选择器" class="headerlink" title="部分属性选择器"></a>部分属性选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class~="warning"]</span> &#123;<span class="attribute">font-weight</span>:bold;&#125;<span class="comment">/*属性值中的一个用空格来分隔的词 等价于 p.warning*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class^="bar"]</span>  <span class="comment">/*全部属性值以bar开头*/</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class$="bar"]</span>  <span class="comment">/*全部属性值以bar结尾*/</span></div><div class="line"><span class="selector-tag">p</span><span class="selector-attr">[class*="bar"]</span>  <span class="comment">/*全部属性值包含bar字符串*/</span></div></pre></td></tr></table></figure>
+<h3 id="特定属性选择器"><a href="#特定属性选择器" class="headerlink" title="特定属性选择器"></a>特定属性选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*<span class="selector-attr">[lang|="en"]</span> &#123;<span class="attribute">color</span>:red&#125;<span class="comment">/*lang属性值等于en或en-开头的所有元素*/</span></div></pre></td></tr></table></figure>
+<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">ol</span> <span class="selector-tag">ul</span> <span class="selector-tag">em</span> &#123;<span class="attribute">color</span>:gray&#125;;<span class="comment">/*后代所有元素，不管嵌套多深*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> &gt; <span class="selector-tag">strong</span> &#123;<span class="attribute">color</span>:red&#125;;<span class="comment">/*仅仅是子元素,可以理解为选择作为h1子元素的所有strong元素*/</span></div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">maring-top</span>:<span class="number">0</span>&#125;;<span class="comment">/*选择紧接在一个h1元素后出现的所有段落*/</span></div></pre></td></tr></table></figure>
+<h2 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h2><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*链接伪类*/</span></div><div class="line"></div><div class="line"><span class="selector-pseudo">:link</span> <span class="comment">/*超链接，带有href属性*/</span></div><div class="line"><span class="selector-pseudo">:visited</span> <span class="comment">/*已访问的超链接*/</span></div><div class="line"></div><div class="line"><span class="comment">/*动态伪类*/</span></div><div class="line"><span class="selector-pseudo">:focus</span> <span class="comment">/*获取焦点*/</span></div><div class="line"><span class="selector-pseudo">:hover</span> <span class="comment">/*鼠标停留*/</span></div><div class="line"><span class="selector-pseudo">:active</span> <span class="comment">/*用户输入激活，比如鼠标点击*/</span></div><div class="line"></div><div class="line"><span class="comment">/*静态伪类*/</span></div><div class="line"><span class="selector-pseudo">:first-child</span> <span class="comment">/*第一个子元素*/</span></div><div class="line"><span class="selector-pseudo">:lang(fr)</span> <span class="comment">/*语言选择*/</span></div></pre></td></tr></table></figure>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:first-letter</span> &#123;<span class="attribute">color</span>:red&#125;<span class="comment">/*一个块级元素的首字母*/</span></div><div class="line"><span class="selector-pseudo">:first-line</span> &#123;<span class="attribute">color</span>:purple&#125; <span class="comment">/*块级元素每一段的第一行文本*/</span></div><div class="line"></div><div class="line"><span class="selector-pseudo">:befor</span>&#123;<span class="attribute">content</span>:<span class="string">"]]"</span>;<span class="attribute">color</span>:silver;&#125; <span class="comment">/*在元素前面插入*/</span></div><div class="line"><span class="selector-pseudo">:after</span>&#123;<span class="attribute">content</span>:<span class="string">"]]"</span>;<span class="attribute">color</span>:silver;&#125; <span class="comment">/*在元素后面插入*/</span></div></pre></td></tr></table></figure>
 
           
         
