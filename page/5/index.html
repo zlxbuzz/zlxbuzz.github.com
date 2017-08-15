@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,265 @@
             
               
                 
+                <a class="post-title-link" href="/2014/12/10/php-source/" itemprop="url">
+                  php常用笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-10T15:07:16+08:00" content="2014-12-10">
+              2014-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##PHP内置小型web server<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php -S localhost:<span class="number">8080</span> -t /www <span class="comment">#-t 用来指定相关的目录,如果有apache 或  nginx 的重写则失效 支持远程</span></div></pre></td></tr></table></figure></p>
+<p>##PHP命令行参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/local/bin/php</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argc"</span>].<span class="string">"\n"</span>; <span class="comment">#2，为参数的个数</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argv"</span>][<span class="number">1</span>].<span class="string">"\n"</span>;<span class="comment">#a  输入的第一个参数</span></div><div class="line"><span class="keyword">echo</span> $_SERVER[<span class="string">"argv"</span>][<span class="number">2</span>].<span class="string">"\n"</span>; <span class="comment">#b 输入的第二个参数</span></div><div class="line"><span class="comment">#$_SERVER["argc"]数组返回一个整型的数，代表从命令行上回车后一共输入了几个参数。</span></div><div class="line"><span class="comment">#从PHP命令行读取参数范例中的结果已经看出，要访问已经传入的参数值，需要从索引1开始。</span></div><div class="line"><span class="comment">#因为脚本本身的文件已经占用了索引0，即$_SERVER["argv"][0]</span></div></pre></td></tr></table></figure>
+<p>##PHP类型判断</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line"><span class="params">| 真值表        |</span> gettype() <span class="params">| empty() |</span> is_null() <span class="params">| isset() |</span> (bool) <span class="params">|</span></div><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line">| $x = <span class="string">""</span>      <span class="params">| string    |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x=null      |</span> NULL      <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>      <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| var $x       <span class="params">| NULL      |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>      |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x = array() |</span> array     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = <span class="literal">false</span>   <span class="params">| boolean   |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">false</span>  |</span></div><div class="line"><span class="params">| $x = 15      |</span> integer   <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="number">1</span>       <span class="params">| integer   |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = 0       |</span> integer   <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = -<span class="number">1</span>      <span class="params">| integer   |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '15'    |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="string">'1'</span>     <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '0'     |</span> string    <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">false</span>  <span class="params">|</span></div><div class="line">| $x = <span class="string">'-1'</span>    <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = 'foo'   |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">| $x = <span class="string">'true'</span>  <span class="params">| string    |</span> <span class="literal">false</span>   <span class="params">| <span class="literal">false</span>     |</span> <span class="literal">true</span>    <span class="params">| <span class="literal">true</span>   |</span></div><div class="line"><span class="params">| $x = '<span class="literal">false</span>' |</span> string    <span class="params">| <span class="literal">false</span>   |</span> <span class="literal">false</span>     <span class="params">| <span class="literal">true</span>    |</span> <span class="literal">true</span>   <span class="params">|</span></div><div class="line">+--------------+-----------+---------+-----------+---------+--------+</div><div class="line">empty() 和 bool 不可能相等</div></pre></td></tr></table></figure>
+<p>##修改phpunit内存限制<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phpunit <span class="_">-d</span> memory_limit=512M</div></pre></td></tr></table></figure></p>
+<p>##php下载远程文件到本地<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$url = <span class="string">'http://picturescdn.qiniudn.com/93aa93787ae02be68192b3533d3e76b0'</span>;</div><div class="line">$remote_fp = fopen($url,<span class="string">'rb'</span>);<span class="comment">#指定fopen的打开模式为b(二进制模式)</span></div><div class="line">$local_fp = fopen(date(<span class="string">'YmdHis'</span>),<span class="string">'wb'</span>);</div><div class="line"><span class="keyword">while</span>(!feof($remote_fp))&#123;</div><div class="line">    fwrite($local_fp,fread($remote_fp,<span class="number">128</span>));</div><div class="line">&#125;</div><div class="line">fclose($remote_fp);</div><div class="line">fclose($local_fp);</div></pre></td></tr></table></figure></p>
+<p>##cURL 常用函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化</span></div><div class="line">$curlobj=curl_init(<span class="string">'http://www.baidu.com'</span>);<span class="comment">//初始化culr</span></div><div class="line">$curlobj = curl_init();</div><div class="line">curl_setopt($curlobj, CURLOPT_URL, <span class="string">"http://www.baidu.com"</span>);<span class="comment">// 初始化，两种</span></div><div class="line"></div><div class="line"><span class="comment">//相关常用的option</span></div><div class="line">curl_setopt($curlobj, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);	<span class="comment">// 执行之后不直接打印出来，否则会直接输出</span></div><div class="line">$output=curl_exec($curlobj);	<span class="comment">// 执行</span></div><div class="line"></div><div class="line"><span class="comment">// 如果模拟cookie登录 要先设置cookie</span></div><div class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></div><div class="line">curl_setopt($curlobj, CURLOPT_COOKIESESSION, <span class="number">1</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_HEADER, <span class="number">0</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>); <span class="comment">// 支持页面链接跳转  这个设置必须关闭安全模式</span></div><div class="line"><span class="comment">//以及关闭open_basedir，金额贝尔不过对服务器安全不利</span></div><div class="line"></div><div class="line"><span class="comment">//将数据post</span></div><div class="line">$postdata=<span class="string">'username=buzzmjx@126.com&amp;password=123456'</span>;</div><div class="line">curl_setopt($curlobj, CURLOPT_POST, <span class="number">1</span>);  <span class="comment">//允许post</span></div><div class="line">curl_setopt($curlobj, CURLOPT_POSTFIELDS, $postdata);  <span class="comment">//post 数据</span></div><div class="line">curl_setopt($curlobj, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"application/x-www-form-urlencoded; charset=utf-8"</span>,</div><div class="line"> <span class="string">"Content-length: "</span>.strlen($postdata)));</div><div class="line"></div><div class="line"><span class="comment">//从ftp下载</span></div><div class="line">curl_setopt($curlobj, CURLOPT_TIMEOUT, <span class="number">300</span>); <span class="comment">// times out after 300s</span></div><div class="line">curl_setopt($curlobj, CURLOPT_USERPWD, <span class="string">"buzzmjx:123456"</span>);<span class="comment">//FTP用户名：密码</span></div><div class="line">$outfile = fopen(<span class="string">'dest.txt'</span>, <span class="string">'wb'</span>);<span class="comment">//保存到本地的文件名</span></div><div class="line">curl_setopt($curlobj, CURLOPT_FILE, $outfile);</div><div class="line"></div><div class="line"><span class="comment">//上传ftp</span></div><div class="line">$fp = fopen(<span class="string">'test.php'</span>, <span class="string">'r'</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_UPLOAD, <span class="number">1</span>);</div><div class="line">curl_setopt($curlobj, CURLOPT_INFILE, $fp);</div><div class="line">curl_setopt($curlobj, CURLOPT_INFILESIZE, filesize($localfile));</div><div class="line">$rtn = curl_exec($curlobj);</div><div class="line"></div><div class="line"><span class="comment">// 设置HTTPS支持</span></div><div class="line">date_default_timezone_set(<span class="string">'PRC'</span>); <span class="comment">// 使用Cookie时，必须先设置时区</span></div><div class="line">curl_setopt($curlobj, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>); <span class="comment">// 对认证证书来源的检查从证书中检查</span></div><div class="line"><span class="comment">//SSL加密算法是否存在</span></div><div class="line">curl_setopt($curlobj, CURLOPT_SSL_VERIFYHOST, <span class="number">2</span>); <span class="comment">//</span></div><div class="line"><span class="comment">//webservice</span></div><div class="line">curl_setopt($curlobj, CURLOPT_POSTFIELDS, $data); <span class="comment">//data为soapxml</span></div><div class="line">curl_setopt($curlobj, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">"Content-Type: application/soap+xml; charset=utf-8"</span>,</div><div class="line">	<span class="string">"Content-length: "</span>.strlen($data),</div><div class="line"><span class="string">"SOAPAction:\"http://WebXml.com.cn/getWeatherbyCityName\""</span>));</div><div class="line"></div><div class="line"><span class="comment">//关闭</span></div><div class="line">curl_close($curlobj);</div></pre></td></tr></table></figure></p>
+<h2 id="mysql-导出数据到csv格式"><a href="#mysql-导出数据到csv格式" class="headerlink" title="mysql 导出数据到csv格式"></a>mysql 导出数据到csv格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"select * from hero"</span> | mysql --host=ayidev02.mysql.rds.aliyuncs.com --user=ayi_dev --password=ayibang ayisvc_zhonglingxiao &gt; /tmp/zlx.csv</div></pre></td></tr></table></figure>
+<h2 id="php-下载"><a href="#php-下载" class="headerlink" title="php 下载"></a>php 下载</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$filename = <span class="string">"a.csv"</span>;</div><div class="line">$data     = <span class="string">"城市，数据\n"</span>;</div><div class="line">$data.=<span class="string">"beijing,1\n"</span>;</div><div class="line">header(<span class="string">"Content-type:text/csv"</span>);</div><div class="line">header(<span class="string">"Content-Disposition:attachment;filename="</span>.$filename);</div><div class="line">header(<span class="string">"Expires:0"</span>);</div><div class="line"><span class="keyword">echo</span> $data;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/10/linux-source/" itemprop="url">
+                  linux常用笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-10T15:07:16+08:00" content="2014-12-10">
+              2014-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##网络状态<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -an |grep ESTABLISHED |wc -l #查看网络连接状态</div></pre></td></tr></table></figure></p>
+<p>##压缩命令<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">支持tar,tar.gz：</div><div class="line">	tar zxvf aaa.tar.gz #解压</div><div class="line">	tar zcvf aaa.tar.gz aaa #压缩</div><div class="line">	-c:建立新的存档</div><div class="line">	-x:解压</div><div class="line">	-v:详细内容</div><div class="line">	-f:指定存档或设备</div><div class="line">zip:</div><div class="line">	unzip FileName.zip</div><div class="line">	zip FileName.zip DirName</div><div class="line"></div><div class="line">.gz</div><div class="line">gzip 源文件（压缩成.gz的压缩文件，源文件会消失）</div><div class="line">gzip -c 源文件 &gt; 压缩文件（压缩为.gz格式，源文件保留）</div><div class="line">gzip -r 目录(压缩目录下所有的子文件，但是不能压缩目录)</div><div class="line"></div><div class="line">rar:</div><div class="line">        unrar x aaa.rar</div></pre></td></tr></table></figure></p>
+<p>##查看端口的占用情况<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lsof -i:<span class="number">80</span>  #查看<span class="number">80</span>端口 root下</div><div class="line">lsof #查看本地网络服务活动状态</div></pre></td></tr></table></figure></p>
+<p>##修改主机名称<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/hostname #主机名</div><div class="line">vi /etc/hosts #域名解析</div></pre></td></tr></table></figure></p>
+<p>##apt操作<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">apt-cache search package 搜索包</div><div class="line">apt-cache show package 获取包的相关信息，如说明、大小、版本等</div><div class="line">sudo apt-get install package 安装包</div><div class="line">sudo apt-get install package - - reinstall 重新安装包</div><div class="line">sudo apt-get -f install 修复安装<span class="string">"-f = ——fix-missing"</span></div><div class="line">sudo apt-get remove package 删除包</div><div class="line">sudo apt-get remove package - - purge 删除包，包括删除配置文件等</div><div class="line">sudo apt-get update 更新源</div><div class="line">sudo apt-get upgrade 更新已安装的包</div><div class="line">sudo apt-get dist-upgrade 升级系统</div><div class="line">sudo apt-get dselect-upgrade 使用 dselect 升级</div><div class="line">apt-cache depends package 了解使用依赖</div><div class="line">apt-cache rdepends package 是查看该包被哪些包依赖</div><div class="line">sudo apt-get build-dep package 安装相关的编译环境</div><div class="line">apt-get source package 下载该包的源代码</div><div class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</div><div class="line">sudo apt-get check 检查是否有损坏的依赖</div></pre></td></tr></table></figure></p>
+<p>##查看Linux内核版本或发布版本<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lsb_release -a</div><div class="line">uname -a</div></pre></td></tr></table></figure></p>
+<p>##查看端口<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">netstat –tlnp</div><div class="line">netstat -an</div></pre></td></tr></table></figure></p>
+<p>##debian 安装软件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dpkg -i &lt;file.deb&gt;#安装指定的deb包</div><div class="line">dpkg -R &lt;dir&gt; #安装目录下的所有deb包</div><div class="line">dpkg -r &lt;file.deb&gt;#删除指定的deb包</div><div class="line">dpkg -L apache2 #查看指定软件的目录</div></pre></td></tr></table></figure></p>
+<p>##grep 搜索<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">grep -c aaa file #显示 file中包含aaa内容的行数是几</div><div class="line">grep -n aaa flie #列出所有的匹配行，并在最前面添加行的序列数</div><div class="line">grep -v aaa file #显示文件中不包含所搜索内容的行数，这个和-c的参数正好相反</div><div class="line">grep -i aaa file #列出所搜索内容的匹配行，搜索过程中不区分大小写</div><div class="line">grep -l aaa * #列出所有包含aaa内容的文件的名</div><div class="line">grep -r aaa #对当前目录和所有的子目录进行搜索</div><div class="line">grep -w aaa file：#精确搜索，可以说准确性搜索，比如：grep -w b* a.txt：</div><div class="line">						#此命令执行时，*不会默认为任何字符，只表示字面意思，就是一个*字符.</div><div class="line">grep -x aaa file #完全匹配输出，比如：grep -x hello a.txt，只会输出某一行存在hello字符串，</div><div class="line">#并且此行仅包含hello的内容。假设a.txt中有一行“hello all”，执行上述命令，此行不会被搜索到。</div></pre></td></tr></table></figure></p>
+<p>##自启动<br><strong>运行级别(Runlevel)</strong>指的是Unix或者Linux等类Unix操作系统下不同的运行模式。运行级别通常分为7等，分别是从0到6.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">**<span class="number">0</span>** 停机</div><div class="line">**<span class="number">1</span>** 单用户，Does not configure network interfaces, start daemons, or allow non-root logins</div><div class="line">**<span class="number">2</span>** 多用户，无网络连接 Does not configure network interfaces or start daemons</div><div class="line">**<span class="number">3</span>** 多用户，启动网络连接 Starts the system normally.</div><div class="line">**<span class="number">4</span>** 用户自定义</div><div class="line">**<span class="number">5</span>** 多用户带图形界面</div><div class="line">**<span class="number">6</span>** 重启</div><div class="line"></div><div class="line">#在/etc下,根据不同的运行级别,通过脚本来启动服务</div><div class="line">/etc/rc0.d Run level <span class="number">0</span></div><div class="line">/etc/rc1.d Run level <span class="number">1</span></div><div class="line">/etc/rc2.d Run level <span class="number">2</span></div><div class="line">/etc/rc3.d Run level <span class="number">3</span></div><div class="line">/etc/rc4.d Run level <span class="number">4</span></div><div class="line">/etc/rc5.d Run level <span class="number">5</span></div><div class="line">/etc/rc6.d Run level <span class="number">6</span></div><div class="line">#可能会有:</div><div class="line">K01apache2与S91apache2</div><div class="line"></div><div class="line">K:终止,S:启动</div><div class="line"></div><div class="line">#修改常用的工具: sysv-rc-conf</div><div class="line">sudo apt-get install sysv-rc-conf</div></pre></td></tr></table></figure></p>
+<p>##设置软链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -n file1 file2 <span class="comment">#创建file1的软链接file2,最好用绝对路径,否则可能会造成目录错误</span></div></pre></td></tr></table></figure></p>
+<p>##安全关机<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">shutdown -r now <span class="comment">#安全重启服务器</span></div><div class="line">shutdown -h <span class="comment">#关机</span></div></pre></td></tr></table></figure></p>
+<p>##历史命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">history</span> 查看用户所有使用过的历史命令</div><div class="line"><span class="built_in">history</span> -w更新历史命令保存文件</div><div class="line"><span class="built_in">history</span> -c清空历史命令（错误信息及他人入侵的参考）</div><div class="line"><span class="comment">#注销后保存在 ~/.bash_history中</span></div><div class="line"></div><div class="line">使用上、下箭头调用以前的历史命令</div><div class="line">使用<span class="string">"!n"</span>重复执行第n条历史命令</div><div class="line">使用<span class="string">"!!"</span>重复执行上一条命令</div><div class="line">使用<span class="string">"!字串"</span>重复执行最后一条以该字串开头的命令</div></pre></td></tr></table></figure></p>
+<p>##重定向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">标准输入输出 0 标准输入 1标准输出 2 标准错误输出</div><div class="line">命令 &gt; 文件（覆盖）,命令 &gt;&gt; 文件（追加） 都是正确语句的重定向,</div><div class="line">命令 &gt; 文件 2&gt;&amp;1 (覆盖)，命令 &gt;&gt; 文件 2&gt;&amp;1，正确错误信息输出都保存到同一个文件。</div><div class="line">命令&amp;&gt;文件 （覆盖），命令&amp;&gt;&gt;文件 (追加)，正确错误信息输出都保存到同一个文件。</div><div class="line">命令 &gt;&gt; 文件1 2&gt;&gt;文件2 把正确的输出追加到文件1中，错误输出追加到文件2中。</div><div class="line">/dev/null 是系统预留的用来接受垃圾的文件，即任何东西写到这个文件里面都会消失即不存在。</div><div class="line"></div><div class="line">wc -c 统计字节数</div><div class="line">wc <span class="_">-l</span> 统计单词数</div></pre></td></tr></table></figure></p>
+<p>##变量操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> 查看变量</div><div class="line"><span class="built_in">set</span> -u 调用未声明的变量时会报错</div><div class="line">x=<span class="variable">$&#123;x&#125;</span>111 变量叠加</div><div class="line"><span class="built_in">unset</span> x 删除变量x</div><div class="line">env 查看环境变量</div><div class="line">PS1变量：命令提示符设置</div><div class="line">	\d <span class="comment">#显示日期，格式为“星期 月 日”</span></div><div class="line">	\H <span class="comment">#显示完整的主机名，如默认的主机名“localhost.localdomain”</span></div><div class="line">	\h <span class="comment">#显示主机名，如localhost</span></div><div class="line">	\t <span class="comment">#显示24小时制时间，格式为“HH:MM:SS”</span></div><div class="line">	\A <span class="comment">#显示24小时制时间，格式为“HH:MM”</span></div><div class="line">	\u <span class="comment">#显示当前用户名</span></div><div class="line">	\w <span class="comment">#显示当前所在目录的最后一个目录</span></div><div class="line">	\W <span class="comment">#显示当前所在目录的最后一个目录</span></div><div class="line">	\$ <span class="comment">#提示符。如果是root用户会显示提示符为“#”，如果是普通用户会显示提示符为“$”</span></div><div class="line"></div><div class="line">命令行位置变量:</div><div class="line">	<span class="variable">$n</span>　 n为数字，<span class="variable">$0</span>代表命令本身，<span class="variable">$1</span>-<span class="variable">$9</span>代表第一到第九个参数，十以上的参数需要用大括号包含，如<span class="variable">$&#123;10&#125;</span></div><div class="line">	$* 这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体</div><div class="line">	<span class="variable">$@</span> 　这个变量也代表命令行中所有参数，不过<span class="variable">$@</span>把每个参数区分对待</div><div class="line">	<span class="variable">$#</span> 　这个变量代表命令行所有参数的个数</div><div class="line"></div><div class="line">预定义变量:</div><div class="line">	$? ：最后一次执行命令的返回状态，如果正确执行，则返回0；</div><div class="line">	$$：返回当前进程的PID号；</div><div class="line"></div><div class="line">	$!：返回后台的进程PID号；</div><div class="line"><span class="built_in">read</span> -n</div><div class="line"><span class="built_in">read</span> -p <span class="string">"please input name "</span> name <span class="comment">#-p表示输出提示信息 read [选项] 变量名</span></div><div class="line"><span class="built_in">read</span> -t 30 <span class="comment">#-t 表示等待时间单位为秒 -t 30 表示30秒，若30秒后没有输入数据终止执行脚本</span></div><div class="line"><span class="built_in">read</span> <span class="_">-s</span> <span class="comment">#隐藏信息</span></div><div class="line"></div><div class="line">变量声明:</div><div class="line">	<span class="built_in">declare</span>声明变量类型</div><div class="line">	<span class="built_in">declare</span> [+/-] [选项] 变量名 -设定类型 +取消类型</div><div class="line">	<span class="built_in">declare</span> -p 变量名 显示变量类型</div><div class="line">	<span class="built_in">declare</span> -i 变量名 声明为整形</div><div class="line">	<span class="built_in">declare</span> <span class="_">-a</span> 声明为数组</div><div class="line">	<span class="built_in">declare</span> -x 变量 相当于 <span class="built_in">export</span> <span class="built_in">export</span>其实是调用了<span class="built_in">declare</span> -x</div><div class="line">	<span class="built_in">declare</span> -r 变量 将变量变为只读属性 改为只读属性后，无法进行操作了。</div><div class="line"></div><div class="line">数值计算 dd=$(expr <span class="variable">$aa</span> + <span class="variable">$bb</span>)</div></pre></td></tr></table></figure></p>
+<p>##磁盘管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">分区类型：</div><div class="line">	主分区最多只能分4个</div><div class="line">扩展分区：</div><div class="line">	最多只能有1个</div><div class="line">	主分区加扩展分区最多有4个</div><div class="line">	不能写入数据，只能包含逻辑分区</div><div class="line">逻辑分区</div><div class="line"></div><div class="line"></div><div class="line">df：查看磁盘分区使用状况</div><div class="line">	<span class="_">-l</span>：仅显示本地默认磁盘（默认）</div><div class="line">	<span class="_">-a</span>：显示所有文件系统的磁盘使用情况</div><div class="line">	-h以1024进制计算最合适的单位显示磁盘容量</div><div class="line">	-H：显示以1000进制计算最合适的单位显示磁盘容量</div><div class="line">	-T显示磁盘分区类型</div><div class="line">	-t显示指定类型文件系统的磁盘分区</div><div class="line">	-x不显示指定类型文件系统的磁盘分区</div><div class="line">du:统计磁盘上的文件大小</div><div class="line">	-b 以byte为单位统计文件</div><div class="line">	-k 以KB为单位统计文件</div><div class="line">	-m 以MB为单位统计文件</div><div class="line">	-h 按照1024进制以最适合的单位统计文件</div><div class="line">	-H 按照1000进制以最适合的单位统计文件</div><div class="line">	<span class="_">-s</span> 指定统计目标</div><div class="line">du -sh *.zip <span class="comment">#以1024进制查看zip文件的大小</span></div><div class="line">1.创建分区:</div><div class="line">一:MBR分区模式:</div><div class="line"> -主分区不超过4个</div><div class="line"> -单个分区最大2TB</div><div class="line"><span class="comment">#磁盘分区工具fdisk</span></div><div class="line">fdisk <span class="_">-l</span> <span class="comment">#查看分区设备</span></div><div class="line">fdisk /dev/sdb <span class="comment">#进入分区的模式,m查看help,n添加新的分区,w保存,q改变分区类型</span></div><div class="line">二:GPT分区模式:(不适合安装32位的系统)</div><div class="line"> -主分区最多有128个</div><div class="line"> -单个分区几乎没有限制(18EB=18874368TB)</div><div class="line"> -可以说没有逻辑,扩展等说法,只是为了兼容MBR</div><div class="line"><span class="comment">#磁盘分区工具parted</span></div><div class="line"><span class="built_in">print</span> <span class="comment">#查看分区信息</span></div><div class="line">malabel gpt <span class="comment">#创建GPT分区(默认msdos为MBR分区模式)</span></div><div class="line">rm 1 <span class="comment">#删除1号分区</span></div><div class="line">mkpart <span class="comment">#创建分区</span></div><div class="line">	-Partition name <span class="comment">#名称(类似windows卷标)</span></div><div class="line">	-File system <span class="built_in">type</span></div><div class="line">	-start <span class="comment">#从第几M开始    一般会让0-1M之间的一点点数据取消掉,使得数据对齐,从第1M开始</span></div><div class="line">	-end  <span class="comment">#2000   2G</span></div><div class="line">mkpart name start end <span class="comment">#也可以一句话</span></div><div class="line">quit <span class="comment">#退出 parted为立即生效</span></div><div class="line">2.分区格式化:</div><div class="line"><span class="comment">#分区格式化工具 mkfs</span></div><div class="line">mkfs -t ext4 /dev/sda1 <span class="comment">#将第一块硬盘的1分区格式化为ext4文件系统</span></div><div class="line"><span class="comment">#MBR扩展分区不能格式化</span></div><div class="line"><span class="comment">#GPT分区 通过fdisk不能查看文件类型,只能通过parted</span></div><div class="line">3.挂载分区</div><div class="line"><span class="comment">#挂载配置文件 /etc/fstab</span></div><div class="line">mount /dev/sdb1 /mnt/zlx <span class="comment">#临时挂载分区,重启失效</span></div><div class="line">4.添加swap分区</div><div class="line">通过fdisk工具,先通过t选择分区 ,然后L显示类型,选择82的swap id.</div><div class="line">mkswap /dev/sdb8 <span class="comment">#创建交换分区</span></div><div class="line">swapon /dev/sdb8 <span class="comment">#启用交换分区</span></div><div class="line">free <span class="comment">#查看交换分区</span></div><div class="line">swapoff /devsdb8 <span class="comment">#停用交换分区</span></div></pre></td></tr></table></figure></p>
+<p>##用户管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/etc/group</div><div class="line">组名:组密码占位符:组编号:组中用户名列表(相同则省略)</div><div class="line">组编号0-499 为系统的组</div><div class="line">/etc/gshadow <span class="comment">#存储当前系统中用户组的密码信息</span></div><div class="line">组名:组密码(*,!均为没有密码):组管理者:组中用户名列表</div><div class="line">/etc/passwd <span class="comment">#所有用户</span></div><div class="line">用户名:密码占位符:用户编号:用户组编号:用户注释信息:用户主目录:shell类型</div><div class="line">/etc/shadow <span class="comment">#所有用户密码</span></div></pre></td></tr></table></figure></p>
+<p>##系统服务管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#systemctl命令将service和chkconfig命令结合在了一起</span></div><div class="line">systemctl <span class="built_in">enable</span> nginx.service <span class="comment">#使nginx自动启动</span></div><div class="line">systemctl <span class="built_in">disable</span> nginx.service <span class="comment">#取消nginx自动启动</span></div><div class="line">检查服务状态 systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active)</div><div class="line">显示所有已启动的服务	systemctl list-units --type=service</div><div class="line">启动某服务	systemctl start nginx.service</div><div class="line">停止某服务	systemctl stop nginx.service</div><div class="line">重启某服务	systemctl restart nginx.service</div></pre></td></tr></table></figure></p>
+<p>##数据同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">rsync [option] 源路径 目标路径</div><div class="line">	a, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性</div><div class="line">	b, –backup 创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为~filename。可以使用–suffix选项来指定不同的备份文件前缀。</div><div class="line">	–backup-dir 将备份文件(如~filename)存放在在目录下。</div><div class="line">	-suffix=SUFFIX 定义备份文件前缀</div><div class="line">	–delete 删除那些DST中SRC没有的文件</div><div class="line">	–bwlimit=KBPS 限制I/O带宽</div><div class="line"></div><div class="line"><span class="comment">#将本机/tmp/a文件夹 同步至/tmp/b</span></div><div class="line">rsync -avzP --delete /tmp/a /tmp/b</div><div class="line"><span class="comment">#将远程主机x中/tmp/a下的文件下载至本机 /tmp/b</span></div><div class="line">rsync -avz <span class="_">-e</span> ssh root@192.168.0.1:/tmp/a /tmp/b</div></pre></td></tr></table></figure></p>
+<p>##采集<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">wget [options] [URL]</div><div class="line">	-o:记录<span class="built_in">log</span>信息，用法-ofilename</div><div class="line">	<span class="_">-a</span>:追加<span class="built_in">log</span>信息</div><div class="line">	-O:将文件保存到文件 -Ofilename</div><div class="line">	-c:断点续传</div><div class="line">	–referer,referer值，采集必用</div><div class="line">	–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie</div><div class="line">	–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中</div><div class="line">	-nc, –no-clobber 不要覆盖已经存在的文件</div><div class="line">	-T,–timeout=SECONDS 设置超时时间</div><div class="line">	-x,强制建立目录(保持目标网站的目录结构)</div><div class="line">	-r,递归下载整个网站</div><div class="line">curl [option] [url]</div><div class="line">	-c:断点续传</div><div class="line">	-o:文件名，要自己写</div><div class="line">	-O:文件名，自动(和服务器上的名字一样)</div><div class="line">	-D:保存cookie,curl -D cookie.txt URL</div><div class="line">	-b:使用cookie,curl -b cookie.txt URL</div><div class="line">	-A:发送浏览器信息，伪装成浏览器。curl -A “Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1626.0″ URL,这样对方服务器会认为我们是一个在macos上跑的chrom浏览器。</div><div class="line">	<span class="_">-e</span>:填写referer值。</div><div class="line">	<span class="_">-d</span>:post模式，以application/x-www-url-encoded发送请求。d后面填写要提交的参数即可 curl <span class="_">-d</span>”a=xx&amp;b=xx&amp;c=xx”。</div><div class="line">	-F模拟 multipart/form-data 形式的 form 上传文件。curl -F “action=upload” -F”filename=@file.gz;<span class="built_in">type</span>=application/octet-stream” URL</div></pre></td></tr></table></figure></p>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ssh user@host <span class="comment">#远程登陆</span></div><div class="line">ssh -p port user@host <span class="comment">#远程登陆某个端口</span></div><div class="line">ssh-keygen <span class="comment">#在～/.ssh/下生成自己的公钥和私钥</span></div><div class="line">ssh-copy-id user@host <span class="comment">#将自己的公钥copy到远程 免登陆，也可以直接$ ssh user@host 'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub</span></div><div class="line">如果不行，远传配置/etc/ssh/sshd_config</div><div class="line">　RSAAuthentication yes</div><div class="line">　　PubkeyAuthentication yes</div><div class="line">　　AuthorizedKeysFile .ssh/authorized_keys</div><div class="line"></div><div class="line">　$ ssh -L 本地端口:目标主机:目标主机端口 <span class="comment">#本地端口转发</span></div><div class="line">　$ ssh -R 远程主机端口:目标主机:目标主机端口 <span class="comment">#远程端口转发</span></div></pre></td></tr></table></figure>
+<h2 id="获取某个进程id"><a href="#获取某个进程id" class="headerlink" title="获取某个进程id"></a>获取某个进程id</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aux |grep static_server |grep -v grep |awk <span class="string">'&#123;print $2&#125;'</span></div></pre></td></tr></table></figure>
+<p>i</p>
+<h1 id="nd命令"><a href="#nd命令" class="headerlink" title="nd命令"></a>nd命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">find ./ -name <span class="string">"*.sw[a-eg-zA-EG-Z0-9]"</span> | xargs rm <span class="_">-f</span> <span class="comment">#删除当前目录下的临时文件</span></div><div class="line">find ./ -type f -exec ls <span class="_">-l</span> &#123;&#125; \; <span class="comment">#查当前目录下的所有普通文件，并在- e x e c选项中使用ls -l命令将它们列出</span></div><div class="line">find . -name  -type f -mmin -30 -ls <span class="comment">#查看30分钟之内修改的文件</span></div><div class="line"></div><div class="line"></div><div class="line">-name   filename             <span class="comment">#查找名为filename的文件</span></div><div class="line">-perm                        <span class="comment">#按执行权限来查找</span></div><div class="line">-user    username             <span class="comment">#按文件属主来查找</span></div><div class="line">-group groupname            <span class="comment">#按组来查找</span></div><div class="line">-mtime   -n +n                <span class="comment">#按文件更改时间来查找文件，-n指n天以内，+n指n天以前</span></div><div class="line">-atime    -n +n               <span class="comment">#按文件访问时间来查GIN: 0px"&gt;</span></div><div class="line">-ctime    -n +n              <span class="comment">#按文件创建时间来查找文件，-n指n天以内，+n指n天以前</span></div><div class="line"></div><div class="line">-nogroup                     <span class="comment">#查无有效属组的文件，即文件的属组在/etc/groups中不存在</span></div><div class="line">-nouser                     <span class="comment">#查无有效属主的文件，即文件的属主在/etc/passwd中不存</span></div><div class="line">-newer   f1 !f2              找文件，-n指n天以内，+n指n天以前</div><div class="line">-ctime    -n +n               <span class="comment">#按文件创建时间来查找文件，-n指n天以内，+n指n天以前</span></div><div class="line">-nogroup                     <span class="comment">#查无有效属组的文件，即文件的属组在/etc/groups中不存在</span></div><div class="line">-nouser                      <span class="comment">#查无有效属主的文件，即文件的属主在/etc/passwd中不存</span></div><div class="line">-newer   f1 !f2               <span class="comment">#查更改时间比f1新但比f2旧的文件</span></div><div class="line">-type    b/d/c/p/l/f         <span class="comment">#查是块设备、目录、字符设备、管道、符号链接、普通文件</span></div><div class="line">-size      n[c]               <span class="comment">#查长度为n块[或n字节]的文件</span></div><div class="line">-depth                       <span class="comment">#使查找在进入子目录前先行查找完本目录</span></div><div class="line">-fstype                     <span class="comment">#查更改时间比f1新但比f2旧的文件</span></div><div class="line">-type    b/d/c/p/l/f         <span class="comment">#查是块设备、目录、字符设备、管道、符号链接、普通文件</span></div><div class="line">-size      n[c]               <span class="comment">#查长度为n块[或n字节]的文件</span></div><div class="line">-depth                       <span class="comment">#使查找在进入子目录前先行查找完本目录</span></div><div class="line">-fstype                      <span class="comment">#查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</span></div><div class="line">-mount                       <span class="comment">#查文件时不跨越文件系统mount点</span></div><div class="line">-follow                      <span class="comment">#如果遇到符号链接文件，就跟踪链接所指的文件</span></div><div class="line">-cpio                %;      <span class="comment">#查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</span></div><div class="line">-mount                       <span class="comment">#查文件时不跨越文件系统mount点</span></div><div class="line">-follow                      <span class="comment">#如果遇到符号链接文件，就跟踪链接所指的文件</span></div><div class="line">-cpio                        <span class="comment">#对匹配的文件使用cpio命令，将他们备份到磁带设备中</span></div><div class="line">-prune                       <span class="comment">#忽略某个目录</span></div></pre></td></tr></table></figure>
+<h1 id="批量替换内容"><a href="#批量替换内容" class="headerlink" title="批量替换内容"></a>批量替换内容</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i <span class="string">"s/px;\/\*\!no\*\//rpx/g"</span> `grep <span class="string">"px;\/\*\!no\*\/"</span> -rl ./src/`</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
                   php header函数的详解
                 </a>
@@ -248,7 +507,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -260,7 +519,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -365,7 +624,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -377,7 +636,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/markdown/" itemprop="url" rel="index">
@@ -478,7 +737,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -490,7 +749,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/mongodb/" itemprop="url" rel="index">
@@ -635,6 +894,126 @@
             
               
                 
+                <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
+                  postgresql-gis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/postgresql/" itemprop="url" rel="index">
+                    <span itemprop="name">postgresql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></div></pre></td></tr></table></figure></p>
+<p>##ST_Geometry 类型</p>
+<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
+<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
+<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
+<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
+<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
+<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/08/git-source/" itemprop="url">
                   git  常用
                 </a>
@@ -648,7 +1027,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -660,7 +1039,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/git/" itemprop="url" rel="index">
@@ -766,126 +1145,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
-                  postgresql-gis
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
-              2014-12-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/postgresql/" itemprop="url" rel="index">
-                    <span itemprop="name">postgresql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></div></pre></td></tr></table></figure></p>
-<p>##ST_Geometry 类型</p>
-<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
-<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
-<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
-<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
-<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
-<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/12/08/postgres-copy/" itemprop="url">
                   postgresql copy指令及相关函数
                 </a>
@@ -899,7 +1158,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -911,7 +1170,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -951,7 +1210,7 @@
           <p>##关于postgresql的其他函数<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-copy/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -1014,7 +1273,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -1026,7 +1285,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -1066,7 +1325,7 @@
           <p>##自己写的一个postgresql和php的类<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-php/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -1129,7 +1388,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T15:55:19+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -1141,7 +1400,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -1256,240 +1515,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
-                  七天学会NODEjs
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
-              2014-12-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##什么是Nodejs<br>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/02/nodejs-7days/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
-                  npm package.json dependecies 和 devDependecies区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
-              2014-12-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
-<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1530,8 +1560,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1539,7 +1569,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1548,7 +1578,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1592,7 +1622,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
