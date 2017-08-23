@@ -84,13 +84,22 @@
 
 
 
+<meta name="description" content="基本框123/* 每个元素都会生成一个或者多个矩形框,称为元素框 *//* 内边距不能为负，外边距可以 */
+包含块包含块由最近的块级祖先框，表单元格，行内祖先框的内容边界构成height百分比相当于包含块高度的百分比，其余大多数都是相当于包含块的宽度
+水平格式化1234567891011127大属性:margin-left,border-left,padding-left,width,paddi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css权威指南笔记7">
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/06/09/css-marster-7/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2017-08-23T06:54:07.000Z">
+<meta property="og:description" content="基本框123/* 每个元素都会生成一个或者多个矩形框,称为元素框 *//* 内边距不能为负，外边距可以 */
+包含块包含块由最近的块级祖先框，表单元格，行内祖先框的内容边界构成height百分比相当于包含块高度的百分比，其余大多数都是相当于包含块的宽度
+水平格式化1234567891011127大属性:margin-left,border-left,padding-left,width,paddi">
+<meta property="og:updated_time" content="2017-08-23T08:43:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css权威指南笔记7">
+<meta name="twitter:description" content="基本框123/* 每个元素都会生成一个或者多个矩形框,称为元素框 *//* 内边距不能为负，外边距可以 */
+包含块包含块由最近的块级祖先框，表单元格，行内祖先框的内容边界构成height百分比相当于包含块高度的百分比，其余大多数都是相当于包含块的宽度
+水平格式化1234567891011127大属性:margin-left,border-left,padding-left,width,paddi">
 
 
 
@@ -171,7 +180,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -181,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -244,7 +253,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -273,7 +282,12 @@
       
 
       
-        
+        <h2 id="基本框"><a href="#基本框" class="headerlink" title="基本框"></a>基本框</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/* 每个元素都会生成一个或者多个矩形框,称为元素框 */</span></div><div class="line"><span class="comment">/* 内边距不能为负，外边距可以 */</span></div></pre></td></tr></table></figure>
+<h2 id="包含块"><a href="#包含块" class="headerlink" title="包含块"></a>包含块</h2><p>包含块由最近的块级祖先框，表单元格，行内祖先框的内容边界构成<br>height百分比相当于包含块高度的百分比，其余大多数都是相当于包含块的宽度</p>
+<h2 id="水平格式化"><a href="#水平格式化" class="headerlink" title="水平格式化"></a>水平格式化</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">7大属性<span class="selector-pseudo">:margin-left</span>,<span class="selector-tag">border-left</span>,<span class="selector-tag">padding-left</span>,<span class="selector-tag">width</span>,<span class="selector-tag">padding-right</span>,<span class="selector-tag">border-right</span>,<span class="selector-tag">margin-right</span></div><div class="line">7个水平属性的总和要等于父元素的<span class="selector-tag">width</span>（包括外边距为负的情况）</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">margin-left,width,margin-right 三个属性可以设置为auto</div><div class="line">如果没有显示申明，外边距默认为0，width默认为auto</div><div class="line">如果3个属性都设置为某个值，会导致过分受限，一般会强制把margin-right转为auto</div><div class="line"></div><div class="line">水平外边距不会合并</div><div class="line"></div><div class="line">如果是替换元素，width如果为auto，则默认为元素内容的固有宽度</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h2 id="垂直格式化"><a href="#垂直格式化" class="headerlink" title="垂直格式化"></a>垂直格式化</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">7个属性<span class="selector-pseudo">:margin-top</span>,<span class="selector-tag">border-top</span>,<span class="selector-tag">padding-top</span>,<span class="selector-tag">height</span>,<span class="selector-tag">padding-bottom</span>,<span class="selector-tag">border-bottom</span>,<span class="selector-tag">margin-bottom</span>.</div><div class="line">7大属性的值等于包含块的<span class="selector-tag">height</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">margin-top,height,margin-bottom 三个属性可以设置为auto</div><div class="line">在正常流中，如果设置margin-top或者margin-bottom 为auto，则会计算为0,从而不能垂直居中</div><div class="line"></div><div class="line">如果没有直接指定包含块的height,百分比高度会重置为auto</div><div class="line"></div><div class="line">auto高度：</div><div class="line">  如果高度为auto（默认），只有块级子元素，其默认的高度是从最高块级子元素的外边框边界到最低子元素外边框边界之间的距离，</div><div class="line">  相当于自元素的外边距会超出包含块。但是如果包含块有padding或者border，则高度是从最高子元素的上外边距到最低子元素的下外边距</div><div class="line">  之间的距离.</div><div class="line"></div><div class="line">合并垂直外边距：</div><div class="line">  相邻外边距会沿竖轴合并，会被较大的外边距合并,</div><div class="line">  如果父元素有border或者padding包裹了外边距，则不合并</div><div class="line"></div><div class="line">负外边距：</div><div class="line">  都设置负值，浏览器会取绝对值大的值</div><div class="line">  一正一负，浏览器会取相减值</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><h3 id="行布局"><a href="#行布局" class="headerlink" title="行布局"></a>行布局</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">匿名文本:未包含在行内元素中的字符串,空格也是</div><div class="line"><span class="selector-tag">em</span>框:字符框,就是<span class="selector-tag">font-size</span>的值来决定</div><div class="line">内容区:非替换元素中就是各自负的<span class="selector-tag">em</span>框串在一起构成的框。替换元素中就是元素中固有高度再加上可能存在的外边距，边框，内边距</div><div class="line">行间距：<span class="selector-tag">line-height</span>和<span class="selector-tag">font-size</span>之间的差，分成两半，只应用于非替换元素.</div><div class="line">行内框: 非替换元素行内框等于<span class="selector-tag">line-height</span>。替换元素行内框的高度等于内容区的高度</div><div class="line">行框：包含该行中出现的行内框的最高点和最低点的最小框</div><div class="line"></div><div class="line">非替换元素的内边距，边距和外边距对行内元素或其生成的框没有垂直效果，不会影响元素行内框的高度（行框的高度也不会）</div><div class="line">替换元素的外边距和边框会影响行内框的高度（行框）</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -303,16 +317,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/09/css-marster-5/" rel="next" title="css权威指南笔记5">
-                <i class="fa fa-chevron-left"></i> css权威指南笔记5
+              <a href="/2017/06/09/css-marster-6/" rel="next" title="css权威指南笔记6">
+                <i class="fa fa-chevron-left"></i> css权威指南笔记6
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/09/css-marster-2/" rel="prev" title="css权威指南笔记2">
-                css权威指南笔记2 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/27/cache/" rel="prev" title="移动端回退产生缓存不执行js">
+                移动端回退产生缓存不执行js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -362,10 +376,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table Des Matières
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Ensemble
           </li>
         </ul>
       
@@ -382,7 +396,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">54</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -390,7 +404,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -399,7 +413,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -427,7 +441,7 @@
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本框"><span class="nav-number">1.</span> <span class="nav-text">基本框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包含块"><span class="nav-number">2.</span> <span class="nav-text">包含块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平格式化"><span class="nav-number">3.</span> <span class="nav-text">水平格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直格式化"><span class="nav-number">4.</span> <span class="nav-text">垂直格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内元素"><span class="nav-number">5.</span> <span class="nav-text">行内元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行布局"><span class="nav-number">5.1.</span> <span class="nav-text">行布局</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -454,11 +468,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
