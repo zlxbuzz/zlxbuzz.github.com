@@ -235,6 +235,198 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/30/webpack/" itemprop="url">
+                  webpack遇到的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-03-30T13:03:31+08:00" content="2017-03-30">
+              2017-03-30
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="webpack1"><a href="#webpack1" class="headerlink" title="webpack1"></a>webpack1</h2><p>构建的时候-webkit-flex消失导致ios8系统样式错乱<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 原因是构建环境的时候`uglifyjs`可能造成的这个问题，开发模式没有这个问题 */</span></div><div class="line">在配置的时候加上<span class="string">'css-loader?-autoprefixer'</span>就可以了</div></pre></td></tr></table></figure></p>
+<p><code>new webpack.optimize.CommonsChunkPlugin</code> 改变publicpath但是chunkhash不变</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">当改变publicpath的时候chunkhash值不会变，但是内容会变，会导致cdn资源被覆盖,一般就会采用hash，</div><div class="line">此问题在webpack2中已经解决</div></pre></td></tr></table></figure>
+<h2 id="webpack2-构建遇到不同开发目录chunkhash不一致"><a href="#webpack2-构建遇到不同开发目录chunkhash不一致" class="headerlink" title="webpack2 构建遇到不同开发目录chunkhash不一致"></a>webpack2 构建遇到不同开发目录chunkhash不一致</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">目前原因未知，当有vue引入的时候，改变项目的目录会导致chunkhash变换</div></pre></td></tr></table></figure>
+<h2 id="webpack-dev-server2-invalid-host-header"><a href="#webpack-dev-server2-invalid-host-header" class="headerlink" title="webpack-dev-server2 invalid host header"></a>webpack-dev-server2 invalid host header</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//直接使用localhost和127.0.0.1都可以正常访问，但是使用ip就会显示invalid host header,原因是webpack会检测hostname是否在配置内，不再的话就会报错，直接禁止检测即可</span></div><div class="line">devServer: &#123;</div><div class="line">      <span class="attr">disableHostCheck</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/07/ie/" itemprop="url">
+                  ie
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-11-07T20:45:57+08:00" content="2016-11-07">
+              2016-11-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ie8-ie9-跨域解决方法："><a href="#ie8-ie9-跨域解决方法：" class="headerlink" title="ie8,ie9 跨域解决方法："></a>ie8,ie9 跨域解决方法：</h2><p>基于常用的jquery采用jQuery-ajaxTransport-XDomainRequest，,如果是post，则数据传递只为text/plain来进行传递，所以php端需要用 php://input获取原始post数据.(此方法无法获取到error中的任何信息包括code，只能通过全部返回200的方法将error放到里面<a href="http://stackoverflow.com/questions/10390539/xdomainrequest-get-response-body-on-error),而且`XDoaminRequest`比较弱，跨域`https`，`cookie`等都不支持，所以最好的方法还是`同域代理`。" target="_blank" rel="external">http://stackoverflow.com/questions/10390539/xdomainrequest-get-response-body-on-error),而且`XDoaminRequest`比较弱，跨域`https`，`cookie`等都不支持，所以最好的方法还是`同域代理`。</a><br><a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest" target="_blank" rel="external">https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest</a></p>
+<h2 id="部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止"><a href="#部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止" class="headerlink" title="部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止."></a>部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止.</h2><h2 id="ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39"><a href="#ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39" class="headerlink" title="ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如axios,axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;;"></a>ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如<code>axios</code>,<code>axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;</code>;</h2><h2 id="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持"><a href="#ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持" class="headerlink" title="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持."></a>ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持.</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/18/m/" itemprop="url">
                   移动端收集
                 </a>
@@ -1007,236 +1199,6 @@ https://github.com/smysnk/gulp-rev-all/issues/106
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/11/php-auth/" itemprop="url">
-                  HTTP Basic Authentication
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-06-11T17:34:58+08:00" content="2015-06-11">
-              2015-06-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>类似于路由器登陆的弹出框，打开地址就是一个对话框，可以输入用户名和密码。主要是在访问一个需要<code>HTTP Basic Authentication</code>的<code>URL</code>的时候，如果没有提供用户名和密码，服务器就会返回<code>401</code>。如果直接在浏览器中打开此<code>URL</code>，服务器可以通过向客户端浏览器发送<code>Authentication Required</code>信息，使其弹出一个用户名／密码输入窗口。<br>server端<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_SERVER[<span class="string">'PHP_AUTH_USER'</span>])) &#123;</div><div class="line">    header(<span class="string">'WWW-Authenticate: Basic realm="haha"'</span>);</div><div class="line">    header(<span class="string">'HTTP/1.0 401 Unauthorized'</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'Text to send if user hits Cancel button'</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">&#125; </div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">if</span>($_SERVER[<span class="string">'PHP_AUTH_USER'</span>] === <span class="string">'123'</span> &amp;&amp; $_SERVER[<span class="string">'PHP_AUTH_PW'</span>] === <span class="string">'321'</span>) &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"hello world"</span>; </div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">    header(<span class="string">'WWW-Authenticate: Basic realm="My Realm"'</span>);</div><div class="line">    header(<span class="string">'HTTP/1.0 401 Unauthorized'</span>);</div><div class="line">    <span class="keyword">echo</span> <span class="string">'Text to send if user hits Cancel button'</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>客户端可以通过<code>curl</code>，<code>fsocket</code>等测试，这里采用简单的<code>curl</code>测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="_">-s</span> http://123:321@localhost  //返回 hello world</div></pre></td></tr></table></figure>
-<p>以下为转载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$fp = fsockopen(<span class="string">"www.example.com"</span>, <span class="number">80</span>, $errno, $errstr, <span class="number">30</span>);</div><div class="line">$out = <span class="string">"GET / HTTP/1.1\r\n"</span>;</div><div class="line">$out .= <span class="string">"Host: www.example.com\r\n"</span>;</div><div class="line">$out .= <span class="string">"Authorization: Basic "</span> . base64_encode(<span class="string">"user:pass"</span>) . <span class="string">"\r\n"</span>;</div><div class="line">fwrite($fp, $out);</div><div class="line"><span class="keyword">while</span> (!feof($fp)) &#123;</div><div class="line">    <span class="keyword">echo</span> fgets($fp, <span class="number">128</span>);</div><div class="line">&#125;</div><div class="line">fclose($fp);</div><div class="line"></div><div class="line"><span class="comment">/*AJAX的话可以用setRequestHeader,注意这里要写到open()的后面。不然chrome下会报错</span></div><div class="line"></div><div class="line">xhr.setRequestHeader("Authorization", "Basic base64加密的字符串");//字符串格式："用户名:密码</div><div class="line">*/</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/11/elemjisuan/" itemprop="url">
-                  ele.me外卖平分算钱
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-06-11T14:54:18+08:00" content="2015-06-11">
-              2015-06-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近一直在吃<code>ele.me</code>外卖，有很大的优惠，比如点50减20，点30减18等等，由于人多，最终每个人点了多少不好算出来，就用<code>bash</code>写了一个简单的算钱的公式,由于<code>bash</code>对于计算比较<code>low</code>,凑合着来用吧～<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">price=0;</div><div class="line"><span class="built_in">read</span> -p <span class="string">"请输入总人数:"</span> num</div><div class="line"><span class="built_in">read</span> -p <span class="string">"请输入实际付的总价钱:"</span> all</div><div class="line"><span class="keyword">for</span> ((i=1;i&lt;=<span class="variable">$num</span>;i++ ))</div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="built_in">declare</span> <span class="_">-a</span> array</div><div class="line">    <span class="built_in">read</span> -p <span class="string">"请输入第"</span><span class="variable">$i</span><span class="string">"个人的原始价钱:"</span> array[<span class="variable">$i</span>]</div><div class="line">    price=$((<span class="variable">$price</span>+array[<span class="variable">$i</span>]))</div><div class="line"><span class="keyword">done</span></div><div class="line">arrnum=<span class="variable">$&#123;#array[@]&#125;</span></div><div class="line"><span class="keyword">for</span> ((count =1;count&lt;=arrnum;count++)) </div><div class="line"><span class="keyword">do</span></div><div class="line">        nowprice=`<span class="built_in">echo</span> <span class="string">"scale=2;<span class="variable">$&#123;array[$count]&#125;</span>/<span class="variable">$price</span>"</span>|bc`</div><div class="line">        nowprice=0<span class="variable">$nowprice</span></div><div class="line">        <span class="built_in">echo</span>  <span class="variable">$nowprice</span>*<span class="variable">$all</span>|bc</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure></p>
-<p>直接在命令行执行该脚本就可以～</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1282,7 +1244,7 @@ https://github.com/smysnk/gulp-rev-all/issues/106
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">Artikel</span>
             </a>
           </div>

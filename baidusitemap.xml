@@ -4,11 +4,28 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-5/</loc>
-    <lastmod>2017-08-15T08:55:56.000Z</lastmod>
+    <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-7/</loc>
+    <lastmod>2017-08-23T06:54:07.000Z</lastmod>
     <data>
         <display>
-        <title>css权威指南笔记5</title>
+        <title>css权威指南笔记7</title>
+        <pubTime>2017-06-09T05:35:46.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-6/</loc>
+    <lastmod>2017-08-23T06:53:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>css权威指南笔记6</title>
         <pubTime>2017-06-09T05:35:46.000Z</pubTime>
         
         <tag>css</tag>
@@ -22,10 +39,27 @@
     
   <url>
     <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-4/</loc>
-    <lastmod>2017-08-15T07:34:12.000Z</lastmod>
+    <lastmod>2017-08-18T07:04:18.000Z</lastmod>
     <data>
         <display>
         <title>css权威指南笔记4</title>
+        <pubTime>2017-06-09T05:35:46.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-5/</loc>
+    <lastmod>2017-08-18T07:04:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>css权威指南笔记5</title>
         <pubTime>2017-06-09T05:35:46.000Z</pubTime>
         
         <tag>css</tag>
@@ -227,15 +261,13 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-2/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-1/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>Node.js MongoDB数据库方法</title>
+        <title>Node.js 核心模块方法</title>
         <pubTime>2014-12-15T03:52:34.000Z</pubTime>
         
-        <tag>mongodb</tag>
-         
         <tag>node</tag>
          
          
@@ -243,23 +275,6 @@
              
               <breadCrumb title="node" url="http://zlxbuzz.github.io/categories/node/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2016/02/15/angular-gulp/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>常见的gulp任务</title>
-        <pubTime>2016-02-15T06:45:38.000Z</pubTime>
-        
-        <tag>gulp</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -277,26 +292,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/03/11/js-source/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>js常用笔记</title>
-        <pubTime>2015-03-11T09:20:11.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-             
-              <breadCrumb title="js" url="http://zlxbuzz.github.io/categories/js/"/>
-          
         </display>
     </data>
     </url>
@@ -323,21 +318,39 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/11/css3-xuanfu/</loc>
+    <loc>http://zlxbuzz.github.io/2015/03/11/js-source/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>CSS3鼠标悬停图片动画 多种文字动画效果</title>
-        <pubTime>2014-12-11T09:41:41.000Z</pubTime>
+        <title>js常用笔记</title>
+        <pubTime>2015-03-11T09:20:11.000Z</pubTime>
         
-        <tag>css</tag>
-         
-        <tag>css3</tag>
+        <tag>js</tag>
          
          
            
              
-              <breadCrumb title="css" url="http://zlxbuzz.github.io/categories/css/"/>
+              <breadCrumb title="js" url="http://zlxbuzz.github.io/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/06/03/crontab/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>crontab记录</title>
+        <pubTime>2015-06-03T03:37:40.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://zlxbuzz.github.io/categories/linux/"/>
           
         </display>
     </data>
@@ -367,6 +380,23 @@
 
     
   <url>
+    <loc>http://zlxbuzz.github.io/2016/02/15/angular-gulp/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>常见的gulp任务</title>
+        <pubTime>2016-02-15T06:45:38.000Z</pubTime>
+        
+        <tag>gulp</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zlxbuzz.github.io/2014/12/08/markdow/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
@@ -380,6 +410,28 @@
            
              
               <breadCrumb title="markdown" url="http://zlxbuzz.github.io/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/11/css3-xuanfu/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>CSS3鼠标悬停图片动画 多种文字动画效果</title>
+        <pubTime>2014-12-11T09:41:41.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>css3</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="http://zlxbuzz.github.io/categories/css/"/>
           
         </display>
     </data>
@@ -437,20 +489,17 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2015/05/21/angular-source/</loc>
+    <loc>http://zlxbuzz.github.io/2015/12/28/nginx/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>angular笔记</title>
-        <pubTime>2015-05-21T07:34:59.000Z</pubTime>
+        <title>nginx 相关</title>
+        <pubTime>2015-12-28T08:27:31.000Z</pubTime>
         
-        <tag>angular</tag>
+        <tag>nginx</tag>
          
          
            
-             
-              <breadCrumb title="angular" url="http://zlxbuzz.github.io/categories/angular/"/>
-          
         </display>
     </data>
     </url>
@@ -482,14 +531,14 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2015/12/28/nginx/</loc>
+    <loc>http://zlxbuzz.github.io/2016/05/12/event/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>nginx 相关</title>
-        <pubTime>2015-12-28T08:27:31.000Z</pubTime>
+        <title>事件相关</title>
+        <pubTime>2016-05-12T06:53:50.000Z</pubTime>
         
-        <tag>nginx</tag>
+        <tag>js</tag>
          
          
            
@@ -499,56 +548,16 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-1/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-2/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>Node.js 核心模块方法</title>
+        <title>Node.js MongoDB数据库方法</title>
         <pubTime>2014-12-15T03:52:34.000Z</pubTime>
         
+        <tag>mongodb</tag>
+         
         <tag>node</tag>
-         
-         
-           
-             
-              <breadCrumb title="node" url="http://zlxbuzz.github.io/categories/node/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/06/11/elemjisuan/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>ele.me外卖平分算钱</title>
-        <pubTime>2015-06-11T06:54:18.000Z</pubTime>
-        
-        <tag>其他</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="http://zlxbuzz.github.io/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-5/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Node.js Ejs 方法</title>
-        <pubTime>2014-12-15T03:52:34.000Z</pubTime>
-        
-        <tag>node</tag>
-         
-        <tag>ejs</tag>
          
          
            
@@ -571,6 +580,50 @@
         <tag>node</tag>
          
         <tag>express</tag>
+         
+         
+           
+             
+              <breadCrumb title="node" url="http://zlxbuzz.github.io/categories/node/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-3/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js Mongoose 方法</title>
+        <pubTime>2014-12-15T03:52:34.000Z</pubTime>
+        
+        <tag>mongodb</tag>
+         
+        <tag>node</tag>
+         
+         
+           
+             
+              <breadCrumb title="node" url="http://zlxbuzz.github.io/categories/node/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-5/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js Ejs 方法</title>
+        <pubTime>2014-12-15T03:52:34.000Z</pubTime>
+        
+        <tag>node</tag>
+         
+        <tag>ejs</tag>
          
          
            
@@ -623,16 +676,14 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-3/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/02/nodejs-7days/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>Node.js Mongoose 方法</title>
-        <pubTime>2014-12-15T03:52:34.000Z</pubTime>
+        <title>七天学会NODEjs</title>
+        <pubTime>2014-12-02T02:43:01.000Z</pubTime>
         
-        <tag>mongodb</tag>
-         
-        <tag>node</tag>
+        <tag>nodejs</tag>
          
          
            
@@ -682,6 +733,26 @@
 
     
   <url>
+    <loc>http://zlxbuzz.github.io/2015/06/11/php-auth/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP Basic Authentication</title>
+        <pubTime>2015-06-11T09:34:58.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="php" url="http://zlxbuzz.github.io/categories/php/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zlxbuzz.github.io/2015/04/14/phalcon-rest/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
@@ -705,68 +776,6 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2015/06/11/php-auth/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>HTTP Basic Authentication</title>
-        <pubTime>2015-06-11T09:34:58.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-         
-           
-             
-              <breadCrumb title="php" url="http://zlxbuzz.github.io/categories/php/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/02/nodejs-7days/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>七天学会NODEjs</title>
-        <pubTime>2014-12-02T02:43:01.000Z</pubTime>
-        
-        <tag>nodejs</tag>
-         
-         
-           
-             
-              <breadCrumb title="node" url="http://zlxbuzz.github.io/categories/node/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/php-header/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>php header函数的详解</title>
-        <pubTime>2014-12-08T10:30:44.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>header</tag>
-         
-         
-           
-             
-              <breadCrumb title="php" url="http://zlxbuzz.github.io/categories/php/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://zlxbuzz.github.io/2015/03/17/php-book/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
@@ -780,26 +789,6 @@
            
              
               <breadCrumb title="php" url="http://zlxbuzz.github.io/categories/php/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql-gis/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>postgresql-gis</title>
-        <pubTime>2014-12-08T10:23:40.000Z</pubTime>
-        
-        <tag>gis</tag>
-         
-         
-           
-             
-              <breadCrumb title="postgresql" url="http://zlxbuzz.github.io/categories/postgresql/"/>
           
         </display>
     </data>
@@ -831,21 +820,38 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-php/</loc>
+    <loc>http://zlxbuzz.github.io/2016/02/25/position/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>postgres-php</title>
-        <pubTime>2014-12-08T09:59:40.000Z</pubTime>
+        <title>angular-ui-bootstrap $position源码分析</title>
+        <pubTime>2016-02-25T11:56:40.000Z</pubTime>
+        
+        <tag>angular</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/08/php-header/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>php header函数的详解</title>
+        <pubTime>2014-12-08T10:30:44.000Z</pubTime>
         
         <tag>php</tag>
          
-        <tag>postgresql</tag>
+        <tag>header</tag>
          
          
            
              
-              <breadCrumb title="postgresql" url="http://zlxbuzz.github.io/categories/postgresql/"/>
+              <breadCrumb title="php" url="http://zlxbuzz.github.io/categories/php/"/>
           
         </display>
     </data>
@@ -873,33 +879,15 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2015/03/04/src-href/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-php/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>src与href属性的区别</title>
-        <pubTime>2015-03-04T09:35:47.000Z</pubTime>
+        <title>postgres-php</title>
+        <pubTime>2014-12-08T09:59:40.000Z</pubTime>
         
-        <tag>html</tag>
+        <tag>php</tag>
          
-         
-           
-             
-              <breadCrumb title="html" url="http://zlxbuzz.github.io/categories/html/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>postgresql</title>
-        <pubTime>2014-12-08T07:55:19.000Z</pubTime>
-        
         <tag>postgresql</tag>
          
          
@@ -913,34 +901,20 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2016/02/25/position/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql-gis/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>angular-ui-bootstrap $position源码分析</title>
-        <pubTime>2016-02-25T11:56:40.000Z</pubTime>
+        <title>postgresql-gis</title>
+        <pubTime>2014-12-08T10:23:40.000Z</pubTime>
         
-        <tag>angular</tag>
+        <tag>gis</tag>
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/11/23/vagrant/</loc>
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>vagrant初探</title>
-        <pubTime>2015-11-23T06:30:35.000Z</pubTime>
-        
-        <tag>vagrant</tag>
-         
-         
-           
+             
+              <breadCrumb title="postgresql" url="http://zlxbuzz.github.io/categories/postgresql/"/>
+          
         </display>
     </data>
     </url>
@@ -969,20 +943,37 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2015/06/03/crontab/</loc>
+    <loc>http://zlxbuzz.github.io/2015/03/04/src-href/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>crontab记录</title>
-        <pubTime>2015-06-03T03:37:40.000Z</pubTime>
+        <title>src与href属性的区别</title>
+        <pubTime>2015-03-04T09:35:47.000Z</pubTime>
         
-        <tag>linux</tag>
+        <tag>html</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://zlxbuzz.github.io/categories/linux/"/>
+              <breadCrumb title="html" url="http://zlxbuzz.github.io/categories/html/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/11/23/vagrant/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>vagrant初探</title>
+        <pubTime>2015-11-23T06:30:35.000Z</pubTime>
+        
+        <tag>vagrant</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -1009,17 +1000,60 @@
 
     
   <url>
-    <loc>http://zlxbuzz.github.io/2016/05/12/event/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql/</loc>
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     <data>
         <display>
-        <title>事件相关</title>
-        <pubTime>2016-05-12T06:53:50.000Z</pubTime>
+        <title>postgresql</title>
+        <pubTime>2014-12-08T07:55:19.000Z</pubTime>
         
-        <tag>js</tag>
+        <tag>postgresql</tag>
          
          
            
+             
+              <breadCrumb title="postgresql" url="http://zlxbuzz.github.io/categories/postgresql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/06/11/elemjisuan/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>ele.me外卖平分算钱</title>
+        <pubTime>2015-06-11T06:54:18.000Z</pubTime>
+        
+        <tag>其他</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="http://zlxbuzz.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/05/21/angular-source/</loc>
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>angular笔记</title>
+        <pubTime>2015-05-21T07:34:59.000Z</pubTime>
+        
+        <tag>angular</tag>
+         
+         
+           
+             
+              <breadCrumb title="angular" url="http://zlxbuzz.github.io/categories/angular/"/>
+          
         </display>
     </data>
     </url>
