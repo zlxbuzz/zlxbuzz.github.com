@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -248,7 +248,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-15T11:52:34+08:00" content="2014-12-15">
               2014-12-15
             </time>
@@ -260,7 +260,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node/" itemprop="url" rel="index">
@@ -476,6 +476,180 @@ sort( {&quot;username&quot;:1 , &quot;age&quot;:-1 } ) 排序 键对应文档的
             
               
                 
+                <a class="post-title-link" href="/2014/12/15/node-man-4/" itemprop="url">
+                  Node.js Express 方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-15T11:52:34+08:00" content="2014-12-15">
+              2014-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##express</p>
+<p>安装:</p>
+<p>新版本中命令行工具分家了</p>
+<pre><code>npm install -g express  //安装 express
+</code></pre><p>然后</p>
+<pre><code>npm install -g express-generator    //安装 express 命令行工具
+</code></pre><p>express -V 我现在查看到的版本是 4.9.0<br>npm start 代替 node app.js 启动</p>
+<p>##http.Server</p>
+<pre><code>var http = require(‘http’); 
+var server = http.createServer(callback); 返回一个http.Server实例
+</code></pre><p>####属性:</p>
+<pre><code>server.maxHeadersCount 最大请求头数目限制, 默认 1000 个. 如果设置为0, 则代表不做任何限制
+</code></pre><p>####方法:</p>
+<pre><code>server.listnen(prot) 监听一个端口
+server.close(callback) 禁止服务端接收新的连接 
+server.setTimeout(msecs_Time, callback) 设置套接字的超时值
+</code></pre><p>####事件:</p>
+<pre><code>‘request’ 每收到一个HTTP请求时触发, http.createServer的参数默认就是此事件的处理程序. 提供2个参数: req, res 分别是http.ServerRequest 和 http.ServerResponse 的实例. 表示请求和响应消息
+‘connection’ 新的TCP建立时触发. 提供1个 socket 参数 net.Socket 实例
+‘close’ 服务器关闭时触发 无参
+</code></pre><p>##http.ServerRequest<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">HTTP请求的消息, 一般由 http.Server的 request 事件发送. </div><div class="line">HTTP 请求分: 请求头. 请求体</div><div class="line">```    </div><div class="line">####事件:</div><div class="line"></div><div class="line">    ‘data’ 请求体数据来到时. 参数 chunk 表示接收到的数据 </div><div class="line">    ‘end’ 请求体数据传输完成时 </div><div class="line">    ‘close’ 用户当前请求结束时</div><div class="line"></div><div class="line">####属性:</div><div class="line"></div><div class="line">    complete 客户端请求是否已经发送完成</div><div class="line">    httpVersion HTTP 协议版本，通常是 <span class="number">1.0</span> 或 <span class="number">1.1</span></div><div class="line">    method HTTP 请求方法，如 GET、POST、PUT、DELETE 等</div><div class="line">    url 原始的请求路径，例如 /<span class="keyword">static</span>/image/x.jpg 或 /user?name=byvoid </div><div class="line">    headers HTTP 请求头</div><div class="line">    trailers HTTP 请求尾（不常见） </div><div class="line">    connection 当前 HTTP 连接套接字，为 net.Socket 的实例 </div><div class="line">    socket connection 属性的别名 </div><div class="line">    client client 属性的别名</div><div class="line">    params 多路由控制时的对象</div><div class="line"></div><div class="line">##http.ServerResponse</div><div class="line"></div><div class="line">HTTP响应消息是返回给客户端的信息,决定了用户最终看到的结果</div><div class="line">####函数</div><div class="line"></div><div class="line">    res.writeHead(statusCode, [headers]) 该函数在一次请求中最多调用一次. statusCode, 是HTTP状态码. 如<span class="number">200</span>,<span class="number">404.</span> </div><div class="line">    headers 类似数组的对象,表示响应头的每个属性</div><div class="line">    res.write(data, [encoding]) 发送响应内容, 如果是字符串,需要制定编码方式, 默认 utf<span class="number">-8</span></div><div class="line">    res.end(data, data, [encoding]) 结束响应,告知客户端所有响应完成. 此函数必须调用一次</div><div class="line"></div><div class="line">##API</div><div class="line"></div><div class="line">HTTP动词都是Express的方法. post 改、put 增、<span class="keyword">delete</span> 删、get 查</div><div class="line">####GET</div><div class="line"></div><div class="line">    GET 根据请求路径来处理客户端发出的GET请求</div><div class="line"></div><div class="line">    app.get(path, [callback(request, response)])</div><div class="line"></div><div class="line">####ALL</div><div class="line"></div><div class="line">    ALL 以匹配所有的HTTP动词，也就是说它可以过滤所有路径的请求</div><div class="line"></div><div class="line">    app.all(path, [callback(request, response, next)])</div><div class="line"></div><div class="line">####USE</div><div class="line"> USE express调用中间件的方法，它返回一个函数. path默认为<span class="string">"/"</span></div><div class="line"></div><div class="line">    app.use([path], [callback(request, response, next)])</div><div class="line">USE 不仅可以调用中间件,还可以根据请求的网址，返回不同的网页内容</div><div class="line">```js</div><div class="line">app.use(function(request, response, next) &#123;</div><div class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/"</span>) &#123;</div><div class="line">      response.send(<span class="string">"Welcome to the homepage!"</span>);</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">      next();</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(function(request, response, next) &#123;</div><div class="line">   <span class="keyword">if</span>(request.url == <span class="string">"/about"</span>) &#123;</div><div class="line">     response.send(<span class="string">"Welcome to the about page!"</span>);</div><div class="line">   &#125;<span class="keyword">else</span> &#123;</div><div class="line">     next();</div><div class="line">   &#125;</div><div class="line">&#125;);</div><div class="line">        </div><div class="line">app.use(function(request, response) &#123;</div><div class="line">  response.send(<span class="string">"404 error!"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>####post<br>处理指定页面的post请求</p>
+<pre><code>app.post(path,function(req, res));
+</code></pre><p>想要使用 body 需要安装中间件 </p>
+<pre><code>npm install body-parser 
+npm install multer
+</code></pre><p>调用</p>
+<pre><code>var bodyParser = require(‘body-parser’); 
+var multer = require(‘multer’);
+… 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(multer());
+
+req.body 解析客户端的post请求参数
+格式：req.body.参数名；
+</code></pre><p>注意: 表单所发送的 post请求 Accept 和 ajax 的不一样<br>服务器 send 发回来的数据,ajax是数据, 表单会反映称网页</p>
+<p>####param/query/params</p>
+<pre><code>获取主机名、路径名.[这里的req就是回调函数中的第一个参数]
+
+req.host 返回请求头里取的主机名(不包含端口号); 
+req.path 返回请求的URL的路径名 
+req.query 是一个对象,存储着get请求路径参数的对象属性
+www.***.com/shoes?order=desc&amp;shoe[color]=blue&amp;shoe[type]=converse 网址 
+得到: { order: &apos;desc’, shoe: { color: &apos;blue’, type: ‘converse’ } } 
+req.param() 功能同上,不过是函数形式 req.param(‘order’) 返回 desc
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// req.param('name') 还可以获取具有相应路由规则的请求对象</span></div><div class="line">app.get(<span class="string">"/user/:name/"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.param(<span class="string">"name"</span>)); </div><div class="line">    res.send(<span class="string">"使用req.param属性获取具有路由规则的参数对象值!"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// req.params 同上,但可以匹配复杂命名路由规则的请求</span></div><div class="line">app.get(<span class="string">"/user/:name/:id"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(req.params.id); </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>####send</p>
+<pre><code>send 方法向浏览器发送一个响应信息，并可以智能处理不同类型的数据 send方法在输出响应时会自动进行一些设置，比如HEAD信息、HTTP缓存支持等等 类型可以是: String, Array, Object, Number. 当参数为一个String时，Content-Type默认设置为&quot;text/html&quot; 当参数为Array或Object时，Express会返回一个JSON 当参数为一个NumberExpress会帮你设置一个响应体，比如：200
+</code></pre><p>####set<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">app.set('view engine’, ‘ejs’); 设置默认模板引擎 </div><div class="line">app.engine( '.html’, require( ‘ejs’ ).__express ); </div><div class="line">修改模板引擎 "__express"，ejs模块的一个公共属性，表示要渲染的文件扩展名</div><div class="line"></div><div class="line">app.set('views’, __dirname); 设定views变量，意为视图存放的目录</div><div class="line"></div><div class="line">express.static —— 指定静态文件的查找目录 app.use(express.static(require(‘path’).join(__dirname, ‘public’)));</div><div class="line"></div><div class="line">模板操作: </div><div class="line">app.set('views’, path.join(__dirname, ‘views’)); </div><div class="line">app.set('view engine’, ‘html’); </div><div class="line">app.engine('.html’, require(‘ejs’).__express); </div><div class="line">这样模板后缀可以使 .html 但模板代码是ejs代码</div></pre></td></tr></table></figure></p>
+<p>####render</p>
+<p>何对网页模板进行访问. res对象的render函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.render(view, [locals], callback); view 视图名, locals 为模板传入变量</div></pre></td></tr></table></figure></p>
+<p>####redirect</p>
+<p>允许网址的重定向，跳转到指定的url并且可以指定status，默认为302方式 根据指定url来重定向，可以域内路径、网页间跳转也可以跳转至不同域名</p>
+<pre><code>res.redirect([status], url); res.redirect(“login”);
+</code></pre><p>####Middleware&lt;中间件&gt;</p>
+<p>中间件(middleware)就是处理HTTP请求的函数，用来完成各种特定的任务，比如检查用户是否登录、分析数据、以及其他在需要最终将数据发送给用户之前完成的任务。 它最大的特点就是，一个中间件处理完，可以把相应数据再传递给下一个中间件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//连续调用2个中间件</span></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response, next</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"method："</span>+request.method+<span class="string">" ==== "</span>+<span class="string">"url："</span>+request.url);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>)</span>&#123;</div><div class="line">    response.writeHead(<span class="number">200</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">"text/html;charset=utf-8"</span> &#125;);</div><div class="line">    response.end(<span class="string">'示例：连续调用两个中间件'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>#####由于这种原因,所以调用中间件的顺序非常重要</p>
+<p>设定静态文件目录的访问路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">express.static(path.join(__dirname, ‘/public’))</div></pre></td></tr></table></figure></p>
+<pre><code>express-session
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</div><div class="line">app.use(session(&#123;</div><div class="line">    <span class="attr">secret</span>:<span class="string">'secret'</span>,</div><div class="line">    <span class="attr">resave</span>:<span class="literal">true</span>,</div><div class="line">    <span class="attr">saveUninitialized</span>:<span class="literal">false</span>,</div><div class="line">    <span class="attr">cookie</span>:&#123;</div><div class="line">        <span class="attr">maxAge</span>:<span class="number">1000</span>*<span class="number">60</span>*<span class="number">10</span>  <span class="comment">//过期时间设置(单位毫秒)</span></div><div class="line">    &#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//新增中间件并设置模板变量值</span></div><div class="line"></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</div><div class="line">    res.locals.user = req.session.user;</div><div class="line">    <span class="keyword">var</span> err = req.session.error;</div><div class="line">    res.locals.message = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (err) res.locals.message = <span class="string">'&lt;div style="margin-bottom: 20px;color:red;"&gt;'</span> + err + <span class="string">'&lt;/div&gt;'</span>;</div><div class="line">    next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>body-parser<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">npm install body-parser</div><div class="line">npm install multer</div><div class="line"></div><div class="line">调用</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"><span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>);</div><div class="line">   ......</div><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</div><div class="line">app.use(multer());</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/11/css3-xuanfu/" itemprop="url">
                   CSS3鼠标悬停图片动画 多种文字动画效果
                 </a>
@@ -489,7 +663,7 @@ sort( {&quot;username&quot;:1 , &quot;age&quot;:-1 } ) 排序 键对应文档的
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-11T17:41:41+08:00" content="2014-12-11">
               2014-12-11
             </time>
@@ -501,7 +675,7 @@ sort( {&quot;username&quot;:1 , &quot;age&quot;:-1 } ) 排序 键对应文档的
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/css/" itemprop="url" rel="index">
@@ -765,7 +939,7 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-10T15:07:16+08:00" content="2014-12-10">
               2014-12-10
             </time>
@@ -777,7 +951,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/linux/" itemprop="url" rel="index">
@@ -902,7 +1076,7 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-10T15:07:16+08:00" content="2014-12-10">
               2014-12-10
             </time>
@@ -914,7 +1088,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -1011,123 +1185,6 @@ transition-duration: 0.35s;
             
               
                 
-                <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
-                  php header函数的详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
-              2014-12-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></div><div class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</div><div class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</div><div class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</div><div class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</div><div class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></div><div class="line"><span class="meta">?&gt;</span></div><div class="line">CacheControl = no-cache</div><div class="line">Pragma=no-cache</div><div class="line">Expires = <span class="number">-1</span></div></pre></td></tr></table></figure></p>
-<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></div><div class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></div><div class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></div><div class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></div><div class="line">　　<span class="comment">// load the file to send:</span></div><div class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></div></pre></td></tr></table></figure></p>
-<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</div><div class="line"></div><div class="line"><span class="comment">//设置一个404头:</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</div><div class="line"></div><div class="line"><span class="comment">//设置地址被永久的重定向</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</div><div class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">Status: <span class="number">404</span> Not Found</div><div class="line">Content-Length: <span class="number">0</span></div><div class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
-<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/12/08/mongodb/" itemprop="url">
                   MongoDB基本使用
                 </a>
@@ -1141,7 +1198,7 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -1153,7 +1210,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/mongodb/" itemprop="url" rel="index">
@@ -1311,7 +1368,7 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -1323,7 +1380,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/markdown/" itemprop="url" rel="index">
@@ -1411,8 +1468,8 @@ transition-duration: 0.35s;
             
               
                 
-                <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
-                  postgresql-gis
+                <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
+                  php header函数的详解
                 </a>
               
             
@@ -1424,8 +1481,8 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
               2014-12-08
             </time>
           </span>
@@ -1436,11 +1493,11 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/postgresql/" itemprop="url" rel="index">
-                    <span itemprop="name">postgresql</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -1474,14 +1531,11 @@ transition-duration: 0.35s;
       
         
           
-            <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></div></pre></td></tr></table></figure></p>
-<p>##ST_Geometry 类型</p>
-<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
-<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
-<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
-<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
-<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
-<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</div></pre></td></tr></table></figure></p>
+            <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></div><div class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</div><div class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</div><div class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</div><div class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</div><div class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></div><div class="line"><span class="meta">?&gt;</span></div><div class="line">CacheControl = no-cache</div><div class="line">Pragma=no-cache</div><div class="line">Expires = <span class="number">-1</span></div></pre></td></tr></table></figure></p>
+<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></div><div class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></div><div class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></div><div class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></div><div class="line">　　<span class="comment">// load the file to send:</span></div><div class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></div></pre></td></tr></table></figure></p>
+<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</div><div class="line"></div><div class="line"><span class="comment">//设置一个404头:</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</div><div class="line"></div><div class="line"><span class="comment">//设置地址被永久的重定向</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</div><div class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">Status: <span class="number">404</span> Not Found</div><div class="line">Content-Length: <span class="number">0</span></div><div class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
+<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
 
           
         
@@ -1544,7 +1598,7 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -1556,7 +1610,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/git/" itemprop="url" rel="index">
@@ -1662,8 +1716,8 @@ transition-duration: 0.35s;
             
               
                 
-                <a class="post-title-link" href="/2014/12/08/postgres-copy/" itemprop="url">
-                  postgresql copy指令及相关函数
+                <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
+                  postgresql-gis
                 </a>
               
             
@@ -1675,8 +1729,8 @@ transition-duration: 0.35s;
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
           </span>
@@ -1687,7 +1741,7 @@ transition-duration: 0.35s;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -1724,12 +1778,17 @@ transition-duration: 0.35s;
 
       
         
-          <p>##关于postgresql的其他函数<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/08/postgres-copy/#more" rel="contents">
-              Lire la suite &raquo;
-            </a>
-          </div>
+          
+            <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></div></pre></td></tr></table></figure></p>
+<p>##ST_Geometry 类型</p>
+<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
+<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
+<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
+<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
+<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
+<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1801,8 +1860,8 @@ transition-duration: 0.35s;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1810,7 +1869,7 @@ transition-duration: 0.35s;
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1819,7 +1878,7 @@ transition-duration: 0.35s;
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1863,11 +1922,11 @@ transition-duration: 0.35s;
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

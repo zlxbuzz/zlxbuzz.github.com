@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/06/09/css-marster-6/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="文本属性12345678910111213141516171819202122232425262728293031323334353637383940414243/* 缩进 */text-indent: 3em;/*应用于块级元素,不应用于行内元素或者替换元素*//* 百分比相当于父元素的宽度 ,可以继承,2.1之前继承计算值，之后继承申明值*//* 水平对齐 *//* 应用于块级元素 */tex">
-<meta property="og:updated_time" content="2017-08-23T06:53:56.000Z">
+<meta property="og:updated_time" content="2017-08-28T07:42:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css权威指南笔记6">
 <meta name="twitter:description" content="文本属性12345678910111213141516171819202122232425262728293031323334353637383940414243/* 缩进 */text-indent: 3em;/*应用于块级元素,不应用于行内元素或者替换元素*//* 百分比相当于父元素的宽度 ,可以继承,2.1之前继承计算值，之后继承申明值*//* 水平对齐 *//* 应用于块级元素 */tex">
@@ -174,7 +174,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -247,7 +247,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -276,7 +276,7 @@
       
 
       
-        <h2 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/* 缩进 */</div><div class="line">text-indent: 3em;/*应用于块级元素,不应用于行内元素或者替换元素*/</div><div class="line">/* 百分比相当于父元素的宽度 ,可以继承,2.1之前继承计算值，之后继承申明值*/</div><div class="line"></div><div class="line">/* 水平对齐 */</div><div class="line">/* 应用于块级元素 */</div><div class="line">text-align:center|left|right|justify|inherit</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐 */</div><div class="line">line-height:&lt;length&gt;|&lt;percentage&gt;|&lt;number&gt;|normal|inherit /*代表文本行基线之间的最小距离*/</div><div class="line">/* 百分比相当于元素的字体大小 */</div><div class="line"></div><div class="line"></div><div class="line">/* 定义: */</div><div class="line">/* 文本行中每个元素都会生成一个内容区，内容区会生成一个行内框(inline box),由line-height产生的行间距 */</div><div class="line">/* 就是增加或者减少各个行内框高度的原因之一。将line－height的计算值减去font－size的计算值就是总的行 */</div><div class="line">/* 间距，然后除以2 将一半分别应用到内容区的顶部和底部，结果就是行内框。 */</div><div class="line"></div><div class="line">/* 继承： */</div><div class="line">/*   1.如果为一个数字1（缩放因子），则继承申明值。 */</div><div class="line">/*   2.如果为其他，则继承计算值。 */</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐文本 */</div><div class="line">/* 只能应用到行内元素和替换元素,并且不能继承 */</div><div class="line">/* 百分比相对于元素的line-height值 */</div><div class="line">/*inline-block依赖型元素(只有inline或者inline-block才起作用)*/</div><div class="line">vertical-align:baseline|sub|super|top|text-top|middle|bottom|text-bottom|&lt;percentage&gt;|&lt;length&gt;|inherit</div><div class="line"></div><div class="line">vertical-align:baseline;/*默认值，一个元素的基线和其父元素的基线对齐,如果该元素没有基线，比如为图像或者表单数据元素，则底端与父元素的基线对齐*/</div><div class="line"></div><div class="line">vertical-align:5px;/*元素相当于基线向上偏移5像素*/</div><div class="line">vertical-align:-5px;/*元素相当于基线向下偏移5像素*/</div><div class="line"></div><div class="line">vertical-align:text-bottom;/*基线与父元素的行内文本底端对齐*/</div><div class="line">vertical-align:bottom;/*基线与父元素的下行框底端对齐*/</div><div class="line"></div><div class="line">vertical-align:text-top;/*基线与父元素的行内文本顶端对齐*/</div><div class="line">vertical-align:top;/*基线与父元素的行框顶端对齐*/</div><div class="line"></div><div class="line">vertical-align:middle;/*一般用于图片,将元素的中点和父元素基线上方0.5ex（一般为0.25em）出的点对齐*/</div></pre></td></tr></table></figure>
+        <h2 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/* 缩进 */</div><div class="line">text-indent: 3em;/*应用于块级元素,不应用于行内元素或者替换元素*/</div><div class="line">/* 百分比相当于父元素的宽度 ,可以继承,2.1之前继承计算值，之后继承申明值*/</div><div class="line"></div><div class="line">/* 水平对齐 */</div><div class="line">/* 应用于块级元素 */</div><div class="line">text-align:center|left|right|justify|inherit</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐 */</div><div class="line">line-height:&lt;length&gt;|&lt;percentage&gt;|&lt;number&gt;|normal|inherit /*代表文本行基线之间的最小距离*/</div><div class="line">/* 百分比相当于元素的字体大小 */</div><div class="line"></div><div class="line"></div><div class="line">/* 定义: */</div><div class="line">/* 文本行中每个元素都会生成一个内容区，内容区会生成一个行内框(inline box),由line-height产生的行间距 */</div><div class="line">/* 就是增加或者减少各个行内框高度的原因之一。将line－height的计算值减去font－size的计算值就是总的行 */</div><div class="line">/* 间距，然后除以2 将一半分别应用到内容区的顶部和底部，结果就是行内框。 */</div><div class="line"></div><div class="line">/* 继承： */</div><div class="line">/*   1.如果为一个数字1（缩放因子），则继承申明值。 */</div><div class="line">/*   2.如果为其他，则继承计算值。 */</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐文本 */</div><div class="line">/* 只能应用到行内元素和替换元素,并且不能继承 */</div><div class="line">/* 百分比相对于元素的line-height值 */</div><div class="line">/*inline-block依赖型元素(只有inline或者inline-block才起作用)*/</div><div class="line">vertical-align:baseline|sub|super|top|text-top|middle|bottom|text-bottom|&lt;percentage&gt;|&lt;length&gt;|inherit</div><div class="line"></div><div class="line">vertical-align:baseline;/*默认值，一个元素的基线和其父元素的基线对齐,如果该元素没有基线，比如为图像或者表单数据元素，则底端(实际上是下外边距)与父元素的基线对齐*/</div><div class="line"></div><div class="line">vertical-align:5px;/*元素相当于基线向上偏移5像素,同时提升其内容区和行内框*/</div><div class="line">vertical-align:-5px;/*元素相当于基线向下偏移5像素*/</div><div class="line"></div><div class="line">vertical-align:text-bottom;/*基线与父元素的行内文本底端对齐(将元素行内框的底端与父元素的内容区的底端对齐)*/</div><div class="line">vertical-align:bottom;/*基线与父元素的下行框底端对齐(将元素行内框的底端与包含该元素的行框的底端对齐)*/</div><div class="line"></div><div class="line">vertical-align:text-top;/*基线与父元素的行内文本顶端对齐(将元素行内框的底端与父元素的内容区的顶端对齐)*/</div><div class="line">vertical-align:top;/*基线与父元素的行框顶端对齐(将元素行内框的顶端与包含该元素的行框的顶端对齐)*/</div><div class="line"></div><div class="line">vertical-align:middle;/*一般用于图片,将元素行内框的的垂直中点和父元素基线上方0.5ex（一般为0.25em）出的点对齐*/</div></pre></td></tr></table></figure>
 <h2 id="字间隔和字母间隔"><a href="#字间隔和字母间隔" class="headerlink" title="字间隔和字母间隔"></a>字间隔和字母间隔</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*单词间隔*/</div><div class="line">word-spacing:&lt;length&gt;|normal|inherit</div><div class="line">/*字母 隔*/</div><div class="line">letter-spacing:&lt;length&gt;|normal|inherit</div></pre></td></tr></table></figure>
 <h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/* 文本转换 */</div><div class="line">text-transform:uppercase|lowercase|capitalize|none|inherit;</div><div class="line">/* 分别为大写，小写，首字母大写 */</div><div class="line"></div><div class="line">/* 文本装饰*/</div><div class="line">/* 无继承 */</div><div class="line">text-decoration:underline|overline|line-through|blink|none|inherit;</div><div class="line">/*下划线，上划线，贯穿线，闪烁*/</div><div class="line"></div><div class="line">/* 文本阴影 */</div><div class="line">text-shadow:green 5px 0.5em 1px;</div><div class="line">/*颜色 向右偏移5px 向下偏移0.5em 模糊半径1px*/</div><div class="line"></div><div class="line">/* 处理空白符 */</div><div class="line">white-space:normal|nowrap|pre|pre-wrap|pre-line|inherit</div><div class="line">/* normal:一行中多个空格的序列会转换为一个空格 */</div><div class="line">/* pre:空白符不会忽略 */</div><div class="line">/* nowrap:防止文本换行 */</div><div class="line"></div><div class="line">/* 文本方向 */</div><div class="line">direction:ltr|rtl|inherit</div></pre></td></tr></table></figure>
 
@@ -309,16 +309,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/09/css-marster-1/" rel="next" title="css权威指南笔记1">
-                <i class="fa fa-chevron-left"></i> css权威指南笔记1
+              <a href="/2017/05/09/my/" rel="next" title="个人工作习惯">
+                <i class="fa fa-chevron-left"></i> 个人工作习惯
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/09/css-marster-7/" rel="prev" title="css权威指南笔记7">
-                css权威指南笔记7 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/09/css-marster-5/" rel="prev" title="css权威指南笔记5">
+                css权威指南笔记5 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -368,10 +368,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table Des Matières
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Ensemble
+            Übersicht
           </li>
         </ul>
       
@@ -387,8 +387,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -396,7 +396,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -405,7 +405,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -460,11 +460,11 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
