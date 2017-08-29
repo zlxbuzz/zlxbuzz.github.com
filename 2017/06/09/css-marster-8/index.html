@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="基本框">
+<meta name="description" content="基本元素框（element box）1234567891011121314151617181920width值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|inherit初始值: auto应用: 块级元素和替换元素（行内非替换元素不生效）百分比: 对于包含块的宽度height值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css权威指南笔记8">
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/06/09/css-marster-8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基本框">
-<meta property="og:updated_time" content="2017-08-28T07:53:08.000Z">
+<meta property="og:description" content="基本元素框（element box）1234567891011121314151617181920width值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|inherit初始值: auto应用: 块级元素和替换元素（行内非替换元素不生效）百分比: 对于包含块的宽度height值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|in">
+<meta property="og:updated_time" content="2017-08-29T08:32:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css权威指南笔记8">
-<meta name="twitter:description" content="基本框">
+<meta name="twitter:description" content="基本元素框（element box）1234567891011121314151617181920width值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|inherit初始值: auto应用: 块级元素和替换元素（行内非替换元素不生效）百分比: 对于包含块的宽度height值: &amp;lt;length&amp;gt;|&amp;lt;percentage&amp;gt;|auto|in">
 
 
 
@@ -276,7 +276,11 @@
       
 
       
-        <h2 id="基本框"><a href="#基本框" class="headerlink" title="基本框"></a>基本框</h2>
+        <h2 id="基本元素框（element-box）"><a href="#基本元素框（element-box）" class="headerlink" title="基本元素框（element box）"></a>基本元素框（element box）</h2><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">width</div><div class="line"></div><div class="line">值: <span class="variable">&lt;length&gt;</span>|<span class="string">&lt;percentage&gt;</span>|<span class="string">auto</span>|inherit</div><div class="line">初始值: auto</div><div class="line">应用: 块级元素和替换元素（行内非替换元素不生效）</div><div class="line">百分比: 对于包含块的宽度</div><div class="line"></div><div class="line">height</div><div class="line"></div><div class="line">值: <span class="variable">&lt;length&gt;</span>|<span class="string">&lt;percentage&gt;</span>|<span class="string">auto</span>|inherit</div><div class="line">初始值: auto</div><div class="line">应用: 块级元素和替换元素（行内非替换元素不生效）</div><div class="line">百分比: 对于包含块的高度</div><div class="line"></div><div class="line">margin</div><div class="line"></div><div class="line">值: <span class="variable">&lt;length&gt;</span>|<span class="string">&lt;percentage&gt;</span>|<span class="string">auto</span>|inherit</div><div class="line">初始值: 无</div><div class="line">应用:所有</div><div class="line">百分比: 对于包含块的width</div></pre></td></tr></table></figure>
+<h2 id="外边距和行内元素"><a href="#外边距和行内元素" class="headerlink" title="外边距和行内元素"></a>外边距和行内元素</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">行内非替换元素 上下外边距不影响行高,左右外边距可以。</div></pre></td></tr></table></figure>
+<h2 id="内边距和行内元素"><a href="#内边距和行内元素" class="headerlink" title="内边距和行内元素"></a>内边距和行内元素</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">行内非替换元素 左右内边距可以扩展，上下内边距也可以，但是不影响行高。</div></pre></td></tr></table></figure>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">全局边框</div><div class="line"></div><div class="line">border:<span class="meta">[&lt;border-width&gt; || &lt;border-style&gt; || border-color] | inherit</span></div><div class="line"></div><div class="line">内边距padding</div><div class="line"></div><div class="line">值: [&lt;length&gt; | &lt;percentage&gt;] | <span class="keyword">inherit</span></div><div class="line">初始值: 未定义</div><div class="line">应用于：所有元素</div><div class="line">百分比： 相对于包含块的width</div><div class="line">说明： 内边距绝对不能为负</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -306,16 +310,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/09/css-marster-1/" rel="next" title="css权威指南笔记1">
-                <i class="fa fa-chevron-left"></i> css权威指南笔记1
+              <a href="/2017/06/09/css-marster-3/" rel="next" title="css权威指南笔记3">
+                <i class="fa fa-chevron-left"></i> css权威指南笔记3
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/09/css-marster-7/" rel="prev" title="css权威指南笔记7">
-                css权威指南笔记7 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/27/cache/" rel="prev" title="移动端回退产生缓存不执行js">
+                移动端回退产生缓存不执行js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -430,7 +434,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本框"><span class="nav-number">1.</span> <span class="nav-text">基本框</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本元素框（element-box）"><span class="nav-number">1.</span> <span class="nav-text">基本元素框（element box）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外边距和行内元素"><span class="nav-number">2.</span> <span class="nav-text">外边距和行内元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内边距和行内元素"><span class="nav-number">3.</span> <span class="nav-text">内边距和行内元素</span></a></li></ol></div>
             
           </div>
         </section>
