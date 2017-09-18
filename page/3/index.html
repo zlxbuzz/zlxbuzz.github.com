@@ -102,7 +102,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: 'Penulis'
     }
   };
 </script>
@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -235,6 +235,198 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/27/npm/" itemprop="url">
+                  npm常用包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Diposting di</span>
+            <time itemprop="dateCreated" datetime="2016-01-27T14:22:12+08:00" content="2016-01-27">
+              2016-01-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="使用scp2进行ssh传输"><a href="#使用scp2进行ssh传输" class="headerlink" title="使用scp2进行ssh传输"></a>使用scp2进行ssh传输</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#下载nodejs</span></div><div class="line"><span class="comment">#通过npm 下载全局命令scp2</span></div><div class="line">npm i -g scp2</div><div class="line"><span class="comment">#直接使用</span></div><div class="line">scp2 img/ zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/ <span class="comment">#复制目录的内容到某个目录</span></div><div class="line">scp2 a.jpg zhonglingxiao:123456@10.172.225.119:/home/zhonglingxiao/img/</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/28/nginx/" itemprop="url">
+                  nginx 相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Diposting di</span>
+            <time itemprop="dateCreated" datetime="2015-12-28T16:27:31+08:00" content="2015-12-28">
+              2015-12-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端代理请求-将请求域名代理掉，解决跨域问题"><a href="#前端代理请求-将请求域名代理掉，解决跨域问题" class="headerlink" title="前端代理请求,将请求域名代理掉，解决跨域问题"></a>前端代理请求,将请求域名代理掉，解决跨域问题</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">location</span>  /v6/ &#123;</div><div class="line">      <span class="attribute">proxy_set_header</span> X-Forward-For <span class="variable">$remote_addr</span> ;</div><div class="line">      <span class="attribute">proxy_set_header</span>   X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">      <span class="attribute">proxy_set_header</span> host app.conf.ayibang.com;</div><div class="line">      <span class="attribute">proxy_pass</span> http://app.conf.ayibang.com;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="设置expires-和cache-control"><a href="#设置expires-和cache-control" class="headerlink" title="设置expires 和cache-control"></a>设置expires 和cache-control</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> location ~ .*\.(git|js|swf|jpg|png|jpeg|bmp|eot|svg|woff|ttf)$ &#123;</div><div class="line">       root           $&#123;PRJ_ROOT&#125;/dist/$&#123;OUTDIR&#125;;</div><div class="line">       expires max;</div><div class="line"> &#125;</div><div class="line">/* max:指定“Expires”的值为31 December2037 23:59:59GMT,"Cache-Control"的值为10年。 */</div><div class="line">/* -1：指定“Expires”的值为当前服务器时间-1s，即永远过期。 */</div><div class="line">/* off：不修改“Expires”和"Cache-Control"的值 */</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#强制刷新html</span></div><div class="line"><span class="attribute">location</span> / &#123;</div><div class="line">    <span class="attribute">root</span>           <span class="variable">$&#123;PRJ_ROOT&#125;</span>/dist/<span class="variable">$&#123;OUTDIR&#125;</span>/ ;</div><div class="line">    <span class="attribute">index</span> index_<span class="variable">$&#123;ENV&#125;</span>.html;</div><div class="line">    <span class="attribute">add_header</span> Cache-Control <span class="literal">no</span>-store;</div><div class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/index\.html$</span> /index_<span class="variable">$&#123;ENV&#125;</span>.html <span class="literal">last</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="nginx设置字符串替换-同时兼容ie"><a href="#nginx设置字符串替换-同时兼容ie" class="headerlink" title="nginx设置字符串替换,同时兼容ie"></a>nginx设置字符串替换,同时兼容ie</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">if</span> ( <span class="variable">$http_user_agent</span> <span class="regexp">~* "MSIE</span> [<span class="number">6</span>-<span class="number">9</span>].[<span class="number">0</span>-<span class="number">9</span>]<span class="string">") &#123;</span></div><div class="line">     set <span class="variable">$ua</span> "<span class="string">";</span></div><div class="line"> &#125;</div><div class="line"> if ( <span class="variable">$http_user_agent</span> !~* "MSIE [<span class="number">6</span>-<span class="number">9</span>].[<span class="number">0</span>-<span class="number">9</span>]<span class="string">") &#123;</span></div><div class="line">     set <span class="variable">$ua</span> http://api.com;</div><div class="line"> &#125;</div><div class="line">sub_filter  &lt;/head&gt;   '&lt;/head&gt; &lt;script&gt; window.APPURL= &#123;"USER_URL<span class="string">":"</span><span class="variable">$ua</span><span class="string">"&#125;&lt;/script&gt;' ; #一般可和rg_ng等配置生成工具一起使用作为接口的全局配置</span></div><div class="line">sub_filter_once on;</div><div class="line">sub_filter_types text/html;</div></pre></td></tr></table></figure>
+<h2 id="nginx-设置自定义头"><a href="#nginx-设置自定义头" class="headerlink" title="nginx 设置自定义头"></a>nginx 设置自定义头</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">add_header</span> ZLX-URL http://user-gw.com [always]; <span class="comment">#1.7.5以上 always 对于任意响应都会有效，否则只对2xx/3xx</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/23/vagrant/" itemprop="url">
                   vagrant初探
                 </a>
@@ -248,7 +440,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-11-23T14:30:35+08:00" content="2015-11-23">
               2015-11-23
             </time>
@@ -352,7 +544,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-06-11T17:34:58+08:00" content="2015-06-11">
               2015-06-11
             </time>
@@ -364,7 +556,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -468,7 +660,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-06-11T14:54:18+08:00" content="2015-06-11">
               2015-06-11
             </time>
@@ -480,7 +672,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/其他/" itemprop="url" rel="index">
@@ -582,7 +774,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-06-10T13:04:01+08:00" content="2015-06-10">
               2015-06-10
             </time>
@@ -594,7 +786,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -706,7 +898,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-06-03T11:37:40+08:00" content="2015-06-03">
               2015-06-03
             </time>
@@ -718,7 +910,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/linux/" itemprop="url" rel="index">
@@ -857,7 +1049,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-05-21T15:34:59+08:00" content="2015-05-21">
               2015-05-21
             </time>
@@ -869,7 +1061,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/angular/" itemprop="url" rel="index">
@@ -909,7 +1101,7 @@
           <p>用了<code>angular</code>也有一段时间了,遇到坑是一大堆,特此记录一下,以便以后能用到.随着<code>Angular 2.0</code>的到来,越来越多的公司会用到,还需要不断的学习~<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/21/angular-source/#more" rel="contents">
-              Weiterlesen &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
         
@@ -972,7 +1164,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-05-01T15:27:59+08:00" content="2015-05-01">
               2015-05-01
             </time>
@@ -984,7 +1176,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
@@ -1096,7 +1288,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2015-04-27T15:06:24+08:00" content="2015-04-27">
               2015-04-27
             </time>
@@ -1108,7 +1300,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
@@ -1149,263 +1341,6 @@
             <p>在<code>ES6</code>中新增了<code>let</code>,<code>const</code>,(<code>use strict</code>下)，他们拥有块级作用域，可以取代<code>var</code>.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// ReferenceError: a is not defined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
 <p><code>for</code>引用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = &#123;&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">  funcs[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">funcs[<span class="number">0</span>](); <span class="comment">// 0</span></div></pre></td></tr></table></figure></p>
 <p>Temporal Dead Zone<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// ReferenceError: x is not defined</span></div><div class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;<span class="comment">//这行如果没有,则x会获取父级的 1  如果作用域内有let的TDZ会使x未赋值,var则不会</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/26/mysql-bak/" itemprop="url">
-                  mysql数据库迁移
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-04-26T09:59:38+08:00" content="2015-04-26">
-              2015-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-                  . 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##数据迁移前停止mysql服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">sudi service mysql stop</div><div class="line">```                                              </div><div class="line"><span class="comment">##将目标目录的所属用户组和用户和文件夹权限修改为mysql:mysql  0700</span></div><div class="line">```bash</div><div class="line">sudo chown -R mysql:mysql /var/data</div><div class="line">sudo chmod -R 700 /var/data</div><div class="line">```                                              </div><div class="line"><span class="comment">##为了防止意外，把现有数据复制(cp)到新目录，而不是移动(mv)，为保证文件的权限和属性一致，复制过程一定要添加 -a 参数，由于数据量比较大添加 –v 参数可查看复制的过程</span></div><div class="line">```bash</div><div class="line">cp -av /var/lib/mysql/* var/data</div><div class="line">```                                                                                        </div><div class="line"><span class="comment">##修改my.cnf文件中的datadir参数值</span></div><div class="line">datadir=/var/lib/mysql/ 修改为  /var/data                        </div><div class="line"><span class="comment">##编辑apparmor关于mysql的权限配置文件</span></div><div class="line">```bash</div><div class="line">datadir=/var/lib/mysql/ 修改为 datadir=/var/data</div><div class="line">```                                             </div><div class="line"><span class="comment">##修改usr.sbin.mysqld文件中的数据存储目录的相关权限</span></div><div class="line">```bash</div><div class="line">vi /etc/apparmor.d/usr.sbin.mysqld</div></pre></td></tr></table></figure></p>
-<p>/var/lib/mysql/ r 修改为            /var/data/ r<br>/var/lib/mysql/<strong> rwk 修改为    /var/data/</strong> rwk                 </p>
-<p>##保存退出后重启apparmor服务</p>
-<pre><code class="bash">service apparmor reload
-</code></pre>
-<p>##重启apparmor权限服务进程和mysql进程</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/14/phalcon-rest/" itemprop="url">
-                  在用phalcon进行restful时遇到的一个小坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2015-04-14T17:06:14+08:00" content="2015-04-14">
-              2015-04-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-                  . 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/restful/" itemprop="url" rel="index">
-                    <span itemprop="name">restful</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在用<code>angular</code>和<code>phalcon</code>做前后端交互的时候，由于前端主要采用了<code>ngResource</code>，在进行访问请求的时候，由于后台目录设置的结构为 <code>api/users</code> ,<br>前端设置服务的时候<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>如果想要获取所有的用户不传id，由于目录的存在,前端会默认访问 <code>api/users</code> 而不是 <code>api/users/</code>，从而倒是<code>301</code>转移。所以一般会在目录下设置虚拟的参数用来传递，或者约定必须传值，通过不同值进行后台选择处理。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'appService'</span>, [<span class="string">'ngResource'</span>])</div><div class="line">.factory(<span class="string">'userService'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$resource</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> $resource(<span class="string">'/api/users/users/:uid'</span>,&#123;<span class="attr">uid</span>:<span class="string">'@uid'</span>&#125;,&#123;<span class="attr">update</span>:&#123;<span class="attr">method</span>:<span class="string">'PUT'</span>&#125;&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
           
         
@@ -1479,8 +1414,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-name">posting</span>
             </a>
           </div>
 
@@ -1488,7 +1423,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">kategori</span>
               
             </div>
           
@@ -1497,7 +1432,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1541,11 +1476,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

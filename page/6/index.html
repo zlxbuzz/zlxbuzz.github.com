@@ -102,7 +102,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: 'Penulis'
     }
   };
 </script>
@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -235,6 +235,257 @@
             
               
                 
+                <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
+                  postgresql-gis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Diposting di</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">Di</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/postgresql/" itemprop="url" rel="index">
+                    <span itemprop="name">postgresql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//ST_AsText 获取区域中心坐标。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select *,ST_AsText(ST_Centroid(<span class="string">"geom"</span>)) from <span class="string">"dmaguihua"</span></div></pre></td></tr></table></figure></p>
+<p>##ST_Geometry 类型</p>
+<p>ST_Geometry 类型是几何类型层次中的最大超类型。<br>主要用到两个函数<br>ST_GeomFromText<br>ST_AsText<br><a href="http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html" target="_blank" rel="external">http://dcx.sap.com/1201/zh/dbspatial/pg-api-spatial-st-geometry-type.html</a></p>
+<p>##几何对象关系函数 ：<br>获取两个几何对象间的距离 ST_Distance(geometry, geometry)<br>如果两个几何对象间距离在给定值范围内，则返回TRUE ST_DWithin(geometry, geometry, float)<br>判断两个几何对象是否相等（比如LINESTRING(0 0, 2 2)和LINESTRING(0 0, 1 1, 2 2)是相同的几何对象） ST_Equals(geometry, geometry)<br>判断两个几何对象是否分离 ST_Disjoint(geometry, geometry)<br>判断两个几何对象是否相交 ST_Intersects(geometry, geometry)<br>判断两个几何对象的边缘是否接触 ST_Touches(geometry, geometry)<br>判断两个几何对象是否互相穿过 ST_Crosses(geometry, geometry)<br>判断A是否被B包含 ST_Within(geometry A, geometry B)<br>判断两个几何对象是否是重叠 ST_Overlaps(geometry, geometry)<br>判断A是否包含B ST_Contains(geometry A, geometry B)<br>判断A是否覆盖 B ST_Covers(geometry A, geometry B)<br>判断A是否被B所覆盖 ST_CoveredBy(geometry A, geometry B)<br>通过DE-9IM 矩阵判断两个几何对象的关系是否成立 ST_Relate(geometry, geometry, intersectionPatternMatrix)<br>获得两个几何对象的关系（DE-9IM矩阵） ST_Relate(geometry, geometry)</p>
+<p>##几何对象处理函数：<br>获取几何对象的中心 ST_Centroid(geometry)<br>面积量测 ST_Area(geometry)<br>长度量测 ST_Length(geometry)<br>返回曲面上的一个点 ST_PointOnSurface(geometry)<br>获取边界 ST_Boundary(geometry)<br>获取缓冲后的几何对象 ST_Buffer(geometry, double, [integer])<br>获取多几何对象的外接对象 ST_ConvexHull(geometry)<br>获取两个几何对象相交的部分 ST_Intersection(geometry, geometry)<br>将经度小于0的值加360使所有经度值在0-360间 ST_Shift_Longitude(geometry)<br>获取两个几何对象不相交的部分（A、B可互换） ST_SymDifference(geometry A, geometry B)<br>从A去除和B相交的部分后返回 ST_Difference(geometry A, geometry B)<br>返回两个几何对象的合并结果 ST_Union(geometry, geometry)<br>返回一系列几何对象的合并结果 ST_Union(geometry set)<br>用较少的内存和较长的时间完成合并操作，结果和ST_Union相同 ST_MemUnion(geometry set)</p>
+<p>##几何对象存取函数：<br>获取几何对象的WKT描述 ST_AsText(geometry)<br>获取几何对象的WKB描述 ST_AsBinary(geometry)<br>获取几何对象的空间参考ID ST_SRID(geometry)<br>获取几何对象的维数 ST_Dimension(geometry)<br>获取几何对象的边界范围 ST_Envelope(geometry)<br>判断几何对象是否为空 ST_IsEmpty(geometry)<br>判断几何对象是否不包含特殊点（比如自相交） ST_IsSimple(geometry)<br>判断几何对象是否闭合 ST_IsClosed(geometry)<br>判断曲线是否闭合并且不包含特殊点 ST_IsRing(geometry)<br>获取多几何对象中的对象个数 ST_NumGeometries(geometry)<br>获取多几何对象中第N个对象 ST_GeometryN(geometry,int)<br>获取几何对象中的点个数 ST_NumPoints(geometry)<br>获取几何对象的第N个点 ST_PointN(geometry,integer)<br>获取多边形的外边缘 ST_ExteriorRing(geometry)<br>获取多边形内边界个数 ST_NumInteriorRings(geometry)<br>同上 ST_NumInteriorRing(geometry)<br>获取多边形的第N个内边界 ST_InteriorRingN(geometry,integer)<br>获取线的终点 ST_EndPoint(geometry)<br>获取线的起始点 ST_StartPoint(geometry)<br>获取几何对象的类型 GeometryType(geometry)<br>类似上，但是不检查M值，即POINTM对象会被判断为point ST_GeometryType(geometry)<br>获取点的X坐标 ST_X(geometry)<br>获取点的Y坐标 ST_Y(geometry)<br>获取点的Z坐标 ST_Z(geometry)<br>获取点的M值 ST_M(geometry)</p>
+<p>####在SQL语句中，用以下的方式可以使用WKT格式定义几何对象：<br>POINT(0 0) ——点<br>LINESTRING(0 0,1 1,1 2) ——线<br>POLYGON((0 0,4 0,4 4,0 4,0 0),(1 1, 2 1, 2 2, 1 2,1 1)) ——面<br>MULTIPOINT(0 0,1 2) ——多点<br>MULTILINESTRING((0 0,1 1,1 2),(2 3,3 2,5 4)) ——多线<br>MULTIPOLYGON(((0 0,4 0,4 4,0 4,0 0),(1 1,2 1,2 2,1 2,1 1)), ((-1 -1,-1 -2,-2 -2,-2 -1,-1 -1))) ——多面<br>GEOMETRYCOLLECTION(POINT(2 3),LINESTRING((2 3,3 4))) ——几何集合</p>
+<p>####查询区域 面内的线<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from shuibiaowgs where ST_Within(ST_GeomFromText(st_astext(geom)),ST_GeomFromText('MULTIPOLYGON(((116.479776207058 39.7959679679374,116.481032007188 39.7963947089671,116.482239191711 39.7968431557598,116.483222850071 39.7951851880901,116.480750730424 39.7942829597482,116.479776207058 39.7959679679374)))'))</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/08/git-source/" itemprop="url">
+                  git  常用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Diposting di</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">Di</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>经常遇到的git相关操作。</p>
+<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git checkout bat</div><div class="line">git rebase origin #把<span class="string">"bat"</span>分支里的每个提交(commit)取消掉，并且把它们临时 #保存为补丁(patch)(这些补丁放到<span class="string">".git/rebase"</span>目录中),然后把<span class="string">"bat"</span>分支更新</div><div class="line">#为最新的<span class="string">"origin"</span>分支，最后把保存的这些补丁应用到<span class="string">"mywork"</span>分支上</div><div class="line"></div><div class="line">git rebase和git merge的区别</div><div class="line">merge相当于将双方的修改综合</div><div class="line">rebase相当于将对方修改之后,在提交自己的修改,结果一样</div></pre></td></tr></table></figure>
+<h2 id="git-clone-取回远程的所有分支"><a href="#git-clone-取回远程的所有分支" class="headerlink" title="git clone 取回远程的所有分支"></a>git clone 取回远程的所有分支</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:dolymood/angular-example.git #获取某个远程库</div><div class="line">git fetch &lt;远程主机名&gt;  &lt;分支名&gt; #获取全部的分支 如果需要特定分支 可指定分支名</div><div class="line">git branch -a #查看所有分支 git branch -a 查看所有分支</div><div class="line">git checkout -b newBrach &lt;远程分支&gt; #创建并且切换到新的分支</div></pre></td></tr></table></figure>
+<h2 id="返回某个文件的某个版本"><a href="#返回某个文件的某个版本" class="headerlink" title="返回某个文件的某个版本"></a>返回某个文件的某个版本</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span> 文件名 #查看某个文件的历史记录 可以加参数-p查看diff   获取commit id</div><div class="line">git reset commitid 文件名 #返回该文件的当前的版本，会在缓存区</div><div class="line">git checkout 文件名 #返回之前的版本</div><div class="line"></div><div class="line">#可以用git reflog 查看所有的版本信息</div><div class="line"><span class="meta">#git log --pretty=oneline filename 通过一行查看单个文件的提交情况</span></div><div class="line"><span class="meta">#git show commitid 查看该提交id的修改情况</span></div><div class="line"><span class="meta">#git log --stat 很好用，只看每次提交的增减</span></div></pre></td></tr></table></figure>
+<h2 id="跳转到某个版本"><a href="#跳转到某个版本" class="headerlink" title="跳转到某个版本"></a>跳转到某个版本</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reflog #查看所有版本信息</div><div class="line">git reset --hard commitid #重置到某个特定的版本</div></pre></td></tr></table></figure>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm filename   直接删除文件</div><div class="line">git rm --cached filename   删除文件暂存状态</div></pre></td></tr></table></figure>
+<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch develop <span class="comment">// 只创建分支</span></div><div class="line">git checkout -b master develop <span class="comment">// 创建并切换到 develop 分支</span></div></pre></td></tr></table></figure>
+<h2 id="设置-commit-的用户和邮箱"><a href="#设置-commit-的用户和邮箱" class="headerlink" title="设置 commit 的用户和邮箱"></a>设置 commit 的用户和邮箱</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git config user.name <span class="string">"xx"</span></div><div class="line">git config user.email <span class="string">"xx@xx.com"</span></div><div class="line">git config --global color.ui <span class="literal">true</span> <span class="meta">#git 显示颜色</span></div></pre></td></tr></table></figure>
+<h2 id="Git设置"><a href="#Git设置" class="headerlink" title="Git设置"></a>Git设置</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Git的全局设置在~/.gitconfig中，单独设置在project/.git/config下。</div><div class="line"></div><div class="line">忽略设置全局在~/.gitignore_global中，单独设置在project/.gitignore下。</div><div class="line"></div><div class="line"><span class="comment">//设置提交的时候是否转换换行符号</span></div><div class="line">git config [--global] core.autocrlf = [<span class="literal">true</span>|<span class="literal">false</span>|input]</div><div class="line"><span class="literal">true</span>  : 将crlf转换为lf，而在检出时将crlf转换为lf.</div><div class="line"><span class="literal">false</span> : 不转换.</div><div class="line">input : 提交时将crlf转换成lf，检出时不转换.</div></pre></td></tr></table></figure>
+<h2 id="git-clean-指令"><a href="#git-clean-指令" class="headerlink" title="git clean 指令"></a>git clean 指令</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clean -f #删除未跟踪的文件</div><div class="line">  参数n:查看删除哪些文件</div><div class="line">  参数x:将gitignore的文件删除,一般不用</div><div class="line">  参数d:删除未跟踪的目录</div></pre></td></tr></table></figure>
+<h2 id="gitignore生效"><a href="#gitignore生效" class="headerlink" title="gitignore生效"></a>gitignore生效</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#中途加进.gitignore的文件或文件夹不会生效</div><div class="line">git rm -r --cached .#之前已经在版本管理中了，需要删除本地缓存，在提交</div><div class="line">git add .</div><div class="line">git commit -m<span class="string">"add"</span></div></pre></td></tr></table></figure>
+<h2 id="git-add-submodule"><a href="#git-add-submodule" class="headerlink" title="git add submodule"></a>git add submodule</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git submodule add git@github.com:zlxbuzz/gulp.git ./gulp</div><div class="line"></div><div class="line">##删除模块</div><div class="line"><span class="number">1</span> .gitmodules的模块信息</div><div class="line"><span class="number">2</span> git rm –cached gulp</div></pre></td></tr></table></figure>
+<h2 id="git-更新submodule"><a href="#git-更新submodule" class="headerlink" title="git 更新submodule"></a>git 更新submodule</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#可以写一个submoduleupdate.sh 的脚本</div><div class="line">git submodule init</div><div class="line">git submodule update</div><div class="line">git submodule foreach --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git checkout $branch'</div><div class="line">git submodule foreach --recursive "git submodule update"</div><div class="line"></div><div class="line">echo "Pulling all git submodules..."</div><div class="line">git submodule foreach --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git pull origin $branch'</div></pre></td></tr></table></figure>
+<h2 id="git-blame-查看每行提交"><a href="#git-blame-查看每行提交" class="headerlink" title="git blame 查看每行提交"></a>git blame 查看每行提交</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">git blame [选项] [版本选项] [版本] [--] 文件</div><div class="line">    --incremental         增量式地显示发现的 blame 条目</div><div class="line">    -b                    边界提交显示空的 SHA<span class="number">-1</span>（默认：关闭）</div><div class="line">    --root                不把根提交作为边界（默认：关闭）</div><div class="line">    --show-stats          显示命令消耗统计</div><div class="line">    --score-debug         显示判断 blame 条目位移的得分诊断信息</div><div class="line">    -f, --show-name       显示原始文件名（默认：自动）</div><div class="line">    -n, --show-number     显示原始的行号（默认：关闭）</div><div class="line">    -p, --porcelain       显示为一个适合机器读取的格式</div><div class="line">    --line-porcelain      为每一行显示机器适用的提交信息</div><div class="line">    -c                    使用和 git-annotate 相同的输出模式（默认：关闭）</div><div class="line">    -t                    显示原始时间戳（默认：关闭）</div><div class="line">    -l                    显示长的SHA1提交号（默认：关闭）</div><div class="line">    -s                    隐藏作者名字和时间戳（默认：关闭）</div><div class="line">    -e, --show-email      显示作者的邮箱而不是名字（默认：关闭）</div><div class="line">    -w                    忽略空白差异</div><div class="line">    --minimal             花费额外的循环来找到更好的匹配</div><div class="line">    -S &lt;文件&gt;             使用来自 &lt;file&gt; 的修订集而不是调用 git-rev-<span class="built_in">list</span></div><div class="line">    --contents &lt;文件&gt;     使用 &lt;file&gt; 的内容作为最终的图片</div><div class="line">    -C[&lt;得分&gt;]            找到文件内及跨文件的行拷贝</div><div class="line">    -M[&lt;得分&gt;]            找到文件内及跨文件的行移动</div><div class="line">    -L &lt;n,m&gt;              只处理行范围在 n 和 m 之间的，从 <span class="number">1</span> 开始</div><div class="line">    --abbrev[=&lt;n&gt;]        用 &lt;n&gt; 位数字显示 SHA<span class="number">-1</span> 哈希值</div></pre></td></tr></table></figure>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">用法：git add [选项] [--] &lt;路径规则&gt;...</div><div class="line"></div><div class="line">    -n, --dry-run         演习</div><div class="line">    -v, --verbose         冗长输出</div><div class="line"></div><div class="line">    -i, --interactive     交互式拣选</div><div class="line">    -p, --patch           交互式挑选数据块</div><div class="line">    -e, --edit            编辑当前差异并应用</div><div class="line">    -f, --force           允许添加忽略的文件</div><div class="line">    -u, --update          更新已跟踪的文件</div><div class="line">    -N, --intent-to-add   只记录，该路径稍后再添加</div><div class="line">    -A, --all             添加所有改变的已跟踪文件和未跟踪文件</div><div class="line">    --ignore-removal      忽略工作区中移除的路径（和 --no-all 相同）</div><div class="line">    --refresh             不添加，只刷新索引</div><div class="line">    --ignore-errors       跳过因出错不能添加的文件</div><div class="line">    --ignore-missing      检查在演习模式下文件（即使不存在）是否被忽略</div><div class="line"></div><div class="line">    git  add .  #新文件＋修改的文件</div><div class="line">    git  add -u #修改的文件或删除的文件</div><div class="line">    git  add -A # 所有新文件和修改的文件，删除的文件</div></pre></td></tr></table></figure>
+<h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --<span class="keyword">delete</span> dev #删除远程分支</div></pre></td></tr></table></figure>
+<h2 id="git-flow"><a href="#git-flow" class="headerlink" title="git flow"></a>git flow</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">分支使用</div><div class="line">master</div><div class="line">与线上版本保持同步，代码和功能质量满足实际发布环境需要</div><div class="line">不直接接收任何代码commit。</div><div class="line">接收来自release、hotfix分支的merge。</div><div class="line">版本的tag也在此分支进行定义</div><div class="line">develop</div><div class="line">接收来自其他功能、特性开发分支（feature）的merge。</div><div class="line">feature</div><div class="line">具体功能、特性的工作分支族，大部分的commit在此类分支上完成。</div><div class="line">完成开发后，分支merge到develop分支，具体feature分支删除。</div><div class="line">release</div><div class="line">用于版本发布的分支，在确定版本计划后从develop分支建立。</div><div class="line">用于版本的测试、问题修复工作，接收bug修复的commit。</div><div class="line">完成测试和开发后，分支merge到develop和master分支。</div><div class="line">hotfix</div><div class="line">用于在master分支发现实际环境中问题进行修复，接收修复commit。</div><div class="line">完成后merge回master分支并且merge到develop分支。</div><div class="line">master分支需要进行修复版本tag的定义。</div></pre></td></tr></table></figure>
+<h2 id="git-对比两个tag，并且排除某些目录"><a href="#git-对比两个tag，并且排除某些目录" class="headerlink" title="git 对比两个tag，并且排除某些目录"></a>git 对比两个tag，并且排除某些目录</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff 1.1.1.179...1.1.1.182 -- . ':!dist' ':!lib'</div></pre></td></tr></table></figure>
+<h2 id="git-diff-三个点"><a href="#git-diff-三个点" class="headerlink" title="git diff 三个点"></a>git diff 三个点</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//两个点 直接就是2个分支(tag)的差别</span></div><div class="line"><span class="comment">//三个点相当于A和B的公共祖先与B的差异</span></div><div class="line">git diff $(git-merge-base A B) B</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/08/postgres-php/" itemprop="url">
                   postgres-php
                 </a>
@@ -248,7 +499,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -260,7 +511,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -300,7 +551,7 @@
           <p>##自己写的一个postgresql和php的类<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-php/#more" rel="contents">
-              Weiterlesen &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
         
@@ -363,7 +614,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -375,7 +626,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -415,7 +666,7 @@
           <p>##关于postgresql的其他函数<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-copy/#more" rel="contents">
-              Weiterlesen &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
         
@@ -478,7 +729,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2014-12-08T15:55:19+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -490,7 +741,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -626,8 +877,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
-                  npm package.json dependecies 和 devDependecies区别
+                <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
+                  七天学会NODEjs
                 </a>
               
             
@@ -639,7 +890,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
               2014-12-02
             </time>
@@ -651,7 +902,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node/" itemprop="url" rel="index">
@@ -688,11 +939,12 @@
 
       
         
-          
-            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
-<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
-
-          
+          <p>##什么是Nodejs<br>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/02/nodejs-7days/#more" rel="contents">
+              Baca lebih &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -740,8 +992,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
-                  七天学会NODEjs
+                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
+                  npm package.json dependecies 和 devDependecies区别
                 </a>
               
             
@@ -753,7 +1005,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
               2014-12-02
             </time>
@@ -765,7 +1017,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">Di</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node/" itemprop="url" rel="index">
@@ -802,12 +1054,11 @@
 
       
         
-          <p>##什么是Nodejs<br>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/02/nodejs-7days/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
+          
+            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
+<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
+
+          
         
       
     </div>
@@ -879,8 +1130,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-name">posting</span>
             </a>
           </div>
 
@@ -888,7 +1139,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">kategori</span>
               
             </div>
           
@@ -897,7 +1148,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -941,11 +1192,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

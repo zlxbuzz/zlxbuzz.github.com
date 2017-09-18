@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em 相当于字体font-size的值ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高">
+<meta name="description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em (em 是相对于自身的font-size,如果没有设置，则为父级，依次向上级，最后为浏览器默认font-size">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css权威指南笔记4">
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/06/09/css-marster-4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em 相当于字体font-size的值ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高">
-<meta property="og:updated_time" content="2017-08-18T07:04:18.000Z">
+<meta property="og:description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em (em 是相对于自身的font-size,如果没有设置，则为父级，依次向上级，最后为浏览器默认font-size">
+<meta property="og:updated_time" content="2017-09-18T02:31:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css权威指南笔记4">
-<meta name="twitter:description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em 相当于字体font-size的值ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高">
+<meta name="twitter:description" content="长度单位1234567891011121314/* 绝对长度单位 */英寸(in)厘米(cm):1英寸 = 2.54厘米毫米(mm):1英寸 = 25.4毫米点(pt) : 1英寸 = 72点派卡(pc) : 12点 = 1派ppi 每英寸实际像素/* 相对长度单位 */em: 1em (em 是相对于自身的font-size,如果没有设置，则为父级，依次向上级，最后为浏览器默认font-size">
 
 
 
@@ -106,7 +106,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: 'Penulis'
     }
   };
 </script>
@@ -174,7 +174,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Beranda
           </a>
         </li>
       
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Arsip
           </a>
         </li>
       
@@ -247,7 +247,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Diposting di</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -276,7 +276,7 @@
       
 
       
-        <h2 id="长度单位"><a href="#长度单位" class="headerlink" title="长度单位"></a>长度单位</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* 绝对长度单位 */</div><div class="line">英寸(in)</div><div class="line">厘米(cm):1英寸 = 2.54厘米</div><div class="line">毫米(mm):1英寸 = 25.4毫米</div><div class="line">点(pt) : 1英寸 = 72点</div><div class="line">派卡(pc) : 12点 = 1派</div><div class="line"></div><div class="line">ppi 每英寸实际像素</div><div class="line"></div><div class="line"></div><div class="line">/* 相对长度单位 */</div><div class="line">em: 1em 相当于字体font-size的值</div><div class="line">ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高度的一般所以一般1ex = 0.5em)</div><div class="line">px:像素</div></pre></td></tr></table></figure>
+        <h2 id="长度单位"><a href="#长度单位" class="headerlink" title="长度单位"></a>长度单位</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* 绝对长度单位 */</div><div class="line">英寸(in)</div><div class="line">厘米(cm):1英寸 = 2.54厘米</div><div class="line">毫米(mm):1英寸 = 25.4毫米</div><div class="line">点(pt) : 1英寸 = 72点</div><div class="line">派卡(pc) : 12点 = 1派</div><div class="line"></div><div class="line">ppi 每英寸实际像素</div><div class="line"></div><div class="line"></div><div class="line">/* 相对长度单位 */</div><div class="line">em: 1em (em 是相对于自身的font-size,如果没有设置，则为父级，依次向上级，最后为浏览器默认font-size)</div><div class="line">ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高度的一般所以一般1ex = 0.5em)</div><div class="line">px:像素</div></pre></td></tr></table></figure>
 <h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">url</span>(<span class="selector-tag">pathname</span>)  <span class="comment">/*会从文档开始的位置加上pathname  http://www.index.com/pathname*/</span></div><div class="line">@<span class="keyword">import</span> url(special/toppings.css) /*会基于当前css所在的目前后面去找对应的css http://www.index.com/style/special/toppings.css*/</div></pre></td></tr></table></figure>
 <h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">normal</span></div><div class="line"><span class="selector-tag">inherit</span> <span class="comment">/*继承*/</span></div></pre></td></tr></table></figure>
 
@@ -309,8 +309,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/09/css-marster-7/" rel="next" title="css权威指南笔记7">
-                <i class="fa fa-chevron-left"></i> css权威指南笔记7
+              <a href="/2017/06/09/css-marster-2/" rel="next" title="css权威指南笔记2">
+                <i class="fa fa-chevron-left"></i> css权威指南笔记2
               </a>
             
           </div>
@@ -368,10 +368,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Daftar Isi
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Ikhtisar
           </li>
         </ul>
       
@@ -387,8 +387,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-name">posting</span>
             </a>
           </div>
 
@@ -396,7 +396,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">kategori</span>
               
             </div>
           
@@ -405,7 +405,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -460,11 +460,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
