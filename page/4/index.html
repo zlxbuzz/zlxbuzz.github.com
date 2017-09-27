@@ -102,7 +102,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Penulis'
+      author: 'Author'
     }
   };
 </script>
@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,245 @@
             
               
                 
+                <a class="post-title-link" href="/2015/05/01/yo-resource/" itemprop="url">
+                  yeoman使用心得
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-05-01T15:27:59+08:00" content="2015-05-01">
+              2015-05-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在用前端的项目构建工具<code>yeoman</code>，在此记录下心得。</p>
+<p>##<code>Yeoman</code>介绍<br>通常在开发新项目时我们都需要配置工程环境，开发目录，需要下载一些库、框架文件（如 <code>jQuery</code>、<code>Backbone</code> 等），配置编译环境（<code>Less</code>、<code>Sass</code>、<code>Coffeescript</code>等），甚至还要配置单元测试框架，过程非常繁琐，还没开始编码时间就耗了大半天。为了解决这个问题 Paul Irish、Addy Osmani、Sindre Sorhus、Mickael Daniel、Eric Bidelman 和 Yeoman 社区共同开发的一个项目——<code>Yeoman</code>。</p>
+<p><code>YO</code>：<code>Yeoman</code>核心工具，项目工程依赖目录和文件生成工具，项目生产环境和编译环境生成工具。<br><code>GRUNT</code>：前端构建工具。<br><code>BOWER</code>：<code>Web</code> 开发的包管理器，概念上类似 <code>npm</code>，<code>npm</code> 专注于<code>NodeJs</code> 模块，而 <code>bower</code> 专注于 <code>CSS</code>、<code>JavaScript</code>、图像等前端相关内容的管理。</p>
+<p>##<code>yo</code>的安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yo <span class="comment">#yo作为全局的安装</span></div></pre></td></tr></table></figure></p>
+<p>由于<code>yo</code>需要各种不一样的模具<code>generator</code>，以<code>angular</code>为例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g generator-angular <span class="comment">#以-隔开</span></div></pre></td></tr></table></figure></p>
+<p>在项目目录下创建目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zhonglingxiao@anheng:~/angular$  yo angular learnyo <span class="comment">#第二个为模具名 第三个为项目名称</span></div><div class="line"><span class="comment">#之后会有选项，确认即可。如果报错 则需要 npm install &amp;&amp; bower install</span></div></pre></td></tr></table></figure>
+<p>##<code>bower</code>的安装<br>全局安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g bower</div></pre></td></tr></table></figure></p>
+<p>bower的安装web包一共有4中方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#对于常见的组件</span></div><div class="line">bower install bootstrap <span class="comment">#可以加 `#` 后面跟版本</span></div><div class="line"><span class="comment">#通过github的短语</span></div><div class="line">bower install jquery/jquery </div><div class="line"><span class="comment">#通过github完整的连接</span></div><div class="line"><span class="comment">#支持直接的url连接</span></div></pre></td></tr></table></figure></p>
+<p>bower 有2个配置文件，可以通过<code>bower init</code> 或者直接手动创建<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bower.json － bower install读取json文件，下载公共库和组件</div><div class="line">.bowerrc 如何生成：bower init －&gt; 配置bower.json的items</div><div class="line">.bowerrc</div><div class="line">&#123;</div><div class="line">	“directory” : <span class="string">"bower_components"</span>, <span class="comment">#是bower安装依赖文件的目录路径</span></div><div class="line">	<span class="string">"proxy"</span> : <span class="string">"http://proxy.tencent.com:8080"</span>, <span class="comment">#使用代理 </span></div><div class="line">	<span class="string">"https-proxy"</span>:<span class="string">"https://proxy.tencent.com:8080"</span>, <span class="comment">#使用https代理</span></div><div class="line">	<span class="string">"timeout"</span> : 60000 <span class="comment">#失效时间 ms</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##常见经验</p>
+<p>####package.json<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package.json //nodejs的 配置文件</div><div class="line"><span class="comment">#name 项目名</span></div><div class="line"><span class="comment">#version 版本</span></div><div class="line"></div><div class="line"><span class="comment">#dependencies 生产中的依赖包 --就是发布后 别人运行的npm install的依赖包</span></div><div class="line"><span class="comment">#devDependencies 开发过程中的依赖包</span></div><div class="line"><span class="comment">#在使用install命令时  如果加上--save 或者 --save-dev 则会分别存入json文件 对于bower.json也一样</span></div><div class="line"></div><div class="line"></div><div class="line">npm update或npm install 会自动更新一下：</div><div class="line">^主版本号锁定</div><div class="line">~次版本号锁定</div><div class="line">啥都不加，末版本号锁定</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/27/js-let/" itemprop="url">
+                  ES6中的let和const
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-04-27T15:06:24+08:00" content="2015-04-27">
+              2015-04-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在<code>ES6</code>中新增了<code>let</code>,<code>const</code>,(<code>use strict</code>下)，他们拥有块级作用域，可以取代<code>var</code>.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// ReferenceError: a is not defined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
+<p><code>for</code>引用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = &#123;&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</div><div class="line">  funcs[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">funcs[<span class="number">0</span>](); <span class="comment">// 0</span></div></pre></td></tr></table></figure></p>
+<p>Temporal Dead Zone<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(x); <span class="comment">// ReferenceError: x is not defined</span></div><div class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;<span class="comment">//这行如果没有,则x会获取父级的 1  如果作用域内有let的TDZ会使x未赋值,var则不会</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/04/26/mysql-bak/" itemprop="url">
                   mysql数据库迁移
                 </a>
@@ -248,7 +487,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-26T09:59:38+08:00" content="2015-04-26">
               2015-04-26
             </time>
@@ -260,7 +499,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/mysql/" itemprop="url" rel="index">
@@ -270,7 +509,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -378,7 +617,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-14T17:06:14+08:00" content="2015-04-14">
               2015-04-14
             </time>
@@ -390,7 +629,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -400,7 +639,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -505,7 +744,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-04-07T17:35:57+08:00" content="2015-04-07">
               2015-04-07
             </time>
@@ -517,7 +756,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/angularjs/" itemprop="url" rel="index">
@@ -633,7 +872,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-03-17T13:41:25+08:00" content="2015-03-17">
               2015-03-17
             </time>
@@ -645,7 +884,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/php/" itemprop="url" rel="index">
@@ -777,7 +1016,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-03-11T17:20:11+08:00" content="2015-03-11">
               2015-03-11
             </time>
@@ -789,7 +1028,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/js/" itemprop="url" rel="index">
@@ -913,7 +1152,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-03-04T17:35:47+08:00" content="2015-03-04">
               2015-03-04
             </time>
@@ -925,7 +1164,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/html/" itemprop="url" rel="index">
@@ -1034,7 +1273,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-03-04T17:20:33+08:00" content="2015-03-04">
               2015-03-04
             </time>
@@ -1046,7 +1285,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/debian/" itemprop="url" rel="index">
@@ -1056,7 +1295,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -1068,7 +1307,7 @@
 
                 
                 
-                  , 
+                  . 
                 
 
               
@@ -1161,130 +1400,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/18/linux-ftp/" itemprop="url">
-                  linux 下的ftp指令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Diposting di</span>
-            <time itemprop="dateCreated" datetime="2014-12-18T10:52:52+08:00" content="2014-12-18">
-              2014-12-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">Di</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###1.连接ftp服务器<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp <span class="number">192.168</span><span class="number">.2</span><span class="number">.6</span></div></pre></td></tr></table></figure></p>
-<p>输入用户名和相应密码</p>
-<p>###2.常用的操作</p>
-<p>#####下载文件通常用get和mget这两条命令<br>    ftp&gt; get /usr/your/1.htm 1.htm (回车)<br>格式：get [remote-file] [local-file]<br>将文件从远端主机中传送至本地主机中。<br>如要获取远程服务器上/usr/your/1.htm</p>
-<pre><code>ftp&gt; cd /usr/your/
-ftp&gt; mget *.* (回车)
-</code></pre><p>格式：mget [remote-files]<br>从远端主机接收一批文件至本地主机。<br>如要获取服务器上/usr/your/下的所有文件，此时每下载一个文件，都会有提示。如果要除掉提示，则在mget <em>.</em> 命令前先执行:prompt off</p>
-<p>注意：文件都下载到了linux主机的当前目录下。比如，在　/usr/my下运行的ftp命令，则文件都下载到了/usr/my下。</p>
-<p>#####上传文件通常用put和mput这两条命令<br>格式：put local-file [remote-file]<br>将本地一个文件传送至远端主机中。<br>如要把本地的1.htm传送到远端主机/usr/your,并改名为2.htm<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp&gt; put <span class="number">1.</span>htm /usr/your/<span class="number">2.</span>htm (回车)</div></pre></td></tr></table></figure></p>
-<p>格式：mput local-files<br>将本地主机中一批文件传送至远端主机。<br>如要把本地当前目录下所有html文件上传到服务器/usr/your/ 下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ftp&gt; cd /usr/your （回车）</div><div class="line">ftp&gt; mput *.htm　（回车）</div></pre></td></tr></table></figure></p>
-<p>注意：上传文件都来自于主机的当前目录下。比如，在　/usr/my下运行的ftp命令，则只有在/usr/my下的文件linux才会上传到服务器/usr/your 下。</p>
-<p>##3.断开连接<br>bye：中断与服务器的连接<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp&gt; bye (回车)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/12/18/nodejs-lesson4/" itemprop="url">
                   nodejs-lesson4 的挑战功能
                 </a>
@@ -1298,7 +1413,7 @@ ftp&gt; mget *.* (回车)
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-18T10:52:52+08:00" content="2014-12-18">
               2014-12-18
             </time>
@@ -1310,7 +1425,7 @@ ftp&gt; mget *.* (回车)
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/nodejs/" itemprop="url" rel="index">
@@ -1350,136 +1465,6 @@ ftp&gt; mget *.* (回车)
           
             <p>##Node.js 包教不包会的lession4的挑战功能<br><a href="https://github.com/buzzmjx/node-lessons/tree/master/lesson4" target="_blank" rel="external">https://github.com/buzzmjx/node-lessons/tree/master/lesson4</a><br>主要思路是在每次并发请求每条文章的时候，获取作者名，同时访问到作者的页面抓取作者的积分信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> eventproxy = <span class="built_in">require</span>(<span class="string">'eventproxy'</span>);</div><div class="line"><span class="keyword">var</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</div><div class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> cnodeUrl = <span class="string">'https://cnodejs.org/'</span>;</div><div class="line"><span class="keyword">var</span> userUrl=<span class="string">'https://cnodejs.org/user/'</span>;</div><div class="line">superagent.get(cnodeUrl)</div><div class="line">  .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> topicUrls = [];</div><div class="line">    <span class="keyword">var</span> $ = cheerio.load(res.text);</div><div class="line">    $(<span class="string">'#topic_list .topic_title'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">idx, element</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> $element = $(element);</div><div class="line">      <span class="keyword">var</span> href = url.resolve(cnodeUrl, $element.attr(<span class="string">'href'</span>));</div><div class="line">      topicUrls.push(href);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> ep = <span class="keyword">new</span> eventproxy();</div><div class="line"></div><div class="line">    ep.after(<span class="string">'topic_html'</span>, topicUrls.length, <span class="function"><span class="keyword">function</span> (<span class="params">topics</span>) </span>&#123;</div><div class="line">      topics = topics.map(<span class="function"><span class="keyword">function</span> (<span class="params">topicPair</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> topicUrl = topicPair[<span class="number">0</span>];</div><div class="line">        <span class="keyword">var</span> topicHtml = topicPair[<span class="number">1</span>];</div><div class="line">        <span class="keyword">var</span> $ = cheerio.load(topicHtml);</div><div class="line">        <span class="keyword">return</span> (&#123;</div><div class="line">          <span class="attr">title</span>: $(<span class="string">'.topic_full_title'</span>).text().trim(),</div><div class="line">          <span class="attr">href</span>: topicUrl,</div><div class="line">          <span class="attr">comment1</span>: $(<span class="string">'.reply_content'</span>).eq(<span class="number">0</span>).text().trim(),</div><div class="line">          <span class="attr">author</span>:topicPair[<span class="number">2</span>],</div><div class="line">          <span class="attr">score</span>:topicPair[<span class="number">3</span>]</div><div class="line">        &#125;);</div><div class="line">      &#125;);</div><div class="line">	<span class="built_in">console</span>.log(topics);</div><div class="line">    </div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    topicUrls.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">topicUrl</span>) </span>&#123;</div><div class="line">      superagent.get(topicUrl)</div><div class="line">        .end(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> $=cheerio.load(res.text);</div><div class="line">		<span class="keyword">var</span> author=$(<span class="string">'.changes'</span>).find(<span class="string">"a"</span>).text();</div><div class="line">		superagent.get(url.resolve(userUrl,author)).end(<span class="function"><span class="keyword">function</span>(<span class="params">err,res1</span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> $ =cheerio.load(res1.text);</div><div class="line">			<span class="keyword">var</span> score=$(<span class="string">'.user_profile .big'</span>).text();</div><div class="line">			ep.emit(<span class="string">'topic_html'</span>, [topicUrl, res.text,author,score]);</div><div class="line">			&#125;)</div><div class="line">          </div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/12/15/node-man-5/" itemprop="url">
-                  Node.js Ejs 方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Diposting di</span>
-            <time itemprop="dateCreated" datetime="2014-12-15T11:52:34+08:00" content="2014-12-15">
-              2014-12-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">Di</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##express 中使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置模板目录</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));    </div><div class="line"></div><div class="line"><span class="comment">//设置模板引擎</span></div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置引擎后缀.  index.html 中的内容可以是 ejs 代码</span></div><div class="line">app.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express);</div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ejs的特性： </div><div class="line"><span class="number">1</span>、缓存功能，能够缓存已经解析好的html模版；</div><div class="line"><span class="number">2</span>、&lt;% code %&gt;用于执行其中javascript代码；</div><div class="line"><span class="number">3</span>、&lt;%= code %&gt;会对code进行html转义； </div><div class="line"><span class="number">4</span>、&lt;%- code %&gt;将不会进行转义； </div><div class="line"><span class="number">5</span>、支持自定义标签，比如’&lt;%’可以使用’左括号 左括号’，’%&gt;’用’右括号 右括号’代替； </div><div class="line"><span class="number">6</span>、提供一些辅助函数，用于模版中使用 </div><div class="line"><span class="number">7</span>、利用&lt;%- include filename %&gt;加载其他页面模版；</div></pre></td></tr></table></figure>
-<p>##ejs 函数/运算符</p>
-<p>####1.引入模板 不指定后缀就寻找 layout.ejs. (注意:如果没有定义模板目录,则 include无效)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;% include layout.html%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">include</span> <span class="attr">layout.html</span>%&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>####2.静态编译模板,没有 IO 操作，会非常快，而且可以公用本地变量.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">%</span> <span class="attr">users.forEach</span>(<span class="attr">function</span>(<span class="attr">user</span>)&#123; %&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">include</span> <span class="attr">user</span>/<span class="attr">show</span> %&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> &#125;) %&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>意思就是模板名是动态的</p>
-<p>####3.自定义 闭合标签.<br>厌倦了<code>&lt;% %&gt; ?</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置闭合标签</span></div><div class="line"><span class="keyword">var</span> ejs = <span class="built_in">require</span>(<span class="string">'ejs'</span>);  </div><div class="line">ejs.open = <span class="string">'左括号 左括号'</span>;  </div><div class="line">ejs.close = <span class="string">'右括号 右括号'</span>;</div></pre></td></tr></table></figure></p>
-<p>express中全局设定<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.set(<span class="string">"view options"</span>,&#123;                                                                                  </div><div class="line">   <span class="string">"open"</span>:<span class="string">"左括号 左括号"</span>,                                                                                  </div><div class="line">   <span class="string">"close"</span>:<span class="string">"右括号 右括号"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>####4.变量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//传递 index 模板引擎参数</span></div><div class="line">res.render(<span class="string">'index'</span>,&#123;<span class="string">'title'</span>:<span class="string">'haha'</span>);</div><div class="line"></div><div class="line"><span class="comment">//使用参数</span></div><div class="line">&lt;title&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>####5.运行js代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;%<span class="keyword">for</span>(<span class="keyword">var</span> i=p.length<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)&#123;%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=&lt;%=<span class="string">p[i]%</span>&gt;</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%右括号%</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>####6.选项 express中 通过 res.redirect(‘login’, [options]); 来对模板进行访问,options就可以设置模板引擎的一些选项 其中options的一些参数为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、cache：是否缓存解析后的模版，需要filename作为key； </div><div class="line"><span class="number">2</span>、filename：模版文件名； </div><div class="line"><span class="number">3</span>、scope：complile后的<span class="built_in">Function</span>执行所在的上下文环境； </div><div class="line"><span class="number">4</span>、debug：标识是否是debeg状态，debug为<span class="literal">true</span>则会输出生成的<span class="built_in">Function</span>内容；</div><div class="line"><span class="number">5</span>、compileDebug：标识是否是编译debug，为<span class="literal">true</span>则会生成解析过程中的跟踪信息，用于调试； </div><div class="line"><span class="number">6</span>、client，标识是否用于浏览器客户端运行，为<span class="literal">true</span>则返回解析后的可以单独运行的<span class="built_in">Function</span>函数； </div><div class="line"><span class="number">7</span>、open，代码开头标记，默认为’&lt;%’； </div><div class="line"><span class="number">8</span>、close，代码结束标记，默认为’%&gt;’； </div><div class="line"><span class="number">9</span>、其他的一些用于解析模版时提供的变量。 在express中使用时，options参数将由response.render进行传入，其中包含了一些express中的设置，以及用户提供的变量值。</div></pre></td></tr></table></figure></p>
-<p>####7.f辅助函数 此外ejs还提供了一些辅助函数，用于代替使用javascript代码，使得更加方便的操纵数据。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、first，返回数组的第一个元素； </div><div class="line"><span class="number">2</span>、last，返回数组的最后一个元素； </div><div class="line"><span class="number">3</span>、capitalize，返回首字母大写的字符串； </div><div class="line"><span class="number">4</span>、downcase，返回字符串的小写； </div><div class="line"><span class="number">5</span>、upcase，返回字符串的大写； </div><div class="line"><span class="number">6</span>、sort，排序（<span class="built_in">Object</span>.create(obj).sort()？）；</div><div class="line"><span class="number">7</span>、sort_by:’prop’，按照指定的prop属性进行升序排序； </div><div class="line"><span class="number">8</span>、size，返回长度，即length属性，不一定非是数组才行； </div><div class="line"><span class="number">9</span>、plus:n，加上n，将转化为<span class="built_in">Number</span>进行运算； </div><div class="line"><span class="number">10</span>、minus:n，减去n，将转化为<span class="built_in">Number</span>进行运算； </div><div class="line"><span class="number">11</span>、times:n，乘以n，将转化为<span class="built_in">Number</span>进行运算；</div><div class="line"><span class="number">12</span>、divided_by:n，除以n，将转化为<span class="built_in">Number</span>进行运算； </div><div class="line"><span class="number">13</span>、join:’val’，将数组用’val’最为分隔符，进行合并成一个字符串； </div><div class="line"><span class="number">14</span>、truncate:n，截取前n个字符，超过长度时，将返回一个副本 </div><div class="line"><span class="number">15</span>、truncate_words:n，取得字符串中的前n个word，word以空格进行分割； </div><div class="line"><span class="number">16</span>、replace:pattern,substitution，字符串替换，substitution不提供将删除匹配的子串；<span class="number">17</span>、prepend:val，如果操作数为数组，则进行合并；为字符串则添加val在前面； </div><div class="line"><span class="number">18</span>、append:val，如果操作数为数组，则进行合并；为字符串则添加val在后面； </div><div class="line"><span class="number">19</span>、map:’prop’，返回对象数组中属性为prop的值组成的数组； </div><div class="line"><span class="number">20</span>、reverse，翻转数组或字符串；</div><div class="line"><span class="number">21</span>、get:’prop’，取得属性为’prop’的值； </div><div class="line"><span class="number">22</span>、json，转化为json格式字符串</div></pre></td></tr></table></figure></p>
-<p>辅助函数使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注意闭合标签  &lt;%=:  %&gt;</span></div><div class="line">&lt;input type=<span class="string">"button"</span> value=<span class="xml"><span class="tag">&lt;<span class="name">%=:p|first%</span>&gt;</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>####8.给模板添加方法</p>
-<pre><code>app.locals[‘say’] = function(){ return &apos;hello’; };
-在 app.locals 中定义的方法都可以在模板中引用
-&lt;input type=&quot;button&quot; value=&lt;%=say()%&gt;&gt;
-</code></pre>
           
         
       
@@ -1552,8 +1537,8 @@ ftp&gt; mget *.* (回车)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
-              <span class="site-state-item-name">posting</span>
+              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1561,7 +1546,7 @@ ftp&gt; mget *.* (回车)
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">kategori</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1570,7 +1555,7 @@ ftp&gt; mget *.* (回车)
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1614,11 +1599,11 @@ ftp&gt; mget *.* (回车)
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Tema -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

@@ -102,7 +102,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Penulis'
+      author: 'Author'
     }
   };
 </script>
@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -235,6 +235,293 @@
             
               
                 
+                <a class="post-title-link" href="/2014/12/08/mongodb/" itemprop="url">
+                  MongoDB基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mongodb/" itemprop="url" rel="index">
+                    <span itemprop="name">mongodb</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>成功启动MongoDB后，再打开一个命令行窗口输入mongo，就可以进行数据库的一些操作。<br>输入help可以看到基本操作命令：</p>
+<p>##基本<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">show dbs:显示数据库列表</div><div class="line">show collections：显示当前数据库中的集合（类似关系数据库中的表）</div><div class="line">show users：显示用户</div><div class="line"></div><div class="line">use &lt;db name&gt;：切换当前数据库，这和MS-SQL里面的意思一样</div><div class="line">db.help()：显示数据库操作命令，里面有很多的命令</div><div class="line">db.foo.help()：显示集合操作命令，同样有很多的命令，foo指的是当前数据库下，一个叫foo的集合，并非真正意义上的命令</div><div class="line">db.foo.find()：对于当前数据库中的foo集合进行数据查找（由于没有条件，会列出所有数据）</div><div class="line">db.foo.find( &#123; a : 1 &#125; )：对于当前数据库中的foo集合进行查找，条件是数据中有一个属性叫a，且a的值为1</div><div class="line"></div><div class="line">MongoDB没有创建数据库的命令，但有类似的命令。</div><div class="line"></div><div class="line">如：如果你想创建一个“myTest”的数据库，先运行use myTest命令，之后就做一些操作（如：db.createCollection('user')）,这样就可以创建一个名叫“myTest”的数据库。</div></pre></td></tr></table></figure></p>
+<p>##数据库常用命令<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、Help查看命令提示</div><div class="line"></div><div class="line"> help</div><div class="line"></div><div class="line">  db.help();</div><div class="line"></div><div class="line">  db.yourColl.help();</div><div class="line"></div><div class="line">  db.youColl.find().help();</div><div class="line"></div><div class="line">  rs.help();</div><div class="line"></div><div class="line"><span class="number">2</span>、切换/创建数据库</div><div class="line"></div><div class="line"> use yourDB;  当创建一个集合(table)的时候会自动创建当前数据库</div><div class="line"></div><div class="line"><span class="number">3</span>、查询所有数据库</div><div class="line"></div><div class="line"> show dbs;</div><div class="line"></div><div class="line"><span class="number">4</span>、删除当前使用数据库</div><div class="line"></div><div class="line"> db.dropDatabase();</div><div class="line"></div><div class="line"><span class="number">5</span>、从指定主机上克隆数据库</div><div class="line"></div><div class="line"> db.cloneDatabase(“<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>”); 将指定机器上的数据库的数据克隆到当前数据库</div><div class="line"></div><div class="line"><span class="number">6</span>、从指定的机器上复制指定数据库数据到某个数据库</div><div class="line"></div><div class="line"> db.copyDatabase(<span class="string">"mydb"</span>, <span class="string">"temp"</span>, <span class="string">"127.0.0.1"</span>);将本机的mydb的数据复制到temp数据库中</div><div class="line"></div><div class="line"><span class="number">7</span>、修复当前数据库</div><div class="line"></div><div class="line"> db.repairDatabase();</div><div class="line"></div><div class="line"><span class="number">8</span>、查看当前使用的数据库</div><div class="line"></div><div class="line"> db.getName();</div><div class="line"></div><div class="line"> db; db和getName方法是一样的效果，都可以查询当前使用的数据库</div><div class="line"></div><div class="line"><span class="number">9</span>、显示当前db状态</div><div class="line"></div><div class="line"> db.stats();</div><div class="line"></div><div class="line"><span class="number">10</span>、当前db版本</div><div class="line"></div><div class="line"> db.version();</div><div class="line"></div><div class="line"><span class="number">11</span>、查看当前db的链接机器地址</div><div class="line"></div><div class="line"> db.getMongo();</div></pre></td></tr></table></figure></p>
+<p>##Collection聚集集合<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1</span>、创建一个聚集集合（table）</div><div class="line"></div><div class="line"> db.createCollection(“collName”, &#123;size: <span class="number">20</span>, capped: <span class="number">5</span>, max: <span class="number">100</span>&#125;);</div><div class="line"></div><div class="line"><span class="number">2</span>、得到指定名称的聚集集合（table）</div><div class="line"></div><div class="line"> db.getCollection(<span class="string">"account"</span>);</div><div class="line"></div><div class="line"><span class="number">3</span>、得到当前db的所有聚集集合</div><div class="line"></div><div class="line"> db.getCollectionNames();</div><div class="line"></div><div class="line"><span class="number">4</span>、显示当前db所有聚集索引的状态</div><div class="line"></div><div class="line"> db.printCollectionStats();</div></pre></td></tr></table></figure></p>
+<p> ##用户相关<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、添加一个用户</div><div class="line"></div><div class="line"> db.addUser(<span class="string">"name"</span>);</div><div class="line"></div><div class="line"> db.addUser(<span class="string">"userName"</span>, <span class="string">"pwd123"</span>, <span class="literal">true</span>); 添加用户、设置密码、是否只读</div><div class="line"></div><div class="line"><span class="number">2</span>、数据库认证、安全模式</div><div class="line"></div><div class="line"> db.auth(<span class="string">"userName"</span>, <span class="string">"123123"</span>);</div><div class="line"></div><div class="line"><span class="number">3</span>、显示当前所有用户</div><div class="line"></div><div class="line"> show users;</div><div class="line"></div><div class="line"><span class="number">4</span>、删除用户</div><div class="line"></div><div class="line"> db.removeUser(<span class="string">"userName"</span>);</div></pre></td></tr></table></figure></p>
+<p>##其他<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、查询之前的错误信息</div><div class="line"> db.getPrevError();</div><div class="line"><span class="number">2</span>、清除错误记录</div><div class="line"> db.resetError();</div></pre></td></tr></table></figure></p>
+<p>##查看聚集集合基本信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1</span>、查看帮助  db.yourColl.help();</div><div class="line"></div><div class="line"><span class="number">2</span>、查询当前集合的数据条数  db.yourColl.count();</div><div class="line"></div><div class="line"><span class="number">3</span>、查看数据空间大小 db.userInfo.dataSize();</div><div class="line"></div><div class="line"><span class="number">4</span>、得到当前聚集集合所在的db db.userInfo.getDB();</div><div class="line"></div><div class="line"><span class="number">5</span>、得到当前聚集的状态 db.userInfo.stats();</div><div class="line"></div><div class="line"><span class="number">6</span>、得到聚集集合总大小 db.userInfo.totalSize();</div><div class="line"></div><div class="line"><span class="number">7</span>、聚集集合储存空间大小 db.userInfo.storageSize();</div><div class="line"></div><div class="line"><span class="number">8</span>、Shard版本信息  db.userInfo.getShardVersion()</div><div class="line"></div><div class="line"><span class="number">9</span>、聚集集合重命名 db.userInfo.renameCollection(<span class="string">"users"</span>); 将userInfo重命名为users</div><div class="line"></div><div class="line"><span class="number">10</span>、删除当前聚集集合 db.userInfo.drop();</div></pre></td></tr></table></figure></p>
+<p>##聚集集合查询<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">1、查询所有记录</div><div class="line"></div><div class="line">db.userInfo.find();</div><div class="line"></div><div class="line">相当于：select* from userInfo;</div><div class="line"></div><div class="line">默认每页显示20条记录，当显示不下的情况下，可以用it迭代命令查询下一页数据。注意：键入it命令不能带“；”</div><div class="line"></div><div class="line">但是你可以设置每页显示数据的大小，用DBQuery.shellBatchSize= 50;这样每页就显示50条记录了。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">2、查询去掉后的当前聚集集合中的某列的重复数据</div><div class="line"></div><div class="line">db.userInfo.distinct("name");</div><div class="line"></div><div class="line">会过滤掉name中的相同数据</div><div class="line"></div><div class="line">相当于：select distict name from userInfo;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">3、查询age = 22的记录</div><div class="line"></div><div class="line">db.userInfo.find(&#123;"age": 22&#125;);</div><div class="line"></div><div class="line">相当于： select * from userInfo where age = 22;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">4、查询age &gt; 22的记录</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$gt: 22&#125;&#125;);</div><div class="line"></div><div class="line">相当于：select * from userInfo where age &gt;22;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">5、查询age &lt; 22的记录</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$lt: 22&#125;&#125;);</div><div class="line"></div><div class="line">相当于：select * from userInfo where age &lt;22;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">6、查询age &gt;= 25的记录</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;);</div><div class="line"></div><div class="line">相当于：select * from userInfo where age &gt;= 25;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">7、查询age &lt;= 25的记录</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$lte: 25&#125;&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">8、查询age &gt;= 23 并且 age &lt;= 26</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$gte: 23, $lte: 26&#125;&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">9、查询name中包含 mongo的数据</div><div class="line"></div><div class="line">db.userInfo.find(&#123;name: /mongo/&#125;);</div><div class="line"></div><div class="line">//相当于%%</div><div class="line"></div><div class="line">select * from userInfo where name like ‘%mongo%’;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">10、查询name中以mongo开头的</div><div class="line"></div><div class="line">db.userInfo.find(&#123;name: /^mongo/&#125;);</div><div class="line"></div><div class="line">select * from userInfo where name like ‘mongo%’;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">11、查询指定列name、age数据</div><div class="line"></div><div class="line">db.userInfo.find(&#123;&#125;, &#123;name: 1, age: 1&#125;);</div><div class="line"></div><div class="line">相当于：select name, age from userInfo;</div><div class="line"></div><div class="line">当然name也可以用true或false,当用ture的情况下河name:1效果一样，如果用false就是排除name，显示name以外的列信息。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">12、查询指定列name、age数据, age &gt; 25</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$gt: 25&#125;&#125;, &#123;name: 1, age: 1&#125;);</div><div class="line"></div><div class="line">相当于：select name, age from userInfo where age &gt;25;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">13、按照年龄排序</div><div class="line"></div><div class="line">升序：db.userInfo.find().sort(&#123;age: 1&#125;);</div><div class="line"></div><div class="line">降序：db.userInfo.find().sort(&#123;age: -1&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">14、查询name = zhangsan, age = 22的数据</div><div class="line"></div><div class="line">db.userInfo.find(&#123;name: 'zhangsan', age: 22&#125;);</div><div class="line"></div><div class="line">相当于：select * from userInfo where name = ‘zhangsan’ and age = ‘22’;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">15、查询前5条数据</div><div class="line"></div><div class="line">db.userInfo.find().limit(5);</div><div class="line"></div><div class="line">相当于：selecttop 5 * from userInfo;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">16、查询10条以后的数据</div><div class="line"></div><div class="line">db.userInfo.find().skip(10);</div><div class="line"></div><div class="line">相当于：select * from userInfo where id not in (</div><div class="line"></div><div class="line">selecttop 10 * from userInfo</div><div class="line"></div><div class="line">);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">17、查询在5-10之间的数据</div><div class="line"></div><div class="line">db.userInfo.find().limit(5).skip(5);</div><div class="line"></div><div class="line">可用于分页，limit是pageSize，skip是第几页*pageSize</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">18、or与 查询</div><div class="line"></div><div class="line">db.userInfo.find(&#123;$or: [&#123;age: 22&#125;, &#123;age: 25&#125;]&#125;);</div><div class="line"></div><div class="line">相当于：select * from userInfo where age = 22 or age = 25;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">19、查询第一条数据</div><div class="line"></div><div class="line">db.userInfo.findOne();</div><div class="line"></div><div class="line">相当于：selecttop 1 * from userInfo;</div><div class="line"></div><div class="line">db.userInfo.find().limit(1);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">20、查询某个结果集的记录条数</div><div class="line"></div><div class="line">db.userInfo.find(&#123;age: &#123;$gte: 25&#125;&#125;).count();</div><div class="line"></div><div class="line">相当于：select count(*) from userInfo where age &gt;= 20;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">21、按照某列进行排序</div><div class="line"></div><div class="line">db.userInfo.find(&#123;sex: &#123;$exists: true&#125;&#125;).count();</div><div class="line"></div><div class="line">相当于：select count(sex) from userInfo;</div></pre></td></tr></table></figure></p>
+<p>##索引</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、创建索引</div><div class="line"></div><div class="line">db.userInfo.ensureIndex(&#123;name: <span class="number">1</span>&#125;);</div><div class="line"></div><div class="line">db.userInfo.ensureIndex(&#123;name: <span class="number">1</span>, ts: <span class="number">-1</span>&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="number">2</span>、查询当前聚集集合所有索引</div><div class="line"></div><div class="line">db.userInfo.getIndexes();</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="number">3</span>、查看总索引记录大小</div><div class="line"></div><div class="line">db.userInfo.totalIndexSize();</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="number">4</span>、读取当前集合的所有index信息</div><div class="line"></div><div class="line">db.users.reIndex();</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="number">5</span>、删除指定索引</div><div class="line"></div><div class="line">db.users.dropIndex(<span class="string">"name_1"</span>);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="number">6</span>、删除所有索引索引</div><div class="line"></div><div class="line">db.users.dropIndexes();</div></pre></td></tr></table></figure>
+<p>##修改、添加、删除集合数据<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">1、添加</div><div class="line"></div><div class="line">db.users.save(&#123;name: ‘zhangsan’, age: 25, sex: true&#125;);</div><div class="line"></div><div class="line">添加的数据的数据列，没有固定，根据添加的数据为准</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">2、修改</div><div class="line"></div><div class="line">db.users.update(&#123;age: 25&#125;, &#123;$set: &#123;name: 'changeName'&#125;&#125;, false, true);</div><div class="line"></div><div class="line">相当于：update users set name = ‘changeName’ where age = 25;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">db.users.update(&#123;name: 'Lisi'&#125;, &#123;$inc: &#123;age: 50&#125;&#125;, false, true);</div><div class="line"></div><div class="line">相当于：update users set age = age + 50 where name = ‘Lisi’;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">db.users.update(&#123;name: 'Lisi'&#125;, &#123;$inc: &#123;age: 50&#125;, $set: &#123;name: 'hoho'&#125;&#125;, false, true);</div><div class="line"></div><div class="line">相当于：update users set age = age + 50, name = ‘hoho’ where name = ‘Lisi’;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">3、删除</div><div class="line"></div><div class="line">db.users.remove(&#123;age: 132&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">4、查询修改删除</div><div class="line"></div><div class="line">db.users.findAndModify(&#123;</div><div class="line"></div><div class="line">    query: &#123;age: &#123;$gte: 25&#125;&#125;, </div><div class="line"></div><div class="line">    sort: &#123;age: -1&#125;, </div><div class="line"></div><div class="line">    update: &#123;$set: &#123;name: 'a2'&#125;, $inc: &#123;age: 2&#125;&#125;,</div><div class="line"></div><div class="line">    remove: true</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">db.runCommand(&#123; findandmodify : "users", </div><div class="line"></div><div class="line">    query: &#123;age: &#123;$gte: 25&#125;&#125;, </div><div class="line"></div><div class="line">    sort: &#123;age: -1&#125;, </div><div class="line"></div><div class="line">    update: &#123;$set: &#123;name: 'a2'&#125;, $inc: &#123;age: 2&#125;&#125;,</div><div class="line"></div><div class="line">    remove: true</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">update 或 remove 其中一个是必须的参数; 其他参数可选。</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">详解</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td style="text-align:center">查询过滤条件</td>
+<td style="text-align:right">{}</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align:center">如果多个文档符合查询过滤条件，将以该参数指定的排列方式选择出排在首位的对象，该对象将被操作</td>
+<td style="text-align:right">{}</td>
+</tr>
+<tr>
+<td>remove</td>
+<td style="text-align:center">若为true，被选中对象将在返回前被删除</td>
+<td style="text-align:right">N/A</td>
+</tr>
+<tr>
+<td>update</td>
+<td style="text-align:center">一个 修改器对象</td>
+<td style="text-align:right">N/A</td>
+</tr>
+<tr>
+<td>new</td>
+<td style="text-align:center">若为true，将返回修改后的对象而不是原始对象。在删除操作中，该参数被忽略。</td>
+<td style="text-align:right">false</td>
+</tr>
+<tr>
+<td>fields</td>
+<td style="text-align:center">参见Retrieving a Subset of Fields (1.5.0+)</td>
+<td style="text-align:right">All fields</td>
+</tr>
+<tr>
+<td>upsert</td>
+<td style="text-align:center">创建新对象若查询结果为空。 示例 (1.5.4+)</td>
+<td style="text-align:right">false</td>
+</tr>
+</tbody>
+</table>
+<p>##语句块操作<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line">1、简单Hello World</div><div class="line"></div><div class="line">print("Hello World!");</div><div class="line"></div><div class="line">这种写法调用了print函数，和直接写入"Hello World!"的效果是一样的；</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">2、将一个对象转换成json</div><div class="line"></div><div class="line">tojson(new Object());</div><div class="line"></div><div class="line">tojson(new Object('a'));</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">3、循环添加数据</div><div class="line"></div><div class="line">&gt; for (var i = 0; i &lt; 30; i++) &#123;</div><div class="line"></div><div class="line">... db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</div><div class="line"></div><div class="line">... &#125;;</div><div class="line"></div><div class="line">这样就循环添加了30条数据，同样也可以省略括号的写法</div><div class="line"></div><div class="line">&gt; for (var i = 0; i &lt; 30; i++) db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</div><div class="line"></div><div class="line">也是可以的，当你用db.users.find()查询的时候，显示多条数据而无法一页显示的情况下，可以用it查看下一页的信息；</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">4、find 游标查询</div><div class="line"></div><div class="line">&gt;var cursor = db.users.find();</div><div class="line"></div><div class="line">&gt; while (cursor.hasNext()) &#123; </div><div class="line"></div><div class="line">    printjson(cursor.next()); </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">这样就查询所有的users信息，同样可以这样写</div><div class="line"></div><div class="line">var cursor = db.users.find();</div><div class="line"></div><div class="line">while (cursor.hasNext()) &#123; printjson(cursor.next); &#125;</div><div class="line"></div><div class="line">同样可以省略&#123;&#125;号</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">5、forEach迭代循环</div><div class="line"></div><div class="line">db.users.find().forEach(printjson);</div><div class="line"></div><div class="line">forEach中必须传递一个函数来处理每条迭代的数据信息</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">6、将find游标当数组处理</div><div class="line"></div><div class="line">var cursor = db.users.find();</div><div class="line"></div><div class="line">cursor[4];</div><div class="line"></div><div class="line">取得下标索引为4的那条数据</div><div class="line"></div><div class="line">既然可以当做数组处理，那么就可以获得它的长度：cursor.length();或者cursor.count();</div><div class="line"></div><div class="line">那样我们也可以用循环显示数据</div><div class="line"></div><div class="line">for (var i = 0, len = c.length(); i &lt; len; i++) printjson(c[i]);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">7、将find游标转换成数组</div><div class="line"></div><div class="line">&gt; var arr = db.users.find().toArray();</div><div class="line"></div><div class="line">&gt; printjson(arr[2]);</div><div class="line"></div><div class="line">用toArray方法将其转换为数组</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">8、定制我们自己的查询结果</div><div class="line"></div><div class="line">只显示age &lt;= 28的并且只显示age这列数据</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: 1&#125;).forEach(printjson);</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: true&#125;).forEach(printjson);</div><div class="line"></div><div class="line">排除age的列</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: false&#125;).forEach(printjson);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">9、forEach传递函数显示信息</div><div class="line"></div><div class="line">db.things.find(&#123;x:4&#125;).forEach(function(x) &#123;print(tojson(x));&#125;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
+                  php header函数的详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></div><div class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</div><div class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</div><div class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</div><div class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</div><div class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></div><div class="line"><span class="meta">?&gt;</span></div><div class="line">CacheControl = no-cache</div><div class="line">Pragma=no-cache</div><div class="line">Expires = <span class="number">-1</span></div></pre></td></tr></table></figure></p>
+<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></div><div class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></div><div class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></div><div class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></div><div class="line">　　<span class="comment">// load the file to send:</span></div><div class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></div></pre></td></tr></table></figure></p>
+<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</div><div class="line"></div><div class="line"><span class="comment">//设置一个404头:</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</div><div class="line"></div><div class="line"><span class="comment">//设置地址被永久的重定向</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</div><div class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">Status: <span class="number">404</span> Not Found</div><div class="line">Content-Length: <span class="number">0</span></div><div class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
+<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/12/08/postgresql-gis/" itemprop="url">
                   postgresql-gis
                 </a>
@@ -248,7 +535,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -260,7 +547,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -368,7 +655,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T18:23:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -380,7 +667,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/git/" itemprop="url" rel="index">
@@ -499,7 +786,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -511,7 +798,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -551,7 +838,7 @@
           <p>##自己写的一个postgresql和php的类<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-php/#more" rel="contents">
-              Baca lebih &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -614,7 +901,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T17:59:40+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -626,7 +913,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -666,7 +953,7 @@
           <p>##关于postgresql的其他函数<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/08/postgres-copy/#more" rel="contents">
-              Baca lebih &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
         
@@ -729,7 +1016,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-08T15:55:19+08:00" content="2014-12-08">
               2014-12-08
             </time>
@@ -741,7 +1028,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/postgresql/" itemprop="url" rel="index">
@@ -877,8 +1164,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
-                  七天学会NODEjs
+                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
+                  npm package.json dependecies 和 devDependecies区别
                 </a>
               
             
@@ -890,7 +1177,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
               2014-12-02
             </time>
@@ -902,7 +1189,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node/" itemprop="url" rel="index">
@@ -939,12 +1226,11 @@
 
       
         
-          <p>##什么是Nodejs<br>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/02/nodejs-7days/#more" rel="contents">
-              Baca lebih &raquo;
-            </a>
-          </div>
+          
+            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
+<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
+
+          
         
       
     </div>
@@ -992,8 +1278,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
-                  npm package.json dependecies 和 devDependecies区别
+                <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
+                  七天学会NODEjs
                 </a>
               
             
@@ -1005,7 +1291,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
               2014-12-02
             </time>
@@ -1017,7 +1303,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">Di</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/node/" itemprop="url" rel="index">
@@ -1054,11 +1340,12 @@
 
       
         
-          
-            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
-<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
-
-          
+          <p>##什么是Nodejs<br>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/02/nodejs-7days/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1130,8 +1417,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
-              <span class="site-state-item-name">posting</span>
+              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -1139,7 +1426,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">kategori</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -1148,7 +1435,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1192,11 +1479,11 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Tema -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

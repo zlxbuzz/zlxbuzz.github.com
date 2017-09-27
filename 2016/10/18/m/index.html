@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="123456## flex相关```jsflex布局下的img标签默认会撑满整个屏幕，需要设置百分比来限制高度
 弹窗蒙层滚动遇到的坑1234567891011移动端局部滚动我一般都用overflow:auto;/*android*/-webkit-overflow-scrolling:touch;/*iphone*/但是`-webkit-overflow-scrolling`有比较多的坑，网上有很">
-<meta property="og:updated_time" content="2017-06-19T05:45:56.000Z">
+<meta property="og:updated_time" content="2017-09-19T02:55:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端收集">
 <meta name="twitter:description" content="123456## flex相关```jsflex布局下的img标签默认会撑满整个屏幕，需要设置百分比来限制高度
@@ -109,7 +109,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Penulis'
+      author: 'Author'
     }
   };
 </script>
@@ -177,7 +177,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Beranda
+            Startseite
           </a>
         </li>
       
@@ -187,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Arsip
+            Archiv
           </a>
         </li>
       
@@ -250,7 +250,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Diposting di</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-10-18T14:10:08+08:00" content="2016-10-18">
               2016-10-18
             </time>
@@ -302,6 +302,7 @@
 <h2 id="倒计时"><a href="#倒计时" class="headerlink" title="倒计时"></a>倒计时</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//倒计时一般采用setTimeout，来解决误差</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * @brief 倒计时</div><div class="line"> *</div><div class="line"> * @param cb 每 interval 触发的回调函数</div><div class="line"> * @param interval 事件间隔(毫秒)</div><div class="line"> * @param ms 倒计时时间差，默认为当前时间(毫秒)</div><div class="line"> */</div><div class="line"><span class="keyword">const</span> countDown = <span class="function">(<span class="params">cb,interval,ms</span>) =&gt;</span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> interval  = interval || <span class="number">1000</span>;</div><div class="line">  <span class="keyword">var</span> ms        = ms || <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  cb(ms);</div><div class="line">  <span class="comment">//当前时间戳，用来计算时间误差</span></div><div class="line">  <span class="keyword">var</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  <span class="keyword">var</span> count     = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span>(ms &gt; <span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">var</span> watcher = setTimeout(__countDown,interval);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">__countDown</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">var</span> offset = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - (startTime + count * interval);</div><div class="line">    <span class="keyword">var</span> nextTime = interval - offset ;</div><div class="line">    <span class="keyword">if</span>(nextTime &lt; <span class="number">0</span> )&#123;</div><div class="line">      nextTime = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    ms-=interval;</div><div class="line">    <span class="keyword">if</span>(ms &lt; <span class="number">0</span>)&#123;</div><div class="line">      clearTimeout(watcher);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      cb(ms);</div><div class="line">      watcher = setTimeout(__countDown,nextTime);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background-size  有cover和contain，如果比原图片大 则cover会往外放大，反之会往内缩小，</div><div class="line">img则设置<span class="number">100</span>%即可.</div></pre></td></tr></table></figure>
 <h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>如果是android 4.4.4以下不支持promise，需要 <code>require(&#39;es6-promise&#39;).polyfill();</code><br>不支持ios7</p>
+<h2 id="padding控制图片自适应"><a href="#padding控制图片自适应" class="headerlink" title="padding控制图片自适应"></a>padding控制图片自适应</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//背景图,padding值为百分比</span></div><div class="line"><span class="selector-class">.banner</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10%</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">background-size</span>: cover;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//img</span></div><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"banner"</span>&gt;</div><div class="line">  &lt;<span class="selector-tag">img</span> src=<span class="string">""</span>banner.jpg&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"><span class="selector-class">.banner</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">15.15%</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.banner</span> &gt; <span class="selector-tag">img</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>; <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -385,10 +386,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Daftar Isi
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Ikhtisar
+            Übersicht
           </li>
         </ul>
       
@@ -404,8 +405,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
-              <span class="site-state-item-name">posting</span>
+              <span class="site-state-item-count">59</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -413,7 +414,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">kategori</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -422,7 +423,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -450,7 +451,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#弹窗蒙层滚动遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">弹窗蒙层滚动遇到的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#华为等部分android手机可能出现最终的font－size不一致的情况"><span class="nav-number">2.</span> <span class="nav-text">华为等部分android手机可能出现最终的font－size不一致的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#华为部分手机不支持jusify-content-space-between"><span class="nav-number">3.</span> <span class="nav-text">华为部分手机不支持jusify-content space-between</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动"><span class="nav-number">4.</span> <span class="nav-text">滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直居中"><span class="nav-number">5.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholder-颜色"><span class="nav-number">6.</span> <span class="nav-text">placeholder 颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-相关"><span class="nav-number">7.</span> <span class="nav-text">input 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-image-比img-更加节省资源"><span class="nav-number">8.</span> <span class="nav-text">background-image 比img 更加节省资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height相关"><span class="nav-number">9.</span> <span class="nav-text">line-height相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端1px问题"><span class="nav-number">10.</span> <span class="nav-text">移动端1px问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font"><span class="nav-number">11.</span> <span class="nav-text">font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height"><span class="nav-number">12.</span> <span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float相关"><span class="nav-number">13.</span> <span class="nav-text">float相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android-点击输入框上移"><span class="nav-number">14.</span> <span class="nav-text">android 点击输入框上移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倒计时"><span class="nav-number">15.</span> <span class="nav-text">倒计时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">16.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">17.</span> <span class="nav-text">axios</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#弹窗蒙层滚动遇到的坑"><span class="nav-number">1.</span> <span class="nav-text">弹窗蒙层滚动遇到的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#华为等部分android手机可能出现最终的font－size不一致的情况"><span class="nav-number">2.</span> <span class="nav-text">华为等部分android手机可能出现最终的font－size不一致的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#华为部分手机不支持jusify-content-space-between"><span class="nav-number">3.</span> <span class="nav-text">华为部分手机不支持jusify-content space-between</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动"><span class="nav-number">4.</span> <span class="nav-text">滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直居中"><span class="nav-number">5.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholder-颜色"><span class="nav-number">6.</span> <span class="nav-text">placeholder 颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-相关"><span class="nav-number">7.</span> <span class="nav-text">input 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-image-比img-更加节省资源"><span class="nav-number">8.</span> <span class="nav-text">background-image 比img 更加节省资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height相关"><span class="nav-number">9.</span> <span class="nav-text">line-height相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端1px问题"><span class="nav-number">10.</span> <span class="nav-text">移动端1px问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#font"><span class="nav-number">11.</span> <span class="nav-text">font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height"><span class="nav-number">12.</span> <span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float相关"><span class="nav-number">13.</span> <span class="nav-text">float相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android-点击输入框上移"><span class="nav-number">14.</span> <span class="nav-text">android 点击输入框上移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倒计时"><span class="nav-number">15.</span> <span class="nav-text">倒计时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">16.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios"><span class="nav-number">17.</span> <span class="nav-text">axios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding控制图片自适应"><span class="nav-number">18.</span> <span class="nav-text">padding控制图片自适应</span></a></li></ol></div>
             
           </div>
         </section>
@@ -477,11 +478,11 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Tema -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
