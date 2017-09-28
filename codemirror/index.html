@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://at-ui.github.io/at-ui/static/css/main.fa9072.css">
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <link rel="stylesheet" href="lib/theme/solarized.css">
+  <link rel="stylesheet" href="lib/addon/fold/foldgutter.css">
+  <script src="lib/codemirror.js"></script>
+  <script src="lib/mode/css.js"></script>
+  <script src="lib/addon/edit/closetag.js"></script>
+  <script src="lib/addon/fold/foldcode.js"></script>
+  <script src="lib/addon/fold/foldgutter.js"></script>
+  <script src="lib/addon/fold/brace-fold.js"></script>
+  <script src="lib/addon/fold/xml-fold.js"></script>
+  <script src="lib/addon/fold/comment-fold.js"></script>
+  <script src="lib/mode/xml.js"></script>
+
+  <script src="lib/mode/javascript.js"></script>
+  <style>
+    #prew{
+      height: 100%;
+    }
+    iframe{
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-12">
+      html:
+      <textarea  id="code"></textarea>
+    </div>
+    <div class="col-md-12">
+      css:
+      <textarea onkeyup="a()" id="css"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      js:
+      <textarea onkeyup="a()" id="js"></textarea>
+    </div>
+    <div class="col-md-12">
+      <div id="prew"></div>
+    </div>
+  </div>
+  <button class="at-btn at-btn--primary" onclick="download()">
+    <span class="at-btn__text">下载</span>
+  </button>
+</body>
+<script type="text/javascript">
+//根据DOM元素的id构造出一个编辑器
+var editor=CodeMirror.fromTextArea(document.getElementById("code"),{
+  theme:"solarized light",
+  lineNumbers: true,
+  mode:"text/html",
+  autoCloseTags: true,
+  foldGutter: true,
+  htmlMode: true,
+  gutters: ["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  matchClosing: true
+});
+var cssEditor=CodeMirror.fromTextArea(document.getElementById("css"),{
+  theme:"solarized light",
+  lineNumbers: true,
+  mode: "css",
+  autoCloseTags: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+});
+var jsEditor=CodeMirror.fromTextArea(document.getElementById("js"),{
+  theme:"solarized light",
+  lineNumbers: true,
+  mode: "javascript",
+  autoCloseTags: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-lint-markers", "CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+});
+
+cssEditor.on('change',(function(){
+  a();
+}))
+editor.on('change',(function(){
+  a();
+}))
+jsEditor.on('change',(function(){
+  a();
+}))
+var content = ''
+function a(){
+  const cssContent = cssEditor.getValue();
+  const htmlContent = editor.getValue();
+  const jsContent = jsEditor.getValue();
+  document.querySelector("#prew").innerHTML='';
+  var frame = document.createElement("iframe");
+  frame.setAttribute("id", "preview");
+  document.querySelector("#prew").appendChild(frame);
+
+  var previewFrame = document.getElementById("preview");
+  var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+
+  content = "<style>"+cssContent+"</style>"+htmlContent + "<script>" + jsContent +"<\/script>";
+
+  preview.write(content);
+}
+
+
+function download(){
+  const a = document.createElement("a")
+  console.log(a)
+  var blob = new Blob([content]);
+  console.log(blob)
+  var evt = document.createEvent("HTMLEvents");
+  evt.initEvent("click", false, false);
+  a.download = "index.html"
+  a.href= URL.createObjectURL(blob);
+  a.dispatchEvent(evt);
+  a.click();
+}
+</script>
+</html>
