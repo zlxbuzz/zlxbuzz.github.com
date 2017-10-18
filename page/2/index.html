@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -235,102 +235,6 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/09/css-marster-6/" itemprop="url">
-                  css权威指南笔记6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
-              2017-06-09
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/* 缩进 */</div><div class="line">text-indent: 3em;/*应用于块级元素,不应用于行内元素或者替换元素*/</div><div class="line">/* 百分比相当于父元素的宽度 ,可以继承,2.1之前继承计算值，之后继承申明值*/</div><div class="line"></div><div class="line">/* 水平对齐 */</div><div class="line">/* 应用于块级元素 */</div><div class="line">text-align:center|left|right|justify|inherit</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐 */</div><div class="line">line-height:&lt;length&gt;|&lt;percentage&gt;|&lt;number&gt;|normal|inherit /*代表文本行基线之间的最小距离*/</div><div class="line">/* 百分比相当于元素的字体大小 */</div><div class="line"></div><div class="line"></div><div class="line">/* 定义: */</div><div class="line">/* 文本行中每个元素都会生成一个内容区，内容区会生成一个行内框(inline box),由line-height产生的行间距 */</div><div class="line">/* 就是增加或者减少各个行内框高度的原因之一。将line－height的计算值减去font－size的计算值就是总的行 */</div><div class="line">/* 间距，然后除以2 将一半分别应用到内容区的顶部和底部，结果就是行内框。 */</div><div class="line"></div><div class="line">/* 继承： */</div><div class="line">/*   1.如果为一个数字1（缩放因子），则继承申明值。 */</div><div class="line">/*   2.如果为其他，则继承计算值。 */</div><div class="line"></div><div class="line"></div><div class="line">/* 垂直对齐文本 */</div><div class="line">/* 只能应用到行内元素和替换元素,并且不能继承 */</div><div class="line">/* 百分比相对于元素的line-height值 */</div><div class="line">/*inline-block依赖型元素(只有inline或者inline-block才起作用)*/</div><div class="line">vertical-align:baseline|sub|super|top|text-top|middle|bottom|text-bottom|&lt;percentage&gt;|&lt;length&gt;|inherit</div><div class="line"></div><div class="line">vertical-align:baseline;/*默认值，一个元素的基线和其父元素的基线对齐,如果该元素没有基线，比如为图像或者表单数据元素，则底端(实际上是下外边距)与父元素的基线对齐*/</div><div class="line"></div><div class="line">vertical-align:5px;/*元素相当于基线向上偏移5像素,同时提升其内容区和行内框*/</div><div class="line">vertical-align:-5px;/*元素相当于基线向下偏移5像素*/</div><div class="line"></div><div class="line">vertical-align:text-bottom;/*基线与父元素的行内文本底端对齐(将元素行内框的底端与父元素的内容区的底端对齐)*/</div><div class="line">vertical-align:bottom;/*基线与父元素的下行框底端对齐(将元素行内框的底端与包含该元素的行框的底端对齐)*/</div><div class="line"></div><div class="line">vertical-align:text-top;/*基线与父元素的行内文本顶端对齐(将元素行内框的底端与父元素的内容区的顶端对齐)*/</div><div class="line">vertical-align:top;/*基线与父元素的行框顶端对齐(将元素行内框的顶端与包含该元素的行框的顶端对齐)*/</div><div class="line"></div><div class="line">vertical-align:middle;/*一般用于图片,将元素行内框的的垂直中点和父元素基线上方0.5ex（一般为0.25em）出的点对齐*/</div></pre></td></tr></table></figure>
-<h2 id="字间隔和字母间隔"><a href="#字间隔和字母间隔" class="headerlink" title="字间隔和字母间隔"></a>字间隔和字母间隔</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*单词间隔*/</div><div class="line">word-spacing:&lt;length&gt;|normal|inherit</div><div class="line">/*字母 隔*/</div><div class="line">letter-spacing:&lt;length&gt;|normal|inherit</div></pre></td></tr></table></figure>
-<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/* 文本转换 */</div><div class="line">text-transform:uppercase|lowercase|capitalize|none|inherit;</div><div class="line">/* 分别为大写，小写，首字母大写 */</div><div class="line"></div><div class="line">/* 文本装饰*/</div><div class="line">/* 无继承 */</div><div class="line">text-decoration:underline|overline|line-through|blink|none|inherit;</div><div class="line">/*下划线，上划线，贯穿线，闪烁*/</div><div class="line"></div><div class="line">/* 文本阴影 */</div><div class="line">text-shadow:green 5px 0.5em 1px;</div><div class="line">/*颜色 向右偏移5px 向下偏移0.5em 模糊半径1px*/</div><div class="line"></div><div class="line">/* 处理空白符 */</div><div class="line">white-space:normal|nowrap|pre|pre-wrap|pre-line|inherit</div><div class="line">/* normal:一行中多个空格的序列会转换为一个空格 */</div><div class="line">/* pre:空白符不会忽略 */</div><div class="line">/* nowrap:防止文本换行 */</div><div class="line"></div><div class="line">/* 文本方向 */</div><div class="line">direction:ltr|rtl|inherit</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2017/06/09/css-marster-7/" itemprop="url">
                   css权威指南笔记7
                 </a>
@@ -344,7 +248,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -443,7 +347,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
               2017-06-09
             </time>
@@ -527,6 +431,102 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/09/css-marster-4/" itemprop="url">
+                  css权威指南笔记4
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2017-06-09T13:35:46+08:00" content="2017-06-09">
+              2017-06-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="长度单位"><a href="#长度单位" class="headerlink" title="长度单位"></a>长度单位</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/* 绝对长度单位 */</div><div class="line">英寸(in)</div><div class="line">厘米(cm):1英寸 = 2.54厘米</div><div class="line">毫米(mm):1英寸 = 25.4毫米</div><div class="line">点(pt) : 1英寸 = 72点</div><div class="line">派卡(pc) : 12点 = 1派</div><div class="line"></div><div class="line">ppi 每英寸实际像素</div><div class="line"></div><div class="line"></div><div class="line">/* 相对长度单位 */</div><div class="line">em: 1em (em 是相对于自身的font-size,如果没有设置，则为父级，依次向上级，最后为浏览器默认font-size)</div><div class="line">ex: ex 代表所用字体中小写x的高度(大多数字体的小写字母都是相应大写字母高度的一般所以一般1ex = 0.5em)</div><div class="line">px:像素</div></pre></td></tr></table></figure>
+<h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">url</span>(<span class="selector-tag">pathname</span>)  <span class="comment">/*会从文档开始的位置加上pathname  http://www.index.com/pathname*/</span></div><div class="line">@<span class="keyword">import</span> url(special/toppings.css) /*会基于当前css所在的目前后面去找对应的css http://www.index.com/style/special/toppings.css*/</div></pre></td></tr></table></figure>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">normal</span></div><div class="line"><span class="selector-tag">inherit</span> <span class="comment">/*继承*/</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/09/my/" itemprop="url">
                   个人工作习惯
                 </a>
@@ -540,7 +540,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-05-09T10:30:07+08:00" content="2017-05-09">
               2017-05-09
             </time>
@@ -635,7 +635,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-05-04T13:59:58+08:00" content="2017-05-04">
               2017-05-04
             </time>
@@ -730,7 +730,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2017-03-30T13:03:31+08:00" content="2017-03-30">
               2017-03-30
             </time>
@@ -828,7 +828,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-11-07T20:45:57+08:00" content="2016-11-07">
               2016-11-07
             </time>
@@ -860,7 +860,7 @@
         
           
             <h2 id="ie8-ie9-跨域解决方法："><a href="#ie8-ie9-跨域解决方法：" class="headerlink" title="ie8,ie9 跨域解决方法："></a>ie8,ie9 跨域解决方法：</h2><p>基于常用的jquery采用jQuery-ajaxTransport-XDomainRequest，,如果是post，则数据传递只为text/plain来进行传递，所以php端需要用 php://input获取原始post数据.(此方法无法获取到error中的任何信息包括code，只能通过全部返回200的方法将error放到里面<a href="http://stackoverflow.com/questions/10390539/xdomainrequest-get-response-body-on-error),而且`XDoaminRequest`比较弱，跨域`https`，`cookie`等都不支持，所以最好的方法还是`同域代理`。" target="_blank" rel="external">http://stackoverflow.com/questions/10390539/xdomainrequest-get-response-body-on-error),而且`XDoaminRequest`比较弱，跨域`https`，`cookie`等都不支持，所以最好的方法还是`同域代理`。</a><br><a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest" target="_blank" rel="external">https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest</a></p>
-<h2 id="部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止"><a href="#部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止" class="headerlink" title="部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止."></a>部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止.</h2><h2 id="ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39"><a href="#ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39" class="headerlink" title="ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如axios,axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;;"></a>ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如<code>axios</code>,<code>axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;</code>;</h2><h2 id="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持"><a href="#ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持" class="headerlink" title="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持."></a>ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持.</h2><h2 id="ie9-及其以下不支持classList属性-需要采用pollyfillhttps-github-com-eligrey-classList-js"><a href="#ie9-及其以下不支持classList属性-需要采用pollyfillhttps-github-com-eligrey-classList-js" class="headerlink" title="ie9 及其以下不支持classList属性 需要采用pollyfillhttps://github.com/eligrey/classList.js"></a>ie9 及其以下不支持classList属性 需要采用pollyfill<code>https://github.com/eligrey/classList.js</code></h2>
+<h2 id="部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止-可以采用console-polyfill"><a href="#部分ie（ie8，ie9）不能出现console-log，否则当不打开开发者工具的时候，会造成程序终止-可以采用console-polyfill" class="headerlink" title="部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止,可以采用console polyfill."></a>部分ie（ie8，ie9）不能出现console.log，否则当不打开开发者工具的时候，会造成程序终止,可以采用<code>console polyfill</code>.</h2><h2 id="ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39"><a href="#ie9-对同个请求ajax进行缓存，可以设置请求头来处理-比如axios-axios-defaults-headers-common-39-If-Modified-Since-39-39-0-39" class="headerlink" title="ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如axios,axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;;"></a>ie9 对同个请求ajax进行缓存，可以设置请求头来处理,比如<code>axios</code>,<code>axios.defaults.headers.common[&#39;If-Modified-Since&#39;] = &#39;0&#39;</code>;</h2><h2 id="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持"><a href="#ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble-ie9可以支持" class="headerlink" title="ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持."></a>ie8以及ie8之前的不支持stopPropagation，只能使用cancelBubble,ie9可以支持.</h2><h2 id="ie9-及其以下不支持classList属性-需要采用pollyfillhttps-github-com-eligrey-classList-js"><a href="#ie9-及其以下不支持classList属性-需要采用pollyfillhttps-github-com-eligrey-classList-js" class="headerlink" title="ie9 及其以下不支持classList属性 需要采用pollyfillhttps://github.com/eligrey/classList.js"></a>ie9 及其以下不支持classList属性 需要采用pollyfill<code>https://github.com/eligrey/classList.js</code></h2>
           
         
       
@@ -922,7 +922,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-10-18T14:10:08+08:00" content="2016-10-18">
               2016-10-18
             </time>
@@ -1040,7 +1040,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-05-12T14:53:50+08:00" content="2016-05-12">
               2016-05-12
             </time>
@@ -1135,7 +1135,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-03-27T10:55:08+08:00" content="2016-03-27">
               2016-03-27
             </time>
@@ -1241,7 +1241,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">59</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -1306,7 +1306,7 @@
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

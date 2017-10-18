@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zlxbuzz.github.io/2016/11/07/ie/</loc>
+    
+    <lastmod>2017-10-18T10:52:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zlxbuzz.github.io/2014/12/08/git-source/</loc>
     
     <lastmod>2017-10-09T06:21:56.000Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://zlxbuzz.github.io/2017/06/09/css-marster-10/</loc>
     
     <lastmod>2017-09-26T08:20:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2016/11/07/ie/</loc>
-    
-    <lastmod>2017-09-24T12:56:46.000Z</lastmod>
     
   </url>
   
@@ -142,28 +142,14 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/04/26/mysql-bak/</loc>
+    <loc>http://zlxbuzz.github.io/2015/06/03/crontab/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/03/11/js-source/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/06/11/elemjisuan/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/03/04/debian-mod/</loc>
+    <loc>http://zlxbuzz.github.io/2016/02/15/angular-gulp/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -184,7 +170,28 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2016/03/27/http/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/18/linux-ftp/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/03/11/js-source/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/03/04/debian-mod/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/06/11/elemjisuan/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -205,21 +212,7 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2016/02/15/angular-gulp/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/06/03/crontab/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/18/linux-ftp/</loc>
+    <loc>http://zlxbuzz.github.io/2015/05/21/angular-source/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -227,6 +220,27 @@
   
   <url>
     <loc>http://zlxbuzz.github.io/2015/12/28/nginx/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-1/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-2/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/04/26/mysql-bak/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -247,35 +261,7 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-2/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://zlxbuzz.github.io/2014/12/15/node-man-5/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/02/node-package/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2016/01/27/npm/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/18/nodejs-lesson4/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -289,21 +275,14 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/15/node-man-1/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/18/nodejs-lesson4/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/06/11/php-auth/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/04/14/phalcon-rest/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/02/node-package/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -317,21 +296,7 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/03/17/php-book/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2016/02/25/position/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-php/</loc>
+    <loc>http://zlxbuzz.github.io/2016/01/27/npm/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -345,6 +310,27 @@
   </url>
   
   <url>
+    <loc>http://zlxbuzz.github.io/2015/04/14/phalcon-rest/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/03/17/php-book/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/06/11/php-auth/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zlxbuzz.github.io/2014/12/08/postgresql-gis/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
@@ -352,35 +338,7 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/03/04/src-href/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/04/07/ui-calendar/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-copy/</loc>
-    
-    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zlxbuzz.github.io/2015/11/23/vagrant/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-php/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -394,14 +352,35 @@
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/05/21/angular-source/</loc>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgres-copy/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://zlxbuzz.github.io/2015/05/01/yo-resource/</loc>
+    <loc>http://zlxbuzz.github.io/2016/02/25/position/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/03/04/src-href/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/11/23/vagrant/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2014/12/08/postgresql/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
@@ -409,6 +388,27 @@
   
   <url>
     <loc>http://zlxbuzz.github.io/2016/05/12/event/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2016/03/27/http/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/04/07/ui-calendar/</loc>
+    
+    <lastmod>2017-03-27T05:42:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zlxbuzz.github.io/2015/05/01/yo-resource/</loc>
     
     <lastmod>2017-03-27T05:42:06.000Z</lastmod>
     
