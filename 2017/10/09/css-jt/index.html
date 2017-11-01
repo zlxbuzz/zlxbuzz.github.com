@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。">
+<meta name="description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。
+布局12345678910p,h1等块级元素,它们显示一块内容，称为“块框”，span等它们的内容显示在行中，称为“行内框”,一行“行内框”称为“行框”，“行框的高度总是足以容纳它包含的所有行内框”.可以理解为在屏幕中看到的所有东西都形成某种框">
 <meta property="og:type" content="article">
 <meta property="og:title" content="精通css">
 <meta property="og:url" content="http://zlxbuzz.github.io/2017/10/09/css-jt/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。">
-<meta property="og:updated_time" content="2017-10-23T10:00:31.000Z">
+<meta property="og:description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。
+布局12345678910p,h1等块级元素,它们显示一块内容，称为“块框”，span等它们的内容显示在行中，称为“行内框”,一行“行内框”称为“行框”，“行框的高度总是足以容纳它包含的所有行内框”.可以理解为在屏幕中看到的所有东西都形成某种框">
+<meta property="og:updated_time" content="2017-11-01T05:58:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="精通css">
-<meta name="twitter:description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。">
+<meta name="twitter:description" content="设计代码结构12  在分配元素id和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名有意义的类名可以在整个网站上重用它们。
+布局12345678910p,h1等块级元素,它们显示一块内容，称为“块框”，span等它们的内容显示在行中，称为“行内框”,一行“行内框”称为“行框”，“行框的高度总是足以容纳它包含的所有行内框”.可以理解为在屏幕中看到的所有东西都形成某种框">
 
 
 
@@ -174,7 +177,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -184,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -247,7 +250,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-10-09T13:35:46+08:00" content="2017-10-09">
               2017-10-09
             </time>
@@ -277,6 +280,7 @@
 
       
         <h2 id="设计代码结构"><a href="#设计代码结构" class="headerlink" title="设计代码结构"></a>设计代码结构</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  在分配元素<span class="built_in">id</span>和类名时候：应该根据“它们是什么”来为元素命名，而不是根据“它们的外观如何”来命名</div><div class="line">有意义的类名可以在整个网站上重用它们。</div></pre></td></tr></table></figure>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">p,h1等块级元素,它们显示一块内容，称为“块框”，span等它们的内容显示在行中，称为“行内框”,一行“行内框”</div><div class="line">称为“行框”，“行框的高度总是足以容纳它包含的所有行内框”.可以理解为在屏幕中看到的所有东西都形成某种框。</div><div class="line"></div><div class="line"></div><div class="line">浮动元素旁边的行框会被缩短，从而给浮动元素流出空间，形成行框围绕浮动框</div><div class="line">`overflow`为`hidden`和`auto`的属性会自动清理包含的任何浮动元素</div><div class="line"></div><div class="line"></div><div class="line">`background-position:<span class="number">20</span><span class="variable">% 20%</span>` 当使用像素时，使用图像左上角。使用百分比时,使用图像上距离左上角<span class="number">20</span><span class="variable">%的点定位到氟元素上距离左上角20%</span>的位置</div><div class="line">最好不要混用单位和关键值</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -362,10 +366,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -374,15 +378,15 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="buzzmjx" />
-          <p class="site-author-name" itemprop="name">buzzmjx</p>
+               alt="buzzzzz" />
+          <p class="site-author-name" itemprop="name">buzzzzz</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">60</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -390,7 +394,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -399,7 +403,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">36</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -427,7 +431,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计代码结构"><span class="nav-number">1.</span> <span class="nav-text">设计代码结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计代码结构"><span class="nav-number">1.</span> <span class="nav-text">设计代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局"><span class="nav-number">2.</span> <span class="nav-text">布局</span></a></li></ol></div>
             
           </div>
         </section>
@@ -450,11 +454,11 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">buzzmjx</span>
+  <span class="author" itemprop="copyrightHolder">buzzzzz</span>
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
