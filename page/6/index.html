@@ -348,123 +348,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
-                  php header函数的详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
-              2014-12-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></div><div class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</div><div class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</div><div class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</div><div class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</div><div class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></div><div class="line"><span class="meta">?&gt;</span></div><div class="line">CacheControl = no-cache</div><div class="line">Pragma=no-cache</div><div class="line">Expires = <span class="number">-1</span></div></pre></td></tr></table></figure></p>
-<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></div><div class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></div><div class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></div><div class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></div><div class="line">　　<span class="comment">// load the file to send:</span></div><div class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></div></pre></td></tr></table></figure></p>
-<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</div><div class="line"></div><div class="line"><span class="comment">//设置一个404头:</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</div><div class="line"></div><div class="line"><span class="comment">//设置地址被永久的重定向</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</div><div class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">Status: <span class="number">404</span> Not Found</div><div class="line">Content-Length: <span class="number">0</span></div><div class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
-<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/12/08/mongodb/" itemprop="url">
                   MongoDB基本使用
                 </a>
@@ -586,6 +469,123 @@
 </tbody>
 </table>
 <p>##语句块操作<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line">1、简单Hello World</div><div class="line"></div><div class="line">print("Hello World!");</div><div class="line"></div><div class="line">这种写法调用了print函数，和直接写入"Hello World!"的效果是一样的；</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">2、将一个对象转换成json</div><div class="line"></div><div class="line">tojson(new Object());</div><div class="line"></div><div class="line">tojson(new Object('a'));</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">3、循环添加数据</div><div class="line"></div><div class="line">&gt; for (var i = 0; i &lt; 30; i++) &#123;</div><div class="line"></div><div class="line">... db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</div><div class="line"></div><div class="line">... &#125;;</div><div class="line"></div><div class="line">这样就循环添加了30条数据，同样也可以省略括号的写法</div><div class="line"></div><div class="line">&gt; for (var i = 0; i &lt; 30; i++) db.users.save(&#123;name: "u_" + i, age: 22 + i, sex: i % 2&#125;);</div><div class="line"></div><div class="line">也是可以的，当你用db.users.find()查询的时候，显示多条数据而无法一页显示的情况下，可以用it查看下一页的信息；</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">4、find 游标查询</div><div class="line"></div><div class="line">&gt;var cursor = db.users.find();</div><div class="line"></div><div class="line">&gt; while (cursor.hasNext()) &#123; </div><div class="line"></div><div class="line">    printjson(cursor.next()); </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">这样就查询所有的users信息，同样可以这样写</div><div class="line"></div><div class="line">var cursor = db.users.find();</div><div class="line"></div><div class="line">while (cursor.hasNext()) &#123; printjson(cursor.next); &#125;</div><div class="line"></div><div class="line">同样可以省略&#123;&#125;号</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">5、forEach迭代循环</div><div class="line"></div><div class="line">db.users.find().forEach(printjson);</div><div class="line"></div><div class="line">forEach中必须传递一个函数来处理每条迭代的数据信息</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">6、将find游标当数组处理</div><div class="line"></div><div class="line">var cursor = db.users.find();</div><div class="line"></div><div class="line">cursor[4];</div><div class="line"></div><div class="line">取得下标索引为4的那条数据</div><div class="line"></div><div class="line">既然可以当做数组处理，那么就可以获得它的长度：cursor.length();或者cursor.count();</div><div class="line"></div><div class="line">那样我们也可以用循环显示数据</div><div class="line"></div><div class="line">for (var i = 0, len = c.length(); i &lt; len; i++) printjson(c[i]);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">7、将find游标转换成数组</div><div class="line"></div><div class="line">&gt; var arr = db.users.find().toArray();</div><div class="line"></div><div class="line">&gt; printjson(arr[2]);</div><div class="line"></div><div class="line">用toArray方法将其转换为数组</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">8、定制我们自己的查询结果</div><div class="line"></div><div class="line">只显示age &lt;= 28的并且只显示age这列数据</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: 1&#125;).forEach(printjson);</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: true&#125;).forEach(printjson);</div><div class="line"></div><div class="line">排除age的列</div><div class="line"></div><div class="line">db.users.find(&#123;age: &#123;$lte: 28&#125;&#125;, &#123;age: false&#125;).forEach(printjson);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">9、forEach传递函数显示信息</div><div class="line"></div><div class="line">db.things.find(&#123;x:4&#125;).forEach(function(x) &#123;print(tojson(x));&#125;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/08/php-header/" itemprop="url">
+                  php header函数的详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-08T18:30:44+08:00" content="2014-12-08">
+              2014-12-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>####发送一个原始 HTTP 标头[Http Header]到客户端。标头 (header) 是服务器以 HTTP 协义传 HTML 资料到浏览器前所送出的字串，在标头与 HTML 文件之间尚需空一行分隔<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Header(“Location: http:<span class="comment">//www.php100.com”;);</span></div><div class="line"><span class="keyword">exit</span>; <span class="comment">//在每个重定向之后都必须加上“exit”,避免发生错误后，继续执行。</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+<p>####禁止页面在IE中缓存<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">header( ‘Expires: Mon, <span class="number">26</span> Jul <span class="number">1997</span> <span class="number">05</span>:<span class="number">00</span>:<span class="number">00</span> GMT’ );</div><div class="line">header( ‘Last-Modified: ‘ . gmdate( ‘D, d M Y H:i:s’ ) . ‘ GMT’ );</div><div class="line">header( ‘Cache-Control: no-store, no-cache, must-revalidate’ );</div><div class="line">header( ‘Cache-Control: post-check=<span class="number">0</span>, pre-check=<span class="number">0</span>′, <span class="keyword">false</span> );</div><div class="line">header( ‘Pragma: no-cache’ ); <span class="comment">//兼容http1.0和https</span></div><div class="line"><span class="meta">?&gt;</span></div><div class="line">CacheControl = no-cache</div><div class="line">Pragma=no-cache</div><div class="line">Expires = <span class="number">-1</span></div></pre></td></tr></table></figure></p>
+<p>####实现文件下载<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type: application/octet-stream'</span>);<span class="comment">//设置内容类型</span></div><div class="line">header(<span class="string">'Content-Disposition: attachment; filename="example.zip"'</span>); <span class="comment">//设置MIME用户作为附件下载 如果将attachment换成inline意思为在线打开</span></div><div class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);<span class="comment">//设置传输方式</span></div><div class="line">header(<span class="string">'Content-Length: '</span>.filesize(<span class="string">'example.zip'</span>));<span class="comment">//设置内容长度</span></div><div class="line">　　<span class="comment">// load the file to send:</span></div><div class="line">readfile(<span class="string">'example.zip'</span>);<span class="comment">//读取需要下载的文件</span></div></pre></td></tr></table></figure></p>
+<p>####向浏览器发送Status标头，<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">200</span> OK’);</div><div class="line"></div><div class="line"><span class="comment">//设置一个404头:</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">404</span> Not Found’);</div><div class="line"></div><div class="line"><span class="comment">//设置地址被永久的重定向</span></div><div class="line">header(‘HTTP/<span class="number">1.1</span> <span class="number">301</span> Moved Permanently’);</div><div class="line"></div><div class="line"></div><div class="line">HTTP/<span class="number">1.</span>x <span class="number">200</span> OK</div><div class="line">Date: Thu, <span class="number">03</span> Aug <span class="number">2006</span> <span class="number">07</span>:<span class="number">49</span>:<span class="number">11</span> GMT</div><div class="line">Server: Apache/<span class="number">2.0</span><span class="number">.55</span> (Win32) PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">X-Powered-By: PHP/<span class="number">5.0</span><span class="number">.5</span></div><div class="line">Status: <span class="number">404</span> Not Found</div><div class="line">Content-Length: <span class="number">0</span></div><div class="line">Keep-Alive: timeout=<span class="number">15</span>, max=<span class="number">98</span></div><div class="line">Connection: Keep-Alive</div><div class="line">Content-Type: text/html</div></pre></td></tr></table></figure></p>
+<p>####注意<br>•Location和”:”之间不能有空格，否则会出现错误（注释：我刚测试了，在我本地环境下，没有跳转页面，但是也没有报错，不清楚什么原因）；<br>•在用header前不能有任何的输出（注释：这点大家都知道的，如果header之前有任何的输出，包括空白，就会出现header already sent by xxx的错误）；<br>•header 后面的东西还会执行的；</p>
 
           
         
@@ -1278,120 +1278,6 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
-                  npm package.json dependecies 和 devDependecies区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
-              2014-12-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
-<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2014/12/02/nodejs-7days/" itemprop="url">
                   七天学会NODEjs
                 </a>
@@ -1460,6 +1346,120 @@
               Weiterlesen &raquo;
             </a>
           </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/02/node-package/" itemprop="url">
+                  npm package.json dependecies 和 devDependecies区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2014-12-02T10:43:01+08:00" content="2014-12-02">
+              2014-12-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>####dependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package 安装到当前目录</p>
+<p>####devDependencies<br>        有package.json的目录下 npm install安装<br>        任意目录下 npm install $package –dev 才能进行安装</p>
+
+          
         
       
     </div>
