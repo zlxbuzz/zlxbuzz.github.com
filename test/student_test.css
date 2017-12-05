@@ -344,8 +344,9 @@ html {
   margin: 0 auto;
 }
 .finger-suggestion {
-  background-image: url(/weixin/assets/images/student_test/finger_bg.jpg);
-  overflow: auto;
+  /* background-image: url(/weixin/assets/images/student_test/finger_bg.jpg); */
+ /*  overflow: auto; */
+  /* padding-bottom: 100px; */
 }
 .finger-suggestion .finger-score {
   position: relative;
@@ -380,13 +381,13 @@ html {
 }
 .finger-suggestion .finger-question {
   width: 5.28rem;
-  height: 2.94rem;
+  /* height: 2.94rem; */
   margin: auto;
 }
 
 .finger-suggestion .question-list {
   height: 2.55rem;
-  padding: 0.09rem 0.24rem;
+  /* padding: 0.09rem 0.24rem; */
   box-sizing: border-box;
   background: #f9bd42;
 }
