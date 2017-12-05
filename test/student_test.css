@@ -405,8 +405,6 @@ html {
 }
 .posture-suggestion {
   background-image: url(/weixin/assets/images/student_test/posture_bg.jpg);
-  background-size: 100% 100%;
-  overflow: auto;
 }
 .posture-suggestion .posture-score {
   position: relative;
@@ -634,7 +632,6 @@ html {
 }
 .comprehensive-question {
   padding-top: 2.28rem;
-  background-image: url(/weixin/assets/images/student_test/com_bg.jpg);
 }
 .comprehensive-question .comprehensive-score {
   width: 4.48rem;
@@ -729,7 +726,6 @@ html {
   top: 1.2rem;
 }
 .detail-suggestion {
-  background-image: url(/weixin/assets/images/student_test/detail_bg.jpg);
 }
 .detail-suggestion .header {
   margin-bottom: 0.91rem;
