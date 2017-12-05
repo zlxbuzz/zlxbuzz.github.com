@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="./student_test.css">
+<!--    <link rel="stylesheet" href="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.css">-->
+    <title>学生测评表</title>
+    <?php require TEMP_ROOT . '/weixin/wxjs_var.php'?>
+    <script type="text/javascript">
+        var pageId = "music_test_index",
+            wxjsAPIList = ['onMenuShareTimeline','onMenuShareAppMessage'],
+            homePage = "<?= $_ENV['HOMEPAGE']?>";
+    </script>
+    <script src="./bscroll.min.js"></script>
+    <script>
+        var dots = '';
+        function Slider(options) {
+            this.options = {
+                wrap: options.wrap,
+                inner: options.inner,
+                dots: options.dots,
+                speed: options.speed,
+                auto: options.auto
+            }
+
+            this.$slider = document.querySelector(options.wrap);
+            this.$content = document.querySelector(options.inner);
+            this.$dots = document.querySelector(options.dots);
+
+            this.resize();
+
+            this.runScroll();
+
+            this.autoScroll();
+        }
+
+        Slider.prototype = {
+            init: function(isResize) {
+
+                var sliderWidth = window.getComputedStyle(this.$slider).width;
+                sliderWidth = parseInt(sliderWidth);
+
+                var sliderItems = this.$content.children;
+
+                var sliderLength = this.pages = sliderItems.length;
+
+                //默认不进行循环展示,有个问题 如果不循环page从0开始反之从1开始
+                if (!isResize) {
+                    // sliderLength += 2;
+                }
+
+                var contentWidth = sliderLength * sliderWidth;
+
+                this.$content.style.width = contentWidth + 'px';
+
+                for (var i = 0; i < this.pages; i++) {
+                    sliderItems[i].style.width = sliderWidth + 'px';
+                }
+
+                !isResize ? this.createDots() : null;
+            },
+            createDots: function() {
+              for (var i = 0; i < this.pages; i++) {
+                if (i === 0) {
+                  dots = '<span class="on"></span>';
+                } else {
+                  dots += '<span></span>'
+                }
+              }
+              this.$dots.innerHTML = dots;
+            },
+            resize: function() {
+                var that = this;
+
+                window.addEventListener('resize', function() {
+                    that.init(true);
+                })
+            },
+            runScroll: function() {
+                var that = this;
+
+                this.init(false);
+
+                this.slider = new BScroll(this.$slider, {
+                    scrollX: true,
+                    scrollY: false,
+                    momentum: false,
+                    snap: true,
+                    snapLoop: false,
+                    snapSpeed: this.options.speed
+                });
+
+                this.slider.on('scrollEnd', function() {
+                    that.currentPage = that.slider.getCurrentPage().pageX;
+
+                    for(var i = 0; i < that.$dots.children.length; i++) {
+                        that.$dots.children[i].className = '';
+                        if (i === (that.currentPage - 1)) {
+                            that.$dots.children[i].className = 'on';
+                        }
+                    }
+                });
+            },
+            autoScroll: function() {
+                if (!this.options.auto) {
+                    return
+                }
+                var that = this;
+                var page = that.slider.getCurrentPage().pageX;
+
+                setInterval(function(){
+                    that.slider.next()
+                }, this.options.auto)
+            }
+        }
+
+    </script>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 750px;
+        }
+        .slider .slider-content {
+            overflow: hidden;
+            min-height: 1px;
+        }
+        .slider .slider-content .slider-item {
+            float: left;
+        }
+        .wrap{
+            overflow: hidden;
+            position: relative;
+        }
+        .scroller-content{
+            z-index:10;
+            background:white;
+            position:relative;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    (function () {
+        var width = document.documentElement.offsetWidth;
+        if (width < 750) {
+            document.documentElement.style.fontSize =  width / 7.5 + 'px';
+        }
+    })();
+
+    window.onresize = function(e){
+        var width = document.documentElement.offsetWidth;
+        if (width < 750) {
+            document.documentElement.style.fontSize =  width / 7.5 + 'px';
+        }
+    }
+</script>
+<div class="g-bd">
+    <!--    <div class="loading">-->
+    <!--        <div class="circle"></div>-->
+    <!--    </div>-->
+    <div class="detail-container">
+        <!--<div class="section">
+            <div class="slide">
+                <div class="finger-suggestion g-bd">
+                    <h3 class="header">
+                        <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                    </h3>
+                    <div class="finger-score">
+                        <p class="score-val">99</p>
+                    </div>
+                    <div class="finger-pic">
+                        <div class="finger-piano">
+                            <img src="/weixin/assets/images/student_test/finger_piano.png" alt="">
+                        </div>
+                        <canvas id="finger-hand" class="finger-hand" width="526px" height="500px"></canvas>
+                    </div>
+                    <div class="finger-question">
+                        <img src="/weixin/assets/images/student_test/finger_tip.jpg" alt="">
+                        <ul class="question-list">
+                            <li class="list-item">
+                                折指
+                            </li>
+                            <li class="list-item">不抬指</li>
+                            <li class="list-item">手腕抖</li>
+                            <li class="list-item">吊手腕or压手腕</li>
+                            <li class="list-item">手掌不稳</li>
+                            <li class="list-item">手部僵硬</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="posture-suggestion g-bd">
+                    <h3 class="header">
+                        <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                    </h3>
+                    <div class="posture-score">
+                        <p class="score-val">99</p>
+                    </div>
+                    <div class="posture-pic">
+                        <div class="back">
+                            <div class="posture-text back-text">
+                                背部
+                            </div>
+                            <div class="short-line white-line">
+                            </div>
+                            <div class="long-line white-line">
+                            </div>
+                            <div class="back-circle circle">
+                            </div>
+                        </div>
+                        <div class="shoulder">
+                            <div class="posture-text shoulder-text">
+                                肩部
+                            </div>
+                            <div class="long-line white-line">
+                            </div>
+                            <div class="short-line white-line">
+                            </div>
+                            <div class="shoulder-circle circle">
+                            </div>
+                        </div>
+                        <div class="arm">
+                            <div class="posture-text arm-text red-text">
+                                手臂
+                            </div>
+                            <div class="long-line white-line red-line">
+                            </div>
+                            <div class="short-line white-line red-line">
+                            </div>
+                            <div class="arm-circle circle red-circle">
+                            </div>
+                        </div>
+                        <div class="seat">
+                            <div class="posture-text seat-text">
+                                座位
+                            </div>
+                            <div class="short-line white-line">
+                            </div>
+                            <div class="long-line white-line">
+                            </div>
+                            <div class="seat-circle circle">
+                            </div>
+                        </div>
+                        <div class="leg">
+                            <div class="posture-text leg-text">
+                                下肢
+                            </div>
+                            <div class="long-line white-line">
+                            </div>
+                            <div class="short-line white-line">
+                            </div>
+                            <div class="leg-circle circle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="posture-tip">
+                        <img src="/weixin/assets/images/student_test/posture_tip.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="comprehensive-question g-bd">
+                    <div class="comprehensive-score">
+                        <img src="/weixin/assets/images/student_test/score_title.jpg" alt="">
+                    </div>
+                    <div class="comprehensive-pic">
+                        <div id="comprehensive-pic" class="radar-pic"></div>
+                        <div class="radar-clone">
+                            <img src="/weixin/assets/images/student_test/com_music.png" alt="" class="com-music">
+                            <div class="radar-consistence flag">
+                                <span><i>1</i>分</span>
+                            </div>
+                            <div class="radar-rhythm flag">
+                                <span><i>2</i>分</span>
+                            </div>
+                            <div class="radar-pitch flag">
+                                <span><i>3</i>分</span>
+                            </div>
+                            <div class="radar-expressive flag">
+                                <span><i>4</i>分</span>
+                            </div>
+                            <div class="radar-skill flag">
+                                <span><i>5</i>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="detail-suggestion g-bd">
+                    <h3 class="header">
+                        <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                    </h3>
+                    <div class="detail-title">
+                        <img src="/weixin/assets/images/student_test/detail_title.jpg" alt="">
+                    </div>
+                    <div class="detail-pic">
+                        <p class="detail-word">一键上课全程跟踪孩子一键上课，轻松独立操作系统，提升练琴效率，扫除线下陪练诸多不便；家长全程跟踪，精准把握课堂实况
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="method-suggestion g-bd">
+                    <h3 class="header">
+                        <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                    </h3>
+                    <div class="method-title">
+                        <img src="/weixin/assets/images/student_test/bg_title.jpg" alt="">
+                    </div>
+                    <div class="method-light">
+                        <img src="/weixin/assets/images/student_test/method_light.png"" alt="">
+                    </div>
+                    <div class="method-tip">
+                        <img src="/weixin/assets/images/student_test/method_tip.jpg" alt="">
+                        <ul class="question-list">
+                            <li class="list-item">
+                                分句
+                            </li>
+                            <li class="list-item">分手</li>
+                            <li class="list-item">唱谱</li>
+                            <li class="list-item">节拍器</li>
+                            <li class="list-item">全感官</li>
+                        </ul>
+                    </div>
+                    <div class="method-word">
+                        <p class="method-notice">花花小朋友的表现不错哦，继续加油！ 上述问题以后要多加注意哦！
+                        </p>
+                        <img src="/weixin/assets/images/student_test/method_pen.jpg" alt="" class="method-pen">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="slider">
+            <div class="slider-content">
+                <div class="slider-item">
+                    <div class="wrap">
+                        <div class="scroller-content">
+                            <div class="finger-suggestion g-bd">
+                                <h3 class="header">
+                                    <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                                </h3>
+                                <div class="finger-score">
+                                    <p class="score-val">99</p>
+                                </div>
+                                <div class="finger-pic">
+                                    <div class="finger-piano">
+                                        <img src="/weixin/assets/images/student_test/finger_piano.png" alt="">
+                                    </div>
+                                    <canvas id="finger-hand" class="finger-hand" width="526px" height="500px"></canvas>
+                                </div>
+                                <div class="finger-question">
+                                    <img src="/weixin/assets/images/student_test/finger_tip.jpg" alt="">
+                                    <ul class="question-list">
+                                        <li class="list-item">
+                                            折指
+                                        </li>
+                                        <li class="list-item">不抬指</li>
+                                        <li class="list-item">手腕抖</li>
+                                        <li class="list-item">吊手腕or压手腕</li>
+                                        <li class="list-item">手掌不稳</li>
+                                        <li class="list-item">手部僵硬</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="wrap">
+                        <div class="scroller-content">
+                            <div class="finger-suggestion g-bd">
+                                <h3 class="header">
+                                    <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                                </h3>
+                                <div class="finger-score">
+                                    <p class="score-val">99</p>
+                                </div>
+                                <div class="finger-pic">
+                                    <div class="finger-piano">
+                                        <img src="/weixin/assets/images/student_test/finger_piano.png" alt="">
+                                    </div>
+                                    <canvas id="finger-hand" class="finger-hand" width="526px" height="500px"></canvas>
+                                </div>
+                                <div class="finger-question">
+                                    <img src="/weixin/assets/images/student_test/finger_tip.jpg" alt="">
+                                    <ul class="question-list">
+                                        <li class="list-item">
+                                            折指
+                                        </li>
+                                        <li class="list-item">不抬指</li>
+                                        <li class="list-item">手腕抖</li>
+                                        <li class="list-item">吊手腕or压手腕</li>
+                                        <li class="list-item">手掌不稳</li>
+                                        <li class="list-item">手部僵硬</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="wrap">
+                        <div class="scroller-content">
+                            <div class="finger-suggestion g-bd">
+                                <h3 class="header">
+                                    <img src="/weixin/assets/images/student_test/logo.png" alt="">
+                                </h3>
+                                <div class="finger-score">
+                                    <p class="score-val">99</p>
+                                </div>
+                                <div class="finger-pic">
+                                    <div class="finger-piano">
+                                        <img src="/weixin/assets/images/student_test/finger_piano.png" alt="">
+                                    </div>
+                                    <canvas id="finger-hand" class="finger-hand" width="526px" height="500px"></canvas>
+                                </div>
+                                <div class="finger-question">
+                                    <img src="/weixin/assets/images/student_test/finger_tip.jpg" alt="">
+                                    <ul class="question-list">
+                                        <li class="list-item">
+                                            折指
+                                        </li>
+                                        <li class="list-item">不抬指</li>
+                                        <li class="list-item">手腕抖</li>
+                                        <li class="list-item">吊手腕or压手腕</li>
+                                        <li class="list-item">手掌不稳</li>
+                                        <li class="list-item">手部僵硬</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            <div class="dots"></div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="/weixin/assets/js/utils.js"></script>
+<script src="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js"></script>
+<script>
+    window.onload = function() {
+        $('.loading').hide();
+        $('.detail-container').addClass('show');
+    }
+    $(function() {
+        $(".detail-container").fullpage({
+            controlArrows: false,
+            loopHorizontal: false,
+            scrollBar: true,
+//            scrollOverflow: true,
+//            slimScroll: {
+//                allowPageScroll: true
+//            }
+        });
+    })
+    $(function () {
+        var myChart = echarts.init(document.getElementById('comprehensive-pic')),
+        option = {
+            title: {
+                text: ''
+            },
+            tooltip: {},
+            legend: {
+                data: []
+            },
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: "#492a06",
+                        fontSize: "15",
+                        fontFamily: "Microsoft YaHei"
+                    },
+//                    backgroundColor: {
+//                        image: '/weixin/assets/images/student_test/com_flag.png',
+//                        width: 200,
+//                        height: 200,
+//                    }
+                },
+                nameGap: 10,
+                splitArea:  {
+                    areaStyle: {
+                        color: ["#fb7f9c", '#ff97af', '#ffadc0', '#ffc9d6', '#ffe3e9'].reverse(),
+                    }
+                },
+                axisLine: false,
+                axisLabel: false,
+                splitLine: {
+                    show: false,
+                },
+                indicator: [{
+                    name: '基本功',
+                    max: 5,
+                }, {
+                    name: '完整度',
+                    max: 5
+                }, {
+                    name: '表现力',
+                    max: 5
+                }, {
+                    name: '音准',
+                    max: 5
+                }, {
+                    name: '节奏',
+                    max: 5
+                }, ]
+            },
+            series: [{
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                data: [{
+                    value: [1, 3, 4, 2, 5],
+                }]
+            }],
+            visualMap: {
+                show: false,
+                color: ['#fff5f7']
+            }
+        };
+        myChart.setOption(option);
+    })
+    $(function () {
+        function drawImage(imageObj) {
+            var canvas = document.getElementById('finger-hand');
+            var context = canvas.getContext('2d');
+
+            context.drawImage(imageObj, 0, 0);
+            setFinger(context, 93, 143, 15, 47);
+            setFinger(context, 113, 117, 25, 70);
+            setFinger(context, 139, 114, 25, 72);
+            setFinger(context, 167, 122, 25, 67);
+            setFinger(context, 195, 154, 24, 60);
+
+            setFinger(context, 319, 152, 24, 60);
+            setFinger(context, 347, 120, 25, 67);
+            setFinger(context, 379, 114, 25, 72);
+            setFinger(context, 409, 118, 25, 70);
+            setFinger(context, 435, 144, 15, 47);
+        }
+
+        var imageObj = new Image();
+        imageObj.onload = function() {
+            drawImage(this);
+        };
+        imageObj.src = '/weixin/assets/images/student_test/finger_hand.png';
+
+        function setFinger(ctx,offsetX,offsetY,width,height){
+            var imageData = ctx.getImageData(offsetX, offsetY, width, height);
+            var data = imageData.data;
+
+            for(var i = 0; i < data.length; i += 4) {
+                data[i] = 240;
+                data[i + 1] = 255 - data[i + 10];
+                data[i + 2] = 255 - data[i + 3];
+            }
+            // overwrite original image
+            ctx.putImageData(imageData, offsetX, offsetY);
+        }
+    });
+
+    document.querySelectorAll('.wrap').forEach(function (v) {
+        v.style.height = document.body.clientHeight + 'px'
+        new BScroll(v,{});
+    })
+
+    new Slider({
+        wrap: '.slider',
+        inner: '.slider-content',
+        dots: '.dots',
+        speed: 400,
+    });
+</script>
+</body>
+</html>
