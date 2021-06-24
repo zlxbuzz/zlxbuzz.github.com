@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js 的二进制 | 知识总结</title>
+    <meta name="description" content="前端总结">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3432fec1.css" as="style"><link rel="preload" href="/assets/js/app.6b63f4e2.js" as="script"><link rel="preload" href="/assets/js/2.c4e9835f.js" as="script"><link rel="preload" href="/assets/js/12.8c941980.js" as="script"><link rel="prefetch" href="/assets/js/10.643acb5a.js"><link rel="prefetch" href="/assets/js/11.a4694c7b.js"><link rel="prefetch" href="/assets/js/13.c4d88bdc.js"><link rel="prefetch" href="/assets/js/14.06ddbdec.js"><link rel="prefetch" href="/assets/js/15.3d81b9ea.js"><link rel="prefetch" href="/assets/js/16.51dbbbc7.js"><link rel="prefetch" href="/assets/js/17.ad1758ae.js"><link rel="prefetch" href="/assets/js/18.e8225f20.js"><link rel="prefetch" href="/assets/js/19.4a933861.js"><link rel="prefetch" href="/assets/js/20.a02f1b66.js"><link rel="prefetch" href="/assets/js/21.2f53611a.js"><link rel="prefetch" href="/assets/js/22.564a7634.js"><link rel="prefetch" href="/assets/js/23.97d7385a.js"><link rel="prefetch" href="/assets/js/24.9045377d.js"><link rel="prefetch" href="/assets/js/25.b2121efd.js"><link rel="prefetch" href="/assets/js/26.9c3012a4.js"><link rel="prefetch" href="/assets/js/27.ddbb685d.js"><link rel="prefetch" href="/assets/js/28.5fe3ba49.js"><link rel="prefetch" href="/assets/js/29.65a61bcd.js"><link rel="prefetch" href="/assets/js/3.4ab0b21e.js"><link rel="prefetch" href="/assets/js/30.aa5003ad.js"><link rel="prefetch" href="/assets/js/31.d862f589.js"><link rel="prefetch" href="/assets/js/32.edc3dd37.js"><link rel="prefetch" href="/assets/js/33.9045f648.js"><link rel="prefetch" href="/assets/js/34.920ed240.js"><link rel="prefetch" href="/assets/js/35.b1dc1b99.js"><link rel="prefetch" href="/assets/js/36.7b0a315f.js"><link rel="prefetch" href="/assets/js/37.34f6792a.js"><link rel="prefetch" href="/assets/js/38.6341f379.js"><link rel="prefetch" href="/assets/js/39.5442c068.js"><link rel="prefetch" href="/assets/js/4.98000e50.js"><link rel="prefetch" href="/assets/js/40.ea9ec3ca.js"><link rel="prefetch" href="/assets/js/41.18bd4f42.js"><link rel="prefetch" href="/assets/js/42.4e58b3f4.js"><link rel="prefetch" href="/assets/js/43.2bc32e42.js"><link rel="prefetch" href="/assets/js/44.7c0b2e0b.js"><link rel="prefetch" href="/assets/js/45.b3939ce7.js"><link rel="prefetch" href="/assets/js/46.50d91add.js"><link rel="prefetch" href="/assets/js/47.53d32010.js"><link rel="prefetch" href="/assets/js/48.74db61b5.js"><link rel="prefetch" href="/assets/js/49.6d21f96f.js"><link rel="prefetch" href="/assets/js/5.20255d7b.js"><link rel="prefetch" href="/assets/js/50.974e230d.js"><link rel="prefetch" href="/assets/js/51.c3d3a382.js"><link rel="prefetch" href="/assets/js/52.d0e7372a.js"><link rel="prefetch" href="/assets/js/6.f73ad1a8.js"><link rel="prefetch" href="/assets/js/7.90b0b6f1.js"><link rel="prefetch" href="/assets/js/8.5147b889.js"><link rel="prefetch" href="/assets/js/9.2a08bc7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3432fec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">知识总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>js 的二进制</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/es/binary.html#js-的二进制" class="sidebar-link">js 的二进制</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="js-的二进制"><a href="#js-的二进制" class="header-anchor">#</a> js 的二进制</h2> <h4 id="blob"><a href="#blob" class="header-anchor">#</a> Blob</h4> <p>二进制对象</p> <p>File 对象：继承自 Blob 对象,比如 input[type=&quot;file&quot;]。</p> <p>方法：</p> <ol><li>文件下载: URL.createObjectURL(blob),给 a 标签,(ie 可以用 window.navigator.msSaveBlob)</li> <li>图片显示: URL.createObjectURL(File_Blob)，给 img[src]</li> <li>blob.slice 支持资源分段上传</li> <li>本地读取文件：FileReader 可以将 Blob 或者 File 转化问 ArrayBuffer/文本/Data 等数据</li></ol> <p>ps: window.URL.revokeObjectURL(blob),尽量再不需要的时候销毁</p> <p>Blob 生产的 URL 很短，可以理解为是对浏览器自身的一个协议,内部引用</p> <p>new Blob(/<em>ArrayBuffer(二进制数据缓冲区), ArrayBufferView,Blob,DOMString</em>/)</p> <h4 id="arraybuffer"><a href="#arraybuffer" class="header-anchor">#</a> ArrayBuffer</h4> <h5 id="二进制缓冲区-相比-blob-可以更具体修改二进制数据-需要-typearray-dataview-更底层"><a href="#二进制缓冲区-相比-blob-可以更具体修改二进制数据-需要-typearray-dataview-更底层" class="header-anchor">#</a> 二进制缓冲区,相比 Blob 可以更具体修改二进制数据(需要 TypeArray/DataView),更底层</h5> <h5 id="生成-arraybuffer-ajax-设置-xhr-responsetype-arraybuffer-，-filereader-readasarraybuffer-file"><a href="#生成-arraybuffer-ajax-设置-xhr-responsetype-arraybuffer-，-filereader-readasarraybuffer-file" class="header-anchor">#</a> 生成 arrayBuffer: ajax 设置 xhr.responseType = &quot;arraybuffer&quot; ， fileReader.readAsArrayBuffer(file)</h5> <ol><li>转 Blob: new Blob([buffer])</li> <li>转字符串或者 json：</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> blob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span><span class="token punctuation">[</span>buffer<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fileReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fileReader<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> fileReader<span class="token punctuation">.</span>result<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// json需要parse一下</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+fileReader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>ArrayBuffer 类似数组，但也有不同：</p> <ol><li>初始化后大小固定</li> <li>数据在栈中</li> <li>没有 push 等方法</li> <li>只能读，写需要 TypeArray/DataView</li></ol> <p>TypeArray(类型数组):</p> <div class="language-js extra-class"><pre class="language-js"><code># Uint8Array 数组类型表示一个<span class="token number">8</span>位无符号整型数组，创建时内容被初始化为<span class="token number">0</span>
+# Int8Array 类型数组表示二进制补码<span class="token number">8</span>位有符号整数的数组
+
+<span class="token keyword">const</span> typedArray1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+typedArray1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> typedArray2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>typedArray1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+typedArray2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>typedArray1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  output: Int8Array [32, 0, 0, 0, 0, 0, 0, 0]</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>typedArray2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  output: Int8Array [32, 42, 0, 0, 0, 0, 0, 0]</span>
+</code></pre></div><p>DataView:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> buffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBuffer</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataView</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// DataView 视图是一个可以从 二进制ArrayBuffer 对象中读写多种数值类型的底层接口</span>
+view<span class="token punctuation">.</span><span class="token function">setInt8</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>view<span class="token punctuation">.</span><span class="token function">getInt8</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 输出: 42</span>
+</code></pre></div><h4 id="buffer-node-js"><a href="#buffer-node-js" class="header-anchor">#</a> Buffer (Node.js)</h4> <p>Node.js 的二进制缓冲区</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> buffer <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>chunks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="filereader"><a href="#filereader" class="header-anchor">#</a> FileReader</h4> <p>可以读取 Blob 或者 File 转换为其他：</p> <div class="language-js extra-class"><pre class="language-js"><code>FileReader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>Blob<span class="token punctuation">)</span>：将Blob转化为文本字符串
+FileReader<span class="token punctuation">.</span><span class="token function">readAsArrayBuffer</span><span class="token punctuation">(</span>Blob<span class="token punctuation">)</span>： 将Blob转为ArrayBuffer格式数据
+FileReader<span class="token punctuation">.</span><span class="token function">readAsDataURL</span><span class="token punctuation">(</span>Blob<span class="token punctuation">)</span><span class="token operator">:</span> 将Blob转化为Base64格式的Data <span class="token constant">URL</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6b63f4e2.js" defer></script><script src="/assets/js/2.c4e9835f.js" defer></script><script src="/assets/js/12.8c941980.js" defer></script>
+  </body>
+</html>

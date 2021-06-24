@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BFC 笔记 | 知识总结</title>
+    <meta name="description" content="前端总结">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3432fec1.css" as="style"><link rel="preload" href="/assets/js/app.6b63f4e2.js" as="script"><link rel="preload" href="/assets/js/2.c4e9835f.js" as="script"><link rel="preload" href="/assets/js/3.4ab0b21e.js" as="script"><link rel="prefetch" href="/assets/js/10.643acb5a.js"><link rel="prefetch" href="/assets/js/11.a4694c7b.js"><link rel="prefetch" href="/assets/js/12.8c941980.js"><link rel="prefetch" href="/assets/js/13.c4d88bdc.js"><link rel="prefetch" href="/assets/js/14.06ddbdec.js"><link rel="prefetch" href="/assets/js/15.3d81b9ea.js"><link rel="prefetch" href="/assets/js/16.51dbbbc7.js"><link rel="prefetch" href="/assets/js/17.ad1758ae.js"><link rel="prefetch" href="/assets/js/18.e8225f20.js"><link rel="prefetch" href="/assets/js/19.4a933861.js"><link rel="prefetch" href="/assets/js/20.a02f1b66.js"><link rel="prefetch" href="/assets/js/21.2f53611a.js"><link rel="prefetch" href="/assets/js/22.564a7634.js"><link rel="prefetch" href="/assets/js/23.97d7385a.js"><link rel="prefetch" href="/assets/js/24.9045377d.js"><link rel="prefetch" href="/assets/js/25.b2121efd.js"><link rel="prefetch" href="/assets/js/26.9c3012a4.js"><link rel="prefetch" href="/assets/js/27.ddbb685d.js"><link rel="prefetch" href="/assets/js/28.5fe3ba49.js"><link rel="prefetch" href="/assets/js/29.65a61bcd.js"><link rel="prefetch" href="/assets/js/30.aa5003ad.js"><link rel="prefetch" href="/assets/js/31.d862f589.js"><link rel="prefetch" href="/assets/js/32.edc3dd37.js"><link rel="prefetch" href="/assets/js/33.9045f648.js"><link rel="prefetch" href="/assets/js/34.920ed240.js"><link rel="prefetch" href="/assets/js/35.b1dc1b99.js"><link rel="prefetch" href="/assets/js/36.7b0a315f.js"><link rel="prefetch" href="/assets/js/37.34f6792a.js"><link rel="prefetch" href="/assets/js/38.6341f379.js"><link rel="prefetch" href="/assets/js/39.5442c068.js"><link rel="prefetch" href="/assets/js/4.98000e50.js"><link rel="prefetch" href="/assets/js/40.ea9ec3ca.js"><link rel="prefetch" href="/assets/js/41.18bd4f42.js"><link rel="prefetch" href="/assets/js/42.4e58b3f4.js"><link rel="prefetch" href="/assets/js/43.2bc32e42.js"><link rel="prefetch" href="/assets/js/44.7c0b2e0b.js"><link rel="prefetch" href="/assets/js/45.b3939ce7.js"><link rel="prefetch" href="/assets/js/46.50d91add.js"><link rel="prefetch" href="/assets/js/47.53d32010.js"><link rel="prefetch" href="/assets/js/48.74db61b5.js"><link rel="prefetch" href="/assets/js/49.6d21f96f.js"><link rel="prefetch" href="/assets/js/5.20255d7b.js"><link rel="prefetch" href="/assets/js/50.974e230d.js"><link rel="prefetch" href="/assets/js/51.c3d3a382.js"><link rel="prefetch" href="/assets/js/52.d0e7372a.js"><link rel="prefetch" href="/assets/js/6.f73ad1a8.js"><link rel="prefetch" href="/assets/js/7.90b0b6f1.js"><link rel="prefetch" href="/assets/js/8.5147b889.js"><link rel="prefetch" href="/assets/js/9.2a08bc7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3432fec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">知识总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link router-link-exact-active router-link-active">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link router-link-exact-active router-link-active">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>BFC 笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/css/bfc.html#bfc-笔记" class="sidebar-link">BFC 笔记</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="bfc-笔记"><a href="#bfc-笔记" class="header-anchor">#</a> BFC 笔记</h2> <h4 id="bfc-block-formatting-contexts-，块级格式化上下文-只有-block-box-block-list-item-table-元素-参与布局，内部区域不受外界影响。"><a href="#bfc-block-formatting-contexts-，块级格式化上下文-只有-block-box-block-list-item-table-元素-参与布局，内部区域不受外界影响。" class="header-anchor">#</a> BFC(Block formatting contexts)，块级格式化上下文,只有 block box (block,list-item,table 元素)参与布局，内部区域不受外界影响。</h4> <p>创建一个 bfc：</p> <ol><li>浮动元素。</li> <li>绝对定位和 fixed 定位元素。</li> <li>display:inline-block,display: table-cell，display: table-caption,display:table</li> <li>overflow 不是 visible</li> <li>html 元素</li> <li>display: flow-root,column-span: all</li></ol> <p>效果：</p> <h5 id="_1-bfc-内部的块盒元素依次垂直排列-就是默认情况，因为-html-本身就是-bfc"><a href="#_1-bfc-内部的块盒元素依次垂直排列-就是默认情况，因为-html-本身就是-bfc" class="header-anchor">#</a> 1.BFC 内部的块盒元素依次垂直排列,就是默认情况，因为 html 本身就是 bfc</h5> <div class="bfc"><div class="c"></div> <div class="c"></div> <div class="c"></div> <div class="c"></div></div> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">.c</span> <span class="token punctuation">{</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>bfc<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>c<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>c<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>c<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>c<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="_2-避免外边距折叠"><a href="#_2-避免外边距折叠" class="header-anchor">#</a> 2. 避免外边距折叠</h5> <div class="a"></div> <div class="b"><div class="inner"></div></div> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">.a</span> <span class="token punctuation">{</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token selector">.b</span> <span class="token punctuation">{</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+		<span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+		#生成bfc，与外部隔离<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token selector">.inner</span> <span class="token punctuation">{</span>
+		<span class="token property">margin</span><span class="token punctuation">:</span> 10px 0<span class="token punctuation">;</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>a<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>b<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>inner<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="_3-bfc-元素的的左边-margin-box-与包含块的左边-border-box-相接触"><a href="#_3-bfc-元素的的左边-margin-box-与包含块的左边-border-box-相接触" class="header-anchor">#</a> 3.bfc 元素的的左边 margin-box 与包含块的左边 border box 相接触</h5> <div class="box"><div class="left"></div></div> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">.box</span> <span class="token punctuation">{</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+		<span class="token property">margin-left</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span> // 不会超出
+	<span class="token punctuation">}</span>
+	<span class="token selector">.left</span> <span class="token punctuation">{</span>
+		<span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span>
+		<span class="token property">margin-left</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>box<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>left<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="_4-float-元素不会和-bfc-元素重叠"><a href="#_4-float-元素不会和-bfc-元素重叠" class="header-anchor">#</a> 4.float 元素不会和 bfc 元素重叠</h5> <div class="box1"><div class="float"></div> <div class="bfc1"></div></div> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">.box1</span> <span class="token punctuation">{</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token selector">.float</span> <span class="token punctuation">{</span>
+		<span class="token property">width</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token selector">.bfc1</span> <span class="token punctuation">{</span>
+		<span class="token property">width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+		<span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span> // 不然会重叠<span class="token punctuation">,</span>跑到黄色浮动元素下面
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>box1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>float<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>bfc1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="_5-bfc-可以防止容器塌陷"><a href="#_5-bfc-可以防止容器塌陷" class="header-anchor">#</a> 5.bfc 可以防止容器塌陷</h5> <div class="bfc"><div class="float"></div></div> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">.bfc</span> <span class="token punctuation">{</span>
+		<span class="token property">overflow</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token selector">.float</span> <span class="token punctuation">{</span>
+		<span class="token property">width</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+		<span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>bfc<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>float<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6b63f4e2.js" defer></script><script src="/assets/js/2.c4e9835f.js" defer></script><script src="/assets/js/3.4ab0b21e.js" defer></script>
+  </body>
+</html>

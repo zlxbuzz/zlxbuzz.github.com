@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DOM | 知识总结</title>
+    <meta name="description" content="前端总结">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.3432fec1.css" as="style"><link rel="preload" href="/assets/js/app.6b63f4e2.js" as="script"><link rel="preload" href="/assets/js/2.c4e9835f.js" as="script"><link rel="preload" href="/assets/js/28.5fe3ba49.js" as="script"><link rel="prefetch" href="/assets/js/10.643acb5a.js"><link rel="prefetch" href="/assets/js/11.a4694c7b.js"><link rel="prefetch" href="/assets/js/12.8c941980.js"><link rel="prefetch" href="/assets/js/13.c4d88bdc.js"><link rel="prefetch" href="/assets/js/14.06ddbdec.js"><link rel="prefetch" href="/assets/js/15.3d81b9ea.js"><link rel="prefetch" href="/assets/js/16.51dbbbc7.js"><link rel="prefetch" href="/assets/js/17.ad1758ae.js"><link rel="prefetch" href="/assets/js/18.e8225f20.js"><link rel="prefetch" href="/assets/js/19.4a933861.js"><link rel="prefetch" href="/assets/js/20.a02f1b66.js"><link rel="prefetch" href="/assets/js/21.2f53611a.js"><link rel="prefetch" href="/assets/js/22.564a7634.js"><link rel="prefetch" href="/assets/js/23.97d7385a.js"><link rel="prefetch" href="/assets/js/24.9045377d.js"><link rel="prefetch" href="/assets/js/25.b2121efd.js"><link rel="prefetch" href="/assets/js/26.9c3012a4.js"><link rel="prefetch" href="/assets/js/27.ddbb685d.js"><link rel="prefetch" href="/assets/js/29.65a61bcd.js"><link rel="prefetch" href="/assets/js/3.4ab0b21e.js"><link rel="prefetch" href="/assets/js/30.aa5003ad.js"><link rel="prefetch" href="/assets/js/31.d862f589.js"><link rel="prefetch" href="/assets/js/32.edc3dd37.js"><link rel="prefetch" href="/assets/js/33.9045f648.js"><link rel="prefetch" href="/assets/js/34.920ed240.js"><link rel="prefetch" href="/assets/js/35.b1dc1b99.js"><link rel="prefetch" href="/assets/js/36.7b0a315f.js"><link rel="prefetch" href="/assets/js/37.34f6792a.js"><link rel="prefetch" href="/assets/js/38.6341f379.js"><link rel="prefetch" href="/assets/js/39.5442c068.js"><link rel="prefetch" href="/assets/js/4.98000e50.js"><link rel="prefetch" href="/assets/js/40.ea9ec3ca.js"><link rel="prefetch" href="/assets/js/41.18bd4f42.js"><link rel="prefetch" href="/assets/js/42.4e58b3f4.js"><link rel="prefetch" href="/assets/js/43.2bc32e42.js"><link rel="prefetch" href="/assets/js/44.7c0b2e0b.js"><link rel="prefetch" href="/assets/js/45.b3939ce7.js"><link rel="prefetch" href="/assets/js/46.50d91add.js"><link rel="prefetch" href="/assets/js/47.53d32010.js"><link rel="prefetch" href="/assets/js/48.74db61b5.js"><link rel="prefetch" href="/assets/js/49.6d21f96f.js"><link rel="prefetch" href="/assets/js/5.20255d7b.js"><link rel="prefetch" href="/assets/js/50.974e230d.js"><link rel="prefetch" href="/assets/js/51.c3d3a382.js"><link rel="prefetch" href="/assets/js/52.d0e7372a.js"><link rel="prefetch" href="/assets/js/6.f73ad1a8.js"><link rel="prefetch" href="/assets/js/7.90b0b6f1.js"><link rel="prefetch" href="/assets/js/8.5147b889.js"><link rel="prefetch" href="/assets/js/9.2a08bc7c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3432fec1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">知识总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link router-link-exact-active router-link-active">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          HTML
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/html/dom.html" class="nav-link router-link-exact-active router-link-active">
+  DOM
+</a></li></ul></li><li class="dropdown-item"><h4>
+          CSS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/css/layout.html" class="nav-link">
+  布局
+</a></li><li class="dropdown-subitem"><a href="/css/center.html" class="nav-link">
+  居中
+</a></li><li class="dropdown-subitem"><a href="/css/bfc.html" class="nav-link">
+  bfc
+</a></li></ul></li><li class="dropdown-item"><h4>
+          JS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/es/promise.html" class="nav-link">
+  Promise
+</a></li><li class="dropdown-subitem"><a href="/es/scope.html" class="nav-link">
+  作用域
+</a></li><li class="dropdown-subitem"><a href="/es/extend.html" class="nav-link">
+  原型与继承
+</a></li><li class="dropdown-subitem"><a href="/es/this.html" class="nav-link">
+  this
+</a></li><li class="dropdown-subitem"><a href="/es/string.html" class="nav-link">
+  api
+</a></li><li class="dropdown-subitem"><a href="/es/design.html" class="nav-link">
+  设计模式
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Node
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/babel.html" class="nav-link">
+  babel
+</a></li><li class="dropdown-subitem"><a href="/node/npm.html" class="nav-link">
+  npm
+</a></li><li class="dropdown-subitem"><a href="/node/yarn.html" class="nav-link">
+  yarn
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架" class="dropdown-title"><span class="title">框架</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Webpack
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/webpack/info.html" class="nav-link">
+  概念
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Vue
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/back.html" class="nav-link">
+  备注
+</a></li><li class="dropdown-subitem"><a href="/vue/ques.html" class="nav-link">
+  常见问题
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习笔记" class="dropdown-title"><span class="title">源码学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue-cli.html" class="nav-link">
+  vue-cli
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="规范总结" class="dropdown-title"><span class="title">规范总结</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Git
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/branch.html" class="nav-link">
+  分支管理
+</a></li><li class="dropdown-subitem"><a href="/guide/git.html" class="nav-link">
+  git指令
+</a></li></ul></li><li class="dropdown-item"><h4>
+          命名
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/name.html" class="nav-link">
+  命名
+</a></li></ul></li><li class="dropdown-item"><h4>
+          项目
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/project.html" class="nav-link">
+  项目
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/proxy.html" class="nav-link">
+  proxy
+</a></li><li class="dropdown-item"><!----> <a href="/tools/tmux.html" class="nav-link">
+  tmux
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nvm.html" class="nav-link">
+  nvm
+</a></li><li class="dropdown-item"><!----> <a href="/tools/nginx.html" class="nav-link">
+  nginx常用笔记
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="杂项" class="dropdown-title"><span class="title">杂项</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/work/blog.html" class="nav-link">
+  blog收藏
+</a></li><li class="dropdown-item"><!----> <a href="/work/tool.html" class="nav-link">
+  日常小技巧
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>DOM</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/html/dom.html#定义" class="sidebar-link">定义</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/html/dom.html#dom-节点" class="sidebar-link">DOM 节点</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="dom"><a href="#dom" class="header-anchor">#</a> DOM</h1> <h2 id="定义"><a href="#定义" class="header-anchor">#</a> 定义</h2> <p>DOM(文档对象模型,Document Object Model),可以理解为样式和内容，结构的结合体,对文档内容进行抽象。</p> <h2 id="dom-节点"><a href="#dom-节点" class="header-anchor">#</a> DOM 节点</h2> <div class="language-js extra-class"><pre class="language-js"><code>nodeType 获取节点类型
+nodeName 获取元素标签名称
+nodeValue 获取文本和注释的内容
+</code></pre></div><h4 id="常用的节点"><a href="#常用的节点" class="header-anchor">#</a> 常用的节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>
+Element （元素节点）	<span class="token number">1</span>	<span class="token constant">ELEMENT_NODE</span>
+Attr （属性节点）	<span class="token number">2</span>	<span class="token constant">ATTRIBUTE_NODE</span>
+Text （文本节点）	<span class="token number">3</span>	<span class="token constant">TEXT_NODE</span>
+Comment （注释节点）	<span class="token number">8</span>	<span class="token constant">COMMENT_NODE</span>
+Document （文档类型节点）	<span class="token number">9</span>	<span class="token constant">DOCUMENT_NODE</span>
+DocumentType （文档类型节点）	<span class="token number">10</span>	<span class="token constant">DOCUMENT_TYPE_NODE</span>
+DocumentFragment （文档片段节点）	<span class="token number">11</span>	<span class="token constant">DOCUMENT_FRAGMENT_NODE</span>
+
+</code></pre></div><h5 id="根结点-document"><a href="#根结点-document" class="header-anchor">#</a> 根结点 document</h5> <p>nodeType:9 nodeName: #document</p> <h5 id="元素节点-element"><a href="#元素节点-element" class="header-anchor">#</a> 元素节点 Element</h5> <div class="language- extra-class"><pre class="language-text"><code>document.documentElement: html
+document.head: head
+document.body: body
+</code></pre></div><p>nodeType:1 nodeName: 大写元素标签</p> <h5 id="文本节点-text"><a href="#文本节点-text" class="header-anchor">#</a> 文本节点 Text</h5> <p>nodeType:3 nodeName: #text</p> <h5 id="注释节点-comment"><a href="#注释节点-comment" class="header-anchor">#</a> 注释节点 Comment</h5> <p>nodeType:8 nodeName: #comment</p> <h4 id="父节点"><a href="#父节点" class="header-anchor">#</a> 父节点</h4> <p>parentNode 获取父节点,一般用这个
+parentElement ie 支持，功能类似</p> <div class="language-js extra-class"><pre class="language-js"><code>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>parentNode<span class="token punctuation">;</span> <span class="token comment">// =&gt; the document node</span>
+document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>parentElement<span class="token punctuation">;</span> <span class="token comment">// =&gt; null</span>
+</code></pre></div><h4 id="子节点"><a href="#子节点" class="header-anchor">#</a> 子节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>childNodes<span class="token operator">:</span> 子节点，包括文本节点，返回集合nodelist
+firstChild<span class="token operator">:</span> 第一个子节点
+lastChild<span class="token operator">:</span> 最后一个子节点
+children<span class="token operator">:</span> 元素的子节点
+firstElementChild<span class="token operator">:</span> 第一个子元素节点
+lastElementChild<span class="token operator">:</span> 最后一个子元素节点
+</code></pre></div><h4 id="兄弟节点"><a href="#兄弟节点" class="header-anchor">#</a> 兄弟节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>previousSibling ：前一个兄弟节点
+nextSibling ：下一个兄弟节点
+previousElementSibling ：前一个兄弟元素节点
+nextElementSibling ：后一个兄弟元素节点
+</code></pre></div><h4 id="创建节点"><a href="#创建节点" class="header-anchor">#</a> 创建节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>createElement<span class="token operator">:</span> 创建一个元素节点
+createTextNode<span class="token operator">:</span> 创建一个文本节点
+document<span class="token punctuation">.</span>createDocumentFrame ：创建文档片段
+document<span class="token punctuation">.</span>createAttribute ：创建节点属性
+document<span class="token punctuation">.</span>adoptNode ：从外部文档中获取一个节点
+document<span class="token punctuation">.</span>importNode ：拷贝外部文档的一个节点
+node<span class="token punctuation">.</span>cloneNode ：克隆节点
+node<span class="token punctuation">.</span>textContent<span class="token operator">:</span> 获取或设置元素节点的文本内容
+node<span class="token punctuation">.</span>innerHTML ：获取或设置元素的<span class="token constant">HTML</span>内容
+</code></pre></div><h4 id="插入节点"><a href="#插入节点" class="header-anchor">#</a> 插入节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>node<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：添加一个节点作为父元素的最后一个子元素
+node<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：在指定的同级节点前将节点插入父元素
+node<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：用一个新节点替换现有节点
+</code></pre></div><h4 id="删除节点"><a href="#删除节点" class="header-anchor">#</a> 删除节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>node<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：删除子节点
+node<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：删除节点
+</code></pre></div><h4 id="视口位置"><a href="#视口位置" class="header-anchor">#</a> 视口位置</h4> <p>window: 浏览器中打开的窗口</p> <p>document: 属于 window，是 html 文档</p> <p>window.screen.width：显示器屏幕的宽度
+window.screen.height：显示器屏幕的高度
+window.screen.availHeight：浏览器窗口在屏幕上可占用的垂直空间，即最大高度
+window.screen.availWidth：返回浏览器窗口可占用的水平宽度
+window.screenTop：浏览器窗口在屏幕上的可占用空间上边距离屏幕上边界的距离
+window.screenLeft：返回浏览器可用空间左边距离屏幕（系统桌面）左边界的距离</p> <p>window.outerHeight: 浏览器高度
+window.innerHeight: 浏览器高度-工具栏高度(ie9 以上)
+window.outerWidth: 浏览器宽度
+widnow.innerWidth: 浏览器宽度-侧边栏宽度，镶边等边框(ie9 以上)</p> <p>document.documentElement.clientHeight:浏览器高度-滚动条高度
+document.body.clientHeight: 浏览器高度-滚动条高度-html 元素的边框-body 的边框和滚动条</p> <p>offsetHeight/offsetWidth: 元素的像素高度/宽度，包含边框，内边距，滚动条
+clientHeight/clientWidth：元素可见区的高度/宽度，不包含滚动条
+scrollHeight 和 scrollWidth：元素整个的高度/宽度</p> <p>offsetLeft/offsetTop: 元素左上角相对于 offsetParent 的左边界的偏移值
+clientLeft/clientTop: border 的宽度
+scrollLeft/scrollTop: 滚动的高度和宽度
+offsetParent: 包含父级定位元素，如果没有则为根元素，display 为 none 或者 fixed 时，返回 null</p> <p>window.pageYOffset/document.documentElement.scrollTop: html 页面的滚动高度
+window.pageXOffset/document.documentElement.scrollLeft: html 页面的滚动宽度</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6b63f4e2.js" defer></script><script src="/assets/js/2.c4e9835f.js" defer></script><script src="/assets/js/28.5fe3ba49.js" defer></script>
+  </body>
+</html>
