@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DOM | 总结</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.10.0/styles/monokai-sublime.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/github-markdown-css/2.9.0/github-markdown.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <script src="//cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+    <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=default"></script>
+    <meta name="description" content="前端总结">
+    
+    <link rel="preload" href="/assets/css/0.styles.9bdba38b.css" as="style"><link rel="preload" href="/assets/js/app.e6fff1ef.js" as="script"><link rel="preload" href="/assets/js/2.c89a1be6.js" as="script"><link rel="preload" href="/assets/js/1.f08d8127.js" as="script"><link rel="preload" href="/assets/js/66.e7fa6a54.js" as="script"><link rel="prefetch" href="/assets/js/10.2e4bc1e7.js"><link rel="prefetch" href="/assets/js/100.8b63e916.js"><link rel="prefetch" href="/assets/js/101.f6d5eff1.js"><link rel="prefetch" href="/assets/js/102.9ab3f8b0.js"><link rel="prefetch" href="/assets/js/103.af218052.js"><link rel="prefetch" href="/assets/js/104.d7dfc521.js"><link rel="prefetch" href="/assets/js/105.4610fd83.js"><link rel="prefetch" href="/assets/js/106.8a44e851.js"><link rel="prefetch" href="/assets/js/107.7e4bca3f.js"><link rel="prefetch" href="/assets/js/108.8c85ae89.js"><link rel="prefetch" href="/assets/js/109.9de6d07f.js"><link rel="prefetch" href="/assets/js/11.5384b140.js"><link rel="prefetch" href="/assets/js/110.96d23754.js"><link rel="prefetch" href="/assets/js/111.7a2bfee2.js"><link rel="prefetch" href="/assets/js/112.e7a9487a.js"><link rel="prefetch" href="/assets/js/113.263468d2.js"><link rel="prefetch" href="/assets/js/114.eced8df8.js"><link rel="prefetch" href="/assets/js/115.2f20aa85.js"><link rel="prefetch" href="/assets/js/12.c8691c9b.js"><link rel="prefetch" href="/assets/js/13.8a85afa6.js"><link rel="prefetch" href="/assets/js/14.c60b02ec.js"><link rel="prefetch" href="/assets/js/15.d6431719.js"><link rel="prefetch" href="/assets/js/16.344ff5e6.js"><link rel="prefetch" href="/assets/js/17.8dd2e427.js"><link rel="prefetch" href="/assets/js/18.02f7391a.js"><link rel="prefetch" href="/assets/js/19.45ab1a6d.js"><link rel="prefetch" href="/assets/js/20.bdbd260c.js"><link rel="prefetch" href="/assets/js/21.814c6fa6.js"><link rel="prefetch" href="/assets/js/22.3baba8f6.js"><link rel="prefetch" href="/assets/js/23.77d48783.js"><link rel="prefetch" href="/assets/js/24.39298b94.js"><link rel="prefetch" href="/assets/js/25.c2361335.js"><link rel="prefetch" href="/assets/js/26.e69dc1c4.js"><link rel="prefetch" href="/assets/js/27.4f80f343.js"><link rel="prefetch" href="/assets/js/28.3ce358e7.js"><link rel="prefetch" href="/assets/js/29.29ea6c10.js"><link rel="prefetch" href="/assets/js/3.4a44afe3.js"><link rel="prefetch" href="/assets/js/30.ecc277f0.js"><link rel="prefetch" href="/assets/js/31.dce180b1.js"><link rel="prefetch" href="/assets/js/32.c9d98a70.js"><link rel="prefetch" href="/assets/js/33.b154a82a.js"><link rel="prefetch" href="/assets/js/34.1e27b412.js"><link rel="prefetch" href="/assets/js/35.ccb19b67.js"><link rel="prefetch" href="/assets/js/36.71c5b729.js"><link rel="prefetch" href="/assets/js/37.48502ea1.js"><link rel="prefetch" href="/assets/js/38.1025f787.js"><link rel="prefetch" href="/assets/js/39.9f633672.js"><link rel="prefetch" href="/assets/js/4.d91e2a54.js"><link rel="prefetch" href="/assets/js/40.51f250f6.js"><link rel="prefetch" href="/assets/js/41.691adf38.js"><link rel="prefetch" href="/assets/js/42.07eab90e.js"><link rel="prefetch" href="/assets/js/43.772c0f25.js"><link rel="prefetch" href="/assets/js/44.de1298a4.js"><link rel="prefetch" href="/assets/js/45.feb9d736.js"><link rel="prefetch" href="/assets/js/46.cdb75989.js"><link rel="prefetch" href="/assets/js/47.f72df5b3.js"><link rel="prefetch" href="/assets/js/48.8b70a226.js"><link rel="prefetch" href="/assets/js/49.5d2c0200.js"><link rel="prefetch" href="/assets/js/5.8dcd1f8f.js"><link rel="prefetch" href="/assets/js/50.8a26fd6f.js"><link rel="prefetch" href="/assets/js/51.a614a1bb.js"><link rel="prefetch" href="/assets/js/52.b3d21eea.js"><link rel="prefetch" href="/assets/js/53.618a7916.js"><link rel="prefetch" href="/assets/js/54.59406918.js"><link rel="prefetch" href="/assets/js/55.2c02f3a8.js"><link rel="prefetch" href="/assets/js/56.9534a573.js"><link rel="prefetch" href="/assets/js/57.5fe10564.js"><link rel="prefetch" href="/assets/js/58.33dabce7.js"><link rel="prefetch" href="/assets/js/59.717da3d2.js"><link rel="prefetch" href="/assets/js/6.4b73bb31.js"><link rel="prefetch" href="/assets/js/60.3989838e.js"><link rel="prefetch" href="/assets/js/61.16ab584f.js"><link rel="prefetch" href="/assets/js/62.92f859fb.js"><link rel="prefetch" href="/assets/js/63.90cfd883.js"><link rel="prefetch" href="/assets/js/64.8f3bbf63.js"><link rel="prefetch" href="/assets/js/65.b6223542.js"><link rel="prefetch" href="/assets/js/67.baccd837.js"><link rel="prefetch" href="/assets/js/68.a8b6a4bd.js"><link rel="prefetch" href="/assets/js/69.db67ad7b.js"><link rel="prefetch" href="/assets/js/7.c934174c.js"><link rel="prefetch" href="/assets/js/70.208ab3c2.js"><link rel="prefetch" href="/assets/js/71.8212dfcb.js"><link rel="prefetch" href="/assets/js/72.8bb63684.js"><link rel="prefetch" href="/assets/js/73.a681d42a.js"><link rel="prefetch" href="/assets/js/74.41f02ae3.js"><link rel="prefetch" href="/assets/js/75.0c29b574.js"><link rel="prefetch" href="/assets/js/76.b2bb0343.js"><link rel="prefetch" href="/assets/js/77.25de8167.js"><link rel="prefetch" href="/assets/js/78.9405b4c9.js"><link rel="prefetch" href="/assets/js/79.d430a3a1.js"><link rel="prefetch" href="/assets/js/80.da8b8316.js"><link rel="prefetch" href="/assets/js/81.a8ef0056.js"><link rel="prefetch" href="/assets/js/82.53493829.js"><link rel="prefetch" href="/assets/js/83.5c828e18.js"><link rel="prefetch" href="/assets/js/84.d717a61c.js"><link rel="prefetch" href="/assets/js/85.6cb3f209.js"><link rel="prefetch" href="/assets/js/86.634db20d.js"><link rel="prefetch" href="/assets/js/87.9a9c281c.js"><link rel="prefetch" href="/assets/js/88.3e71673f.js"><link rel="prefetch" href="/assets/js/89.ab95b51f.js"><link rel="prefetch" href="/assets/js/90.b6832bd7.js"><link rel="prefetch" href="/assets/js/91.270d1704.js"><link rel="prefetch" href="/assets/js/92.97e20606.js"><link rel="prefetch" href="/assets/js/93.5c70cb52.js"><link rel="prefetch" href="/assets/js/94.ac6db360.js"><link rel="prefetch" href="/assets/js/95.dd4c86f9.js"><link rel="prefetch" href="/assets/js/96.c4edd584.js"><link rel="prefetch" href="/assets/js/97.e27eec26.js"><link rel="prefetch" href="/assets/js/98.b27047fc.js"><link rel="prefetch" href="/assets/js/99.3d766fb1.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.857e8e87.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9bdba38b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link router-link-active">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link router-link-active">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/html/dom.html" aria-current="page" class="active sidebar-link">DOM</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/html/dom.html#定义" class="sidebar-link">定义</a></li><li class="sidebar-sub-header"><a href="/html/dom.html#dom-节点" class="sidebar-link">DOM 节点</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="dom"><a href="#dom" class="header-anchor">#</a> DOM</h1> <h2 id="定义"><a href="#定义" class="header-anchor">#</a> 定义</h2> <p>DOM(文档对象模型,Document Object Model),可以理解为样式和内容，结构的结合体,对文档内容进行抽象。</p> <h2 id="dom-节点"><a href="#dom-节点" class="header-anchor">#</a> DOM 节点</h2> <div class="language-js extra-class"><pre class="language-js"><code>nodeType 获取节点类型
+nodeName 获取元素标签名称
+nodeValue 获取文本和注释的内容
+</code></pre></div><h4 id="常用的节点"><a href="#常用的节点" class="header-anchor">#</a> 常用的节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>
+Element （元素节点）	<span class="token number">1</span>	<span class="token constant">ELEMENT_NODE</span>
+Attr （属性节点）	<span class="token number">2</span>	<span class="token constant">ATTRIBUTE_NODE</span>
+Text （文本节点）	<span class="token number">3</span>	<span class="token constant">TEXT_NODE</span>
+Comment （注释节点）	<span class="token number">8</span>	<span class="token constant">COMMENT_NODE</span>
+Document （文档类型节点）	<span class="token number">9</span>	<span class="token constant">DOCUMENT_NODE</span>
+DocumentType （文档类型节点）	<span class="token number">10</span>	<span class="token constant">DOCUMENT_TYPE_NODE</span>
+DocumentFragment （文档片段节点）	<span class="token number">11</span>	<span class="token constant">DOCUMENT_FRAGMENT_NODE</span>
+
+</code></pre></div><h5 id="根结点-document"><a href="#根结点-document" class="header-anchor">#</a> 根结点 document</h5> <p>nodeType:9 nodeName: #document</p> <h5 id="元素节点-element"><a href="#元素节点-element" class="header-anchor">#</a> 元素节点 Element</h5> <div class="language- extra-class"><pre class="language-text"><code>document.documentElement: html
+document.head: head
+document.body: body
+</code></pre></div><p>nodeType:1 nodeName: 大写元素标签</p> <h5 id="文本节点-text"><a href="#文本节点-text" class="header-anchor">#</a> 文本节点 Text</h5> <p>nodeType:3 nodeName: #text</p> <h5 id="注释节点-comment"><a href="#注释节点-comment" class="header-anchor">#</a> 注释节点 Comment</h5> <p>nodeType:8 nodeName: #comment</p> <h4 id="父节点"><a href="#父节点" class="header-anchor">#</a> 父节点</h4> <p>parentNode 获取父节点,一般用这个
+parentElement ie 支持，功能类似</p> <div class="language-js extra-class"><pre class="language-js"><code>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>parentNode<span class="token punctuation">;</span> <span class="token comment">// =&gt; the document node</span>
+document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>parentElement<span class="token punctuation">;</span> <span class="token comment">// =&gt; null</span>
+</code></pre></div><h4 id="子节点"><a href="#子节点" class="header-anchor">#</a> 子节点</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">childNodes</span><span class="token operator">:</span> 子节点，包括文本节点，返回集合nodelist
+<span class="token literal-property property">firstChild</span><span class="token operator">:</span> 第一个子节点
+<span class="token literal-property property">lastChild</span><span class="token operator">:</span> 最后一个子节点
+<span class="token literal-property property">children</span><span class="token operator">:</span> 元素的子节点
+<span class="token literal-property property">firstElementChild</span><span class="token operator">:</span> 第一个子元素节点
+<span class="token literal-property property">lastElementChild</span><span class="token operator">:</span> 最后一个子元素节点
+</code></pre></div><h4 id="兄弟节点"><a href="#兄弟节点" class="header-anchor">#</a> 兄弟节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>previousSibling ：前一个兄弟节点
+nextSibling ：下一个兄弟节点
+previousElementSibling ：前一个兄弟元素节点
+nextElementSibling ：后一个兄弟元素节点
+</code></pre></div><h4 id="创建节点"><a href="#创建节点" class="header-anchor">#</a> 创建节点</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">createElement</span><span class="token operator">:</span> 创建一个元素节点
+<span class="token literal-property property">createTextNode</span><span class="token operator">:</span> 创建一个文本节点
+document<span class="token punctuation">.</span>createDocumentFrame ：创建文档片段
+document<span class="token punctuation">.</span>createAttribute ：创建节点属性
+document<span class="token punctuation">.</span>adoptNode ：从外部文档中获取一个节点
+document<span class="token punctuation">.</span>importNode ：拷贝外部文档的一个节点
+node<span class="token punctuation">.</span>cloneNode ：克隆节点
+node<span class="token punctuation">.</span>textContent<span class="token operator">:</span> 获取或设置元素节点的文本内容
+node<span class="token punctuation">.</span>innerHTML ：获取或设置元素的<span class="token constant">HTML</span>内容
+</code></pre></div><h4 id="插入节点"><a href="#插入节点" class="header-anchor">#</a> 插入节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>node<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：添加一个节点作为父元素的最后一个子元素
+node<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：在指定的同级节点前将节点插入父元素
+node<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：用一个新节点替换现有节点
+</code></pre></div><h4 id="删除节点"><a href="#删除节点" class="header-anchor">#</a> 删除节点</h4> <div class="language-js extra-class"><pre class="language-js"><code>node<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：删除子节点
+node<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ：删除节点
+</code></pre></div><h4 id="视口位置"><a href="#视口位置" class="header-anchor">#</a> 视口位置</h4> <p>window: 浏览器中打开的窗口</p> <p>document: 属于 window，是 html 文档</p> <p>window.screen.width：显示器屏幕的宽度
+window.screen.height：显示器屏幕的高度
+window.screen.availHeight：浏览器窗口在屏幕上可占用的垂直空间，即最大高度
+window.screen.availWidth：返回浏览器窗口可占用的水平宽度
+window.screenTop：浏览器窗口在屏幕上的可占用空间上边距离屏幕上边界的距离
+window.screenLeft：返回浏览器可用空间左边距离屏幕（系统桌面）左边界的距离</p> <p>window.outerHeight: 浏览器高度
+window.innerHeight: 浏览器高度-工具栏高度(ie9 以上)
+window.outerWidth: 浏览器宽度
+widnow.innerWidth: 浏览器宽度-侧边栏宽度，镶边等边框(ie9 以上)</p> <p>document.documentElement.clientHeight:浏览器高度-滚动条高度
+document.body.clientHeight: 浏览器高度-滚动条高度-html 元素的边框-body 的边框和滚动条</p> <p>offsetHeight/offsetWidth: 元素的像素高度/宽度，包含边框，内边距，滚动条
+clientHeight/clientWidth：元素可见区的高度/宽度，不包含滚动条
+scrollHeight 和 scrollWidth：元素整个的高度/宽度</p> <p>offsetLeft/offsetTop: 元素左上角相对于 offsetParent 的左边界的偏移值
+clientLeft/clientTop: border 的宽度
+scrollLeft/scrollTop: 滚动的高度和宽度
+offsetParent: 包含父级定位元素，如果没有则为根元素，display 为 none 或者 fixed 时，返回 null</p> <p>window.pageYOffset/document.documentElement.scrollTop: html 页面的滚动高度
+window.pageXOffset/document.documentElement.scrollLeft: html 页面的滚动宽度</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e6fff1ef.js" defer></script><script src="/assets/js/2.c89a1be6.js" defer></script><script src="/assets/js/1.f08d8127.js" defer></script><script src="/assets/js/66.e7fa6a54.js" defer></script>
+  </body>
+</html>

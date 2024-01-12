@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-cli3 笔记 | 总结</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.10.0/styles/monokai-sublime.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/github-markdown-css/2.9.0/github-markdown.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <script src="//cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+    <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=default"></script>
+    <meta name="description" content="前端总结">
+    
+    <link rel="preload" href="/assets/css/0.styles.9bdba38b.css" as="style"><link rel="preload" href="/assets/js/app.e6fff1ef.js" as="script"><link rel="preload" href="/assets/js/2.c89a1be6.js" as="script"><link rel="preload" href="/assets/js/1.f08d8127.js" as="script"><link rel="preload" href="/assets/js/82.53493829.js" as="script"><link rel="prefetch" href="/assets/js/10.2e4bc1e7.js"><link rel="prefetch" href="/assets/js/100.8b63e916.js"><link rel="prefetch" href="/assets/js/101.f6d5eff1.js"><link rel="prefetch" href="/assets/js/102.9ab3f8b0.js"><link rel="prefetch" href="/assets/js/103.af218052.js"><link rel="prefetch" href="/assets/js/104.d7dfc521.js"><link rel="prefetch" href="/assets/js/105.4610fd83.js"><link rel="prefetch" href="/assets/js/106.8a44e851.js"><link rel="prefetch" href="/assets/js/107.7e4bca3f.js"><link rel="prefetch" href="/assets/js/108.8c85ae89.js"><link rel="prefetch" href="/assets/js/109.9de6d07f.js"><link rel="prefetch" href="/assets/js/11.5384b140.js"><link rel="prefetch" href="/assets/js/110.96d23754.js"><link rel="prefetch" href="/assets/js/111.7a2bfee2.js"><link rel="prefetch" href="/assets/js/112.e7a9487a.js"><link rel="prefetch" href="/assets/js/113.263468d2.js"><link rel="prefetch" href="/assets/js/114.eced8df8.js"><link rel="prefetch" href="/assets/js/115.2f20aa85.js"><link rel="prefetch" href="/assets/js/12.c8691c9b.js"><link rel="prefetch" href="/assets/js/13.8a85afa6.js"><link rel="prefetch" href="/assets/js/14.c60b02ec.js"><link rel="prefetch" href="/assets/js/15.d6431719.js"><link rel="prefetch" href="/assets/js/16.344ff5e6.js"><link rel="prefetch" href="/assets/js/17.8dd2e427.js"><link rel="prefetch" href="/assets/js/18.02f7391a.js"><link rel="prefetch" href="/assets/js/19.45ab1a6d.js"><link rel="prefetch" href="/assets/js/20.bdbd260c.js"><link rel="prefetch" href="/assets/js/21.814c6fa6.js"><link rel="prefetch" href="/assets/js/22.3baba8f6.js"><link rel="prefetch" href="/assets/js/23.77d48783.js"><link rel="prefetch" href="/assets/js/24.39298b94.js"><link rel="prefetch" href="/assets/js/25.c2361335.js"><link rel="prefetch" href="/assets/js/26.e69dc1c4.js"><link rel="prefetch" href="/assets/js/27.4f80f343.js"><link rel="prefetch" href="/assets/js/28.3ce358e7.js"><link rel="prefetch" href="/assets/js/29.29ea6c10.js"><link rel="prefetch" href="/assets/js/3.4a44afe3.js"><link rel="prefetch" href="/assets/js/30.ecc277f0.js"><link rel="prefetch" href="/assets/js/31.dce180b1.js"><link rel="prefetch" href="/assets/js/32.c9d98a70.js"><link rel="prefetch" href="/assets/js/33.b154a82a.js"><link rel="prefetch" href="/assets/js/34.1e27b412.js"><link rel="prefetch" href="/assets/js/35.ccb19b67.js"><link rel="prefetch" href="/assets/js/36.71c5b729.js"><link rel="prefetch" href="/assets/js/37.48502ea1.js"><link rel="prefetch" href="/assets/js/38.1025f787.js"><link rel="prefetch" href="/assets/js/39.9f633672.js"><link rel="prefetch" href="/assets/js/4.d91e2a54.js"><link rel="prefetch" href="/assets/js/40.51f250f6.js"><link rel="prefetch" href="/assets/js/41.691adf38.js"><link rel="prefetch" href="/assets/js/42.07eab90e.js"><link rel="prefetch" href="/assets/js/43.772c0f25.js"><link rel="prefetch" href="/assets/js/44.de1298a4.js"><link rel="prefetch" href="/assets/js/45.feb9d736.js"><link rel="prefetch" href="/assets/js/46.cdb75989.js"><link rel="prefetch" href="/assets/js/47.f72df5b3.js"><link rel="prefetch" href="/assets/js/48.8b70a226.js"><link rel="prefetch" href="/assets/js/49.5d2c0200.js"><link rel="prefetch" href="/assets/js/5.8dcd1f8f.js"><link rel="prefetch" href="/assets/js/50.8a26fd6f.js"><link rel="prefetch" href="/assets/js/51.a614a1bb.js"><link rel="prefetch" href="/assets/js/52.b3d21eea.js"><link rel="prefetch" href="/assets/js/53.618a7916.js"><link rel="prefetch" href="/assets/js/54.59406918.js"><link rel="prefetch" href="/assets/js/55.2c02f3a8.js"><link rel="prefetch" href="/assets/js/56.9534a573.js"><link rel="prefetch" href="/assets/js/57.5fe10564.js"><link rel="prefetch" href="/assets/js/58.33dabce7.js"><link rel="prefetch" href="/assets/js/59.717da3d2.js"><link rel="prefetch" href="/assets/js/6.4b73bb31.js"><link rel="prefetch" href="/assets/js/60.3989838e.js"><link rel="prefetch" href="/assets/js/61.16ab584f.js"><link rel="prefetch" href="/assets/js/62.92f859fb.js"><link rel="prefetch" href="/assets/js/63.90cfd883.js"><link rel="prefetch" href="/assets/js/64.8f3bbf63.js"><link rel="prefetch" href="/assets/js/65.b6223542.js"><link rel="prefetch" href="/assets/js/66.e7fa6a54.js"><link rel="prefetch" href="/assets/js/67.baccd837.js"><link rel="prefetch" href="/assets/js/68.a8b6a4bd.js"><link rel="prefetch" href="/assets/js/69.db67ad7b.js"><link rel="prefetch" href="/assets/js/7.c934174c.js"><link rel="prefetch" href="/assets/js/70.208ab3c2.js"><link rel="prefetch" href="/assets/js/71.8212dfcb.js"><link rel="prefetch" href="/assets/js/72.8bb63684.js"><link rel="prefetch" href="/assets/js/73.a681d42a.js"><link rel="prefetch" href="/assets/js/74.41f02ae3.js"><link rel="prefetch" href="/assets/js/75.0c29b574.js"><link rel="prefetch" href="/assets/js/76.b2bb0343.js"><link rel="prefetch" href="/assets/js/77.25de8167.js"><link rel="prefetch" href="/assets/js/78.9405b4c9.js"><link rel="prefetch" href="/assets/js/79.d430a3a1.js"><link rel="prefetch" href="/assets/js/80.da8b8316.js"><link rel="prefetch" href="/assets/js/81.a8ef0056.js"><link rel="prefetch" href="/assets/js/83.5c828e18.js"><link rel="prefetch" href="/assets/js/84.d717a61c.js"><link rel="prefetch" href="/assets/js/85.6cb3f209.js"><link rel="prefetch" href="/assets/js/86.634db20d.js"><link rel="prefetch" href="/assets/js/87.9a9c281c.js"><link rel="prefetch" href="/assets/js/88.3e71673f.js"><link rel="prefetch" href="/assets/js/89.ab95b51f.js"><link rel="prefetch" href="/assets/js/90.b6832bd7.js"><link rel="prefetch" href="/assets/js/91.270d1704.js"><link rel="prefetch" href="/assets/js/92.97e20606.js"><link rel="prefetch" href="/assets/js/93.5c70cb52.js"><link rel="prefetch" href="/assets/js/94.ac6db360.js"><link rel="prefetch" href="/assets/js/95.dd4c86f9.js"><link rel="prefetch" href="/assets/js/96.c4edd584.js"><link rel="prefetch" href="/assets/js/97.e27eec26.js"><link rel="prefetch" href="/assets/js/98.b27047fc.js"><link rel="prefetch" href="/assets/js/99.3d766fb1.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.857e8e87.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9bdba38b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-cli3-笔记"><a href="#vue-cli3-笔记" class="header-anchor">#</a> vue-cli3 笔记</h1> <h6 id="版本-3-11-0"><a href="#版本-3-11-0" class="header-anchor">#</a> 版本:3.11.0</h6> <p>vue-cli3 总体是采用 lerna 来管理所有包的，主要的核心代码在<code>packages/@vue</code>组织下</p> <h2 id="一些常用的库"><a href="#一些常用的库" class="header-anchor">#</a> 一些常用的库</h2> <div class="language- extra-class"><pre class="language-text"><code>chalk: 美化终端的输出
+semver: 语义化的版本库，可以用来判断版本号是否符合条件等功能
+didyoumean: 在一个列表中返回最相似的的输入，提升用户体验
+slash:转换 Windows 反斜杠转换为正斜杠
+minimist: 用来解析命令行所输入的参数
+commander: 基于nodejs的命令行处理工具
+envinfo: 获取开发环境的系统，包，工具等信息
+
+</code></pre></div><h2 id="vue-cli"><a href="#vue-cli" class="header-anchor">#</a> @vue/cli</h2> <p>核心的包,包含了大多数的命令行命令(create,add,init,invoke 等等)</p> <p>目录结构:</p> <div class="language- extra-class"><pre class="language-text"><code>bin/ # 对所有命令的一个定义
+</code></pre></div><p>当我们执行<code>vue</code>的时候，其实初始都是通过<code>bin/vue.js</code>来处理的</p> <h3 id="整体文件的思路"><a href="#整体文件的思路" class="header-anchor">#</a> 整体文件的思路</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 1.根据设置的阀值来返回正确内容</span>
+didYouMean<span class="token punctuation">.</span>threshold <span class="token operator">=</span> <span class="token number">0.6</span><span class="token punctuation">;</span>
+<span class="token comment">// 2.检测Node的版本是否符合</span>
+<span class="token keyword">function</span> <span class="token function">checkNodeVersion</span><span class="token punctuation">(</span><span class="token parameter">wanted<span class="token punctuation">,</span> id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">...</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>semver<span class="token punctuation">.</span><span class="token function">satisfies</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>version<span class="token punctuation">,</span> <span class="token string">&quot;9.x&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">...</span>
+<span class="token comment">// 3.如果是在packages/test目录下面执行vue命令，则设置为debug模式</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>
+  <span class="token function">slash</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;/packages/test&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span>
+  <span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;../@vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+  fs<span class="token punctuation">.</span><span class="token function">existsSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;../../@vue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token operator">...</span>
+
+<span class="token comment">// 4.定义commander的命令</span>
+<span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;commander&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> loadCommand <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../lib/util/loadCommand&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+program<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../package&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>version<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">usage</span><span class="token punctuation">(</span><span class="token string">&quot;&lt;command&gt; [options]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+
+<span class="token comment">// 5. 定义了一些基础的处理函数在末尾</span>
+
+<span class="token keyword">function</span> <span class="token function">suggestCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">// 将-转化成驼峰</span>
+<span class="token keyword">function</span> <span class="token function">camelize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">//拿到所有用户的options，判断用户是否提供该参数</span>
+<span class="token keyword">function</span> <span class="token function">cleanArgs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="vue-create"><a href="#vue-create" class="header-anchor">#</a> vue create</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'commander'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 去加载一个函数</span>
+<span class="token keyword">const</span> loadCommand <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../lib/util/loadCommand'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 定义create命令</span>
+program
+    <span class="token comment">//create指令</span>
+    <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">&quot;create &lt;app-name&gt;&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment">// 省略了desciption</span>
+    <span class="token comment">// 定义了所有的参数</span>
+    <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span>p<span class="token operator">:</span>跳过问讯<span class="token punctuation">,</span> 直接使用已保存的配置预设或者远程预设
+    <span class="token operator">-</span>d<span class="token operator">:</span>跳过问讯<span class="token punctuation">,</span> 直接使用默认的预设
+    <span class="token operator">-</span>i<span class="token operator">:</span>跳过问讯<span class="token punctuation">,</span>直接使用行内预设
+    <span class="token operator">-</span>m<span class="token operator">:</span>采用哪种包管理
+    <span class="token operator">-</span>r<span class="token operator">:</span>指定包管理的registry仓库
+    <span class="token operator">-</span>g<span class="token operator">:</span>强制初始化git
+    <span class="token operator">-</span>n<span class="token operator">:</span>跳过git初始化
+    <span class="token operator">-</span>f<span class="token operator">:</span>覆盖所有的目录配置
+    <span class="token operator">-</span>c<span class="token operator">:</span>使用git clone获取预设preset
+    <span class="token operator">-</span>x<span class="token operator">:</span>使用proxy代理
+    <span class="token operator">-</span>b<span class="token operator">:</span>忽略组件中的介绍信息
+    <span class="token operator">--</span>skipGetStarted<span class="token operator">:</span>跳过<span class="token keyword">get</span> started的介绍
+    <span class="token comment">// 具体的行为</span>
+	<span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> cmd</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 解析出用户传入的参数</span>
+    <span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token function">cleanArgs</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 如果传入第三个参数，则提示自动忽略</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">minimist</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>_<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+        chalk<span class="token punctuation">.</span><span class="token function">yellow</span><span class="token punctuation">(</span>
+          <span class="token string">&quot;\n Info: You provided more than one argument. The first one will be used as the app's name, the rest are ignored.&quot;</span>
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// --git makes commander to default git to true</span>
+    <span class="token comment">// 强制git的初始化</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">&quot;-g&quot;</span><span class="token punctuation">)</span> <span class="token operator">||</span> process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">&quot;--git&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      options<span class="token punctuation">.</span>forceGit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 加载对应的create文件所暴露出来的函数</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../lib/create&quot;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="vue-upgrade"><a href="#vue-upgrade" class="header-anchor">#</a> vue upgrade</h3> <p>vue upgrade [plugin-name]
+主要用来升级 cli-service 和 plugins,可以指定对应版本</p> <div class="language-js extra-class"><pre class="language-js"><code>program
+  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'upgrade [plugin-name]'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'(experimental) upgrade vue cli service / plugins'</span><span class="token punctuation">)</span>
+  <span class="token comment">// 指定对应的版本</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span>
+    <span class="token string">'-t, --to &lt;version&gt;'</span><span class="token punctuation">,</span>
+    <span class="token string">'upgrade &lt;package-name&gt; to a version that is not latest'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span>
+  <span class="token comment">// 定义npm仓库</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span>
+    <span class="token string">'-r, --registry &lt;url&gt;'</span><span class="token punctuation">,</span>
+    <span class="token string">'Use specified npm registry when installing dependencies'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span>
+  <span class="token comment">// 更新所有插件</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'--all'</span><span class="token punctuation">,</span> <span class="token string">'Upgrade all plugins'</span><span class="token punctuation">)</span>
+  <span class="token comment">// 更新至alpha/beta/rc等版本</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">'--next'</span><span class="token punctuation">,</span> <span class="token string">'Also check for alpha / beta / rc versions when upgrading'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">packageName<span class="token punctuation">,</span> cmd</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 加载upgrade文件，传递包的名称和参数</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../lib/upgrade'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>packageName<span class="token punctuation">,</span> <span class="token function">cleanArgs</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>当我们执行 <code>vue upgrade</code> 的时候，会把包的名称和参数传入到<code>lib/upgrade</code>所暴露出来的函数中去。</p> <h6 id="upgrade-文件主要暴露了一个-upgrade-函数"><a href="#upgrade-文件主要暴露了一个-upgrade-函数" class="header-anchor">#</a> upgrade 文件主要暴露了一个 upgrade 函数</h6> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* lib/upgrade.js */</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">upgrade</span><span class="token punctuation">(</span><span class="token parameter">packageName<span class="token punctuation">,</span> options<span class="token punctuation">,</span> context <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">confirmIfGitDirty</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> upgrader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Upgrader</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>packageName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>to<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Must specify a package name to upgrade to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>options<span class="token punctuation">.</span>to<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>all<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> upgrader<span class="token punctuation">.</span><span class="token function">upgradeAll</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> upgradable <span class="token operator">=</span> <span class="token keyword">await</span> upgrader<span class="token punctuation">.</span><span class="token function">checkForUpdates</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>upgradable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span>ok<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> inquirer<span class="token punctuation">.</span><span class="token function">prompt</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'ok'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'Continue to upgrade these plugins?'</span><span class="token punctuation">,</span>
+          <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> upgrader<span class="token punctuation">.</span><span class="token function">upgradeAll</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> upgrader<span class="token punctuation">.</span><span class="token function">upgrade</span><span class="token punctuation">(</span>packageName<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="vue-info"><a href="#vue-info" class="header-anchor">#</a> vue info</h3> <p>主要用作输出环境的信息</p> <div class="language-js extra-class"><pre class="language-js"><code>program
+  <span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">'info'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">'print debugging information about your environment'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token parameter">cmd</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 做一个输出加强</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">bold</span><span class="token punctuation">(</span><span class="token string">'\nEnvironment Info:'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 通过envinfo库来获取系统的相关信息</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'envinfo'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>
+        <span class="token comment">// 一些参数配置</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">System</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'OS'</span><span class="token punctuation">,</span> <span class="token string">'CPU'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">Binaries</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Node'</span><span class="token punctuation">,</span> <span class="token string">'Yarn'</span><span class="token punctuation">,</span> <span class="token string">'npm'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">Browsers</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Chrome'</span><span class="token punctuation">,</span> <span class="token string">'Edge'</span><span class="token punctuation">,</span> <span class="token string">'Firefox'</span><span class="token punctuation">,</span> <span class="token string">'Safari'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">npmPackages</span><span class="token operator">:</span> <span class="token string">'/**/{typescript,*vue*,@vue/*/}'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">npmGlobalPackages</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@vue/cli'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">showNotFound</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">duplicates</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">fullTree</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="vue-add"><a href="#vue-add" class="header-anchor">#</a> vue add</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e6fff1ef.js" defer></script><script src="/assets/js/2.c89a1be6.js" defer></script><script src="/assets/js/1.f08d8127.js" defer></script><script src="/assets/js/82.53493829.js" defer></script>
+  </body>
+</html>

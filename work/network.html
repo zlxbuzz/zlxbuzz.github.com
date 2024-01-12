@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>网络相关 | 总结</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.10.0/styles/monokai-sublime.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/github-markdown-css/2.9.0/github-markdown.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css">
+    <script src="//cdn.bootcss.com/ace/1.3.3/ace.js"></script>
+    <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=default"></script>
+    <meta name="description" content="前端总结">
+    
+    <link rel="preload" href="/assets/css/0.styles.9bdba38b.css" as="style"><link rel="preload" href="/assets/js/app.e6fff1ef.js" as="script"><link rel="preload" href="/assets/js/2.c89a1be6.js" as="script"><link rel="preload" href="/assets/js/1.f08d8127.js" as="script"><link rel="preload" href="/assets/js/113.263468d2.js" as="script"><link rel="prefetch" href="/assets/js/10.2e4bc1e7.js"><link rel="prefetch" href="/assets/js/100.8b63e916.js"><link rel="prefetch" href="/assets/js/101.f6d5eff1.js"><link rel="prefetch" href="/assets/js/102.9ab3f8b0.js"><link rel="prefetch" href="/assets/js/103.af218052.js"><link rel="prefetch" href="/assets/js/104.d7dfc521.js"><link rel="prefetch" href="/assets/js/105.4610fd83.js"><link rel="prefetch" href="/assets/js/106.8a44e851.js"><link rel="prefetch" href="/assets/js/107.7e4bca3f.js"><link rel="prefetch" href="/assets/js/108.8c85ae89.js"><link rel="prefetch" href="/assets/js/109.9de6d07f.js"><link rel="prefetch" href="/assets/js/11.5384b140.js"><link rel="prefetch" href="/assets/js/110.96d23754.js"><link rel="prefetch" href="/assets/js/111.7a2bfee2.js"><link rel="prefetch" href="/assets/js/112.e7a9487a.js"><link rel="prefetch" href="/assets/js/114.eced8df8.js"><link rel="prefetch" href="/assets/js/115.2f20aa85.js"><link rel="prefetch" href="/assets/js/12.c8691c9b.js"><link rel="prefetch" href="/assets/js/13.8a85afa6.js"><link rel="prefetch" href="/assets/js/14.c60b02ec.js"><link rel="prefetch" href="/assets/js/15.d6431719.js"><link rel="prefetch" href="/assets/js/16.344ff5e6.js"><link rel="prefetch" href="/assets/js/17.8dd2e427.js"><link rel="prefetch" href="/assets/js/18.02f7391a.js"><link rel="prefetch" href="/assets/js/19.45ab1a6d.js"><link rel="prefetch" href="/assets/js/20.bdbd260c.js"><link rel="prefetch" href="/assets/js/21.814c6fa6.js"><link rel="prefetch" href="/assets/js/22.3baba8f6.js"><link rel="prefetch" href="/assets/js/23.77d48783.js"><link rel="prefetch" href="/assets/js/24.39298b94.js"><link rel="prefetch" href="/assets/js/25.c2361335.js"><link rel="prefetch" href="/assets/js/26.e69dc1c4.js"><link rel="prefetch" href="/assets/js/27.4f80f343.js"><link rel="prefetch" href="/assets/js/28.3ce358e7.js"><link rel="prefetch" href="/assets/js/29.29ea6c10.js"><link rel="prefetch" href="/assets/js/3.4a44afe3.js"><link rel="prefetch" href="/assets/js/30.ecc277f0.js"><link rel="prefetch" href="/assets/js/31.dce180b1.js"><link rel="prefetch" href="/assets/js/32.c9d98a70.js"><link rel="prefetch" href="/assets/js/33.b154a82a.js"><link rel="prefetch" href="/assets/js/34.1e27b412.js"><link rel="prefetch" href="/assets/js/35.ccb19b67.js"><link rel="prefetch" href="/assets/js/36.71c5b729.js"><link rel="prefetch" href="/assets/js/37.48502ea1.js"><link rel="prefetch" href="/assets/js/38.1025f787.js"><link rel="prefetch" href="/assets/js/39.9f633672.js"><link rel="prefetch" href="/assets/js/4.d91e2a54.js"><link rel="prefetch" href="/assets/js/40.51f250f6.js"><link rel="prefetch" href="/assets/js/41.691adf38.js"><link rel="prefetch" href="/assets/js/42.07eab90e.js"><link rel="prefetch" href="/assets/js/43.772c0f25.js"><link rel="prefetch" href="/assets/js/44.de1298a4.js"><link rel="prefetch" href="/assets/js/45.feb9d736.js"><link rel="prefetch" href="/assets/js/46.cdb75989.js"><link rel="prefetch" href="/assets/js/47.f72df5b3.js"><link rel="prefetch" href="/assets/js/48.8b70a226.js"><link rel="prefetch" href="/assets/js/49.5d2c0200.js"><link rel="prefetch" href="/assets/js/5.8dcd1f8f.js"><link rel="prefetch" href="/assets/js/50.8a26fd6f.js"><link rel="prefetch" href="/assets/js/51.a614a1bb.js"><link rel="prefetch" href="/assets/js/52.b3d21eea.js"><link rel="prefetch" href="/assets/js/53.618a7916.js"><link rel="prefetch" href="/assets/js/54.59406918.js"><link rel="prefetch" href="/assets/js/55.2c02f3a8.js"><link rel="prefetch" href="/assets/js/56.9534a573.js"><link rel="prefetch" href="/assets/js/57.5fe10564.js"><link rel="prefetch" href="/assets/js/58.33dabce7.js"><link rel="prefetch" href="/assets/js/59.717da3d2.js"><link rel="prefetch" href="/assets/js/6.4b73bb31.js"><link rel="prefetch" href="/assets/js/60.3989838e.js"><link rel="prefetch" href="/assets/js/61.16ab584f.js"><link rel="prefetch" href="/assets/js/62.92f859fb.js"><link rel="prefetch" href="/assets/js/63.90cfd883.js"><link rel="prefetch" href="/assets/js/64.8f3bbf63.js"><link rel="prefetch" href="/assets/js/65.b6223542.js"><link rel="prefetch" href="/assets/js/66.e7fa6a54.js"><link rel="prefetch" href="/assets/js/67.baccd837.js"><link rel="prefetch" href="/assets/js/68.a8b6a4bd.js"><link rel="prefetch" href="/assets/js/69.db67ad7b.js"><link rel="prefetch" href="/assets/js/7.c934174c.js"><link rel="prefetch" href="/assets/js/70.208ab3c2.js"><link rel="prefetch" href="/assets/js/71.8212dfcb.js"><link rel="prefetch" href="/assets/js/72.8bb63684.js"><link rel="prefetch" href="/assets/js/73.a681d42a.js"><link rel="prefetch" href="/assets/js/74.41f02ae3.js"><link rel="prefetch" href="/assets/js/75.0c29b574.js"><link rel="prefetch" href="/assets/js/76.b2bb0343.js"><link rel="prefetch" href="/assets/js/77.25de8167.js"><link rel="prefetch" href="/assets/js/78.9405b4c9.js"><link rel="prefetch" href="/assets/js/79.d430a3a1.js"><link rel="prefetch" href="/assets/js/80.da8b8316.js"><link rel="prefetch" href="/assets/js/81.a8ef0056.js"><link rel="prefetch" href="/assets/js/82.53493829.js"><link rel="prefetch" href="/assets/js/83.5c828e18.js"><link rel="prefetch" href="/assets/js/84.d717a61c.js"><link rel="prefetch" href="/assets/js/85.6cb3f209.js"><link rel="prefetch" href="/assets/js/86.634db20d.js"><link rel="prefetch" href="/assets/js/87.9a9c281c.js"><link rel="prefetch" href="/assets/js/88.3e71673f.js"><link rel="prefetch" href="/assets/js/89.ab95b51f.js"><link rel="prefetch" href="/assets/js/90.b6832bd7.js"><link rel="prefetch" href="/assets/js/91.270d1704.js"><link rel="prefetch" href="/assets/js/92.97e20606.js"><link rel="prefetch" href="/assets/js/93.5c70cb52.js"><link rel="prefetch" href="/assets/js/94.ac6db360.js"><link rel="prefetch" href="/assets/js/95.dd4c86f9.js"><link rel="prefetch" href="/assets/js/96.c4edd584.js"><link rel="prefetch" href="/assets/js/97.e27eec26.js"><link rel="prefetch" href="/assets/js/98.b27047fc.js"><link rel="prefetch" href="/assets/js/99.3d766fb1.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.857e8e87.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9bdba38b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/es/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/framework/" class="nav-link">
+  框架
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  面试总结
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码学习" class="dropdown-title"><span class="title">源码学习</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码学习" class="mobile-dropdown-title"><span class="title">源码学习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/source/vue/" class="nav-link">
+  Vue2源码
+</a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="网络相关"><a href="#网络相关" class="header-anchor">#</a> 网络相关</h2> <h4 id="tcp-和-udp-传输控制协议和用户数据协议"><a href="#tcp-和-udp-传输控制协议和用户数据协议" class="header-anchor">#</a> TCP 和 UDP(传输控制协议和用户数据协议)</h4> <p>TCP:全双工，在链接建立之后，可以随时进行数据发送；设有缓存；面向字节流
+UDP：无连接，不保证可靠；面向报文；没有拥塞控制；支持 1 对 1，1 对多，多对 1，多对多;（适合直播，实时视频）</p> <p>单工数据传输是数据只能在一个方向上传输；
+半双工数据传输允许数据在两个方向上传输，但是，在某一时刻，只允许数据在一个方向上传输，它实际上是一种切换方向的单工通信；
+全双工数据通信允许数据同时在两个方向上传输，因此，全双工通信是两个单工通信方式的结合，它要求发送设备和接收设备都有独立的接收和发送能力。</p> <p>TCP:
+三次握手连接： 1.开始建立连接时，客户端向服务器发出连接请求报文，报文首部中的同部位 SYN = 1，同时选择一个初始序列号 seq = x ，这时客户端进程进入了 SYN- SENT （同步已发送状态）状态，等待服务器确认。 2.服务器收到 syn 包后，如果同意连接，则发出确认报文；确认报文 ACK = 1，SYN = 1，确认号是 ack = x + 1，同时也要为自己初始化一个序列号 seq = y，此时服务器进程进入了 SYN-RCVD（同步收到）状态。 3.客户端收到服务器的 SYN + ACK 包，要向服务器给出确认。确认报文的 ACK = 1，ack = y + 1，自己的序列号 seq = x + 1。此时，TCP 连接建立，客户端进入 ESTABLISHED （已建立连接）状态。</p> <p>四次挥手断开： 1.客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部 FIN = 1，其序列号为 seq = u（等于前面已经传送过来的数据最后一个字节的序号加 1）。此时，客户端进入 FIN-WAIT-1（终止等待 1）状态。 2.服务器收到连接释放报文，发出确认报文，ACK = 1，ack = u + 1，并且带上自己的序列号 seq = v（客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受），此时，服务端就进入了 CLOSE-WAIT（关闭等待）状态。 3.服务器将最后的数据发送完毕后，就向客户端发送连接中断报文，FIN = 1，ack = u + 1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为 seq = w，此时，服务器就进入了 LAST- ACK（最后确认）状态，等待客户端的确认。 4.客户端收到服务器的连接释放报文后，必须发出确认，ACK = 1，ack = w + 1，而自己的序列号是 seq = u + 1。此时，客户端就进入了 TIME-WAIT（时间等待）状态。
+服务器只要收到了客户端发出的确认，立即进入 CLOSED 状态。同样，撤销 TCB 后，就结束了这次的 TCP 连接（注意此时 TCP 连接还没有释放，必须经过 2MSL（最长报文段寿命）的时间后，当客户端撤销相应的 TCB 后，才进入 CLOSED 状态）。服务器只要收到了客户端发出的确认，立即进入 CLOSED 状态。同样，撤销 TCB 后，就结束了这次的 TCP 连接。</p> <h4 id="状态码"><a href="#状态码" class="header-anchor">#</a> 状态码</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">//继续 请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分</span>
+<span class="token number">101</span><span class="token punctuation">;</span> <span class="token comment">//切换协议 请求者已要求服务器切换协议，服务器已确认并准备切换</span>
+<span class="token number">200</span><span class="token punctuation">;</span> <span class="token comment">//成功 服务器已经成功处理了请求，通常，这表示服务器提供了请求的网页</span>
+<span class="token number">201</span><span class="token punctuation">;</span> <span class="token comment">//已创建 请求成功并且服务器创建了新的资源</span>
+<span class="token number">202</span><span class="token punctuation">;</span> <span class="token comment">//已接受 服务器已接受请求，但尚未处理</span>
+<span class="token number">203</span><span class="token punctuation">;</span> <span class="token comment">//非授权信息 服务器已经成功处理了请求，但返回的信息可能来自另一来源</span>
+<span class="token number">204</span><span class="token punctuation">;</span> <span class="token comment">//无内容 服务器成功处理了请求，但没有返回任何内容</span>
+<span class="token number">205</span><span class="token punctuation">;</span> <span class="token comment">//重置内容 服务器成功处理了请求，但没有返回任何内容</span>
+<span class="token number">206</span><span class="token punctuation">;</span> <span class="token comment">//部分内容 服务器成功处理了部分 GET 请求</span>
+<span class="token number">300</span><span class="token punctuation">;</span> <span class="token comment">//多种选择 针对请求，服务器可执行多种操作。服务器可根据请求者（user agent）选择一项操作，或提供操作列表供请求者选择</span>
+<span class="token number">301</span><span class="token punctuation">;</span> <span class="token comment">//永久移动 请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置</span>
+<span class="token number">302</span><span class="token punctuation">;</span> <span class="token comment">//临时移动 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求</span>
+<span class="token number">303</span><span class="token punctuation">;</span> <span class="token comment">//查看其他位置 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码</span>
+<span class="token number">304</span><span class="token punctuation">;</span> <span class="token comment">//未修改 自动上次请求后，请求的网页未修改过。服务器返回此响应，不会返回网页的内容</span>
+<span class="token number">305</span><span class="token punctuation">;</span> <span class="token comment">//使用代理 请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理</span>
+<span class="token number">307</span><span class="token punctuation">;</span> <span class="token comment">//临时性重定向 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有的位置来进行以后的请求</span>
+<span class="token number">400</span><span class="token punctuation">;</span> <span class="token comment">//错误请求 服务器不理解请求的语法</span>
+<span class="token number">401</span><span class="token punctuation">;</span> <span class="token comment">//未授权 请求要求身份验证。对于需要登录的网页，服务器可能返回此响应</span>
+<span class="token number">403</span><span class="token punctuation">;</span> <span class="token comment">//禁止 服务器拒绝请求</span>
+<span class="token number">404</span><span class="token punctuation">;</span> <span class="token comment">//未找到 服务器找不到请求的网页</span>
+<span class="token number">405</span><span class="token punctuation">;</span> <span class="token comment">//方法禁用 禁用请求中指定的方法</span>
+<span class="token number">406</span><span class="token punctuation">;</span> <span class="token comment">//不接受 无法使用请求的内容特性响应请求的网页</span>
+<span class="token number">407</span><span class="token punctuation">;</span> <span class="token comment">//需要代理授权 此状态码与 401（未授权）类似，但指定请求者应当授权使用代理</span>
+<span class="token number">408</span><span class="token punctuation">;</span> <span class="token comment">//请求超时 服务器等候请求时发生超时</span>
+<span class="token number">409</span><span class="token punctuation">;</span> <span class="token comment">//冲突 服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息</span>
+<span class="token number">410</span><span class="token punctuation">;</span> <span class="token comment">//已删除 如果请求的资源已永久删除，服务器就会返回此响应</span>
+<span class="token number">411</span><span class="token punctuation">;</span> <span class="token comment">//需要有效长度 服务器不接受不含有效内容长度标头字段的请求</span>
+<span class="token number">412</span><span class="token punctuation">;</span> <span class="token comment">//未满足前提条件 服务器未满足请求者在请求者设置的其中一个前提条件</span>
+<span class="token number">413</span><span class="token punctuation">;</span> <span class="token comment">//请求实体过大 服务器无法处理请求，因为请求实体过大，超出了服务器的处理能力</span>
+<span class="token number">414</span><span class="token punctuation">;</span> <span class="token comment">//请求的 URI 过长 请求的 URI（通常为网址）过长，服务器无法处理</span>
+<span class="token number">415</span><span class="token punctuation">;</span> <span class="token comment">//不支持媒体类型 请求的格式不受请求页面的支持</span>
+<span class="token number">416</span><span class="token punctuation">;</span> <span class="token comment">//请求范围不符合要求 如果页面无法提供请求的范围，则服务器会返回此状态码</span>
+<span class="token number">417</span><span class="token punctuation">;</span> <span class="token comment">//未满足期望值 服务器未满足“期望”请求标头字段的要求</span>
+<span class="token number">500</span><span class="token punctuation">;</span> <span class="token comment">//服务器内部错误 服务器遇到错误，无法完成请求</span>
+<span class="token number">501</span><span class="token punctuation">;</span> <span class="token comment">//尚未实施 服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码</span>
+<span class="token number">502</span><span class="token punctuation">;</span> <span class="token comment">//错误网关 服务器作为网关或代理，从上游服务器无法收到无效响应</span>
+<span class="token number">503</span><span class="token punctuation">;</span> <span class="token comment">//服务器不可用 服务器目前无法使用（由于超载或者停机维护）。通常，这只是暂时状态</span>
+<span class="token number">504</span><span class="token punctuation">;</span> <span class="token comment">//网关超时 服务器作为网关代理，但是没有及时从上游服务器收到请求</span>
+<span class="token number">505</span><span class="token punctuation">;</span> <span class="token comment">//HTTP 版本不受支持 服务器不支持请求中所用的 HTTP 协议版本</span>
+</code></pre></div><h2 id="缓存"><a href="#缓存" class="header-anchor">#</a> 缓存</h2> <h4 id="缓存位置"><a href="#缓存位置" class="header-anchor">#</a> 缓存位置</h4> <p>1.memory cache(优先访问，关闭浏览器后访问 disk cache)
+2.disk cache
+3.Service Worker</p> <h4 id="缓存策略"><a href="#缓存策略" class="header-anchor">#</a> 缓存策略</h4> <p>1.强缓存
+Expires</p> <p>Cache-control:
+no-cache: 会走协商缓存
+max-age:0 会走协商缓存
+no-store
+public
+private
+must-revalidate: 会走协商缓存</p> <div class="language-js extra-class"><pre class="language-js"><code>Cache<span class="token operator">-</span>Control<span class="token operator">:</span> max<span class="token operator">-</span>age<span class="token operator">=</span><span class="token number">60</span><span class="token punctuation">,</span> must<span class="token operator">-</span>revalidate
+<span class="token comment">//  如果在60s之内，会走强缓存，不然就会走协商缓存</span>
+</code></pre></div><p>2.协商缓存
+Etag,if-None-Match(优先级高)
+Last-modified,if-Modified-Since</p> <h2 id="gzip"><a href="#gzip" class="header-anchor">#</a> gzip</h2> <p>compression-webpack-plugin 插件可以生成对应的 gz 文件</p> <p>nginx 的动态压缩是对每个请求先压缩再输出，这样造成虚拟机浪费了很多 cpu，解决这个问题可以利用 nginx 模块 Gzip Precompression，这个模块的作用是对于需要压缩的文件，直接读取已经压缩好的文件(文件名为加.gz)，而不是动态压缩，对于不支持 gzip 的请求则读取原文件</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e6fff1ef.js" defer></script><script src="/assets/js/2.c89a1be6.js" defer></script><script src="/assets/js/1.f08d8127.js" defer></script><script src="/assets/js/113.263468d2.js" defer></script>
+  </body>
+</html>
